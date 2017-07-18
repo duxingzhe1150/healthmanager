@@ -2,7 +2,9 @@ package com.gb.health.commend;
 
 import com.gb.health.init.Concat;
 import com.gb.health.service.i.SystemIn;
+import com.gb.health.service.i.SystemInImpl;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.LogRecordInf;
 import net.sf.json.JSONObject;
 
@@ -18,14 +20,14 @@ public class GetHarvardAskDialog extends Commend {
 
 	LogRecordInf lr = new LogRecordInf (GetHarvardAskDialog.class);
 
-	private SystemOut systemOut;
-	private SystemIn systemIn;
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemIn systemIn = applicationContext.getBean(SystemInImpl.class);
 
 	public GetHarvardAskDialog(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
-		systemIn = (SystemIn)mContext.getBean("systemInImpl");
+	//	systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+	///	systemIn = (SystemIn)mContext.getBean("systemInImpl");
 	}
 
 	@Override

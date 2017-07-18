@@ -11,6 +11,7 @@ import com.gb.health.init.ErrerCode;
 import com.gb.health.init.HealthEnum.*;
 import com.gb.health.service.TbHealthRecoedService;
 import com.gb.health.service.i.SystemIn;
+import com.gb.health.service.i.SystemInImpl;
 import com.gb.health.utill.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -30,8 +31,8 @@ public class GetPaidHealthStateC  extends Commend {
 	LogRecordInf lr = new LogRecordInf (GetPaidHealthStateC.class);
 	//private static Logger log = Logger.getLogger(GetPaidHealthStateC.class);
 
-	private SystemIn systemIn;
-	private TbHealthRecoedService tbHealthRecordm;
+	private SystemIn systemIn =applicationContext.getBean(SystemInImpl.class);
+	private TbHealthRecoedService tbHealthRecordm=applicationContext.getBean(TbHealthRecoedService.class);
 
 	/**
 	 * @Title:        GetUploadHealthC
@@ -43,8 +44,8 @@ public class GetPaidHealthStateC  extends Commend {
 	public GetPaidHealthStateC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemIn = (SystemIn)mContext.getBean("systemInImpl");
-		tbHealthRecordm = (TbHealthRecoedService)mContext.getBean("tbHealthRecoedService");
+	//	systemIn = (SystemIn)mContext.getBean("systemInImpl");
+	//	tbHealthRecordm = (TbHealthRecoedService)mContext.getBean("tbHealthRecoedService");
 	}
 
 

@@ -3,6 +3,7 @@ package com.gb.health.commend;
 import com.gb.health.domain.TbHealthExamination;
 import com.gb.health.init.Concat;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
 
@@ -14,14 +15,14 @@ public class GetExaminationUserinfoC  extends Commend{
 	 * @author lx
 	 *
 	 */
-	private static Logger log = Logger.getLogger(GetExaminationUserinfoC.class);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-	private SystemOut systemOut;
+	private static Logger log = Logger.getLogger(GetExaminationUserinfoC.class);
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
 
 
 	public GetExaminationUserinfoC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
 	}
 
 	@Override

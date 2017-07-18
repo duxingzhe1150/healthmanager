@@ -7,7 +7,9 @@ import com.gb.health.init.Const;
 import com.gb.health.init.ErrerCode;
 import com.gb.health.service.TbHealthRecoedService;
 import com.gb.health.service.i.SystemIn;
+import com.gb.health.service.i.SystemInImpl;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.LogRecordInf;
 import com.gb.health.utill.PostHttp;
 import net.sf.json.JSONObject;
@@ -23,17 +25,17 @@ public class GetDataSourceC  extends Commend{
 	//private static Logger log = Logger.getLogger(GetDataSourceC.class);  
 	
 	LogRecordInf lr =new LogRecordInf(GetCvdC.class);
-	private SystemOut systemOut;
-	private SystemIn systemIn;
-	private TbHealthRecoedService tbHealthRecordm;
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemIn systemIn=applicationContext.getBean(SystemInImpl.class);
+	private TbHealthRecoedService tbHealthRecordm=applicationContext.getBean(TbHealthRecoedService.class);
 	private JSONObject js_source;
 
 	public GetDataSourceC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
-		systemIn = (SystemIn)mContext.getBean("systemInImpl");
-		tbHealthRecordm = (TbHealthRecoedService)mContext.getBean("tbHealthRecoedService");
+	//	systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+	//	systemIn = (SystemIn)mContext.getBean("systemInImpl");
+	//	tbHealthRecordm = (TbHealthRecoedService)mContext.getBean("tbHealthRecoedService");
 		js_source=reqDate;
 	}
 

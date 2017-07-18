@@ -16,6 +16,7 @@ public class MyContextListener implements ServletContextListener {
 	public static ApplicationContext applicationContext;//启动类set入，调用下面set方法
 
 	public static void setApplicationContext(ApplicationContext context) {
+
 		applicationContext = context;
 	}
 	

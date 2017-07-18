@@ -4,6 +4,7 @@ import com.gb.health.init.Concat;
 import com.gb.health.init.HealthEnum.ChineseMedcine;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.EnumUtil;
 import com.gb.health.utill.LogRecordInf;
 import net.sf.json.JSONObject;
@@ -19,13 +20,13 @@ public class GetChineseMedcineC  extends Commend{
 //	private static Logger log = Logger.getLogger(GetChineseMedcineC.class);   
 	
 	LogRecordInf lr =new LogRecordInf(GetChineseMedcineC.class);
-	private SystemOut systemOut;
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
 
 
 	public GetChineseMedcineC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
 	}
 
 	@Override

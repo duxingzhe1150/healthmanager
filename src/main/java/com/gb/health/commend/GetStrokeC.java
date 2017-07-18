@@ -5,6 +5,7 @@ import com.gb.health.init.HealthEnum.*;
 import com.gb.health.op.Result;
 import com.gb.health.op.Stroke;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.EnumUtil;
 import com.gb.health.utill.LogRecordInf;
 import net.sf.json.JSONObject;
@@ -16,13 +17,13 @@ import net.sf.json.JSONObject;
 public class GetStrokeC extends Commend{
 	//private static Logger log = Logger.getLogger(GetStrokeC.class);     
 	LogRecordInf lr = new LogRecordInf (GetStrokeC.class);
-	private SystemOut systemOut;
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
 
 
 	public GetStrokeC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
 	}
 
 	@Override

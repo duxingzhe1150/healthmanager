@@ -6,6 +6,7 @@ import com.gb.health.op.Diabetes;
 import com.gb.health.op.DiabetesSuggest;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.EnumUtil;
 import com.gb.health.utill.LogRecordInf;
 import net.sf.json.JSONObject;
@@ -18,13 +19,13 @@ public class GetDiabetesC extends Commend{
 //	private static Logger log = Logger.getLogger(GetObesityC.class);     
 	
 	LogRecordInf lr = new LogRecordInf(GetObesityC.class);
-	private SystemOut systemOut;
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
 
 
 	public GetDiabetesC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
 	}
 
 	@Override

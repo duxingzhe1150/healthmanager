@@ -26,6 +26,7 @@ import com.gb.health.init.ErrerCode;
 import com.gb.health.init.ErrerCode.ClientErrer;
 import com.gb.health.init.HealthEnum.*;
 import com.gb.health.service.i.SystemIn;
+import com.gb.health.service.i.SystemInImpl;
 import com.gb.health.utill.DateTransfer;
 import com.gb.health.utill.EnumUtil;
 import com.gb.health.utill.JsonUtil;
@@ -50,7 +51,7 @@ public class GetUploadHealthC extends Commend{
 	LogRecordInf lr = new LogRecordInf (GetUploadHealthC.class);
 	//private static Logger log = Logger.getLogger(GetUploadHealthC.class);
 
-	private SystemIn systemIn;
+	private SystemIn systemIn=applicationContext.getBean(SystemInImpl.class);
 
 	public  int index;
 
@@ -64,7 +65,7 @@ public class GetUploadHealthC extends Commend{
 	public GetUploadHealthC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemIn = (SystemIn)mContext.getBean("systemInImpl");
+		//systemIn = (SystemIn)mContext.getBean("systemInImpl");
 	}
 
 	/**

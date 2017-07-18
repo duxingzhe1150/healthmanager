@@ -4,6 +4,7 @@ import com.gb.health.init.Concat;
 import com.gb.health.op.Result;
 import com.gb.health.op.ResultDisease;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.LogRecordInf;
 import net.sf.json.JSONObject;
 
@@ -15,13 +16,13 @@ import net.sf.json.JSONObject;
 public class GetSymptomResult extends Commend{
 	LogRecordInf lr = new LogRecordInf (GetSymptomResult.class);
 	//private static Logger log = Logger.getLogger(GetSymptomResult.class);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-	private SystemOut systemOut;
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
 
 
 	public GetSymptomResult(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
 	}
 
 	@Override

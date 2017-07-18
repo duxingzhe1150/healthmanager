@@ -4,7 +4,9 @@ import com.gb.health.domain.ChatHistory;
 import com.gb.health.init.Concat;
 import com.gb.health.init.ErrerCode;
 import com.gb.health.service.i.SystemIn;
+import com.gb.health.service.i.SystemInImpl;
 import com.gb.health.service.i.SystemOut;
+import com.gb.health.service.i.SystemOutImpl;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
@@ -16,16 +18,16 @@ import java.util.Date;
  *
  */
 public class GetHarvardAskTrack  extends Commend{
-	private static Logger log = Logger.getLogger(GetHarvardAskTrack.class);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-	private SystemOut systemOut;
-	private SystemIn systemIn;
+	private static Logger log = Logger.getLogger(GetHarvardAskTrack.class);
+	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemIn systemIn=applicationContext.getBean(SystemInImpl.class);
 
 
 	public GetHarvardAskTrack(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
-		systemIn = (SystemIn)mContext.getBean("systemInImpl");
+		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		//systemIn = (SystemIn)mContext.getBean("systemInImpl");
 	}
 
 	@Override
