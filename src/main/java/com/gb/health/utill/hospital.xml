@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<hospital>
+
+<dada>
+ <id>1</id>
+ <hospitalname>海淀医院</hospitalname>
+ 
+ </dada>
+ 
+ <dada>
+ <id>2</id>
+ <hospitalname>昌平医院</hospitalname>
+ 
+ </dada>
+
+<dada>
+ <id>3</id>
+ <hospitalname>上地医院</hospitalname>
+
+ </dada>
+ 
+ <dada>
+ <id>4</id>
+ <hospitalname>慈铭医院</hospitalname>
+ 
+ </dada>
+ 
+ <dada>
+ <id>5</id>
+ <hospitalname>北京协和医院</hospitalname>
+  
+ </dada>
+</hospital>

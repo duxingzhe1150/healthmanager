@@ -1,0 +1,970 @@
+2017-07-18 09:28:47.063 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 7516 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 09:28:47.070 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 09:28:47.261 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@764d089e: startup date [Tue Jul 18 09:28:47 CST 2017]; root of context hierarchy
+2017-07-18 09:28:48.900 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @3134ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 09:28:49.145 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 09:28:49.147 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 09:28:49.183 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 09:28:49.183 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 09:28:49.185 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 09:28:49.189 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 09:28:49.190 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1929 ms
+2017-07-18 09:28:49.518 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 09:28:49.521 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 09:28:49.523 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 09:28:49.527 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 09:28:49.527 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 09:28:49.528 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 09:28:49.528 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 09:28:49.529 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@298d2862{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.8828458953609326467.8080/],AVAILABLE}
+2017-07-18 09:28:49.530 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3766ms
+2017-07-18 09:28:50.319 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'uploadController': Unsatisfied dependency expressed through field 'sout'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemOutImpl': Unsatisfied dependency expressed through field 'diseaseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'diseaseService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+2017-07-18 09:28:50.323 [restartedMain] INFO  org.eclipse.jetty.server.session -Stopped scavenging
+2017-07-18 09:28:50.325 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Stopped o.s.b.c.e.j.JettyEmbeddedWebAppContext@298d2862{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.8828458953609326467.8080/],UNAVAILABLE}
+2017-07-18 09:28:50.334 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-07-18 09:28:50.347 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'uploadController': Unsatisfied dependency expressed through field 'sout'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemOutImpl': Unsatisfied dependency expressed through field 'diseaseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'diseaseService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.gb.health.Demo2Application.main(Demo2Application.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemOutImpl': Unsatisfied dependency expressed through field 'diseaseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'diseaseService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'diseaseService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 37 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 50 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 62 common frames omitted
+Caused by: java.lang.IllegalStateException: required key [spring.data.solr] not found
+	at org.springframework.core.env.AbstractPropertyResolver.getRequiredProperty(AbstractPropertyResolver.java:183)
+	at org.springframework.core.env.AbstractEnvironment.getRequiredProperty(AbstractEnvironment.java:556)
+	at com.gb.health.config.SolrClientConfig.solrServer(SolrClientConfig.java:27)
+	at com.gb.health.config.SolrClientConfig$$EnhancerBySpringCGLIB$$911d960b.CGLIB$solrServer$0(<generated>)
+	at com.gb.health.config.SolrClientConfig$$EnhancerBySpringCGLIB$$911d960b$$FastClassBySpringCGLIB$$fc479b24.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at com.gb.health.config.SolrClientConfig$$EnhancerBySpringCGLIB$$911d960b.solrServer(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 63 common frames omitted
+2017-07-18 09:35:08.770 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 7160 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 09:35:08.772 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 09:35:09.018 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1e4ebd55: startup date [Tue Jul 18 09:35:09 CST 2017]; root of context hierarchy
+2017-07-18 09:35:10.685 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @3058ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 09:35:10.919 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 09:35:10.921 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 09:35:10.951 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 09:35:10.952 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 09:35:10.954 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 09:35:10.970 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 09:35:10.970 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1953 ms
+2017-07-18 09:35:11.217 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 09:35:11.219 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 09:35:11.220 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 09:35:11.222 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 09:35:11.222 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 09:35:11.223 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 09:35:11.224 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 09:35:11.224 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@69a0f858{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.2002180924674852727.8080/],AVAILABLE}
+2017-07-18 09:35:11.225 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3598ms
+2017-07-18 09:35:11.885 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'foodService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.apache.solr.client.solrj.impl.HttpSolrServer' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2017-07-18 09:35:11.891 [restartedMain] INFO  org.eclipse.jetty.server.session -Stopped scavenging
+2017-07-18 09:35:11.893 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Stopped o.s.b.c.e.j.JettyEmbeddedWebAppContext@69a0f858{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.2002180924674852727.8080/],UNAVAILABLE}
+2017-07-18 09:35:11.901 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-07-18 09:35:12.017 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field solrServer in com.gb.health.service.FoodService required a bean of type 'org.apache.solr.client.solrj.impl.HttpSolrServer' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.apache.solr.client.solrj.impl.HttpSolrServer' in your configuration.
+
+2017-07-18 09:37:07.937 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 8384 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 09:37:07.939 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 09:37:08.204 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1d29f2e3: startup date [Tue Jul 18 09:37:08 CST 2017]; root of context hierarchy
+2017-07-18 09:37:09.837 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2972ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 09:37:10.071 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 09:37:10.074 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 09:37:10.103 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 09:37:10.103 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 09:37:10.104 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 09:37:10.109 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 09:37:10.109 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1905 ms
+2017-07-18 09:37:10.363 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 09:37:10.366 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 09:37:10.368 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 09:37:10.370 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 09:37:10.370 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 09:37:10.371 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 09:37:10.371 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 09:37:10.371 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@2d8451ca{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.3616911681451077819.8080/],AVAILABLE}
+2017-07-18 09:37:10.372 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3509ms
+2017-07-18 09:37:11.477 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1d29f2e3: startup date [Tue Jul 18 09:37:08 CST 2017]; root of context hierarchy
+2017-07-18 09:37:11.541 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 09:37:11.542 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:37:11.543 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:37:11.543 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 09:37:11.546 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 09:37:11.547 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:37:11.547 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:37:11.547 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:37:11.547 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:37:11.547 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:37:11.548 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 09:37:11.550 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 09:37:11.551 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:37:11.590 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:37:11.590 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:37:11.633 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:37:12.496 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 09:37:12.545 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 09:37:12.546 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 09:37:12.549 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 09:37:12.569 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 09:37:12.569 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 09:37:12.587 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2017-07-18 09:37:12.625 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@120757ca{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 09:37:12.626 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 09:37:12.631 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.264 seconds (JVM running for 5.768)
+2017-07-18 09:40:36.916 [qtp997943006-20] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: Expected a ',' or '}' at character 192 of {
+    "cmd": "getSymptom_Word",
+    "head": {
+        "source": "HealthState",
+        "type": "php",
+        "vercode": 2
+    },
+    "data": {
+        "symptom": "你发热",
+       "page": 1
+    }
+2017-07-18 09:42:09.213 [qtp997943006-21] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 09:42:09.220 [qtp997943006-21] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 09:42:37.814 [qtp997943006-24] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 09:42:37.818 [qtp997943006-24] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 09:42:41.962 [qtp997943006-45] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 09:42:41.968 [qtp997943006-45] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 09:43:33.088 [qtp997943006-22] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 09:43:33.093 [qtp997943006-22] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 09:48:40.875 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 4856 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 09:48:40.876 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 09:48:41.121 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1429381c: startup date [Tue Jul 18 09:48:41 CST 2017]; root of context hierarchy
+2017-07-18 09:48:42.700 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2974ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 09:48:42.945 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 09:48:42.948 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 09:48:42.979 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 09:48:42.980 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 09:48:42.981 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 09:48:42.985 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 09:48:42.985 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1864 ms
+2017-07-18 09:48:43.247 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 09:48:43.250 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 09:48:43.251 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 09:48:43.253 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 09:48:43.253 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 09:48:43.254 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 09:48:43.254 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 09:48:43.254 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@1bb134ba{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.2452622726445830540.8080/],AVAILABLE}
+2017-07-18 09:48:43.255 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3529ms
+2017-07-18 09:48:44.278 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1429381c: startup date [Tue Jul 18 09:48:41 CST 2017]; root of context hierarchy
+2017-07-18 09:48:44.349 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 09:48:44.351 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:48:44.352 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:48:44.352 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 09:48:44.356 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 09:48:44.358 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:48:44.358 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:48:44.358 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 09:48:44.359 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:48:44.359 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:48:44.359 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:48:44.361 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 09:48:44.362 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:48:44.398 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:48:44.398 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:48:44.445 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:48:45.290 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 09:48:45.332 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 09:48:45.334 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 09:48:45.339 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 09:48:45.359 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 09:48:45.360 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 09:48:45.378 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2017-07-18 09:48:45.406 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@5368d582{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 09:48:45.407 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 09:48:45.413 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.142 seconds (JVM running for 5.688)
+2017-07-18 09:48:57.935 [qtp1902726860-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 09:48:57.936 [qtp1902726860-19] ERROR c.gb.health.commend.InterfProcessor -interface:获取 分词 症状 接口报错:java.lang.NullPointerException
+2017-07-18 09:48:57.937 [qtp1902726860-19] ERROR c.gb.health.commend.InterfProcessor -interface:获取 分词 症状 接口报错:{"errerMsg":"信息有误","result":600}
+2017-07-18 09:48:57.937 [qtp1902726860-19] INFO  c.gb.health.commend.InterfProcessor -interface:ReturnJson:{"errerMsg":"信息有误","result":600}
+2017-07-18 09:50:23.156 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 1100 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 09:50:23.158 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 09:50:23.377 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1e4ebd55: startup date [Tue Jul 18 09:50:23 CST 2017]; root of context hierarchy
+2017-07-18 09:50:24.944 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2833ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 09:50:25.175 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 09:50:25.178 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 09:50:25.212 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 09:50:25.212 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 09:50:25.213 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 09:50:25.217 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 09:50:25.217 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1840 ms
+2017-07-18 09:50:25.464 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 09:50:25.467 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 09:50:25.469 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 09:50:25.472 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 09:50:25.473 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 09:50:25.473 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 09:50:25.474 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 09:50:25.474 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@4ef870aa{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.4060203630185067419.8080/],AVAILABLE}
+2017-07-18 09:50:25.475 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3366ms
+2017-07-18 09:50:26.570 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1e4ebd55: startup date [Tue Jul 18 09:50:23 CST 2017]; root of context hierarchy
+2017-07-18 09:50:26.630 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 09:50:26.631 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:50:26.632 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:50:26.632 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 09:50:26.635 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 09:50:26.636 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:50:26.636 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 09:50:26.636 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:50:26.636 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:50:26.637 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:50:26.637 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:50:26.640 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 09:50:26.640 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:50:26.689 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:50:26.689 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:50:26.733 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:50:27.634 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 09:50:27.711 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 09:50:27.712 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 09:50:27.716 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 09:50:27.736 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 09:50:27.737 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 09:50:27.757 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2017-07-18 09:50:27.785 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@2f1f278f{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 09:50:27.786 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 09:50:27.790 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.143 seconds (JVM running for 5.681)
+2017-07-18 09:50:32.610 [qtp2011481262-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 09:50:32.614 [qtp2011481262-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 09:52:26.669 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 7880 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 09:52:26.671 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 09:52:26.893 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3b99dd3c: startup date [Tue Jul 18 09:52:26 CST 2017]; root of context hierarchy
+2017-07-18 09:52:28.456 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2871ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 09:52:28.695 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 09:52:28.697 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 09:52:28.724 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 09:52:28.724 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 09:52:28.726 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 09:52:28.732 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 09:52:28.732 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1839 ms
+2017-07-18 09:52:28.978 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 09:52:28.980 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 09:52:28.982 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 09:52:28.985 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 09:52:28.985 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 09:52:28.985 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 09:52:28.986 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 09:52:28.986 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@408bfd84{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.9209043697485825041.8080/],AVAILABLE}
+2017-07-18 09:52:28.987 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3404ms
+2017-07-18 09:52:29.983 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3b99dd3c: startup date [Tue Jul 18 09:52:26 CST 2017]; root of context hierarchy
+2017-07-18 09:52:30.043 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 09:52:30.044 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:52:30.045 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:52:30.045 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 09:52:30.048 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 09:52:30.049 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:52:30.050 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:52:30.050 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 09:52:30.050 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:52:30.050 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 09:52:30.050 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 09:52:30.053 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 09:52:30.054 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 09:52:30.094 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:52:30.094 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:52:30.138 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 09:52:30.991 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 09:52:31.059 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 09:52:31.060 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 09:52:31.067 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 09:52:31.087 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 09:52:31.087 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 09:52:31.102 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2017-07-18 09:52:31.128 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@b022f58{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 09:52:31.129 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 09:52:31.135 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 4.985 seconds (JVM running for 5.552)
+2017-07-18 09:52:36.772 [qtp280325216-20] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 09:52:36.777 [qtp280325216-20] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 10:05:19.998 [qtp280325216-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 10:05:20.001 [qtp280325216-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 10:05:27.895 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 8856 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:05:27.897 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:05:28.120 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5d94c0f9: startup date [Tue Jul 18 10:05:28 CST 2017]; root of context hierarchy
+2017-07-18 10:05:29.377 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2592ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:05:29.592 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:05:29.595 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:05:29.626 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:05:29.626 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:05:29.628 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 10:05:29.633 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:05:29.634 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1514 ms
+2017-07-18 10:05:29.839 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:05:29.841 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:05:29.842 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:05:29.843 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:05:29.844 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:05:29.844 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:05:29.844 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:05:29.844 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@38901051{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.6176908429779209906.8080/],AVAILABLE}
+2017-07-18 10:05:29.845 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3061ms
+2017-07-18 10:05:30.707 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5d94c0f9: startup date [Tue Jul 18 10:05:28 CST 2017]; root of context hierarchy
+2017-07-18 10:05:30.773 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 10:05:30.774 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:05:30.805 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:05:30.805 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:05:30.848 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:05:31.562 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 10:05:31.615 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 10:05:31.617 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 10:05:31.621 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 10:05:31.638 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 10:05:31.638 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 10:05:31.649 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 10 ms
+2017-07-18 10:05:31.672 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@6c400052{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 10:05:31.673 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 10:05:31.677 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 4.319 seconds (JVM running for 4.893)
+2017-07-18 10:06:27.387 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 3196 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:06:27.388 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:06:27.648 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1429381c: startup date [Tue Jul 18 10:06:27 CST 2017]; root of context hierarchy
+2017-07-18 10:06:28.870 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2643ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:06:29.066 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:06:29.068 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:06:29.102 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:06:29.102 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:06:29.104 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 10:06:29.109 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:06:29.109 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1461 ms
+2017-07-18 10:06:29.297 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:06:29.299 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:06:29.300 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:06:29.302 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:06:29.302 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:06:29.302 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:06:29.302 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:06:29.303 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@107adb5f{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.507234261444553919.8080/],AVAILABLE}
+2017-07-18 10:06:29.304 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3078ms
+2017-07-18 10:06:30.186 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1429381c: startup date [Tue Jul 18 10:06:27 CST 2017]; root of context hierarchy
+2017-07-18 10:06:30.249 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 10:06:30.250 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:06:30.286 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:06:30.287 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:06:30.328 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:06:31.000 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 10:06:31.048 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 10:06:31.049 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 10:06:31.053 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 10:06:31.070 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 10:06:31.071 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 10:06:31.083 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 12 ms
+2017-07-18 10:06:31.113 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@7a1b2ec2{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 10:06:31.114 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 10:06:31.118 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 4.29 seconds (JVM running for 4.892)
+2017-07-18 10:07:40.240 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 9184 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:07:40.241 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:07:40.469 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aec71d2: startup date [Tue Jul 18 10:07:40 CST 2017]; root of context hierarchy
+2017-07-18 10:07:42.047 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2873ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:07:42.273 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:07:42.276 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:07:42.314 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:07:42.314 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:07:42.317 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 10:07:42.324 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:07:42.324 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1855 ms
+2017-07-18 10:07:42.583 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:07:42.585 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:07:42.586 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:07:42.589 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:07:42.590 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:07:42.591 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:07:42.591 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:07:42.592 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@376561eb{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.4574379726232443482.8080/],AVAILABLE}
+2017-07-18 10:07:42.592 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3421ms
+2017-07-18 10:07:43.633 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aec71d2: startup date [Tue Jul 18 10:07:40 CST 2017]; root of context hierarchy
+2017-07-18 10:07:43.697 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 10:07:43.698 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:07:43.698 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:07:43.699 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 10:07:43.703 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 10:07:43.704 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:07:43.704 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:07:43.705 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 10:07:43.705 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:07:43.705 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:07:43.706 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:07:43.709 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 10:07:43.709 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:07:43.743 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:07:43.743 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:07:43.783 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:07:44.578 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 10:07:44.646 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 10:07:44.648 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 10:07:44.653 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 10:07:44.673 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 10:07:44.674 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 10:07:44.691 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2017-07-18 10:07:44.725 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@45f3ace{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 10:07:44.726 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 10:07:44.730 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.015 seconds (JVM running for 5.558)
+2017-07-18 10:07:59.867 [qtp1941101519-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 10:07:59.872 [qtp1941101519-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 10:10:38.201 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 2384 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:10:38.203 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:10:38.420 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@15251496: startup date [Tue Jul 18 10:10:38 CST 2017]; root of context hierarchy
+2017-07-18 10:10:39.668 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2542ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:10:39.862 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:10:39.865 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:10:39.895 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:10:39.895 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:10:39.897 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 10:10:39.901 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:10:39.901 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1481 ms
+2017-07-18 10:10:40.083 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:10:40.086 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:10:40.087 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:10:40.089 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:10:40.089 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:10:40.089 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:10:40.089 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:10:40.090 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@164e255c{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.2999791823577365303.8080/],AVAILABLE}
+2017-07-18 10:10:40.090 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @2965ms
+2017-07-18 10:10:40.961 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@15251496: startup date [Tue Jul 18 10:10:38 CST 2017]; root of context hierarchy
+2017-07-18 10:10:41.031 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 10:10:41.032 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:10:41.068 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:10:41.069 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:10:41.116 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:10:41.783 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 10:10:41.834 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 10:10:41.835 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 10:10:41.839 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 10:10:41.857 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 10:10:41.857 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 10:10:41.872 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2017-07-18 10:10:41.903 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@5f28ae47{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 10:10:41.903 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 10:10:41.907 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 4.249 seconds (JVM running for 4.782)
+2017-07-18 10:31:20.641 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 3096 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:31:20.642 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:31:20.846 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1e4ebd55: startup date [Tue Jul 18 10:31:20 CST 2017]; root of context hierarchy
+2017-07-18 10:31:22.388 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2760ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:31:22.633 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:31:22.635 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:31:22.668 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:31:22.669 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:31:22.671 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 10:31:22.677 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:31:22.678 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1832 ms
+2017-07-18 10:31:22.920 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:31:22.923 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:31:22.925 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:31:22.928 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:31:22.929 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:31:22.929 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:31:22.930 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:31:22.930 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@7b4348a2{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.3894343496062682811.8080/],AVAILABLE}
+2017-07-18 10:31:22.930 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3304ms
+2017-07-18 10:31:23.990 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1e4ebd55: startup date [Tue Jul 18 10:31:20 CST 2017]; root of context hierarchy
+2017-07-18 10:31:24.052 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 10:31:24.053 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:31:24.054 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:31:24.055 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 10:31:24.057 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 10:31:24.058 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:31:24.058 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:31:24.058 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:31:24.058 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 10:31:24.059 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:31:24.059 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:31:24.061 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 10:31:24.061 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:31:24.109 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:31:24.109 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:31:24.154 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:31:24.991 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 10:31:25.075 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 10:31:25.076 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 10:31:25.082 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 10:31:25.105 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 10:31:25.105 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 10:31:25.126 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2017-07-18 10:31:25.161 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@27eaafc{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 10:31:25.162 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 10:31:25.167 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.008 seconds (JVM running for 5.54)
+2017-07-18 10:31:30.378 [qtp1219548118-20] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 10:31:30.383 [qtp1219548118-20] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 10:32:10.096 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 8524 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:32:10.098 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:32:10.338 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1e4ebd55: startup date [Tue Jul 18 10:32:10 CST 2017]; root of context hierarchy
+2017-07-18 10:32:11.875 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2865ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:32:12.117 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:32:12.120 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:32:12.157 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:32:12.157 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:32:12.160 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 10:32:12.165 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:32:12.166 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1828 ms
+2017-07-18 10:32:12.428 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:32:12.430 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:32:12.431 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:32:12.434 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:32:12.434 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:32:12.434 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:32:12.435 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:32:12.435 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@2c7f6fc{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.2974611869316069838.8080/],AVAILABLE}
+2017-07-18 10:32:12.436 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3427ms
+2017-07-18 10:32:12.457 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2017-07-18 10:32:12.461 [restartedMain] INFO  org.eclipse.jetty.server.session -Stopped scavenging
+2017-07-18 10:32:12.463 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Stopped o.s.b.c.e.j.JettyEmbeddedWebAppContext@2c7f6fc{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.2974611869316069838.8080/],UNAVAILABLE}
+2017-07-18 10:32:12.470 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-07-18 10:32:12.558 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1193)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1095)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.gb.health.Demo2Application.main(Demo2Application.java:18)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741)
+	... 24 common frames omitted
+2017-07-18 10:34:31.796 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 10936 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:34:31.797 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:34:32.032 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1429381c: startup date [Tue Jul 18 10:34:32 CST 2017]; root of context hierarchy
+2017-07-18 10:34:33.607 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2866ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:34:33.851 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:34:33.854 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:34:33.884 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:34:33.884 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:34:33.886 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 10:34:33.890 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:34:33.890 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1858 ms
+2017-07-18 10:34:34.186 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:34:34.188 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:34:34.189 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:34:34.190 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:34:34.191 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:34:34.191 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:34:34.191 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:34:34.192 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@21d8f16d{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.8033305098905221441.8080/],AVAILABLE}
+2017-07-18 10:34:34.193 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3454ms
+2017-07-18 10:34:34.213 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.gb.health.commend.GetSymptomWord]: Constructor threw exception; nested exception is java.lang.NullPointerException
+2017-07-18 10:34:34.218 [restartedMain] INFO  org.eclipse.jetty.server.session -Stopped scavenging
+2017-07-18 10:34:34.221 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Stopped o.s.b.c.e.j.JettyEmbeddedWebAppContext@21d8f16d{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.8033305098905221441.8080/],UNAVAILABLE}
+2017-07-18 10:34:34.229 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-07-18 10:34:34.236 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.gb.health.commend.GetSymptomWord]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1155)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1099)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.gb.health.Demo2Application.main(Demo2Application.java:18)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.gb.health.commend.GetSymptomWord]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:154)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1147)
+	... 22 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at com.gb.health.commend.Commend.<init>(Commend.java:30)
+	at com.gb.health.commend.GetSymptomWord.<init>(GetSymptomWord.java:53)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:142)
+	... 24 common frames omitted
+2017-07-18 10:35:42.662 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 3580 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:35:42.663 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:35:42.876 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@39bc9988: startup date [Tue Jul 18 10:35:42 CST 2017]; root of context hierarchy
+2017-07-18 10:35:44.433 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2791ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:35:44.684 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:35:44.687 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:35:44.727 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:35:44.728 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:35:44.731 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 10:35:44.738 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:35:44.739 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1863 ms
+2017-07-18 10:35:45.009 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:35:45.012 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:35:45.013 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:35:45.016 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:35:45.017 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:35:45.018 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:35:45.018 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:35:45.019 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@32cdd1e7{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.6381455440760569330.8080/],AVAILABLE}
+2017-07-18 10:35:45.019 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3377ms
+2017-07-18 10:35:46.125 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@39bc9988: startup date [Tue Jul 18 10:35:42 CST 2017]; root of context hierarchy
+2017-07-18 10:35:46.193 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 10:35:46.195 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:35:46.195 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:35:46.196 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 10:35:46.197 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 10:35:46.198 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:35:46.198 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:35:46.199 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:35:46.199 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:35:46.199 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 10:35:46.199 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:35:46.202 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 10:35:46.203 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:35:46.248 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:35:46.248 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:35:46.282 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:35:47.125 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 10:35:47.172 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 10:35:47.174 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 10:35:47.179 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 10:35:47.195 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 10:35:47.196 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 10:35:47.215 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2017-07-18 10:35:47.247 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@3d4dd6b0{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 10:35:47.248 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 10:35:47.253 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.097 seconds (JVM running for 5.612)
+2017-07-18 10:35:53.590 [qtp552972332-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 10:35:53.596 [qtp552972332-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 10:42:04.403 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 10316 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:42:04.404 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:42:04.657 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aec71d2: startup date [Tue Jul 18 10:42:04 CST 2017]; root of context hierarchy
+2017-07-18 10:42:06.227 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2915ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:42:06.460 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:42:06.463 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:42:06.495 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:42:06.496 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:42:06.497 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 10:42:06.502 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:42:06.503 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1846 ms
+2017-07-18 10:42:06.772 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:42:06.774 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:42:06.776 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:42:06.778 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:42:06.778 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:42:06.778 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:42:06.779 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:42:06.779 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@6c621b9{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.5592161108995695282.8080/],AVAILABLE}
+2017-07-18 10:42:06.780 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3469ms
+2017-07-18 10:42:06.808 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2017-07-18 10:42:06.813 [restartedMain] INFO  org.eclipse.jetty.server.session -Stopped scavenging
+2017-07-18 10:42:06.815 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Stopped o.s.b.c.e.j.JettyEmbeddedWebAppContext@6c621b9{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.5592161108995695282.8080/],UNAVAILABLE}
+2017-07-18 10:42:06.822 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-07-18 10:42:06.983 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1193)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1095)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.gb.health.Demo2Application.main(Demo2Application.java:18)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741)
+	... 24 common frames omitted
+2017-07-18 10:42:36.584 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 9324 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 10:42:36.586 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 10:42:36.842 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3fef3e5d: startup date [Tue Jul 18 10:42:36 CST 2017]; root of context hierarchy
+2017-07-18 10:42:38.406 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2906ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 10:42:38.646 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 10:42:38.648 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 10:42:38.681 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 10:42:38.681 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 10:42:38.682 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 10:42:38.687 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 10:42:38.687 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1845 ms
+2017-07-18 10:42:38.964 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 10:42:38.967 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 10:42:38.968 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 10:42:38.971 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 10:42:38.972 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 10:42:38.972 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 10:42:38.972 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 10:42:38.973 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@79993f23{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.496532198758620570.8080/],AVAILABLE}
+2017-07-18 10:42:38.973 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3474ms
+2017-07-18 10:42:39.985 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3fef3e5d: startup date [Tue Jul 18 10:42:36 CST 2017]; root of context hierarchy
+2017-07-18 10:42:40.047 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 10:42:40.048 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:42:40.048 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:42:40.049 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 10:42:40.052 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 10:42:40.053 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:42:40.053 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:42:40.054 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 10:42:40.054 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:42:40.054 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 10:42:40.054 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 10:42:40.057 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 10:42:40.058 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 10:42:40.100 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:42:40.101 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:42:40.139 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 10:42:40.980 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 10:42:41.025 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 10:42:41.027 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 10:42:41.032 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 10:42:41.049 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 10:42:41.049 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 10:42:41.063 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2017-07-18 10:42:41.095 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@42954b1d{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 10:42:41.096 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 10:42:41.100 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.048 seconds (JVM running for 5.601)
+2017-07-18 10:42:45.233 [qtp27074850-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 10:42:45.238 [qtp27074850-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
+2017-07-18 11:01:12.142 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 7204 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 11:01:12.143 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 11:01:12.374 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@39bc9988: startup date [Tue Jul 18 11:01:12 CST 2017]; root of context hierarchy
+2017-07-18 11:01:13.962 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2918ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 11:01:14.203 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 11:01:14.205 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 11:01:14.234 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 11:01:14.235 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 11:01:14.236 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 660000ms
+2017-07-18 11:01:14.241 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 11:01:14.241 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1867 ms
+2017-07-18 11:01:14.568 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 11:01:14.571 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 11:01:14.572 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 11:01:14.575 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 11:01:14.576 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 11:01:14.576 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 11:01:14.577 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 11:01:14.578 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@5cdaff1b{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.7568631043157088461.8080/],AVAILABLE}
+2017-07-18 11:01:14.579 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3537ms
+2017-07-18 11:01:15.669 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@39bc9988: startup date [Tue Jul 18 11:01:12 CST 2017]; root of context hierarchy
+2017-07-18 11:01:15.728 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 11:01:15.729 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 11:01:15.729 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:01:15.730 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 11:01:15.732 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 11:01:15.733 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 11:01:15.733 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:01:15.733 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 11:01:15.734 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:01:15.734 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:01:15.734 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 11:01:15.736 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 11:01:15.737 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 11:01:15.774 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 11:01:15.774 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 11:01:15.809 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 11:01:16.651 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 11:01:16.699 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 11:01:16.701 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 11:01:16.706 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 11:01:16.723 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 11:01:16.723 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 11:01:16.743 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2017-07-18 11:01:16.778 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@6681c118{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 11:01:16.779 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 11:01:16.783 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.175 seconds (JVM running for 5.74)
+2017-07-18 11:01:21.267 [qtp528952563-20] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 11:01:21.341 [qtp528952563-20] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.IllegalStateException: Target host is null
+2017-07-18 11:03:59.811 [restartedMain] INFO  com.gb.health.Demo2Application -Starting Demo2Application on kevin with PID 6728 (D:\wk2\healthmanager\target\classes started by Administrator in D:\wk2\healthmanager)
+2017-07-18 11:03:59.812 [restartedMain] INFO  com.gb.health.Demo2Application -The following profiles are active: dev
+2017-07-18 11:04:00.043 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aec71d2: startup date [Tue Jul 18 11:04:00 CST 2017]; root of context hierarchy
+2017-07-18 11:04:01.686 [restartedMain] INFO  org.eclipse.jetty.util.log -Logging initialized @2957ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-07-18 11:04:01.924 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainerFactory -Server initialized with port: 8080
+2017-07-18 11:04:01.927 [restartedMain] INFO  org.eclipse.jetty.server.Server -jetty-9.4.5.v20170502
+2017-07-18 11:04:01.961 [restartedMain] INFO  org.eclipse.jetty.server.session -DefaultSessionIdManager workerName=node0
+2017-07-18 11:04:01.962 [restartedMain] INFO  org.eclipse.jetty.server.session -No SessionScavenger set, using defaults
+2017-07-18 11:04:01.964 [restartedMain] INFO  org.eclipse.jetty.server.session -Scavenging every 600000ms
+2017-07-18 11:04:01.968 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring embedded WebApplicationContext
+2017-07-18 11:04:01.969 [restartedMain] INFO  o.s.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1926 ms
+2017-07-18 11:04:02.237 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-18 11:04:02.240 [restartedMain] INFO  o.s.b.w.s.ServletRegistrationBean -Mapping servlet: 'statViewServlet' to [/druid/*]
+2017-07-18 11:04:02.241 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-18 11:04:02.243 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-18 11:04:02.243 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-18 11:04:02.243 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-18 11:04:02.243 [restartedMain] INFO  o.s.b.w.s.FilterRegistrationBean -Mapping filter: 'webStatFilter' to urls: [/*]
+2017-07-18 11:04:02.244 [restartedMain] INFO  o.e.j.server.handler.ContextHandler -Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@4a83dd63{/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.525068831267322439.8080/],AVAILABLE}
+2017-07-18 11:04:02.244 [restartedMain] INFO  org.eclipse.jetty.server.Server -Started @3515ms
+2017-07-18 11:04:03.264 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aec71d2: startup date [Tue Jul 18 11:04:00 CST 2017]; root of context hierarchy
+2017-07-18 11:04:03.328 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/test]}" onto public java.lang.String com.gb.health.commend.TestController.index()
+2017-07-18 11:04:03.328 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/getClientBaseMessage],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.BaseMessageController.getClientBaseMessage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 11:04:03.328 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.DownFileController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:04:03.329 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.gb.health.controller.HtmlController.hey(org.springframework.ui.Model)
+2017-07-18 11:04:03.331 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/api],methods=[POST]}" onto public void com.gb.health.controller.PhoneController.invoke()
+2017-07-18 11:04:03.332 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/findAll],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.findAll(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 11:04:03.332 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/downHtml],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.downHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:04:03.333 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadHtml],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.uploadHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:04:03.333 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/login],methods=[POST || GET]}" onto public java.lang.String com.gb.health.controller.UploadController.login(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2017-07-18 11:04:03.333 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/getexcel],methods=[POST || GET]}" onto public void com.gb.health.controller.UploadController.getexcel(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2017-07-18 11:04:03.335 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/ad/uploadBefore],methods=[POST || GET]}" onto public org.springframework.web.servlet.ModelAndView com.gb.health.controller.UploadController.uploadBefore(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2017-07-18 11:04:03.337 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-18 11:04:03.338 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-18 11:04:03.402 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 11:04:03.402 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 11:04:03.447 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-18 11:04:04.259 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2017-07-18 11:04:04.314 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Registering beans for JMX exposure on startup
+2017-07-18 11:04:04.316 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-07-18 11:04:04.322 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-07-18 11:04:04.341 [restartedMain] INFO  o.e.j.s.h.ContextHandler.application -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-18 11:04:04.341 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-18 11:04:04.358 [restartedMain] INFO  o.s.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2017-07-18 11:04:04.390 [restartedMain] INFO  o.e.jetty.server.AbstractConnector -Started ServerConnector@56f587e1{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+2017-07-18 11:04:04.391 [restartedMain] INFO  o.s.b.c.e.j.JettyEmbeddedServletContainer -Jetty started on port(s) 8080 (http/1.1)
+2017-07-18 11:04:04.395 [restartedMain] INFO  com.gb.health.Demo2Application -Started Demo2Application in 5.109 seconds (JVM running for 5.666)
+2017-07-18 11:04:10.183 [qtp442724966-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 11:04:10.881 [qtp442724966-19] INFO  c.gb.health.commend.InterfProcessor -interface:ReturnJson:{"result":200,"data":[{"description":"你是否咳嗽和发热？","id":"0000230728"},{"description":"你是否发热？","id":"0000030816"},{"description":"你是否发热、恶心或干呕？","id":"0000070346"},{"description":"你是否发热，咽喉是否很痛？","id":"0000430722"},{"description":"你是否感到恶心、发冷或者发热？","id":"0000130546"},{"description":"有时，发热过后会出现掉头发现象。一般而言，几个月后，你的头发就会恢复正常。","id":"00008b0815"},{"description":"你是否发热超过37.8℃？你最近是否患过病？","id":"00000b0419"},{"description":"如果你的宝宝持续2-3天发热或者一直高热不退，就咨询医生吧。","id":"0000031352"},{"description":"你最近是否换过病，是否有发热症状？","id":"00000b0502"},{"description":"你是否有恶心、呕吐症状伴或不伴发热？","id":"0000090469"},{"description":"你的宝宝是否发热了（腋下温度达到38℃或更高）？","id":"0000030265"},{"description":"你的宝宝是否发热并且出了皮疹？","id":"0000030255"},{"description":"你的宝宝是否发热，咳嗽，并且呼吸困难？","id":"0000030552"},{"description":"你的宝宝是否发热并且伴有皮疹？","id":"0000030752"},{"description":"你的宝宝是否发热并且伴有腹泻或呕吐？","id":"0000030852"},{"description":"你的宝宝是否发热，是否扯拉耳朵且哭泣？","id":"0000031052"},{"description":"你的宝宝是否扯拉耳朵？是否没有食欲且发热？","id":"0000070451"},{"description":"你是否出现了症状？\n@阴道出血\n@腹部疼痛\n@发热","id":"0000130550"},{"description":"你是否时而发热时而感到寒冷？","id":"0000070348"},{"description":"你是否发热，阴道分泌物是否异常且有异味？","id":"0000270642"}]}
+2017-07-18 11:04:30.766 [qtp442724966-21] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 11:04:30.823 [qtp442724966-21] INFO  c.gb.health.commend.InterfProcessor -interface:ReturnJson:{"result":200,"data":[{"description":"你是否咳嗽和发热？","id":"0000230728"},{"description":"你是否发热？","id":"0000030816"},{"description":"你是否发热、恶心或干呕？","id":"0000070346"},{"description":"你是否发热，咽喉是否很痛？","id":"0000430722"},{"description":"你是否感到恶心、发冷或者发热？","id":"0000130546"},{"description":"有时，发热过后会出现掉头发现象。一般而言，几个月后，你的头发就会恢复正常。","id":"00008b0815"},{"description":"你是否发热超过37.8℃？你最近是否患过病？","id":"00000b0419"},{"description":"如果你的宝宝持续2-3天发热或者一直高热不退，就咨询医生吧。","id":"0000031352"},{"description":"你最近是否换过病，是否有发热症状？","id":"00000b0502"},{"description":"你是否有恶心、呕吐症状伴或不伴发热？","id":"0000090469"},{"description":"你的宝宝是否发热了（腋下温度达到38℃或更高）？","id":"0000030265"},{"description":"你的宝宝是否发热并且出了皮疹？","id":"0000030255"},{"description":"你的宝宝是否发热，咳嗽，并且呼吸困难？","id":"0000030552"},{"description":"你的宝宝是否发热并且伴有皮疹？","id":"0000030752"},{"description":"你的宝宝是否发热并且伴有腹泻或呕吐？","id":"0000030852"},{"description":"你的宝宝是否发热，是否扯拉耳朵且哭泣？","id":"0000031052"},{"description":"你的宝宝是否扯拉耳朵？是否没有食欲且发热？","id":"0000070451"},{"description":"你是否出现了症状？\n@阴道出血\n@腹部疼痛\n@发热","id":"0000130550"},{"description":"你是否时而发热时而感到寒冷？","id":"0000070348"},{"description":"你是否发热，阴道分泌物是否异常且有异味？","id":"0000270642"}]}
+2017-07-18 11:04:32.906 [qtp442724966-25] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"你发热","page":1}}
+2017-07-18 11:04:32.957 [qtp442724966-25] INFO  c.gb.health.commend.InterfProcessor -interface:ReturnJson:{"result":200,"data":[{"description":"你是否咳嗽和发热？","id":"0000230728"},{"description":"你是否发热？","id":"0000030816"},{"description":"你是否发热、恶心或干呕？","id":"0000070346"},{"description":"你是否发热，咽喉是否很痛？","id":"0000430722"},{"description":"你是否感到恶心、发冷或者发热？","id":"0000130546"},{"description":"有时，发热过后会出现掉头发现象。一般而言，几个月后，你的头发就会恢复正常。","id":"00008b0815"},{"description":"你是否发热超过37.8℃？你最近是否患过病？","id":"00000b0419"},{"description":"如果你的宝宝持续2-3天发热或者一直高热不退，就咨询医生吧。","id":"0000031352"},{"description":"你最近是否换过病，是否有发热症状？","id":"00000b0502"},{"description":"你是否有恶心、呕吐症状伴或不伴发热？","id":"0000090469"},{"description":"你的宝宝是否发热了（腋下温度达到38℃或更高）？","id":"0000030265"},{"description":"你的宝宝是否发热并且出了皮疹？","id":"0000030255"},{"description":"你的宝宝是否发热，咳嗽，并且呼吸困难？","id":"0000030552"},{"description":"你的宝宝是否发热并且伴有皮疹？","id":"0000030752"},{"description":"你的宝宝是否发热并且伴有腹泻或呕吐？","id":"0000030852"},{"description":"你的宝宝是否发热，是否扯拉耳朵且哭泣？","id":"0000031052"},{"description":"你的宝宝是否扯拉耳朵？是否没有食欲且发热？","id":"0000070451"},{"description":"你是否出现了症状？\n@阴道出血\n@腹部疼痛\n@发热","id":"0000130550"},{"description":"你是否时而发热时而感到寒冷？","id":"0000070348"},{"description":"你是否发热，阴道分泌物是否异常且有异味？","id":"0000270642"}]}
+2017-07-18 11:04:40.234 [qtp442724966-19] INFO  com.gb.health.commend.CmdTaskManager -interface:AllJson:{"cmd":"getSymptom_Word","head":{"vercode":1},"data":{"symptom":"热","page":1}}
+2017-07-18 11:04:40.306 [qtp442724966-19] INFO  c.gb.health.commend.InterfProcessor -interface:ReturnJson:{"result":200,"data":[{"description":"你是否咳嗽和发热？","id":"0000230728"},{"description":"你是否发热？","id":"0000030816"},{"description":"你的宝宝是否在炎热的天气或者酷热的环境中玩耍了？","id":"0000031264"},{"description":"孩子运动时产生的热量会使其体温升高。帮他脱些衣服，并且多给他喝些热水。","id":"0010031364"},{"description":"如果你的宝宝持续2-3天发热或者一直高热不退，就咨询医生吧。","id":"0000031352"},{"description":"排尿时是否有灼热感？","id":"0000030470"},{"description":"疼痛是否伴有37.8℃以上的发热？","id":"0000030330"},{"description":"你是否发热、恶心或干呕？","id":"0000070346"},{"description":"排尿时是否有灼热感？","id":"0000030346"},{"description":"是否出现了发热症状？","id":"00002b0605"},{"description":"你是否发热，咽喉是否很痛？","id":"0000430722"},{"description":"是否严重腹泻并且发热？","id":"0000130532"},{"description":"你最近是否换过病，是否有发热症状？","id":"00000b0502"},{"description":"是否恶心或呕吐，伴或不伴有发热症状？","id":"0000230770"},{"description":"排尿时是否有 灼热感，生殖器是否有分泌物？","id":"0000010269"},{"description":"你是否有恶心、呕吐症状伴或不伴发热？","id":"0000090469"},{"description":"排尿时是否感到疼痛或有灼热感？","id":"0000030268"},{"description":"水疱是否发痒，有灼热感，是否加重，成为溃疡？","id":"0000130566"},{"description":"小便时是否感觉疼痛，有灼热感？","id":"0000030666"},{"description":"你的宝宝是否发热了（腋下温度达到38℃或更高）？","id":"0000030265"}]}

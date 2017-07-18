@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<company>
+
+<dada>
+ <id>1</id>
+ <companyname>全部</companyname>
+ 
+ </dada>
+ 
+ <dada>
+ <id>2</id>
+ <companyname>光宝联合</companyname>
+ 
+ </dada>
+
+<dada>
+ <id>3</id>
+ <companyname>云杉易迅</companyname>
+
+ </dada>
+ 
+ <dada>
+ <id>4</id>
+ <companyname>127北京建工长竹建设工程公司2016(2-2)</companyname>
+ 
+ </dada>
+ 
+ <dada>
+ <id>5</id>
+ <companyname>127北京华恒兴业房地产开发有限公司2016(2-2)</companyname>
+  
+ </dada>
+</company>

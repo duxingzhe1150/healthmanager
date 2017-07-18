@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gb.health.dao.TbHealthRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.gb.health.domain.TbHealthRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    <result column="typedata_id" property="typedataId" jdbcType="INTEGER" />
+    <result column="send_status" property="sendStatus" jdbcType="INTEGER" />
+    <result column="send_return" property="sendReturn" jdbcType="VARCHAR" />
+    <result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="send_url" property="sendUrl" jdbcType="VARCHAR" />
+    <result column="send_data" property="sendData" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_health_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gb.health.domain.TbHealthRecord" >
+    insert into tb_health_record (id, type_name, typedata_id, 
+      send_status, send_return, send_time, 
+      send_url, send_data)
+    values (#{id,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR}, #{typedataId,jdbcType=INTEGER}, 
+      #{sendStatus,jdbcType=INTEGER}, #{sendReturn,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, 
+      #{sendUrl,jdbcType=VARCHAR}, #{sendData,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.TbHealthRecord" >
+    update tb_health_record
+    set type_name = #{typeName,jdbcType=VARCHAR},
+      typedata_id = #{typedataId,jdbcType=INTEGER},
+      send_status = #{sendStatus,jdbcType=INTEGER},
+      send_return = #{sendReturn,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      send_url = #{sendUrl,jdbcType=VARCHAR},
+      send_data = #{sendData,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, type_name, typedata_id, send_status, send_return, send_time, send_url, 
+    send_data
+    from tb_health_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, type_name, typedata_id, send_status, send_return, send_time, send_url, 
+    send_data
+    from tb_health_record
+  </select>
+</mapper>

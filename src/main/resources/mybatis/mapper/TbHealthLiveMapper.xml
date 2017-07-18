@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gb.health.dao.TbHealthLiveMapper" >
+  <resultMap id="BaseResultMap" type="com.gb.health.domain.TbHealthLive" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="Health_archive_id" property="healthArchiveId" jdbcType="INTEGER" />
+    <result column="l_liveSport_count" property="lLivesportCount" jdbcType="INTEGER" />
+    <result column="l_liveSport_minute" property="lLivesportMinute" jdbcType="INTEGER" />
+    <result column="l_liveSport_year" property="lLivesportYear" jdbcType="INTEGER" />
+    <result column="l_liveSport_way" property="lLivesportWay" jdbcType="VARCHAR" />
+    <result column="l_liveSport_step" property="lLivesportStep" jdbcType="INTEGER" />
+    <result column="l_liveFood_structure" property="lLivefoodStructure" jdbcType="INTEGER" />
+    <result column="l_liveFood_dayKind" property="lLivefoodDaykind" jdbcType="INTEGER" />
+    <result column="l_liveFood_weekKind" property="lLivefoodWeekkind" jdbcType="INTEGER" />
+    <result column="l_liveFood_primary" property="lLivefoodPrimary" jdbcType="INTEGER" />
+    <result column="l_liveFood_potato" property="lLivefoodPotato" jdbcType="INTEGER" />
+    <result column="l_liveFood_bean" property="lLivefoodBean" jdbcType="INTEGER" />
+    <result column="l_liveFood_vegetable" property="lLivefoodVegetable" jdbcType="INTEGER" />
+    <result column="l_liveFood_fruit" property="lLivefoodFruit" jdbcType="INTEGER" />
+    <result column="l_liveFood_milk" property="lLivefoodMilk" jdbcType="INTEGER" />
+    <result column="l_liveFood_nut" property="lLivefoodNut" jdbcType="INTEGER" />
+    <result column="l_liveFood_salt" property="lLivefoodSalt" jdbcType="INTEGER" />
+    <result column="l_liveFood_meat" property="lLivefoodMeat" jdbcType="INTEGER" />
+    <result column="l_liveFood_fish" property="lLivefoodFish" jdbcType="INTEGER" />
+    <result column="l_liveFood_egg" property="lLivefoodEgg" jdbcType="INTEGER" />
+    <result column="l_liveFood_oil" property="lLivefoodOil" jdbcType="INTEGER" />
+    <result column="l_liveFood_sugar" property="lLivefoodSugar" jdbcType="INTEGER" />
+    <result column="l_liveFood_water" property="lLivefoodWater" jdbcType="INTEGER" />
+    <result column="l_smoke_condition" property="lSmokeCondition" jdbcType="INTEGER" />
+    <result column="l_smoke_beginAge" property="lSmokeBeginage" jdbcType="INTEGER" />
+    <result column="l_smoke_number" property="lSmokeNumber" jdbcType="INTEGER" />
+    <result column="l_smoke_endAge" property="lSmokeEndage" jdbcType="INTEGER" />
+    <result column="l_smoke_env" property="lSmokeEnv" jdbcType="INTEGER" />
+    <result column="l_wine_Hz" property="lWineHz" jdbcType="INTEGER" />
+    <result column="l_wine_kind" property="lWineKind" jdbcType="INTEGER" />
+    <result column="l_wine_beer" property="lWineBeer" jdbcType="INTEGER" />
+    <result column="l_wine_white" property="lWineWhite" jdbcType="INTEGER" />
+    <result column="l_wine_red" property="lWineRed" jdbcType="INTEGER" />
+    <result column="l_wine_yellow" property="lWineYellow" jdbcType="INTEGER" />
+    <result column="l_wine_beginAge" property="lWineBeginage" jdbcType="INTEGER" />
+    <result column="l_wine_endAge" property="lWineEndage" jdbcType="INTEGER" />
+    <result column="l_wine_year" property="lWineYear" jdbcType="INTEGER" />
+    <result column="l_wine_drunk" property="lWineDrunk" jdbcType="INTEGER" />
+    <result column="l_sleep_time" property="lSleepTime" jdbcType="INTEGER" />
+    <result column="l_sleep_wakeNumber" property="lSleepWakenumber" jdbcType="INTEGER" />
+    <result column="l_sleep_insomnia" property="lSleepInsomnia" jdbcType="INTEGER" />
+    <result column="l_perceive_nearMemory" property="lPerceiveNearmemory" jdbcType="BIT" />
+    <result column="l_perceive_farMemory" property="lPerceiveFarmemory" jdbcType="BIT" />
+    <result column="l_perceive_calc" property="lPerceiveCalc" jdbcType="BIT" />
+    <result column="l_perceive_direction" property="lPerceiveDirection" jdbcType="BIT" />
+    <result column="l_psy_live" property="lPsyLive" jdbcType="BIT" />
+    <result column="l_psy_job" property="lPsyJob" jdbcType="BIT" />
+    <result column="l_psy_workPress" property="lPsyWorkpress" jdbcType="BIT" />
+    <result column="l_psy_feelLow" property="lPsyFeellow" jdbcType="BIT" />
+    <result column="l_psy_anxiety" property="lPsyAnxiety" jdbcType="BIT" />
+    <result column="l_score" property="lScore" jdbcType="REAL" />
+    <result column="l_score_desc" property="lScoreDesc" jdbcType="VARCHAR" />
+    <result column="l_Personality_worry" property="lPersonalityWorry" jdbcType="BIT" />
+    <result column="l_Personality_calm" property="lPersonalityCalm" jdbcType="BIT" />
+    <result column="l_Personality_unhappy" property="lPersonalityUnhappy" jdbcType="BIT" />
+    <result column="l_time" property="lTime" jdbcType="TIMESTAMP" />
+    <result column="b_personid" property="bPersonid" jdbcType="VARCHAR" />
+    <result column="l_liveSport_dayWeek" property="lLivesportDayweek" jdbcType="INTEGER" />
+    <result column="h_source" property="source" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_health_live
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gb.health.domain.TbHealthLive" >
+    insert into tb_health_live (id, Health_archive_id, l_liveSport_count, 
+      l_liveSport_minute, l_liveSport_year, l_liveSport_way, 
+      l_liveSport_step, l_liveFood_structure, l_liveFood_dayKind, 
+      l_liveFood_weekKind, l_liveFood_primary, l_liveFood_potato, 
+      l_liveFood_bean, l_liveFood_vegetable, l_liveFood_fruit, 
+      l_liveFood_milk, l_liveFood_nut, l_liveFood_salt, 
+      l_liveFood_meat, l_liveFood_fish, l_liveFood_egg, 
+      l_liveFood_oil, l_liveFood_sugar, l_liveFood_water, 
+      l_smoke_condition, l_smoke_beginAge, l_smoke_number, 
+      l_smoke_endAge, l_smoke_env, l_wine_Hz, 
+      l_wine_kind, l_wine_beer, l_wine_white, 
+      l_wine_red, l_wine_yellow, l_wine_beginAge, 
+      l_wine_endAge, l_wine_year, l_wine_drunk, 
+      l_sleep_time, l_sleep_wakeNumber, l_sleep_insomnia, 
+      l_perceive_nearMemory, l_perceive_farMemory, l_perceive_calc, 
+      l_perceive_direction, l_psy_live, l_psy_job, 
+      l_psy_workPress, l_psy_feelLow, l_psy_anxiety, 
+      l_score, l_score_desc, l_Personality_worry, 
+      l_Personality_calm, l_Personality_unhappy, l_time, 
+      b_personid, l_liveSport_dayWeek,h_source)
+    values (#{id,jdbcType=INTEGER}, #{healthArchiveId,jdbcType=INTEGER}, #{lLivesportCount,jdbcType=INTEGER}, 
+      #{lLivesportMinute,jdbcType=INTEGER}, #{lLivesportYear,jdbcType=INTEGER}, #{lLivesportWay,jdbcType=VARCHAR}, 
+      #{lLivesportStep,jdbcType=INTEGER}, #{lLivefoodStructure,jdbcType=INTEGER}, #{lLivefoodDaykind,jdbcType=INTEGER}, 
+      #{lLivefoodWeekkind,jdbcType=INTEGER}, #{lLivefoodPrimary,jdbcType=INTEGER}, #{lLivefoodPotato,jdbcType=INTEGER}, 
+      #{lLivefoodBean,jdbcType=INTEGER}, #{lLivefoodVegetable,jdbcType=INTEGER}, #{lLivefoodFruit,jdbcType=INTEGER}, 
+      #{lLivefoodMilk,jdbcType=INTEGER}, #{lLivefoodNut,jdbcType=INTEGER}, #{lLivefoodSalt,jdbcType=INTEGER}, 
+      #{lLivefoodMeat,jdbcType=INTEGER}, #{lLivefoodFish,jdbcType=INTEGER}, #{lLivefoodEgg,jdbcType=INTEGER}, 
+      #{lLivefoodOil,jdbcType=INTEGER}, #{lLivefoodSugar,jdbcType=INTEGER}, #{lLivefoodWater,jdbcType=INTEGER}, 
+      #{lSmokeCondition,jdbcType=INTEGER}, #{lSmokeBeginage,jdbcType=INTEGER}, #{lSmokeNumber,jdbcType=INTEGER}, 
+      #{lSmokeEndage,jdbcType=INTEGER}, #{lSmokeEnv,jdbcType=INTEGER}, #{lWineHz,jdbcType=INTEGER}, 
+      #{lWineKind,jdbcType=INTEGER}, #{lWineBeer,jdbcType=INTEGER}, #{lWineWhite,jdbcType=INTEGER}, 
+      #{lWineRed,jdbcType=INTEGER}, #{lWineYellow,jdbcType=INTEGER}, #{lWineBeginage,jdbcType=INTEGER}, 
+      #{lWineEndage,jdbcType=INTEGER}, #{lWineYear,jdbcType=INTEGER}, #{lWineDrunk,jdbcType=INTEGER}, 
+      #{lSleepTime,jdbcType=INTEGER}, #{lSleepWakenumber,jdbcType=INTEGER}, #{lSleepInsomnia,jdbcType=INTEGER}, 
+      #{lPerceiveNearmemory,jdbcType=BIT}, #{lPerceiveFarmemory,jdbcType=BIT}, #{lPerceiveCalc,jdbcType=BIT}, 
+      #{lPerceiveDirection,jdbcType=BIT}, #{lPsyLive,jdbcType=BIT}, #{lPsyJob,jdbcType=BIT}, 
+      #{lPsyWorkpress,jdbcType=BIT}, #{lPsyFeellow,jdbcType=BIT}, #{lPsyAnxiety,jdbcType=BIT}, 
+      #{lScore,jdbcType=REAL}, #{lScoreDesc,jdbcType=VARCHAR}, #{lPersonalityWorry,jdbcType=BIT}, 
+      #{lPersonalityCalm,jdbcType=BIT}, #{lPersonalityUnhappy,jdbcType=BIT}, #{lTime,jdbcType=TIMESTAMP}, 
+      #{bPersonid,jdbcType=VARCHAR}, #{lLivesportDayweek,jdbcType=INTEGER},#{source,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.TbHealthLive" >
+    update tb_health_live
+    set Health_archive_id = #{healthArchiveId,jdbcType=INTEGER},
+      l_liveSport_count = #{lLivesportCount,jdbcType=INTEGER},
+      l_liveSport_minute = #{lLivesportMinute,jdbcType=INTEGER},
+      l_liveSport_year = #{lLivesportYear,jdbcType=INTEGER},
+      l_liveSport_way = #{lLivesportWay,jdbcType=VARCHAR},
+      l_liveSport_step = #{lLivesportStep,jdbcType=INTEGER},
+      l_liveFood_structure = #{lLivefoodStructure,jdbcType=INTEGER},
+      l_liveFood_dayKind = #{lLivefoodDaykind,jdbcType=INTEGER},
+      l_liveFood_weekKind = #{lLivefoodWeekkind,jdbcType=INTEGER},
+      l_liveFood_primary = #{lLivefoodPrimary,jdbcType=INTEGER},
+      l_liveFood_potato = #{lLivefoodPotato,jdbcType=INTEGER},
+      l_liveFood_bean = #{lLivefoodBean,jdbcType=INTEGER},
+      l_liveFood_vegetable = #{lLivefoodVegetable,jdbcType=INTEGER},
+      l_liveFood_fruit = #{lLivefoodFruit,jdbcType=INTEGER},
+      l_liveFood_milk = #{lLivefoodMilk,jdbcType=INTEGER},
+      l_liveFood_nut = #{lLivefoodNut,jdbcType=INTEGER},
+      l_liveFood_salt = #{lLivefoodSalt,jdbcType=INTEGER},
+      l_liveFood_meat = #{lLivefoodMeat,jdbcType=INTEGER},
+      l_liveFood_fish = #{lLivefoodFish,jdbcType=INTEGER},
+      l_liveFood_egg = #{lLivefoodEgg,jdbcType=INTEGER},
+      l_liveFood_oil = #{lLivefoodOil,jdbcType=INTEGER},
+      l_liveFood_sugar = #{lLivefoodSugar,jdbcType=INTEGER},
+      l_liveFood_water = #{lLivefoodWater,jdbcType=INTEGER},
+      l_smoke_condition = #{lSmokeCondition,jdbcType=INTEGER},
+      l_smoke_beginAge = #{lSmokeBeginage,jdbcType=INTEGER},
+      l_smoke_number = #{lSmokeNumber,jdbcType=INTEGER},
+      l_smoke_endAge = #{lSmokeEndage,jdbcType=INTEGER},
+      l_smoke_env = #{lSmokeEnv,jdbcType=INTEGER},
+      l_wine_Hz = #{lWineHz,jdbcType=INTEGER},
+      l_wine_kind = #{lWineKind,jdbcType=INTEGER},
+      l_wine_beer = #{lWineBeer,jdbcType=INTEGER},
+      l_wine_white = #{lWineWhite,jdbcType=INTEGER},
+      l_wine_red = #{lWineRed,jdbcType=INTEGER},
+      l_wine_yellow = #{lWineYellow,jdbcType=INTEGER},
+      l_wine_beginAge = #{lWineBeginage,jdbcType=INTEGER},
+      l_wine_endAge = #{lWineEndage,jdbcType=INTEGER},
+      l_wine_year = #{lWineYear,jdbcType=INTEGER},
+      l_wine_drunk = #{lWineDrunk,jdbcType=INTEGER},
+      l_sleep_time = #{lSleepTime,jdbcType=INTEGER},
+      l_sleep_wakeNumber = #{lSleepWakenumber,jdbcType=INTEGER},
+      l_sleep_insomnia = #{lSleepInsomnia,jdbcType=INTEGER},
+      l_perceive_nearMemory = #{lPerceiveNearmemory,jdbcType=BIT},
+      l_perceive_farMemory = #{lPerceiveFarmemory,jdbcType=BIT},
+      l_perceive_calc = #{lPerceiveCalc,jdbcType=BIT},
+      l_perceive_direction = #{lPerceiveDirection,jdbcType=BIT},
+      l_psy_live = #{lPsyLive,jdbcType=BIT},
+      l_psy_job = #{lPsyJob,jdbcType=BIT},
+      l_psy_workPress = #{lPsyWorkpress,jdbcType=BIT},
+      l_psy_feelLow = #{lPsyFeellow,jdbcType=BIT},
+      l_psy_anxiety = #{lPsyAnxiety,jdbcType=BIT},
+      l_score = #{lScore,jdbcType=REAL},
+      l_score_desc = #{lScoreDesc,jdbcType=VARCHAR},
+      l_Personality_worry = #{lPersonalityWorry,jdbcType=BIT},
+      l_Personality_calm = #{lPersonalityCalm,jdbcType=BIT},
+      l_Personality_unhappy = #{lPersonalityUnhappy,jdbcType=BIT},
+      l_time = #{lTime,jdbcType=TIMESTAMP},
+      b_personid = #{bPersonid,jdbcType=VARCHAR},
+      l_liveSport_dayWeek = #{lLivesportDayweek,jdbcType=INTEGER},
+       h_source=#{source,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * 
+    from tb_health_live
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByPersonID" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT 
+	  * 
+	FROM
+	  `tb_health_live` 
+	WHERE l_time IN 
+	  (SELECT 
+	    MAX(l_time) 
+	  FROM
+	    tb_health_live 
+	  GROUP BY b_personid 
+	  HAVING b_personid = #{bPersonid,jdbcType=VARCHAR})
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select * 
+    from tb_health_live
+  </select>
+</mapper>
