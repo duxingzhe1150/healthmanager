@@ -1,7 +1,7 @@
 package com.gb.health.commend;
 
 import com.gb.health.init.MyContextListener;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.ApplicationContext;

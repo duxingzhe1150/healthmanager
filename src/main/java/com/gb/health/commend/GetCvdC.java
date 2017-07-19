@@ -7,9 +7,14 @@ import com.gb.health.op.ICVD;
 import com.gb.health.op.ICVDsuggest;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
+<<<<<<< HEAD
 import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.EnumUtil;
 import com.gb.health.utill.LogRecordInf;
+=======
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.LogRecordInf;
+>>>>>>> origin/master
 import net.sf.json.JSONObject;
 import org.apache.commons.beanutils.BeanUtils;
 

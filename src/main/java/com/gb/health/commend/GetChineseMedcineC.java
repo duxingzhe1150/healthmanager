@@ -4,9 +4,14 @@ import com.gb.health.init.Concat;
 import com.gb.health.init.HealthEnum.ChineseMedcine;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
+<<<<<<< HEAD
 import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.EnumUtil;
 import com.gb.health.utill.LogRecordInf;
+=======
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.LogRecordInf;
+>>>>>>> origin/master
 import net.sf.json.JSONObject;
 
 import java.util.HashMap;

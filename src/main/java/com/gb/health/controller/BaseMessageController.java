@@ -1,6 +1,6 @@
 package com.gb.health.controller;
 
-import com.gb.health.utill.GetIp;
+import com.gb.health.utils.GetIp;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

@@ -4,8 +4,12 @@ import com.gb.health.init.Concat;
 import com.gb.health.op.Result;
 import com.gb.health.op.ResultDisease;
 import com.gb.health.service.i.SystemOut;
+<<<<<<< HEAD
 import com.gb.health.service.i.SystemOutImpl;
 import com.gb.health.utill.LogRecordInf;
+=======
+import com.gb.health.utils.LogRecordInf;
+>>>>>>> origin/master
 import net.sf.json.JSONObject;
 
 /**

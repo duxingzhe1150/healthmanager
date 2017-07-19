@@ -6,7 +6,7 @@ import com.gb.health.commend.Commend;
 import com.gb.health.commend.Commend.HeadKey;
 import com.gb.health.commend.Head;
 import com.gb.health.init.Concat;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.LogRecordInf;
 import com.google.gson.JsonObject;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;

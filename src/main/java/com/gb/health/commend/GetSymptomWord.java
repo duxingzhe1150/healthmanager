@@ -3,7 +3,7 @@ package com.gb.health.commend;
 import com.gb.health.init.Concat;
 import com.gb.health.service.i.SystemOut;
 import com.gb.health.service.i.SystemOutImpl;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONObject;
 
 import java.util.List;
