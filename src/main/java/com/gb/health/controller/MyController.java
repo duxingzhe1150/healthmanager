@@ -1,8 +1,10 @@
 package com.gb.health.controller;
 
 import com.gb.health.op.Company;
+import com.gb.health.op.HttpResult;
 import com.gb.health.service.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +19,8 @@ public class MyController {
     private MyService myService;
 
     @RequestMapping(value = "/addCompany")
-    public void companyAdd(Company company){
-       myService.addCompany(company);
+    public HttpResult companyAdd(@RequestBody HttpResult<Company> company){
+      return myService.addCompany(company.getData());
     }
 
 }
