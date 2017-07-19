@@ -1,4 +1,4 @@
-package com.gb.health.utill;
+package com.gb.health.utils;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

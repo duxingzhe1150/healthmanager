@@ -9,7 +9,7 @@ import com.gb.health.domain.TbHealthArchive;
 import com.gb.health.domain.TbHealthDetails;
 import com.gb.health.domain.TbHealthLive;
 import com.gb.health.init.Concat;
-import com.gb.health.utill.BeanToMapUtil;
+import com.gb.health.utils.BeanToMapUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

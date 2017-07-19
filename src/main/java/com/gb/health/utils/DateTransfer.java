@@ -1,4 +1,4 @@
-package com.gb.health.utill;
+package com.gb.health.utils;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

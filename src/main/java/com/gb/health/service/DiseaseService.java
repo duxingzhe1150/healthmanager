@@ -71,7 +71,10 @@ public class DiseaseService {
 			     
 			     map.put("id", doc.get("a_number")+"");
 			     map.put("description", doc.get("a_description")+"");
-			     result.add(map);
+				 if (!(doc.get("a_description")+"").endsWith("。")){
+					 result.add(map);
+				 }
+
 			 }
 		} catch (SolrServerException e) {
 			

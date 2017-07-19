@@ -1,6 +1,6 @@
 package com.gb.health.commend;
 
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONObject;
 
 public class CmdTaskManager {

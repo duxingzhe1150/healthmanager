@@ -1,4 +1,4 @@
-package com.gb.health.utill;
+package com.gb.health.utils;
 
 import com.gb.health.init.MyContextListener;
 import org.apache.log4j.Logger;

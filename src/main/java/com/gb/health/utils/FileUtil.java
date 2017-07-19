@@ -1,4 +1,4 @@
-package com.gb.health.utill;
+package com.gb.health.utils;
 
 import org.apache.log4j.Logger;
 

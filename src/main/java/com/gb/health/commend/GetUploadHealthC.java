@@ -26,10 +26,10 @@ import com.gb.health.init.ErrerCode;
 import com.gb.health.init.ErrerCode.ClientErrer;
 import com.gb.health.init.HealthEnum.*;
 import com.gb.health.service.i.SystemIn;
-import com.gb.health.utill.DateTransfer;
-import com.gb.health.utill.EnumUtil;
-import com.gb.health.utill.JsonUtil;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.DateTransfer;
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.JsonUtil;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 

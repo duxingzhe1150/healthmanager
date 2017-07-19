@@ -5,8 +5,8 @@ import com.gb.health.init.HealthEnum.*;
 import com.gb.health.op.Result;
 import com.gb.health.op.Stroke;
 import com.gb.health.service.i.SystemOut;
-import com.gb.health.utill.EnumUtil;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONObject;
 /**
  * 获取脑卒中请求数据

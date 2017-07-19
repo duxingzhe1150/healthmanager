@@ -2,7 +2,7 @@ package com.gb.health.algorithm;
 
 
 import com.gb.health.init.MyContextListener;
-import com.gb.health.utill.XmlUtil;
+import com.gb.health.utils.XmlUtil;
 import org.apache.log4j.Logger;
 import org.dom4j.Element;
 import org.springframework.web.context.WebApplicationContext;

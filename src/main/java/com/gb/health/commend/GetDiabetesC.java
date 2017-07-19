@@ -6,8 +6,8 @@ import com.gb.health.op.Diabetes;
 import com.gb.health.op.DiabetesSuggest;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
-import com.gb.health.utill.EnumUtil;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONObject;
 /**
  *  糖尿病数据接收处理

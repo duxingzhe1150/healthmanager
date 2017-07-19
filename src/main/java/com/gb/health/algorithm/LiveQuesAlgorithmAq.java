@@ -7,8 +7,8 @@ import com.gb.health.init.HealthEnum;
 import com.gb.health.init.HealthEnum.LiveFood_oil;
 import com.gb.health.init.HealthEnum.LiveFood_structure;
 import com.gb.health.op.LiveSuggestDetail;
-import com.gb.health.utill.EnumUtil;
-import com.gb.health.utill.MathCheckoutUtil;
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.MathCheckoutUtil;
 
 import java.util.HashMap;
 import java.util.Map;

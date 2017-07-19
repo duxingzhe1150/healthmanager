@@ -1,4 +1,4 @@
-package com.gb.health.utill;
+package com.gb.health.utils;
 
 import com.gb.health.domain.TbHealthArchive;
 import com.gb.health.domain.TbHealthDetails;

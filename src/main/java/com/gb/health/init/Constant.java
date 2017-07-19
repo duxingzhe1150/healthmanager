@@ -1,7 +1,7 @@
 package com.gb.health.init;
 
 
-import com.gb.health.utill.PackageUtil;
+import com.gb.health.utils.PackageUtil;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

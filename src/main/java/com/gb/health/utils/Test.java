@@ -15,7 +15,7 @@
  * Why & What is modified: <修改原因描述>
  */
 
-package com.gb.health.utill;
+package com.gb.health.utils;
 
 
 

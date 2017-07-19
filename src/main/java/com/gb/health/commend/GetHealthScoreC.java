@@ -5,7 +5,7 @@ import com.gb.health.init.ErrerCode;
 import com.gb.health.op.LiveSuggestDetail;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONObject;
 
 import java.util.Set;

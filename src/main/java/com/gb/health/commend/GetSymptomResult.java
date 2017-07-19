@@ -4,7 +4,7 @@ import com.gb.health.init.Concat;
 import com.gb.health.op.Result;
 import com.gb.health.op.ResultDisease;
 import com.gb.health.service.i.SystemOut;
-import com.gb.health.utill.LogRecordInf;
+import com.gb.health.utils.LogRecordInf;
 import net.sf.json.JSONObject;
 
 /**
