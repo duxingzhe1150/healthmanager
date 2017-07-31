@@ -63,11 +63,11 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<!--使用Druid数据库连接池-->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid-spring-boot-starter</artifactId>
 			<version>1.1.1</version>
-		</dependency>
+		</dependency>-->
 		<!-- java readis客户端 -->
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -124,13 +124,32 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
+		<!--远程关闭依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!--身份验证依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- 用于home.html文件中的 hasRole('ROLE_ADMIN') 语句-->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
+		</dependency>
 
 		<!--测试依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils-core</artifactId>
+			<version>1.8.0</version>
 		</dependency>
 	</dependencies>
 

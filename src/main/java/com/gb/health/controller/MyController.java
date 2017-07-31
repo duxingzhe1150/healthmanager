@@ -19,8 +19,8 @@ public class MyController {
     private MyService myService;
 
     @RequestMapping(value = "/addCompany")
-    public HttpResult companyAdd(@RequestBody HttpResult<Company> company){
-      return myService.addCompany(company.getData());
+    public HttpResult companyAdd(Company company) throws InterruptedException {
+      return myService.addCompany(company);
     }
 
 }

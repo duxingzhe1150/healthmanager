@@ -10,11 +10,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Configuration
 public class SchedulingConfig {
 
-    @Scheduled(cron = "0/20 * * * * ?")
+    /*@Scheduled(cron = "0/20 * * * * ?")
     public void sayHello(){
 
         System.out.println("hello,hello!");
 
-    }
+    }*/
 
 }

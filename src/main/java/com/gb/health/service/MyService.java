@@ -12,7 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyService {
 
-    public HttpResult addCompany(Company company){
+    public HttpResult addCompany(Company company) throws InterruptedException {
+
+//        System.out.println("service start!!!");
+//        Thread.sleep(20000);
+//        System.out.println("service end!!!");
 
         if (company.getId()==0 || company.getCompanyName()==null){
             throw new RuntimeException("数据不全");

@@ -4,12 +4,11 @@ import com.gb.health.init.Concat;
 import com.gb.health.op.Result;
 import com.gb.health.op.ResultDisease;
 import com.gb.health.service.i.SystemOut;
-<<<<<<< HEAD
+
 import com.gb.health.service.i.SystemOutImpl;
-import com.gb.health.utill.LogRecordInf;
-=======
+
 import com.gb.health.utils.LogRecordInf;
->>>>>>> origin/master
+
 import net.sf.json.JSONObject;
 
 /**
@@ -41,7 +40,7 @@ public class GetSymptomResult extends Commend{
 	 */
 	private JSONObject api() {
 		InterfProcessor inf= new InterfProcessor();
-	try{
+//	try{
 			String SymptomResultId="";
 		if(requestDate.has("SymptomResultId")){
 			 SymptomResultId=requestDate.getString("SymptomResultId");
@@ -54,7 +53,7 @@ public class GetSymptomResult extends Commend{
 			lr.interfaceInfo("获取 分词 症状结果接口返回值", jSONObject.toString());
 			return jSONObject;
 
-		}catch(Exception e){
+	/*	}catch(Exception e){
 			//log.error(e.toString());
 			lr.interfaceError("获取 分词 症状结果接口报错", e.toString());
 			System.out.println(e.toString());
@@ -63,6 +62,6 @@ public class GetSymptomResult extends Commend{
 		    lr.interfaceError("获取 分词 症状结果接口报错", js.toString());
 			return js;
 
-		}	
+		}	*/
 	}
 }

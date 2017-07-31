@@ -17,9 +17,9 @@ spring:
       #超过空闲时间，数据库连接将被标记为不可用，然后被释放。设为0表示无限制。
       max-idle: 100
       min-idle: 10
-logging:
-  path: E:/loger
-  config: classpath:logback-spring.xml
+#logging:
+#  path: E:/loger
+#  config: classpath:logback-spring.xml
 
 
 

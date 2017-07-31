@@ -82,7 +82,6 @@ public class SystemOutImpl implements SystemOut{
 	 * @param type
 	 * @param ID
 	 * @return
-	 * @see com.gb.diagnosis.init.SystemOut#getDataByID(String, String)
 	 */
 	@Override
 	public Map<String, String> getDataByID(String type, String ID) {
@@ -95,7 +94,6 @@ public class SystemOutImpl implements SystemOut{
 	 * <p>Description: </p>
 	 * @param idcard
 	 * @return
-	 * @see com.gb.diagnosis.service.i.SystemOut#getLiveScore(String)
 	 */
 	@Override
 	public int getLiveScore(String idcard) {
@@ -114,7 +112,6 @@ public class SystemOutImpl implements SystemOut{
 	 * <p>Description: </p>
 	 * @param idcard
 	 * @return
-	 * @see com.gb.diagnosis.service.i.SystemOut#getLiveSuggestDetail(String)
 	 */
 	@Override
 	public Result<LiveSuggestDetail> getLiveSuggestDetail(String idcard) {

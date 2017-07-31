@@ -20,7 +20,8 @@ import java.util.List;
 	      List<String> classNames = getClassName(packagePath);
 	      String path = classWithPath ? packagePath + "." : "";
 	      for (String className : classNames) {
-	        //className:com.example.myFirstProject.enums.SexEnum
+		      System.out.println(className);
+		      //className:com.example.myFirstProject.enums.SexEnum
 	        result.add(path + className.substring(className.lastIndexOf(".") + 1));
 	      }
 	    }

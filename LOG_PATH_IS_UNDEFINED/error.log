@@ -1,5 +1,5 @@
-2017-07-18 09:28:50.347 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'uploadController': Unsatisfied dependency expressed through field 'sout'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemOutImpl': Unsatisfied dependency expressed through field 'diseaseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'diseaseService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+2017-07-31 14:35:06.355 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'uploadController': Unsatisfied dependency expressed through field 'tbm'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemInImpl': Unsatisfied dependency expressed through field 'outGetDataService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
@@ -25,7 +25,7 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemOutImpl': Unsatisfied dependency expressed through field 'diseaseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'diseaseService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemInImpl': Unsatisfied dependency expressed through field 'outGetDataService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
@@ -41,7 +41,7 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
 	... 24 common frames omitted
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'diseaseService': Unsatisfied dependency expressed through field 'solrServer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
@@ -57,7 +57,21 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
 	... 37 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'solrServer' defined in class path resource [com/gb/health/config/SolrClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 50 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
@@ -70,71 +84,58 @@ Caused by: org.springframework.beans.factory.BeanCreationException: Error creati
 	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
-	... 50 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.solr.client.solrj.SolrClient]: Factory method 'solrServer' threw exception; nested exception is java.lang.IllegalStateException: required key [spring.data.solr] not found
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 61 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
-	... 62 common frames omitted
-Caused by: java.lang.IllegalStateException: required key [spring.data.solr] not found
-	at org.springframework.core.env.AbstractPropertyResolver.getRequiredProperty(AbstractPropertyResolver.java:183)
-	at org.springframework.core.env.AbstractEnvironment.getRequiredProperty(AbstractEnvironment.java:556)
-	at com.gb.health.config.SolrClientConfig.solrServer(SolrClientConfig.java:27)
-	at com.gb.health.config.SolrClientConfig$$EnhancerBySpringCGLIB$$911d960b.CGLIB$solrServer$0(<generated>)
-	at com.gb.health.config.SolrClientConfig$$EnhancerBySpringCGLIB$$911d960b$$FastClassBySpringCGLIB$$fc479b24.invoke(<generated>)
+	... 73 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$43f2eac6.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$43f2eac6$$FastClassBySpringCGLIB$$238469c8.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
 	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
-	at com.gb.health.config.SolrClientConfig$$EnhancerBySpringCGLIB$$911d960b.solrServer(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$43f2eac6.sqlSessionFactory(<generated>)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
-	... 63 common frames omitted
-2017-07-18 09:35:12.017 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter -
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field solrServer in com.gb.health.service.FoodService required a bean of type 'org.apache.solr.client.solrj.impl.HttpSolrServer' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.apache.solr.client.solrj.impl.HttpSolrServer' in your configuration.
-
-2017-07-18 09:40:36.916 [qtp997943006-20] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: Expected a ',' or '}' at character 192 of {
-    "cmd": "getSymptom_Word",
-    "head": {
-        "source": "HealthState",
-        "type": "php",
-        "vercode": 2
-    },
-    "data": {
-        "symptom": "你发热",
-       "page": 1
-    }
-2017-07-18 09:42:09.220 [qtp997943006-21] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 09:42:37.818 [qtp997943006-24] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 09:42:41.968 [qtp997943006-45] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 09:43:33.093 [qtp997943006-22] ERROR com.gb.health.commend.GetSymptomWord -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 09:48:57.936 [qtp1902726860-19] ERROR c.gb.health.commend.InterfProcessor -interface:获取 分词 症状 接口报错:java.lang.NullPointerException
-2017-07-18 09:48:57.937 [qtp1902726860-19] ERROR c.gb.health.commend.InterfProcessor -interface:获取 分词 症状 接口报错:{"errerMsg":"信息有误","result":600}
-2017-07-18 09:50:32.614 [qtp2011481262-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 09:52:36.777 [qtp280325216-20] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 10:05:20.001 [qtp280325216-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 10:07:59.872 [qtp1941101519-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 10:31:30.383 [qtp1219548118-20] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 10:32:12.558 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:189)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1193)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1095)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	... 74 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 87 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:265)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:252)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
+	... 89 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 93 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 95 common frames omitted
+2017-07-31 14:39:25.958 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'uploadController': Unsatisfied dependency expressed through field 'tbm'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemInImpl': Unsatisfied dependency expressed through field 'outGetDataService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
@@ -149,92 +150,273 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
-	at com.gb.health.Demo2Application.main(Demo2Application.java:18)
+	at com.gb.health.Demo2Application.main(Demo2Application.java:16)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemInImpl': Unsatisfied dependency expressed through field 'outGetDataService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
 	... 24 common frames omitted
-2017-07-18 10:34:34.236 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.gb.health.commend.GetSymptomWord]: Constructor threw exception; nested exception is java.lang.NullPointerException
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1155)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1099)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
-	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
-	at com.gb.health.Demo2Application.main(Demo2Application.java:18)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.gb.health.commend.GetSymptomWord]: Constructor threw exception; nested exception is java.lang.NullPointerException
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:154)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:89)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1147)
-	... 22 common frames omitted
-Caused by: java.lang.NullPointerException: null
-	at com.gb.health.commend.Commend.<init>(Commend.java:30)
-	at com.gb.health.commend.GetSymptomWord.<init>(GetSymptomWord.java:53)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:142)
-	... 24 common frames omitted
-2017-07-18 10:35:53.596 [qtp552972332-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 10:42:06.983 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getSymptomWord' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\commend\GetSymptomWord.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:189)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1193)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1095)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
-	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
-	at com.gb.health.Demo2Application.main(Demo2Application.java:18)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'net.sf.json.JSONObject' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 37 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 50 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 61 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 73 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2ef38cb5.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2ef38cb5$$FastClassBySpringCGLIB$$a8b34cec.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2ef38cb5.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 74 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 87 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:265)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:252)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
+	... 89 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 93 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 95 common frames omitted
+2017-07-31 14:40:17.408 [restartedMain] ERROR o.s.boot.SpringApplication -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'uploadController': Unsatisfied dependency expressed through field 'tbm'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemInImpl': Unsatisfied dependency expressed through field 'outGetDataService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.gb.health.Demo2Application.main(Demo2Application.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemInImpl': Unsatisfied dependency expressed through field 'outGetDataService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
 	... 24 common frames omitted
-2017-07-18 10:42:45.238 [qtp27074850-19] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.NullPointerException
-2017-07-18 11:01:21.341 [qtp528952563-20] ERROR c.gb.health.commend.InterfProcessor -interface:服务器逻辑有误:java.lang.IllegalStateException: Target host is null
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'outCacheService': Unsatisfied dependency expressed through field 'tbHealthArchiveMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 37 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tbHealthArchiveMapper' defined in file [D:\wk2\healthmanager\target\classes\com\gb\health\dao\TbHealthArchiveMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 50 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 61 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 73 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\wk2\healthmanager\target\classes\mybatis\mapper\UserDaoMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$f960ffb.CGLIB$sqlSessionFactory$0(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$f960ffb$$FastClassBySpringCGLIB$$44ee7607.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$f960ffb.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 74 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 87 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:265)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElement(XMLMapperBuilder.java:252)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
+	... 89 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.us.example.domain.SysUser'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 93 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.us.example.domain.SysUser
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 95 common frames omitted
+2017-07-31 14:41:35.293 [main] ERROR c.gb.health.service.i.SystemOutImpl -获取病症信息：{d_flag=1, description=你的焦虑是否和记忆中让你痛苦的事情有关？, child_yes=0001070901, class=class com.gb.health.op.ResultDisease, child_no=0000070901}
+2017-07-31 14:42:33.610 [main] ERROR c.gb.health.service.i.SystemOutImpl -获取病症信息：{d_flag=1, description=你的焦虑是否和记忆中让你痛苦的事情有关？, child_yes=0001070901, class=class com.gb.health.op.ResultDisease, child_no=0000070901}
+2017-07-31 14:44:04.865 [main] ERROR c.gb.health.service.i.SystemOutImpl -获取病症信息：{d_flag=1, description=你的焦虑是否和记忆中让你痛苦的事情有关？, child_yes=0001070901, class=class com.gb.health.op.ResultDisease, child_no=0000070901}
+2017-07-31 14:48:10.458 [qtp1075152010-19] ERROR org.thymeleaf.TemplateEngine -[THYMELEAF][qtp1075152010-19] Exception processing template "ad/administrator": Error resolving template "ad/administrator", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-07-31 14:48:10.633 [qtp1075152010-20] ERROR org.thymeleaf.TemplateEngine -[THYMELEAF][qtp1075152010-20] Exception processing template "ad/administrator": Error resolving template "ad/administrator", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-07-31 14:50:17.936 [qtp1092357920-19] ERROR org.thymeleaf.TemplateEngine -[THYMELEAF][qtp1092357920-19] Exception processing template "ad/administrator": Error resolving template "ad/administrator", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-07-31 14:50:22.692 [qtp1092357920-20] ERROR org.thymeleaf.TemplateEngine -[THYMELEAF][qtp1092357920-20] Exception processing template "ad/administrator": Error resolving template "ad/administrator", template might not exist or might not be accessible by any of the configured Template Resolvers
+2017-07-31 15:08:25.914 [qtp390688446-19] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:05.289 [qtp390688446-25] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:06.511 [qtp390688446-26] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:07.051 [qtp390688446-19] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:07.341 [qtp390688446-24] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:07.513 [qtp390688446-25] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:07.708 [qtp390688446-26] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:07.882 [qtp390688446-19] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:08.059 [qtp390688446-24] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:08.255 [qtp390688446-25] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:08.428 [qtp390688446-26] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:08.635 [qtp390688446-19] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:08.806 [qtp390688446-24] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:09.006 [qtp390688446-25] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:09.132 [qtp390688446-26] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:09.305 [qtp390688446-19] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:09.477 [qtp390688446-24] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:09.655 [qtp390688446-25] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:10.319 [qtp390688446-26] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:10.498 [qtp390688446-19] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:10.689 [qtp390688446-24] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 
+2017-07-31 15:09:10.845 [qtp390688446-25] ERROR c.g.h.controller.PhoneController -interface:格式错误:net.sf.json.JSONException: A JSONObject text must begin with '{' at character 0 of 

@@ -14,3 +14,14 @@ mybatis:
   config-location: classpath:mybatis\mybatis-config.xml
   type-aliases-package: com.gb.health.domain
 #debug: true
+endpoints:
+  shutdown:
+#   启用shutdown
+    enabled: true
+  actuator:
+#   启用身份验证
+    sensitive: true
+management:
+  security:
+#   角色
+    roles: ROLE_ADMIN

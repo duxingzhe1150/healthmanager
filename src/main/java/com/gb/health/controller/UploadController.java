@@ -62,7 +62,7 @@ public class UploadController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/login", method={RequestMethod.POST,RequestMethod.GET})	
+	/*@RequestMapping(value = "/login", method={RequestMethod.POST,RequestMethod.GET})
 	public String login(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
@@ -79,7 +79,7 @@ public class UploadController {
 		}		 
 
 		return "ad/administrator";
-	}
+	}*/
 	/**
 	 * 跳转上传页面
 	 * @param request
