@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: dev
+#thymeleaf start
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    content-type: text/html
+    #开发时关闭缓存,不然没法看到实时页面
+    cache: false
+#thymeleaf end
+mybatis:
+  mapper-locations: classpath:mybatis\mapper\*.xml
+  config-location: classpath:mybatis\mybatis-config.xml
+  type-aliases-package: com.gb.health.domain
+#debug: true
+endpoints:
+  shutdown:
+#   启用shutdown
+    enabled: true
+  actuator:
+#   启用身份验证
+    sensitive: true
+management:
+  security:
+#   角色
+    roles: ROLE_ADMIN

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gb.health.dao.AnalysisMapper" >
+  <resultMap id="BaseResultMap" type="com.gb.health.domain.Analysis" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="number_2" property="number_2" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from analysis
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gb.health.domain.Analysis" >
+    insert into analysis (id, number,number_2, type, 
+      description)
+    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR},#{number_2,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.Analysis" >
+    update analysis
+    set number = #{number,jdbcType=VARCHAR},
+      number_2 = #{number_2,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, number,number_2, type, description
+    from analysis
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, number,number_2, type, description
+    from analysis
+  </select>
+ 
+  <select id="selectNextByNumber" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select id, number,number_2, type, description
+    from analysis where number= #{number,jdbcType=VARCHAR} or number_2= #{number,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

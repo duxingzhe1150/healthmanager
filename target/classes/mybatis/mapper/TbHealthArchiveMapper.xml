@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gb.health.dao.TbHealthArchiveMapper" >
+  <resultMap id="BaseResultMap" type="com.gb.health.domain.TbHealthArchive" >
+    <id column="b_id" property="bId" jdbcType="INTEGER" />
+    <result column="b_name" property="bName" jdbcType="VARCHAR" />
+    <result column="b_sex" property="bSex" jdbcType="CHAR" />
+    <result column="b_nation" property="bNation" jdbcType="VARCHAR" />
+    <result column="b_birthday" property="bBirthday" jdbcType="DATE" />
+    <result column="b_blood_type" property="bBloodType" jdbcType="VARCHAR" />
+    <result column="b_weight" property="bWeight" jdbcType="REAL" />
+    <result column="b_heght" property="bHeght" jdbcType="REAL" />
+    <result column="b_waistline" property="bWaistline" jdbcType="REAL" />
+    <result column="b_age" property="bAge" jdbcType="INTEGER" />
+    <result column="b_tel" property="bTel" jdbcType="VARCHAR" />
+    <result column="b_relation_name" property="bRelationName" jdbcType="VARCHAR" />
+    <result column="b_relation_tel" property="bRelationTel" jdbcType="VARCHAR" />
+    <result column="b_address" property="bAddress" jdbcType="VARCHAR" />
+    <result column="b_education" property="bEducation" jdbcType="INTEGER" />
+    <result column="b_jobs" property="bJobs" jdbcType="VARCHAR" />
+    <result column="b_personid" property="bPersonid" jdbcType="VARCHAR" />
+    <result column="b_insurance" property="bInsurance" jdbcType="INTEGER" />
+    <result column="b_marriage" property="bMarriage" jdbcType="INTEGER" />
+     <result column="h_id" property="hId" jdbcType="INTEGER" />
+    <result column="b_time" property="bTime" jdbcType="TIMESTAMP" />
+    <result column="h_source" property="source" jdbcType="VARCHAR" />
+    <result column="b_province" property="province" jdbcType="VARCHAR" />
+    <result column="b_city" property="city" jdbcType="VARCHAR" />
+    <result column="b_county" property="county" jdbcType="VARCHAR" />
+    <result column="b_original_address" property="original_address" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_health_archive
+    where b_id = #{bId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gb.health.domain.TbHealthArchive"  useGeneratedKeys="true" keyProperty="bId"  >
+    insert into tb_health_archive (b_id, b_name, b_sex, 
+      b_nation, b_birthday, b_blood_type, 
+      b_weight, b_heght, b_waistline, 
+      b_age, b_tel, b_relation_name, 
+      b_relation_tel, b_address, b_education, 
+      b_jobs, b_personid, b_insurance, 
+      b_marriage, b_time,h_id,h_source,b_province,b_city,b_county,b_original_address)
+    values (#{bId,jdbcType=INTEGER}, #{bName,jdbcType=VARCHAR}, #{bSex,jdbcType=CHAR}, 
+      #{bNation,jdbcType=VARCHAR}, #{bBirthday,jdbcType=DATE}, #{bBloodType,jdbcType=VARCHAR}, 
+      #{bWeight,jdbcType=REAL}, #{bHeght,jdbcType=REAL}, #{bWaistline,jdbcType=REAL}, 
+      #{bAge,jdbcType=INTEGER}, #{bTel,jdbcType=VARCHAR}, #{bRelationName,jdbcType=VARCHAR}, 
+      #{bRelationTel,jdbcType=VARCHAR}, #{bAddress,jdbcType=VARCHAR}, #{bEducation,jdbcType=INTEGER}, 
+      #{bJobs,jdbcType=VARCHAR}, #{bPersonid,jdbcType=VARCHAR}, #{bInsurance,jdbcType=INTEGER}, 
+      #{bMarriage,jdbcType=INTEGER}, #{bTime,jdbcType=TIMESTAMP},#{hId,jdbcType=INTEGER},#{source,jdbcType=VARCHAR},
+      ,#{province,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR},#{county,jdbcType=VARCHAR},#{b_original_address,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.TbHealthArchive" >
+    update tb_health_archive
+    set b_name = #{bName,jdbcType=VARCHAR},
+      b_sex = #{bSex,jdbcType=CHAR},
+      b_nation = #{bNation,jdbcType=VARCHAR},
+      b_birthday = #{bBirthday,jdbcType=DATE},
+      b_blood_type = #{bBloodType,jdbcType=VARCHAR},
+      b_weight = #{bWeight,jdbcType=REAL},
+      b_heght = #{bHeght,jdbcType=REAL},
+      b_waistline = #{bWaistline,jdbcType=REAL},
+      b_age = #{bAge,jdbcType=INTEGER},
+      b_tel = #{bTel,jdbcType=VARCHAR},
+      b_relation_name = #{bRelationName,jdbcType=VARCHAR},
+      b_relation_tel = #{bRelationTel,jdbcType=VARCHAR},
+      b_address = #{bAddress,jdbcType=VARCHAR},
+      b_education = #{bEducation,jdbcType=INTEGER},
+      b_jobs = #{bJobs,jdbcType=VARCHAR},
+      b_personid = #{bPersonid,jdbcType=VARCHAR},
+      b_insurance = #{bInsurance,jdbcType=INTEGER},
+      b_marriage = #{bMarriage,jdbcType=INTEGER},
+      b_time = #{bTime,jdbcType=TIMESTAMP},
+     h_id= #{hId,jdbcType=INTEGER},
+     h_source=#{source,jdbcType=VARCHAR},
+     b_province=#{province,jdbcType=VARCHAR},
+     b_city=#{city,jdbcType=VARCHAR},
+     b_county=#{county,jdbcType=VARCHAR},
+     b_original_address=#{original_address,jdbcType=VARCHAR} 
+    where b_id = #{bId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select *
+    from tb_health_archive
+    where b_id = #{bId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select *
+    from tb_health_archive
+  </select>
+</mapper>
