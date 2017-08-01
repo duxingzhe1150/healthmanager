@@ -36,13 +36,14 @@ public class CiMing {
 	public TCT tCT;
 	public  UCG ucg;
 	public Ultrasonography ultrasonography;
+
 	/**
 	 * 妇科
 	 * @author lx
 	 *
 	 */
 
-
+	
 	public static class Gynecology  {
 
 		//月经史
@@ -58,7 +59,7 @@ public class CiMing {
 		//阴道 
 	private String  Women_vagina;
 		//分泌物
-	//private String  Women_vagina;
+	private String  Women_vaginalDischarge;
 		//宫颈
 	private String  Women_cervical;
 		//子宫体
@@ -126,6 +127,12 @@ public class CiMing {
 	}
 	public void setWomen_physicalExamination(String women_physicalExamination) {
 		Women_physicalExamination = women_physicalExamination;
+	}
+	public String getWomen_vaginalDischarge() {
+		return Women_vaginalDischarge;
+	}
+	public void setWomen_vaginalDischarge(String women_vaginalDischarge) {
+		Women_vaginalDischarge = women_vaginalDischarge;
 	}
 	
 	
@@ -741,12 +748,18 @@ public class CiMing {
 	public static class ThyroidFunction {
 		// 三碘甲状腺原氨酸（T3）电发光 
 		private String thyroid_t3;
+		private String thyroid_t3_unit;
+		private String thyroid_t3_scope;
 
 		// 甲状腺素（T4）电发光
 		private String thyroid_t4;
+		private String thyroid_t4_unit;
+		private String thyroid_t4_scope;
 
 		// 促甲状腺素（TSH）电发光
 		private String thyroid_tsh;
+		private String thyroid_tsh_unit;
+		private String thyroid_tsh_scope;
 
 		public String getThyroid_t3() {
 			return thyroid_t3;
@@ -770,6 +783,54 @@ public class CiMing {
 
 		public void setThyroid_tsh(String thyroid_tsh) {
 			this.thyroid_tsh = thyroid_tsh;
+		}
+
+		public String getThyroid_t3_unit() {
+			return thyroid_t3_unit;
+		}
+
+		public void setThyroid_t3_unit(String thyroid_t3_unit) {
+			this.thyroid_t3_unit = thyroid_t3_unit;
+		}
+
+		public String getThyroid_t3_scope() {
+			return thyroid_t3_scope;
+		}
+
+		public void setThyroid_t3_scope(String thyroid_t3_scope) {
+			this.thyroid_t3_scope = thyroid_t3_scope;
+		}
+
+		public String getThyroid_t4_unit() {
+			return thyroid_t4_unit;
+		}
+
+		public void setThyroid_t4_unit(String thyroid_t4_unit) {
+			this.thyroid_t4_unit = thyroid_t4_unit;
+		}
+
+		public String getThyroid_t4_scope() {
+			return thyroid_t4_scope;
+		}
+
+		public void setThyroid_t4_scope(String thyroid_t4_scope) {
+			this.thyroid_t4_scope = thyroid_t4_scope;
+		}
+
+		public String getThyroid_tsh_unit() {
+			return thyroid_tsh_unit;
+		}
+
+		public void setThyroid_tsh_unit(String thyroid_tsh_unit) {
+			this.thyroid_tsh_unit = thyroid_tsh_unit;
+		}
+
+		public String getThyroid_tsh_scope() {
+			return thyroid_tsh_scope;
+		}
+
+		public void setThyroid_tsh_scope(String thyroid_tsh_scope) {
+			this.thyroid_tsh_scope = thyroid_tsh_scope;
 		}
 		
 		
@@ -971,52 +1032,101 @@ public class CiMing {
 	public static class  CBC {
 		//  红细胞计数（RBC）
 		private String  bloodroutine_erythrocytes;
+		private String bloodroutine_erythrocytes_unit;
+		private String bloodroutine_erythrocytes_scope;
 		// 血红蛋白(HGB)  
 		private String bloodroutine_hb;
+		private String bloodroutine_hb_unit;
+		private String bloodroutine_hb_scope;
 		// 红细胞压积(HCT) 
 		private String  bloodroutine_hct;
+		private String  bloodroutine_hct_unit;
+		private String bloodroutine_hct_scope;
 		// 平均红细胞体积（MCV）
 		private String  bloodroutine_mcv;
+		private String bloodroutine_mcv_unit;
+		private String bloodroutine_mcv_scope;
+		
 		//  平均红细胞血红蛋白含量（MCH） 
 		private String   bloodroutine_mch;
+		private String bloodroutine_mch_unit;
+		private String bloodroutine_mch_scope;
 		// 平均红细胞血红蛋白浓度（MCHC)
 		private String  bloodroutine_mchc;
+		private String bloodroutine_mchc_unit;
+		private String bloodroutine_mchc_scope;
 		//   红细胞体积分布宽度变异系数（RDW-CV）
 		private String  bloodroutine_rdwcv;
+		private String  bloodroutine_rdwcv_unit;
+		private String  bloodroutine_rdwcv_scope;
 		//   红细胞体积分布宽度标准差（RDW-SD）
 		private String   bloodroutine_rdwsd;
+		private String   bloodroutine_rdwsd_unit;
+		private String   bloodroutine_rdwsd_scope;
 		// 白细胞计数（WBC）
 		private String  bloodroutine_wbc;
+		private String  bloodroutine_wbc_unit;
+		private String  bloodroutine_wbc_scope;
 		// 中性粒细胞比值（GRA）
 		private String  bloodroutine_nuet;
+		private String  bloodroutine_nuet_unit;
+		private String  bloodroutine_nuet_scope;
 		//中性粒细胞绝对值（GRA#）
 		private String   bloodroutine_gra;
+		private String   bloodroutine_gra_unit;
+		private String   bloodroutine_gra_scope;
 		// 淋巴细胞比值（LYM）
 		private String  bloodroutine_nlr;
+		private String  bloodroutine_nlr_unit;
+		private String  bloodroutine_nlr_scope;
 		//  淋巴细胞绝对值（LYM#）
 		private String  bloodroutine_lym;
+		private String  bloodroutine_lym_unit;
+		private String  bloodroutine_lym_scope;
 		//单核细胞比值（MONO）
 		private String bloodroutine_monor;
+		private String bloodroutine_monor_unit;
+		private String bloodroutine_monor_scope;
 		//  单核细胞绝对值(MONO#)
 		private String  bloodroutine_mono;
+		private String  bloodroutine_mono_unit;
+		private String  bloodroutine_mono_scope;
 		// 嗜酸性粒细胞比值（EO）
 		private String  bloodroutine_eor;
+		private String  bloodroutine_eor_unit;
+		private String  bloodroutine_eor_scope;
 		//嗜酸性粒细胞绝对值(EO#)
 		private String  bloodroutine_eo;
+		private String  bloodroutine_eo_unit;
+		private String  bloodroutine_eo_scope;
 		// 嗜碱性粒细胞比值（BASO） 
 		private String  bloodroutine_basor;
+		private String  bloodroutine_basor_unit;
+		private String  bloodroutine_basor_scope;
 		// 嗜碱性粒细胞绝对值(BASO#)
 		private String   bloodroutine_baso;
+		private String   bloodroutine_baso_unit;
+		private String   bloodroutine_baso_scope;
 		// 血小板(PLT) 
 		private String bloodroutine_platelet;
+		private String bloodroutine_platelet_unit;
+		private String bloodroutine_platelet_scope;
 		// 平均血小板体积（MPV） 
 		private String  bloodroutine_mpv;
+		private String  bloodroutine_mpv_unit;
+		private String  bloodroutine_mpv_scope;
 		//  血小板容积分布宽度（PDW）
 		private String   bloodroutine_pdw;
+		private String   bloodroutine_pdw_unit;
+		private String   bloodroutine_pdw_scope;
 		// 大血小板比率（P-LCR）
 		private String  bloodroutine_plcr;
+		private String  bloodroutine_plcr_unit;
+		private String  bloodroutine_plcr_scope;
 		// 血小板比容（PCT) 
 		private String  bloodroutine_thrombocytocrit;
+		private String bloodroutine_thrombocytocrit_unit;
+		private String bloodroutine_thrombocytocrit_scope;
 		public String getBloodroutine_erythrocytes() {
 			return bloodroutine_erythrocytes;
 		}
@@ -1162,6 +1272,294 @@ public class CiMing {
 		public void setBloodroutine_nlr(String bloodroutine_nlr) {
 			this.bloodroutine_nlr = bloodroutine_nlr;
 		}
+		public String getBloodroutine_erythrocytes_unit() {
+			return bloodroutine_erythrocytes_unit;
+		}
+		public void setBloodroutine_erythrocytes_unit(String bloodroutine_erythrocytes_unit) {
+			this.bloodroutine_erythrocytes_unit = bloodroutine_erythrocytes_unit;
+		}
+		public String getBloodroutine_erythrocytes_scope() {
+			return bloodroutine_erythrocytes_scope;
+		}
+		public void setBloodroutine_erythrocytes_scope(String bloodroutine_erythrocytes_scope) {
+			this.bloodroutine_erythrocytes_scope = bloodroutine_erythrocytes_scope;
+		}
+		public String getBloodroutine_hb_unit() {
+			return bloodroutine_hb_unit;
+		}
+		public void setBloodroutine_hb_unit(String bloodroutine_hb_unit) {
+			this.bloodroutine_hb_unit = bloodroutine_hb_unit;
+		}
+		public String getBloodroutine_hb_scope() {
+			return bloodroutine_hb_scope;
+		}
+		public void setBloodroutine_hb_scope(String bloodroutine_hb_scope) {
+			this.bloodroutine_hb_scope = bloodroutine_hb_scope;
+		}
+		public String getBloodroutine_hct_unit() {
+			return bloodroutine_hct_unit;
+		}
+		public void setBloodroutine_hct_unit(String bloodroutine_hct_unit) {
+			this.bloodroutine_hct_unit = bloodroutine_hct_unit;
+		}
+		public String getBloodroutine_hct_scope() {
+			return bloodroutine_hct_scope;
+		}
+		public void setBloodroutine_hct_scope(String bloodroutine_hct_scope) {
+			this.bloodroutine_hct_scope = bloodroutine_hct_scope;
+		}
+		public String getBloodroutine_mcv_unit() {
+			return bloodroutine_mcv_unit;
+		}
+		public void setBloodroutine_mcv_unit(String bloodroutine_mcv_unit) {
+			this.bloodroutine_mcv_unit = bloodroutine_mcv_unit;
+		}
+		public String getBloodroutine_mcv_scope() {
+			return bloodroutine_mcv_scope;
+		}
+		public void setBloodroutine_mcv_scope(String bloodroutine_mcv_scope) {
+			this.bloodroutine_mcv_scope = bloodroutine_mcv_scope;
+		}
+		public String getBloodroutine_mch_unit() {
+			return bloodroutine_mch_unit;
+		}
+		public void setBloodroutine_mch_unit(String bloodroutine_mch_unit) {
+			this.bloodroutine_mch_unit = bloodroutine_mch_unit;
+		}
+		public String getBloodroutine_mch_scope() {
+			return bloodroutine_mch_scope;
+		}
+		public void setBloodroutine_mch_scope(String bloodroutine_mch_scope) {
+			this.bloodroutine_mch_scope = bloodroutine_mch_scope;
+		}
+		public String getBloodroutine_mchc_unit() {
+			return bloodroutine_mchc_unit;
+		}
+		public void setBloodroutine_mchc_unit(String bloodroutine_mchc_unit) {
+			this.bloodroutine_mchc_unit = bloodroutine_mchc_unit;
+		}
+		public String getBloodroutine_mchc_scope() {
+			return bloodroutine_mchc_scope;
+		}
+		public void setBloodroutine_mchc_scope(String bloodroutine_mchc_scope) {
+			this.bloodroutine_mchc_scope = bloodroutine_mchc_scope;
+		}
+		public String getBloodroutine_rdwcv_unit() {
+			return bloodroutine_rdwcv_unit;
+		}
+		public void setBloodroutine_rdwcv_unit(String bloodroutine_rdwcv_unit) {
+			this.bloodroutine_rdwcv_unit = bloodroutine_rdwcv_unit;
+		}
+		public String getBloodroutine_rdwcv_scope() {
+			return bloodroutine_rdwcv_scope;
+		}
+		public void setBloodroutine_rdwcv_scope(String bloodroutine_rdwcv_scope) {
+			this.bloodroutine_rdwcv_scope = bloodroutine_rdwcv_scope;
+		}
+		public String getBloodroutine_rdwsd_unit() {
+			return bloodroutine_rdwsd_unit;
+		}
+		public void setBloodroutine_rdwsd_unit(String bloodroutine_rdwsd_unit) {
+			this.bloodroutine_rdwsd_unit = bloodroutine_rdwsd_unit;
+		}
+		public String getBloodroutine_rdwsd_scope() {
+			return bloodroutine_rdwsd_scope;
+		}
+		public void setBloodroutine_rdwsd_scope(String bloodroutine_rdwsd_scope) {
+			this.bloodroutine_rdwsd_scope = bloodroutine_rdwsd_scope;
+		}
+		public String getBloodroutine_wbc_unit() {
+			return bloodroutine_wbc_unit;
+		}
+		public void setBloodroutine_wbc_unit(String bloodroutine_wbc_unit) {
+			this.bloodroutine_wbc_unit = bloodroutine_wbc_unit;
+		}
+		public String getBloodroutine_wbc_scope() {
+			return bloodroutine_wbc_scope;
+		}
+		public void setBloodroutine_wbc_scope(String bloodroutine_wbc_scope) {
+			this.bloodroutine_wbc_scope = bloodroutine_wbc_scope;
+		}
+		public String getBloodroutine_nuet_scope() {
+			return bloodroutine_nuet_scope;
+		}
+		public void setBloodroutine_nuet_scope(String bloodroutine_nuet_scope) {
+			this.bloodroutine_nuet_scope = bloodroutine_nuet_scope;
+		}
+		public String getBloodroutine_gra_unit() {
+			return bloodroutine_gra_unit;
+		}
+		public void setBloodroutine_gra_unit(String bloodroutine_gra_unit) {
+			this.bloodroutine_gra_unit = bloodroutine_gra_unit;
+		}
+		public String getBloodroutine_gra_scope() {
+			return bloodroutine_gra_scope;
+		}
+		public void setBloodroutine_gra_scope(String bloodroutine_gra_scope) {
+			this.bloodroutine_gra_scope = bloodroutine_gra_scope;
+		}
+		public String getBloodroutine_nlr_unit() {
+			return bloodroutine_nlr_unit;
+		}
+		public void setBloodroutine_nlr_unit(String bloodroutine_nlr_unit) {
+			this.bloodroutine_nlr_unit = bloodroutine_nlr_unit;
+		}
+		public String getBloodroutine_nlr_scope() {
+			return bloodroutine_nlr_scope;
+		}
+		public void setBloodroutine_nlr_scope(String bloodroutine_nlr_scope) {
+			this.bloodroutine_nlr_scope = bloodroutine_nlr_scope;
+		}
+		public String getBloodroutine_lym_unit() {
+			return bloodroutine_lym_unit;
+		}
+		public void setBloodroutine_lym_unit(String bloodroutine_lym_unit) {
+			this.bloodroutine_lym_unit = bloodroutine_lym_unit;
+		}
+		public String getBloodroutine_lym_scope() {
+			return bloodroutine_lym_scope;
+		}
+		public void setBloodroutine_lym_scope(String bloodroutine_lym_scope) {
+			this.bloodroutine_lym_scope = bloodroutine_lym_scope;
+		}
+		public String getBloodroutine_monor_unit() {
+			return bloodroutine_monor_unit;
+		}
+		public void setBloodroutine_monor_unit(String bloodroutine_monor_unit) {
+			this.bloodroutine_monor_unit = bloodroutine_monor_unit;
+		}
+		public String getBloodroutine_monor_scope() {
+			return bloodroutine_monor_scope;
+		}
+		public void setBloodroutine_monor_scope(String bloodroutine_monor_scope) {
+			this.bloodroutine_monor_scope = bloodroutine_monor_scope;
+		}
+		public String getBloodroutine_mono_unit() {
+			return bloodroutine_mono_unit;
+		}
+		public void setBloodroutine_mono_unit(String bloodroutine_mono_unit) {
+			this.bloodroutine_mono_unit = bloodroutine_mono_unit;
+		}
+		public String getBloodroutine_mono_scope() {
+			return bloodroutine_mono_scope;
+		}
+		public void setBloodroutine_mono_scope(String bloodroutine_mono_scope) {
+			this.bloodroutine_mono_scope = bloodroutine_mono_scope;
+		}
+		public String getBloodroutine_eor_unit() {
+			return bloodroutine_eor_unit;
+		}
+		public void setBloodroutine_eor_unit(String bloodroutine_eor_unit) {
+			this.bloodroutine_eor_unit = bloodroutine_eor_unit;
+		}
+		public String getBloodroutine_eor_scope() {
+			return bloodroutine_eor_scope;
+		}
+		public void setBloodroutine_eor_scope(String bloodroutine_eor_scope) {
+			this.bloodroutine_eor_scope = bloodroutine_eor_scope;
+		}
+		public String getBloodroutine_eo_unit() {
+			return bloodroutine_eo_unit;
+		}
+		public void setBloodroutine_eo_unit(String bloodroutine_eo_unit) {
+			this.bloodroutine_eo_unit = bloodroutine_eo_unit;
+		}
+		public String getBloodroutine_eo_scope() {
+			return bloodroutine_eo_scope;
+		}
+		public void setBloodroutine_eo_scope(String bloodroutine_eo_scope) {
+			this.bloodroutine_eo_scope = bloodroutine_eo_scope;
+		}
+		public String getBloodroutine_basor_unit() {
+			return bloodroutine_basor_unit;
+		}
+		public void setBloodroutine_basor_unit(String bloodroutine_basor_unit) {
+			this.bloodroutine_basor_unit = bloodroutine_basor_unit;
+		}
+		public String getBloodroutine_basor_scope() {
+			return bloodroutine_basor_scope;
+		}
+		public void setBloodroutine_basor_scope(String bloodroutine_basor_scope) {
+			this.bloodroutine_basor_scope = bloodroutine_basor_scope;
+		}
+		public String getBloodroutine_baso_unit() {
+			return bloodroutine_baso_unit;
+		}
+		public void setBloodroutine_baso_unit(String bloodroutine_baso_unit) {
+			this.bloodroutine_baso_unit = bloodroutine_baso_unit;
+		}
+		public String getBloodroutine_baso_scope() {
+			return bloodroutine_baso_scope;
+		}
+		public void setBloodroutine_baso_scope(String bloodroutine_baso_scope) {
+			this.bloodroutine_baso_scope = bloodroutine_baso_scope;
+		}
+		public String getBloodroutine_platelet_unit() {
+			return bloodroutine_platelet_unit;
+		}
+		public void setBloodroutine_platelet_unit(String bloodroutine_platelet_unit) {
+			this.bloodroutine_platelet_unit = bloodroutine_platelet_unit;
+		}
+		public String getBloodroutine_platelet_scope() {
+			return bloodroutine_platelet_scope; 
+		}
+		public void setBloodroutine_platelet_scope(String bloodroutine_platelet_scope) {
+			this.bloodroutine_platelet_scope = bloodroutine_platelet_scope;
+		}
+		public String getBloodroutine_mpv_unit() {
+			return bloodroutine_mpv_unit;
+		}
+		public void setBloodroutine_mpv_unit(String bloodroutine_mpv_unit) {
+			this.bloodroutine_mpv_unit = bloodroutine_mpv_unit;
+		}
+		public String getBloodroutine_mpv_scope() {
+			return bloodroutine_mpv_scope;
+		}
+		public void setBloodroutine_mpv_scope(String bloodroutine_mpv_scope) {
+			this.bloodroutine_mpv_scope = bloodroutine_mpv_scope;
+		}
+		public String getBloodroutine_pdw_unit() {
+			return bloodroutine_pdw_unit;
+		}
+		public void setBloodroutine_pdw_unit(String bloodroutine_pdw_unit) {
+			this.bloodroutine_pdw_unit = bloodroutine_pdw_unit;
+		}
+		public String getBloodroutine_pdw_scope() {
+			return bloodroutine_pdw_scope;
+		}
+		public void setBloodroutine_pdw_scope(String bloodroutine_pdw_scope) {
+			this.bloodroutine_pdw_scope = bloodroutine_pdw_scope;
+		}
+		public String getBloodroutine_plcr_unit() {
+			return bloodroutine_plcr_unit;
+		}
+		public void setBloodroutine_plcr_unit(String bloodroutine_plcr_unit) {
+			this.bloodroutine_plcr_unit = bloodroutine_plcr_unit;
+		}
+		public String getBloodroutine_plcr_scope() {
+			return bloodroutine_plcr_scope;
+		}
+		public void setBloodroutine_plcr_scope(String bloodroutine_plcr_scope) {
+			this.bloodroutine_plcr_scope = bloodroutine_plcr_scope;
+		}
+		public String getBloodroutine_nuet_unit() {
+			return bloodroutine_nuet_unit;
+		}
+		public void setBloodroutine_nuet_unit(String bloodroutine_nuet_unit) {
+			this.bloodroutine_nuet_unit = bloodroutine_nuet_unit;
+		}
+		public String getBloodroutine_thrombocytocrit_unit() {
+			return bloodroutine_thrombocytocrit_unit;
+		}
+		public void setBloodroutine_thrombocytocrit_unit(String bloodroutine_thrombocytocrit_unit) {
+			this.bloodroutine_thrombocytocrit_unit = bloodroutine_thrombocytocrit_unit;
+		}
+		public String getBloodroutine_thrombocytocrit_scope() {
+			return bloodroutine_thrombocytocrit_scope;
+		}
+		public void setBloodroutine_thrombocytocrit_scope(String bloodroutine_thrombocytocrit_scope) {
+			this.bloodroutine_thrombocytocrit_scope = bloodroutine_thrombocytocrit_scope;
+		}
 
 
 
@@ -1177,58 +1575,107 @@ public class CiMing {
 	public static class BiochemicalDetection {
 		//   丙氨酸氨基转移酶（ALT）
 		private String  biochemical_alt;
+		private String biochemical_alt_unit;
+		private String biochemical_alt_scope;
 		
 		//天门冬氨酸氨基转移酶（AST） biochemical_ast
 		
 		private String biochemical_ast;
+		private String biochemical_ast_unit;
+		private String biochemical_ast_scope;
 		// γ-谷氨酰转移酶（GGT ) 
 		private String biochemical_ggt;
+		private String biochemical_ggt_unit;
+		private String biochemical_ggt_scope;
 		
 		//碱性磷酸酶(ALP)   biochemical_alp
 		private String  biochemical_alp;
+		private String  biochemical_alp_unit;
+		private String  biochemical_alp_scope;
 		// 乳酸脱氢酶（LDH）  biochemical_ldh
 		
 		private String  biochemical_ldh;
+		private String  biochemical_ldh_unit;
+		private String  biochemical_ldh_scope;
 	    //血清总胆汁酸（TBA） biochemical_tba
 		private String  biochemical_tba;
+		private String  biochemical_tba_unit;
+		private String  biochemical_tba_scope;
 	    //  肌酸激酶（CK）  biochemical_ck
 		private String  biochemical_ck;
+		private String  biochemical_ck_unit;
+		private String  biochemical_ck_scope;
 		//肌酸激酶同工酶（CK-MB） biochemical_ck-mb
 		private String  biochemical_ck_mb;
+		private String  biochemical_ck_mb_unit;
+		private String  biochemical_ck_mb_scope;
 		//α-羟丁酸脱氢酶（α-HBDH）  biochemical_α-hbdh
 		private String  biochemical_α_hbdh;
+		private String  biochemical_α_hbdh_unit;
+		private String  biochemical_α_hbdh_scope;
 		//总蛋白（TP）  biochemical_tp
 		private String  biochemical_tp;
+		private String  biochemical_tp_unit;
+		private String  biochemical_tp_scope;
 		//白蛋白（ALB） biochemical_alb
 		private String  biochemical_alb;
+		private String  biochemical_alb_unit;
+		private String  biochemical_alb_scope;
 		//球蛋白（GLB） biochemical_glb
 		private String  biochemical_glb;	
+		private String  biochemical_glb_unit;
+		private String  biochemical_glb_scope;
 		//白蛋白/球蛋白（A/G）  biochemical_a/g
 		private String   biochemical_ag;
+		private String   biochemical_ag_unit;
+		private String   biochemical_ag_scope;
+		
 		// 总胆红素（T-BIL） biochemical_t-bil
 		private String biochemical_t_bil;
+		private String biochemical_t_bil_unit;
+		private String biochemical_t_bil_scope;
 		//间接胆红素（IBIL）biochemical_ibil
 		private String  biochemical_ibil;
+		private String  biochemical_ibil_unit;
+		private String  biochemical_ibil_scope;
 		// 直接胆红素（DBIL）biochemical_dbil
 		private String  biochemical_dbil;
+		private String biochemical_dbil_unit;
+		private String biochemical_dbil_scope;
 		//
 		
 		//  总胆固醇（TC） 
 		private String  biochemical_tc;
+		private String biochemical_tc_unit;
+		private String biochemical_tc_scope;
 		//  甘油三酯（TG）
 		private String  biochemical_tg;
+		private String biochemical_tg_unit;
+		private String biochemical_tg_scope;
 		// 高密度脂蛋白胆固醇（HDL-CHO） 
 		private String   biochemical_hdl_cho;
+		private String biodchemical_hdl_cho_unit;
+		private String biodchemical_hdl_cho_scope;
 		// 低密度脂蛋白胆固醇（LDL-CHO）
 		private String  biochemical_ldl_cho;
+		private String biochemical_ldl_cho_unit;
+		private String biochemical_ldl_cho_scope;
 		//   尿素（Urea） 
 		private String   biochemical_urea;
+		private String biochemical_urea_unit;
+		private String biochemical_urea_scope;
 		//    肌酐（Cr）
 		private String  biochemical_cr;
+		private String biochemical_cr_unit;
+		private String biochemical_cr_scope;
 		// 尿酸（UA）
 		private String  biochemical_ua;
+		private String biochemical_ua_unit;
+		private String biochemical_ua_scope;
 		// 空腹血糖（FPG） 
 		private String  biochemical_fpg;
+		private String biochemical_fpg_unit;
+		private String  biochemical_fpg_scope;
 		public String getBiochemical_alt() {
 			return biochemical_alt;
 		}
@@ -1373,6 +1820,295 @@ public class CiMing {
 		public void setBiochemical_fpg(String biochemical_fpg) {
 			this.biochemical_fpg = biochemical_fpg;
 		}
+		public String getBiochemical_alt_unit() {
+			return biochemical_alt_unit;
+		}
+		public void setBiochemical_alt_unit(String biochemical_alt_unit) {
+			this.biochemical_alt_unit = biochemical_alt_unit;
+		}
+		public String getBiochemical_alt_scope() {
+			return biochemical_alt_scope;
+		}
+		public void setBiochemical_alt_scope(String biochemical_alt_scope) {
+			this.biochemical_alt_scope = biochemical_alt_scope;
+		}
+		public String getBiochemical_ast_unit() {
+			return biochemical_ast_unit;
+		}
+		public void setBiochemical_ast_unit(String biochemical_ast_unit) {
+			this.biochemical_ast_unit = biochemical_ast_unit;
+		}
+		public String getBiochemical_ast_scope() {
+			return biochemical_ast_scope;
+		}
+		public void setBiochemical_ast_scope(String biochemical_ast_scope) {
+			this.biochemical_ast_scope = biochemical_ast_scope;
+		}
+		public String getBiochemical_ggt_unit() {
+			return biochemical_ggt_unit;
+		}
+		public void setBiochemical_ggt_unit(String biochemical_ggt_unit) {
+			this.biochemical_ggt_unit = biochemical_ggt_unit;
+		}
+		public String getBiochemical_ggt_scope() {
+			return biochemical_ggt_scope;
+		}
+		public void setBiochemical_ggt_scope(String biochemical_ggt_scope) {
+			this.biochemical_ggt_scope = biochemical_ggt_scope;
+		}
+		public String getBiochemical_alp_unit() {
+			return biochemical_alp_unit;
+		}
+		public void setBiochemical_alp_unit(String biochemical_alp_unit) {
+			this.biochemical_alp_unit = biochemical_alp_unit;
+		}
+		public String getBiochemical_alp_scope() {
+			return biochemical_alp_scope;
+		}
+		public void setBiochemical_alp_scope(String biochemical_alp_scope) {
+			this.biochemical_alp_scope = biochemical_alp_scope;
+		}
+		public String getBiochemical_ldh_unit() {
+			return biochemical_ldh_unit;
+		}
+		public void setBiochemical_ldh_unit(String biochemical_ldh_unit) {
+			this.biochemical_ldh_unit = biochemical_ldh_unit;
+		}
+		public String getBiochemical_ldh_scope() {
+			return biochemical_ldh_scope;
+		}
+		public void setBiochemical_ldh_scope(String biochemical_ldh_scope) {
+			this.biochemical_ldh_scope = biochemical_ldh_scope;
+		}
+		public String getBiochemical_tba_unit() {
+			return biochemical_tba_unit;
+		}
+		public void setBiochemical_tba_unit(String biochemical_tba_unit) {
+			this.biochemical_tba_unit = biochemical_tba_unit;
+		}
+		public String getBiochemical_tba_scope() {
+			return biochemical_tba_scope;
+		}
+		public void setBiochemical_tba_scope(String biochemical_tba_scope) {
+			this.biochemical_tba_scope = biochemical_tba_scope;
+		}
+		public String getBiochemical_ck_unit() {
+			return biochemical_ck_unit;
+		}
+		public void setBiochemical_ck_unit(String biochemical_ck_unit) {
+			this.biochemical_ck_unit = biochemical_ck_unit;
+		}
+		public String getBiochemical_ck_scope() {
+			return biochemical_ck_scope;
+		}
+		public void setBiochemical_ck_scope(String biochemical_ck_scope) {
+			this.biochemical_ck_scope = biochemical_ck_scope;
+		}
+		public String getBiochemical_ck_mb_unit() {
+			return biochemical_ck_mb_unit;
+		}
+		public void setBiochemical_ck_mb_unit(String biochemical_ck_mb_unit) {
+			this.biochemical_ck_mb_unit = biochemical_ck_mb_unit;
+		}
+		public String getBiochemical_ck_mb_scope() {
+			return biochemical_ck_mb_scope;
+		}
+		public void setBiochemical_ck_mb_scope(String biochemical_ck_mb_scope) {
+			this.biochemical_ck_mb_scope = biochemical_ck_mb_scope;
+		}
+		public String getBiochemical_α_hbdh_unit() {
+			return biochemical_α_hbdh_unit;
+		}
+		public void setBiochemical_α_hbdh_unit(String biochemical_α_hbdh_unit) {
+			this.biochemical_α_hbdh_unit = biochemical_α_hbdh_unit;
+		}
+		public String getBiochemical_α_hbdh_scope() {
+			return biochemical_α_hbdh_scope;
+		}
+		public void setBiochemical_α_hbdh_scope(String biochemical_α_hbdh_scope) {
+			this.biochemical_α_hbdh_scope = biochemical_α_hbdh_scope;
+		}
+		public String getBiochemical_tp_unit() {
+			return biochemical_tp_unit;
+		}
+		public void setBiochemical_tp_unit(String biochemical_tp_unit) {
+			this.biochemical_tp_unit = biochemical_tp_unit;
+		}
+		public String getBiochemical_tp_scope() {
+			return biochemical_tp_scope;
+		}
+		public void setBiochemical_tp_scope(String biochemical_tp_scope) {
+			this.biochemical_tp_scope = biochemical_tp_scope;
+		}
+		public String getBiochemical_alb_unit() {
+			return biochemical_alb_unit;
+		}
+		public void setBiochemical_alb_unit(String biochemical_alb_unit) {
+			this.biochemical_alb_unit = biochemical_alb_unit;
+		}
+		public String getBiochemical_alb_scope() {
+			return biochemical_alb_scope;
+		}
+		public void setBiochemical_alb_scope(String biochemical_alb_scope) {
+			this.biochemical_alb_scope = biochemical_alb_scope;
+		}
+		public String getBiochemical_glb_unit() {
+			return biochemical_glb_unit;
+		}
+		public void setBiochemical_glb_unit(String biochemical_glb_unit) {
+			this.biochemical_glb_unit = biochemical_glb_unit;
+		}
+		public String getBiochemical_glb_scope() {
+			return biochemical_glb_scope;
+		}
+		public void setBiochemical_glb_scope(String biochemical_glb_scope) {
+			this.biochemical_glb_scope = biochemical_glb_scope;
+		}
+		public String getBiochemical_ag_unit() {
+			return biochemical_ag_unit;
+		}
+		public void setBiochemical_ag_unit(String biochemical_ag_unit) {
+			this.biochemical_ag_unit = biochemical_ag_unit;
+		}
+		public String getBiochemical_ag_scope() {
+			return biochemical_ag_scope;
+		}
+		public void setBiochemical_ag_scope(String biochemical_ag_scope) {
+			this.biochemical_ag_scope = biochemical_ag_scope;
+		}
+		public String getBiochemical_t_bil_unit() {
+			return biochemical_t_bil_unit;
+		}
+		public void setBiochemical_t_bil_unit(String biochemical_t_bil_unit) {
+			this.biochemical_t_bil_unit = biochemical_t_bil_unit;
+		}
+		public String getBiochemical_t_bil_scope() {
+			return biochemical_t_bil_scope;
+		}
+		public void setBiochemical_t_bil_scope(String biochemical_t_bil_scope) {
+			this.biochemical_t_bil_scope = biochemical_t_bil_scope;
+		}
+		public String getBiochemical_ibil_unit() {
+			return biochemical_ibil_unit;
+		}
+		public void setBiochemical_ibil_unit(String biochemical_ibil_unit) {
+			this.biochemical_ibil_unit = biochemical_ibil_unit;
+		}
+		public String getBiochemical_ibil_scope() {
+			return biochemical_ibil_scope;
+		}
+		public void setBiochemical_ibil_scope(String biochemical_ibil_scope) {
+			this.biochemical_ibil_scope = biochemical_ibil_scope;
+		}
+		public String getBiochemical_dbil_unit() {
+			return biochemical_dbil_unit;
+		}
+		public void setBiochemical_dbil_unit(String biochemical_dbil_unit) {
+			this.biochemical_dbil_unit = biochemical_dbil_unit;
+		}
+		public String getBiochemical_dbil_scope() {
+			return biochemical_dbil_scope;
+		}
+		public void setBiochemical_dbil_scope(String biochemical_dbil_scope) {
+			this.biochemical_dbil_scope = biochemical_dbil_scope;
+		}
+		public String getBiochemical_tc_unit() {
+			return biochemical_tc_unit;
+		}
+		public void setBiochemical_tc_unit(String biochemical_tc_unit) {
+			this.biochemical_tc_unit = biochemical_tc_unit;
+		}
+		public String getBiochemical_tc_scope() {
+			return biochemical_tc_scope;
+		}
+		public void setBiochemical_tc_scope(String biochemical_tc_scope) {
+			this.biochemical_tc_scope = biochemical_tc_scope;
+		}
+		public String getBiochemical_tg_unit() {
+			return biochemical_tg_unit;
+		}
+		public void setBiochemical_tg_unit(String biochemical_tg_unit) {
+			this.biochemical_tg_unit = biochemical_tg_unit;
+		}
+		public String getBiochemical_tg_scope() {
+			return biochemical_tg_scope;
+		}
+		public void setBiochemical_tg_scope(String biochemical_tg_scope) {
+			this.biochemical_tg_scope = biochemical_tg_scope;
+		}
+		public String getBiodchemical_hdl_cho_unit() {
+			return biodchemical_hdl_cho_unit;
+		}
+		public void setBiodchemical_hdl_cho_unit(String biodchemical_hdl_cho_unit) {
+			this.biodchemical_hdl_cho_unit = biodchemical_hdl_cho_unit;
+		}
+		public String getBiodchemical_hdl_cho_scope() {
+			return biodchemical_hdl_cho_scope;
+		}
+		public void setBiodchemical_hdl_cho_scope(String biodchemical_hdl_cho_scope) {
+			this.biodchemical_hdl_cho_scope = biodchemical_hdl_cho_scope;
+		}
+		public String getBiochemical_ldl_cho_unit() {
+			return biochemical_ldl_cho_unit;
+		}
+		public void setBiochemical_ldl_cho_unit(String biochemical_ldl_cho_unit) {
+			this.biochemical_ldl_cho_unit = biochemical_ldl_cho_unit;
+		}
+		public String getBiochemical_ldl_cho_scope() {
+			return biochemical_ldl_cho_scope;
+		}
+		public void setBiochemical_ldl_cho_scope(String biochemical_ldl_cho_scope) {
+			this.biochemical_ldl_cho_scope = biochemical_ldl_cho_scope;
+		}
+		public String getBiochemical_urea_unit() {
+			return biochemical_urea_unit;
+		}
+		public void setBiochemical_urea_unit(String biochemical_urea_unit) {
+			this.biochemical_urea_unit = biochemical_urea_unit;
+		}
+		public String getBiochemical_urea_scope() {
+			return biochemical_urea_scope;
+		}
+		public void setBiochemical_urea_scope(String biochemical_urea_scope) {
+			this.biochemical_urea_scope = biochemical_urea_scope;
+		}
+		public String getBiochemical_cr_unit() {
+			return biochemical_cr_unit;
+		}
+		public void setBiochemical_cr_unit(String biochemical_cr_unit) {
+			this.biochemical_cr_unit = biochemical_cr_unit;
+		}
+		public String getBiochemical_cr_scope() {
+			return biochemical_cr_scope;
+		}
+		public void setBiochemical_cr_scope(String biochemical_cr_scope) {
+			this.biochemical_cr_scope = biochemical_cr_scope;
+		}
+
+		public String getBiochemical_ua_scope() {
+			return biochemical_ua_scope;
+		}
+		public void setBiochemical_ua_scope(String biochemical_ua_scope) {
+			this.biochemical_ua_scope = biochemical_ua_scope;
+		}
+		public String getBiochemical_fpg_unit() {
+			return biochemical_fpg_unit;
+		}
+		public void setBiochemical_fpg_unit(String biochemical_fpg_unit) {
+			this.biochemical_fpg_unit = biochemical_fpg_unit;
+		}
+		public String getBiochemical_fpg_scope() {
+			return biochemical_fpg_scope;
+		}
+		public void setBiochemical_fpg_scope(String biochemical_fpg_scope) {
+			this.biochemical_fpg_scope = biochemical_fpg_scope;
+		}
+		public String getBiochemical_ua_unit() {
+			return biochemical_ua_unit;
+		}
+		public void setBiochemical_ua_unit(String biochemical_ua_unit) {
+			this.biochemical_ua_unit = biochemical_ua_unit;
+		}
 		
 		
 
@@ -1386,18 +2122,32 @@ public class CiMing {
 	public static class  Tumor {
 		//甲胎蛋白(AFP)（酶免法）
 		private String  tumor_afp;
+		private String tumor_afp_unit;
+		private String tumor_afp_scope;
 		// 癌胚抗原(CEA)（酶免法）  
 		private String  tumor_cea;
+		private String tumor_cea_unit;
+		private String tumor_cea_scope;
 		//癌抗原19-9（CA19-9）（发光法）
 		private String  tumor_ca19_9;
+		private String tumor_ca19_9_unit;
+		private String tumor_ca19_9_scope;
 		//癌抗原125（CA125）（发光法）
 		private String  tumor_ca125;
+		private String tumor_ca125_unit;
+		private String tumor_ca125_scope;
 		//癌抗原724（CA724）（发光法)
 		private String  tumor_ca724;
+		private String tumor_ca724_unit;
+		private String tumor_ca724_scope;
 		// 肺细胞角蛋白21-1(Cyfra 21-1)（发光法）
 		private String  tumor_tpsa;
+		private String tumor_tpsa_unit;
+		private String tumor_tpsa_scope;
 		// 前列腺特异性抗原（T-PSA）（发光法）
 		private String  tumor_cyfra21_1;
+		private String tumor_cyfra21_1_unit;
+		private String tumor_cyfra21_1_scope;
 		public String getTumor_afp() {
 			return tumor_afp;
 		}
@@ -1440,6 +2190,91 @@ public class CiMing {
 		public void setTumor_cyfra21_1(String tumor_cyfra21_1) {
 			this.tumor_cyfra21_1 = tumor_cyfra21_1;
 		}
+		public String getTumor_afp_unit() {
+			return tumor_afp_unit;
+		}
+		public void setTumor_afp_unit(String tumor_afp_unit) {
+			this.tumor_afp_unit = tumor_afp_unit;
+		}
+		public String getTumor_afp_scope() {
+			return tumor_afp_scope;
+		}
+		public void setTumor_afp_scope(String tumor_afp_scope) {
+			this.tumor_afp_scope = tumor_afp_scope;
+		}
+		public String getTumor_cea_unit() {
+			return tumor_cea_unit;
+		}
+		public void setTumor_cea_unit(String tumor_cea_unit) {
+			this.tumor_cea_unit = tumor_cea_unit;
+		}
+		public String getTumor_cea_scope() {
+			return tumor_cea_scope;
+		}
+		public void setTumor_cea_scope(String tumor_cea_scope) {
+			this.tumor_cea_scope = tumor_cea_scope;
+		}
+		public String getTumor_ca19_9_unit() {
+			return tumor_ca19_9_unit;
+		}
+		public void setTumor_ca19_9_unit(String tumor_ca19_9_unit) {
+			this.tumor_ca19_9_unit = tumor_ca19_9_unit;
+		}
+
+		public String getTumor_ca125_unit() {
+			return tumor_ca125_unit;
+		}
+		public void setTumor_ca125_unit(String tumor_ca125_unit) {
+			this.tumor_ca125_unit = tumor_ca125_unit;
+		}
+		public String getTumor_ca125_scope() {
+			return tumor_ca125_scope;
+		}
+		public void setTumor_ca125_scope(String tumor_ca125_scope) {
+			this.tumor_ca125_scope = tumor_ca125_scope;
+		}
+		public String getTumor_ca724_unit() {
+			return tumor_ca724_unit;
+		}
+		public void setTumor_ca724_unit(String tumor_ca724_unit) {
+			this.tumor_ca724_unit = tumor_ca724_unit;
+		}
+		public String getTumor_ca724_scope() {
+			return tumor_ca724_scope;
+		}
+		public void setTumor_ca724_scope(String tumor_ca724_scope) {
+			this.tumor_ca724_scope = tumor_ca724_scope;
+		}
+		public String getTumor_tpsa_unit() {
+			return tumor_tpsa_unit;
+		}
+		public void setTumor_tpsa_unit(String tumor_tpsa_unit) {
+			this.tumor_tpsa_unit = tumor_tpsa_unit;
+		}
+		public String getTumor_tpsa_scope() {
+			return tumor_tpsa_scope;
+		}
+		public void setTumor_tpsa_scope(String tumor_tpsa_scope) {
+			this.tumor_tpsa_scope = tumor_tpsa_scope;
+		}
+		public String getTumor_cyfra21_1_unit() {
+			return tumor_cyfra21_1_unit;
+		}
+		public void setTumor_cyfra21_1_unit(String tumor_cyfra21_1_unit) {
+			this.tumor_cyfra21_1_unit = tumor_cyfra21_1_unit;
+		}
+		public String getTumor_cyfra21_1_scope() {
+			return tumor_cyfra21_1_scope;
+		}
+		public void setTumor_cyfra21_1_scope(String tumor_cyfra21_1_scope) {
+			this.tumor_cyfra21_1_scope = tumor_cyfra21_1_scope;
+		}
+		public String getTumor_ca19_9_scope() {
+			return tumor_ca19_9_scope;
+		}
+		public void setTumor_ca19_9_scope(String tumor_ca19_9_scope) {
+			this.tumor_ca19_9_scope = tumor_ca19_9_scope;
+		}
 
 
 	}
@@ -1453,24 +2288,44 @@ public class CiMing {
 	public static class  Hemorheology {
 		//全血粘度：低切(10/s) 
 		private String  BloodRheology_viscosityLowCut10_s;
+		private String  BloodRheology_viscosityLowCut10_s_unit;
+		private String  BloodRheology_viscosityLowCut10_s_scope;
 		// 全血粘度：中切(60/s) 
 		private String  BloodRheology_viscosityInCut60_s;
+		private String  BloodRheology_viscosityInCut60_s_unit;
+		private String  BloodRheology_viscosityInCut60_s_scope;
 		// 全血粘度：高切(150/s) 
 		private String  BloodRheology_viscosityHighCut150_s;
+		private String  BloodRheology_viscosityHighCut150_s_unit;
+		private String  BloodRheology_viscosityHighCut150_s_scope;
 		// 血浆粘度
 		private String  BloodRheology_plasmaViscosity;
+		private String  BloodRheology_plasmaViscosity_unit;
+		private String  BloodRheology_plasmaViscosity_scope;
 		//全血还原粘度(低切)10/s 
 		private String  BloodRheology_reductionViscosityLowCut10_s;
+		private String  BloodRheology_reductionViscosityLowCut10_s_unit;
+		private String  BloodRheology_reductionViscosityLowCut10_s_scope;
 		//全血还原粘度(中切)60/s
 		private String BloodRheology_reductionViscosityInLowCut60_s;
+		private String BloodRheology_reductionViscosityInLowCut60_s_unit;
+		private String BloodRheology_reductionViscosityInLowCut60_s_scope;
 		// 全血还原粘度(高切)150/s
 		private String  BloodRheology_reductionViscosityHighCut150_s;
+		private String  BloodRheology_reductionViscosityHighCut150_s_unit;
+		private String  BloodRheology_reductionViscosityHighCut150_s_scope;
 		//红细胞聚集指数 
 		private String BloodRheology_EaIndex;
+		private String BloodRheology_EaIndex_unit;
+		private String BloodRheology_EaIndex_scope;
 		// 红细胞变形指数 
 		private String BloodRheology_EdIndex;
+		private String BloodRheology_EdIndex_unit;
+		private String BloodRheology_EdIndex_scope;
 		//红细胞压积
 		private String  BloodRheology_Hematocrit;
+		private String  BloodRheology_Hematocrit_unit;
+		private String  BloodRheology_Hematocrit_scope;
 		public String getBloodRheology_viscosityLowCut10_s() {
 			return BloodRheology_viscosityLowCut10_s;
 		}
@@ -1531,6 +2386,132 @@ public class CiMing {
 		public void setBloodRheology_Hematocrit(String bloodRheology_Hematocrit) {
 			BloodRheology_Hematocrit = bloodRheology_Hematocrit;
 		}
+		public String getBloodRheology_viscosityLowCut10_s_unit() {
+			return BloodRheology_viscosityLowCut10_s_unit;
+		}
+		public void setBloodRheology_viscosityLowCut10_s_unit(String bloodRheology_viscosityLowCut10_s_unit) {
+			BloodRheology_viscosityLowCut10_s_unit = bloodRheology_viscosityLowCut10_s_unit;
+		}
+		public String getBloodRheology_viscosityLowCut10_s_scope() {
+			return BloodRheology_viscosityLowCut10_s_scope;
+		}
+		public void setBloodRheology_viscosityLowCut10_s_scope(String bloodRheology_viscosityLowCut10_s_scope) {
+			BloodRheology_viscosityLowCut10_s_scope = bloodRheology_viscosityLowCut10_s_scope;
+		}
+		public String getBloodRheology_viscosityInCut60_s_unit() {
+			return BloodRheology_viscosityInCut60_s_unit;
+		}
+		public void setBloodRheology_viscosityInCut60_s_unit(String bloodRheology_viscosityInCut60_s_unit) {
+			BloodRheology_viscosityInCut60_s_unit = bloodRheology_viscosityInCut60_s_unit;
+		}
+		public String getBloodRheology_viscosityInCut60_s_scope() {
+			return BloodRheology_viscosityInCut60_s_scope;
+		}
+		public void setBloodRheology_viscosityInCut60_s_scope(String bloodRheology_viscosityInCut60_s_scope) {
+			BloodRheology_viscosityInCut60_s_scope = bloodRheology_viscosityInCut60_s_scope;
+		}
+		public String getBloodRheology_viscosityHighCut150_s_unit() {
+			return BloodRheology_viscosityHighCut150_s_unit;
+		}
+		public void setBloodRheology_viscosityHighCut150_s_unit(String bloodRheology_viscosityHighCut150_s_unit) {
+			BloodRheology_viscosityHighCut150_s_unit = bloodRheology_viscosityHighCut150_s_unit;
+		}
+		public String getBloodRheology_viscosityHighCut150_s_scope() {
+			return BloodRheology_viscosityHighCut150_s_scope;
+		}
+		public void setBloodRheology_viscosityHighCut150_s_scope(String bloodRheology_viscosityHighCut150_s_scope) {
+			BloodRheology_viscosityHighCut150_s_scope = bloodRheology_viscosityHighCut150_s_scope;
+		}
+		public String getBloodRheology_plasmaViscosity_unit() {
+			return BloodRheology_plasmaViscosity_unit;
+		}
+		public void setBloodRheology_plasmaViscosity_unit(String bloodRheology_plasmaViscosity_unit) {
+			BloodRheology_plasmaViscosity_unit = bloodRheology_plasmaViscosity_unit;
+		}
+		public String getBloodRheology_plasmaViscosity_scope() {
+			return BloodRheology_plasmaViscosity_scope;
+		}
+		public void setBloodRheology_plasmaViscosity_scope(String bloodRheology_plasmaViscosity_scope) {
+			BloodRheology_plasmaViscosity_scope = bloodRheology_plasmaViscosity_scope;
+		}
+		public String getBloodRheology_reductionViscosityLowCut10_s_unit() {
+			return BloodRheology_reductionViscosityLowCut10_s_unit;
+		}
+		public void setBloodRheology_reductionViscosityLowCut10_s_unit(
+				String bloodRheology_reductionViscosityLowCut10_s_unit) {
+			BloodRheology_reductionViscosityLowCut10_s_unit = bloodRheology_reductionViscosityLowCut10_s_unit;
+		}
+		public String getBloodRheology_reductionViscosityLowCut10_s_scope() {
+			return BloodRheology_reductionViscosityLowCut10_s_scope;
+		}
+		public void setBloodRheology_reductionViscosityLowCut10_s_scope(
+				String bloodRheology_reductionViscosityLowCut10_s_scope) {
+			BloodRheology_reductionViscosityLowCut10_s_scope = bloodRheology_reductionViscosityLowCut10_s_scope;
+		}
+		public String getBloodRheology_reductionViscosityInLowCut60_s_unit() {
+			return BloodRheology_reductionViscosityInLowCut60_s_unit;
+		}
+		public void setBloodRheology_reductionViscosityInLowCut60_s_unit(
+				String bloodRheology_reductionViscosityInLowCut60_s_unit) {
+			BloodRheology_reductionViscosityInLowCut60_s_unit = bloodRheology_reductionViscosityInLowCut60_s_unit;
+		}
+		public String getBloodRheology_reductionViscosityInLowCut60_s_scope() {
+			return BloodRheology_reductionViscosityInLowCut60_s_scope;
+		}
+		public void setBloodRheology_reductionViscosityInLowCut60_s_scope(
+				String bloodRheology_reductionViscosityInLowCut60_s_scope) {
+			BloodRheology_reductionViscosityInLowCut60_s_scope = bloodRheology_reductionViscosityInLowCut60_s_scope;
+		}
+		public String getBloodRheology_reductionViscosityHighCut150_s_unit() {
+			return BloodRheology_reductionViscosityHighCut150_s_unit;
+		}
+		public void setBloodRheology_reductionViscosityHighCut150_s_unit(
+				String bloodRheology_reductionViscosityHighCut150_s_unit) {
+			BloodRheology_reductionViscosityHighCut150_s_unit = bloodRheology_reductionViscosityHighCut150_s_unit;
+		}
+		public String getBloodRheology_reductionViscosityHighCut150_s_scope() {
+			return BloodRheology_reductionViscosityHighCut150_s_scope;
+		}
+		public void setBloodRheology_reductionViscosityHighCut150_s_scope(
+				String bloodRheology_reductionViscosityHighCut150_s_scope) {
+			BloodRheology_reductionViscosityHighCut150_s_scope = bloodRheology_reductionViscosityHighCut150_s_scope;
+		}
+		public String getBloodRheology_EaIndex_unit() {
+			return BloodRheology_EaIndex_unit;
+		}
+		public void setBloodRheology_EaIndex_unit(String bloodRheology_EaIndex_unit) {
+			BloodRheology_EaIndex_unit = bloodRheology_EaIndex_unit;
+		}
+		public String getBloodRheology_EaIndex_scope() {
+			return BloodRheology_EaIndex_scope;
+		}
+		public void setBloodRheology_EaIndex_scope(String bloodRheology_EaIndex_scope) {
+			BloodRheology_EaIndex_scope = bloodRheology_EaIndex_scope;
+		}
+		public String getBloodRheology_EdIndex_unit() {
+			return BloodRheology_EdIndex_unit;
+		}
+		public void setBloodRheology_EdIndex_unit(String bloodRheology_EdIndex_unit) {
+			BloodRheology_EdIndex_unit = bloodRheology_EdIndex_unit;
+		}
+		public String getBloodRheology_EdIndex_scope() {
+			return BloodRheology_EdIndex_scope;
+		}
+		public void setBloodRheology_EdIndex_scope(String bloodRheology_EdIndex_scope) {
+			BloodRheology_EdIndex_scope = bloodRheology_EdIndex_scope;
+		}
+		public String getBloodRheology_Hematocrit_unit() {
+			return BloodRheology_Hematocrit_unit;
+		}
+		public void setBloodRheology_Hematocrit_unit(String bloodRheology_Hematocrit_unit) {
+			BloodRheology_Hematocrit_unit = bloodRheology_Hematocrit_unit;
+		}
+		public String getBloodRheology_Hematocrit_scope() {
+			return BloodRheology_Hematocrit_scope;
+		}
+		public void setBloodRheology_Hematocrit_scope(String bloodRheology_Hematocrit_scope) {
+			BloodRheology_Hematocrit_scope = bloodRheology_Hematocrit_scope;
+		}
 
 
 
@@ -1545,24 +2526,44 @@ public class CiMing {
 	public static class  Urinalysis {
 		// 比重（SG）
 		private String urineroutines_sg;
+		private String urineroutines_sg_unit;
+		private String urineroutines_sg_scope;
 		// pH值(pH)  
 		private String  urineroutines_ph;
+		private String urineroutines_ph_unit;
+		private String urineroutines_ph_scope;
 		//白细胞(LEU) 
 		private String  urineroutines_leu;
+		private String urineroutines_leu_unit;
+		private String urineroutines_leu_scope;
 		//隐血(ERY) 
 		private String  urineroutines_ery;
+		private String urineroutines_ery_unit;
+		private String urineroutines_ery_scope;
 		// 亚硝酸盐(NIT)）  
 		private String urineroutines_nit;
+		private String urineroutines_nit_unit;
+		private String urineroutines_nit_scope;
 		//酮体(KET) 
 		private String  urineroutines_ket;
+		private String  urineroutines_ket_unit;
+		private String  urineroutines_ket_scope;
 		//胆红素(BIL)
 		private String  urineroutines_bil;
+		private String  urineroutines_bil_unit;
+		private String  urineroutines_bil_scope;
 		//  尿胆元(UBG)   
 		private String urineroutines_ubg;
+		private String urineroutines_ubg_unit;
+		private String urineroutines_ubg_scope;
 		//蛋白质(PRO)
 		private String  urineroutines_pro;
+		private String  urineroutines_pro_unit;
+		private String  urineroutines_pro_scope;
 		//葡萄糖(GLU)
 		private String  urineroutines_glu;
+		private String urineroutines_glu_unit;
+		private String urineroutines_glu_scope;
 		public String getUrineroutines_sg() {
 			return urineroutines_sg;
 		}
@@ -1623,6 +2624,126 @@ public class CiMing {
 		public void setUrineroutines_glu(String urineroutines_glu) {
 			this.urineroutines_glu = urineroutines_glu;
 		}
+		public String getUrineroutines_sg_unit() {
+			return urineroutines_sg_unit;
+		}
+		public void setUrineroutines_sg_unit(String urineroutines_sg_unit) {
+			this.urineroutines_sg_unit = urineroutines_sg_unit;
+		}
+		public String getUrineroutines_sg_scope() {
+			return urineroutines_sg_scope;
+		}
+		public void setUrineroutines_sg_scope(String urineroutines_sg_scope) {
+			this.urineroutines_sg_scope = urineroutines_sg_scope;
+		}
+		public String getUrineroutines_ph_unit() {
+			return urineroutines_ph_unit;
+		}
+		public void setUrineroutines_ph_unit(String urineroutines_ph_unit) {
+			this.urineroutines_ph_unit = urineroutines_ph_unit;
+		}
+		public String getUrineroutines_ph_scope() {
+			return urineroutines_ph_scope;
+		}
+		public void setUrineroutines_ph_scope(String urineroutines_ph_scope) {
+			this.urineroutines_ph_scope = urineroutines_ph_scope;
+		}
+		public String getUrineroutines_leu_unit() {
+			return urineroutines_leu_unit;
+		}
+		public void setUrineroutines_leu_unit(String urineroutines_leu_unit) {
+			this.urineroutines_leu_unit = urineroutines_leu_unit;
+		}
+		public String getUrineroutines_leu_scope() {
+			return urineroutines_leu_scope;
+		}
+		public void setUrineroutines_leu_scope(String urineroutines_leu_scope) {
+			this.urineroutines_leu_scope = urineroutines_leu_scope;
+		}
+		public String getUrineroutines_ery_unit() {
+			return urineroutines_ery_unit;
+		}
+		public void setUrineroutines_ery_unit(String urineroutines_ery_unit) {
+			this.urineroutines_ery_unit = urineroutines_ery_unit;
+		}
+		public String getUrineroutines_ery_scope() {
+			return urineroutines_ery_scope;
+		}
+		public void setUrineroutines_ery_scope(String urineroutines_ery_scope) {
+			this.urineroutines_ery_scope = urineroutines_ery_scope;
+		}
+		public String getUrineroutines_nit_unit() {
+			return urineroutines_nit_unit;
+		}
+		public void setUrineroutines_nit_unit(String urineroutines_nit_unit) {
+			this.urineroutines_nit_unit = urineroutines_nit_unit;
+		}
+		public String getUrineroutines_nit_scope() {
+			return urineroutines_nit_scope;
+		}
+		public void setUrineroutines_nit_scope(String urineroutines_nit_scope) {
+			this.urineroutines_nit_scope = urineroutines_nit_scope;
+		}
+		public String getUrineroutines_ket_unit() {
+			return urineroutines_ket_unit;
+		}
+		public void setUrineroutines_ket_unit(String urineroutines_ket_unit) {
+			this.urineroutines_ket_unit = urineroutines_ket_unit;
+		}
+		public String getUrineroutines_ket_scope() {
+			return urineroutines_ket_scope;
+		}
+		public void setUrineroutines_ket_scope(String urineroutines_ket_scope) {
+			this.urineroutines_ket_scope = urineroutines_ket_scope;
+		}
+		public String getUrineroutines_bil_unit() {
+			return urineroutines_bil_unit;
+		}
+		public void setUrineroutines_bil_unit(String urineroutines_bil_unit) {
+			this.urineroutines_bil_unit = urineroutines_bil_unit;
+		}
+		public String getUrineroutines_bil_scope() {
+			return urineroutines_bil_scope;
+		}
+		public void setUrineroutines_bil_scope(String urineroutines_bil_scope) {
+			this.urineroutines_bil_scope = urineroutines_bil_scope;
+		}
+		public String getUrineroutines_ubg_unit() {
+			return urineroutines_ubg_unit;
+		}
+		public void setUrineroutines_ubg_unit(String urineroutines_ubg_unit) {
+			this.urineroutines_ubg_unit = urineroutines_ubg_unit;
+		}
+		public String getUrineroutines_ubg_scope() {
+			return urineroutines_ubg_scope;
+		}
+		public void setUrineroutines_ubg_scope(String urineroutines_ubg_scope) {
+			this.urineroutines_ubg_scope = urineroutines_ubg_scope;
+		}
+		public String getUrineroutines_pro_unit() {
+			return urineroutines_pro_unit;
+		}
+		public void setUrineroutines_pro_unit(String urineroutines_pro_unit) {
+			this.urineroutines_pro_unit = urineroutines_pro_unit;
+		}
+		public String getUrineroutines_pro_scope() {
+			return urineroutines_pro_scope;
+		}
+		public void setUrineroutines_pro_scope(String urineroutines_pro_scope) {
+			this.urineroutines_pro_scope = urineroutines_pro_scope;
+		}
+		public String getUrineroutines_glu_unit() {
+			return urineroutines_glu_unit;
+		}
+		public void setUrineroutines_glu_unit(String urineroutines_glu_unit) {
+			this.urineroutines_glu_unit = urineroutines_glu_unit;
+		}
+		public String getUrineroutines_glu_scope() {
+			return urineroutines_glu_scope;
+		}
+		public void setUrineroutines_glu_scope(String urineroutines_glu_scope) {
+			this.urineroutines_glu_scope = urineroutines_glu_scope;
+		}
 
 
 	}
@@ -1636,22 +2757,40 @@ public class CiMing {
 	public static class  GeneralInspection {
 		//身高
 		private String generl_height;
+		private String generl_height_unit;
+		private String generl_height_scope;	
 		// 体重 
 		private String  generl_weight;
+		private String  generl_weight_unit;
+		private String  generl_weight_scope;
 		//体重指数 
 		private String  generl_bmi;
+		private String  generl_bmi_unit;
+		private String  generl_bmi_scope;
 		//体检血压(收缩压)
 		private String   generl_systolic;
+		private String   generl_systolic_unit;
+		private String   generl_systolic_scope;
 		//体检血压(舒张压)  
 		private String  generl_diastolic;
+		private String  generl_diastolic_unit;
+		private String  generl_diastolic_scope;
 		// 复测血压(收缩压) 
 		private String  generl_systolic1;
+		private String  generl_systolic1_unit;
+		private String  generl_systolic1_scope;
 		//复测血压(舒张压) 
 		private String  generl_diastolic1;
+		private String  generl_diastolic1_unit;
+		private String  generl_diastolic1_scope;
 		//  复测血压2(收缩压)  
 		private String  generl_systolic2;
+		private String  generl_systolic2_unit;
+		private String  generl_systolic2_scope;
 		//  复测血压2(舒张压)
 		private String   generl_diastolic2;
+		private String   generl_diastolic2_unit;
+		private String   generl_diastolic2_scope;
 		public String getGenerl_height() {
 			return generl_height;
 		}
@@ -1705,6 +2844,114 @@ public class CiMing {
 		}
 		public void setGenerl_diastolic2(String generl_diastolic2) {
 			this.generl_diastolic2 = generl_diastolic2;
+		}
+		public String getGenerl_height_unit() {
+			return generl_height_unit;
+		}
+		public void setGenerl_height_unit(String generl_height_unit) {
+			this.generl_height_unit = generl_height_unit;
+		}
+		public String getGenerl_height_scope() {
+			return generl_height_scope;
+		}
+		public void setGenerl_height_scope(String generl_height_scope) {
+			this.generl_height_scope = generl_height_scope;
+		}
+		public String getGenerl_weight_unit() {
+			return generl_weight_unit;
+		}
+		public void setGenerl_weight_unit(String generl_weight_unit) {
+			this.generl_weight_unit = generl_weight_unit;
+		}
+		public String getGenerl_weight_scope() {
+			return generl_weight_scope;
+		}
+		public void setGenerl_weight_scope(String generl_weight_scope) {
+			this.generl_weight_scope = generl_weight_scope;
+		}
+		public String getGenerl_bmi_unit() {
+			return generl_bmi_unit;
+		}
+		public void setGenerl_bmi_unit(String generl_bmi_unit) {
+			this.generl_bmi_unit = generl_bmi_unit;
+		}
+		public String getGenerl_bmi_scope() {
+			return generl_bmi_scope;
+		}
+		public void setGenerl_bmi_scope(String generl_bmi_scope) {
+			this.generl_bmi_scope = generl_bmi_scope;
+		}
+		public String getGenerl_systolic_unit() {
+			return generl_systolic_unit;
+		}
+		public void setGenerl_systolic_unit(String generl_systolic_unit) {
+			this.generl_systolic_unit = generl_systolic_unit;
+		}
+		public String getGenerl_systolic_scope() {
+			return generl_systolic_scope;
+		}
+		public void setGenerl_systolic_scope(String generl_systolic_scope) {
+			this.generl_systolic_scope = generl_systolic_scope;
+		}
+		public String getGenerl_diastolic_unit() {
+			return generl_diastolic_unit;
+		}
+		public void setGenerl_diastolic_unit(String generl_diastolic_unit) {
+			this.generl_diastolic_unit = generl_diastolic_unit;
+		}
+		public String getGenerl_diastolic_scope() {
+			return generl_diastolic_scope;
+		}
+		public void setGenerl_diastolic_scope(String generl_diastolic_scope) {
+			this.generl_diastolic_scope = generl_diastolic_scope;
+		}
+		public String getGenerl_systolic1_unit() {
+			return generl_systolic1_unit;
+		}
+		public void setGenerl_systolic1_unit(String generl_systolic1_unit) {
+			this.generl_systolic1_unit = generl_systolic1_unit;
+		}
+		public String getGenerl_systolic1_scope() {
+			return generl_systolic1_scope;
+		}
+		public void setGenerl_systolic1_scope(String generl_systolic1_scope) {
+			this.generl_systolic1_scope = generl_systolic1_scope;
+		}
+		public String getGenerl_diastolic1_unit() {
+			return generl_diastolic1_unit;
+		}
+		public void setGenerl_diastolic1_unit(String generl_diastolic1_unit) {
+			this.generl_diastolic1_unit = generl_diastolic1_unit;
+		}
+		public String getGenerl_diastolic1_scope() {
+			return generl_diastolic1_scope;
+		}
+		public void setGenerl_diastolic1_scope(String generl_diastolic1_scope) {
+			this.generl_diastolic1_scope = generl_diastolic1_scope;
+		}
+		public String getGenerl_systolic2_scope() {
+			return generl_systolic2_scope;
+		}
+		public void setGenerl_systolic2_scope(String generl_systolic2_scope) {
+			this.generl_systolic2_scope = generl_systolic2_scope;
+		}
+		public String getGenerl_diastolic2_unit() {
+			return generl_diastolic2_unit;
+		}
+		public void setGenerl_diastolic2_unit(String generl_diastolic2_unit) {
+			this.generl_diastolic2_unit = generl_diastolic2_unit;
+		}
+		public String getGenerl_diastolic2_scope() {
+			return generl_diastolic2_scope;
+		}
+		public void setGenerl_diastolic2_scope(String generl_diastolic2_scope) {
+			this.generl_diastolic2_scope = generl_diastolic2_scope;
+		}
+		public String getGenerl_systolic2_unit() {
+			return generl_systolic2_unit;
+		}
+		public void setGenerl_systolic2_unit(String generl_systolic2_unit) {
+			this.generl_systolic2_unit = generl_systolic2_unit;
 		}
 
 

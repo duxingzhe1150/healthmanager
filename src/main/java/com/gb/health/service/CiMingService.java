@@ -1,7 +1,6 @@
 package com.gb.health.service;
 
 import com.gb.health.dao.TbHealthExaminationMapper;
-import com.gb.health.domain.CiMing;
 import com.gb.health.domain.TbHealthExamination;
 import com.gb.health.init.Const;
 import com.gb.health.rqf.CimingServiceR;

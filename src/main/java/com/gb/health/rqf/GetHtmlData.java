@@ -1,18 +1,50 @@
 package com.gb.health.rqf;
 
 
-import com.gb.health.domain.CiMing;
-import com.gb.health.init.CiMingHtml;
-import com.gb.health.init.CiMingHtml.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+
+import com.gb.health.domain.CiMing;
+
+import com.gb.health.init.CiMingHtml;
+import com.gb.health.init.CiMingHtml.Atherosclerosis;
+import com.gb.health.init.CiMingHtml.Baseinfo;
+import com.gb.health.init.CiMingHtml.BiochemicalDetection;
+import com.gb.health.init.CiMingHtml.CBC;
+import com.gb.health.init.CiMingHtml.Carotid;
+import com.gb.health.init.CiMingHtml.ChestRadiography;
+import com.gb.health.init.CiMingHtml.ENT;
+import com.gb.health.init.CiMingHtml.Ecg;
+import com.gb.health.init.CiMingHtml.Eye;
+
+import com.gb.health.init.CiMingHtml.Gynecology;
+import com.gb.health.init.CiMingHtml.Hemorheology;
+import com.gb.health.init.CiMingHtml.Medical;
+import com.gb.health.init.CiMingHtml.PelvicUltrasound;
+import com.gb.health.init.CiMingHtml.Stomatology;
+import com.gb.health.init.CiMingHtml.SubTest;
+import com.gb.health.init.CiMingHtml.Surgery;
+import com.gb.health.init.CiMingHtml.TAUS;
+import com.gb.health.init.CiMingHtml.TCD;
+import com.gb.health.init.CiMingHtml.TCT;
+import com.gb.health.init.CiMingHtml.Thyroid;
+import com.gb.health.init.CiMingHtml.ThyroidFunction;
+import com.gb.health.init.CiMingHtml.Tumor;
+import com.gb.health.init.CiMingHtml.UCG;
+import com.gb.health.init.CiMingHtml.Ultrasonography;
+
+import com.gb.health.service.BaseService;
+import com.gb.health.service.CiMingService;
+
+import redis.clients.jedis.Jedis;
 
 
 
@@ -20,8 +52,9 @@ public class GetHtmlData {
 	public static String key_Personid;
 	static	CiMing.Baseinfo ge=new CiMing. Baseinfo();
 	public static void main(String[] args) {
-//		GetHtmlData getHtmlData= new GetHtmlData();
-//		getHtmlData.getCiMingHtmlData("");
+		GetHtmlData getHtmlData= new GetHtmlData();
+		File in = new File("E:/康雪体检报告.html");
+		getHtmlData.getCiMingHtmlData(in);
 
 //				BaseService baseService=new CiMingService();
 //		
@@ -74,7 +107,7 @@ public class GetHtmlData {
 		}
 
 		//汇总分析
-		//totalAnalarsi(htmlmap, doc);
+		totalAnalarsi(htmlmap, doc);
 
 		//获取所有table中的值
 		Elements tables =doc.getElementsByTag("table");
@@ -100,7 +133,7 @@ public class GetHtmlData {
 			
 			String type=tds1.text().replaceAll("  ", "");
 			System.out.println(type+"ww");
-			if(type.equals("一般检查")){
+			if(type.equals("一般检查")){   //修
 				Elements yb_tds=tables.get(i).getElementsByTag("tr");
 				ciMing.generalInspection = generalExamine(htmlmap, yb_tds);
 			}
@@ -153,20 +186,20 @@ public class GetHtmlData {
 				Elements ya_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.subTest= SubTestsubExamine(htmlmap, ya_trs);
 			}
-			else if(type.equals("血常规")){
+			else if(type.equals("血常规")){//修
 				Elements xue_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.cbc=cBC_Examine( htmlmap, xue_trs);
 			}
-			else if(type.equals("生化检验")){
+			else if(type.equals("生化检验")){//修
 				Elements sh_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.biochemicalDetection=biochemicalDetectionExamine(htmlmap, sh_trs);
 			}
 
-			else if(type.equals("肿瘤检测")){
+			else if(type.equals("肿瘤检测")){//修
 				Elements zl_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.tumor=tumorExamine(htmlmap, zl_trs);
 			}
-			else if(type.equals("尿常规")){
+			else if(type.equals("尿常规")){//修
 				Elements nc_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.urinalysis=urinalysisExamine(htmlmap, nc_trs);
 			}
@@ -200,11 +233,11 @@ public class GetHtmlData {
 				Elements nc_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.ultrasonography=ultrasonographyExamine(htmlmap, nc_trs);
 
-			}else if(type.equals("甲状腺功能检测")){
+			}else if(type.equals("甲状腺功能检测")){ //修
 				Elements nc_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.thyroidFunction=thyroidFunctionExamine(htmlmap, nc_trs);
 
-			}else if(type.equals("血流变")){
+			}else if(type.equals("血流变")){ //修
 				Elements nc_trs=tables.get(i).getElementsByTag("tr");
 				ciMing.hemorheology=hemorheologyExamine(htmlmap, nc_trs);
 
@@ -231,16 +264,39 @@ public class GetHtmlData {
 	public static void totalAnalarsi(Map<String, String> htmlmap, Document doc) {
 		try {
 			String totalResult="";
+			
 			Element zonghui=doc.getElementsByAttributeValue("class", "div647").get(0);	
 			for (int i = 1; i < zonghui.select("tr").size()-1; i++) {
-				totalResult+=zonghui.select("tr").get(i).getElementsByTag("td").get(0).text()+"$$";
-			}
+				//totalResult+=zonghui.select("tr").get(i).getElementsByTag("td").get(0).text()+"$$";
+//				if(zonghui.select("tr").get(i).getElementsByTag("td").get(0).text().split("：")[0].contains("科提示")){
+				try {
+					String title1=zonghui.select("tr").get(i).getElementsByTag("td").get(0).text().split("提示：", 0)[0];
+					boolean title2=title1.substring(0, 1).matches("[0-9]+");
+					if(title2){
+						String title=title1+"提示";
+						System.out.println("title:"+title);
+					}
+					
+					
+					String concent=zonghui.select("tr").get(i).getElementsByTag("td").get(0).text().split("提示：", 2)[1];
+					if(concent!=null&&!concent.equals("")){
+						System.out.println("concent:"+concent);
+					}
+					
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					//System.out.println("------------------------------ ");
+				}	
+				}
+			
+			
+			System.out.println(totalResult);
 			htmlmap.put(CiMingHtml.GLOBAL_ANALYSIS, totalResult);
 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
 	}
 	/**
 	 * 获取基本信息中的姓名表
@@ -386,54 +442,91 @@ public class GetHtmlData {
 				if (yb_type.equals("身高")) {
 
 					String height=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_height(height);
+					ge.setGenerl_height_unit(unit);
+					ge.setGenerl_height_scope(scope);
 					//htmlmap.put(GeneralInspection.GEN_HEIGHT, height);
 					System.out.println(height);
 				}else if(yb_type.equals("体重")){
 					String weight=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
+					ge.setGenerl_weight_unit(unit);
+					ge.setGenerl_weight_scope(scope);
 					ge.setGenerl_weight(weight);
 					//htmlmap.put(GeneralInspection.GEN_WEIGHT, weight);
 					System.out.println(weight);
 
 				}else if(yb_type.equals("体重指数")){
 					String bmi=y_tds.get(1).text();
+					String unit=y_tds.get(3).text().replaceAll("�O", "㎡");
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_bmi(bmi);
+					ge.setGenerl_bmi_unit(unit);
+					ge.setGenerl_bmi_scope(scope);
 					//htmlmap.put(GeneralInspection.GEN_BMI, bmi);
 
 
 				}else if(yb_type.equals("体检血压(收缩压)")){
 					String shousuo=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_systolic(shousuo);
+					ge.setGenerl_systolic_unit(unit);
+					ge.setGenerl_systolic_scope(scope);
 					//htmlmap.put(GeneralInspection.GEN_SBP, shousuo);
 					System.out.println(shousuo);
 
 				}else if(yb_type.equals("复测血压(收缩压)")){
 					String shousuo1=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_systolic1(shousuo1);
+					ge.setGenerl_systolic1_unit(unit);
+					ge.setGenerl_systolic1_scope(scope);
 					//htmlmap.put(GeneralInspection.GEN_RE_SBP1, shousuo1);
 					System.out.println(shousuo1);
 
 				}else if(yb_type.equals("复测血压2(收缩压)")){
 					String shousuo2=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_systolic2(shousuo2);
+					ge.setGenerl_systolic2_unit(unit);
+					ge.setGenerl_systolic2_scope(scope);
 					//htmlmap.put(GeneralInspection.GEN_RE_SBP2, shousuo2);
 					System.out.println(shousuo2);
 
 				}else if(yb_type.equals("体检血压(舒张压)")){
 					String shuzhang=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_diastolic(shuzhang);
+					ge.setGenerl_diastolic_unit(unit);
+					ge.setGenerl_diastolic_scope(scope);
+					
 					//htmlmap.put(GeneralInspection.GEN_DBP, shuzhang);
 					System.out.println(shuzhang);
 
 				}else if(yb_type.equals("复测血压(舒张压)")){
 					String shuzhang1=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_diastolic1(shuzhang1);
+					ge.setGenerl_diastolic1_unit(unit);
+					ge.setGenerl_diastolic1_scope(scope);
 					//htmlmap.put(GeneralInspection.GEN_RE_DBP1, shuzhang1);
 					System.out.println(shuzhang1);
 
 				}else if(yb_type.equals("复测血压2(舒张压)")){
 					String shuzhang2=y_tds.get(1).text();
+					String unit=y_tds.get(3).text();
+					String scope=y_tds.get(4).text().replaceAll("�D", "-");
 					ge.setGenerl_diastolic2(shuzhang2);
+					ge.setGenerl_diastolic2_unit(unit);
+					ge.setGenerl_diastolic2_scope(scope);
 					//htmlmap.put(GeneralInspection.GEN_RE_DBP2, shuzhang2);
 					System.out.println(shuzhang2);
 
@@ -463,61 +556,102 @@ public class GetHtmlData {
 			String nc_type=nc_tds.get(0).text().replaceAll("  ", "");
 			if (nc_type.equals("比重（SG）")) {
 				String SG=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				ur.setUrineroutines_sg(SG);
+				ur.setUrineroutines_sg_unit(unit);
+				ur.setUrineroutines_sg_scope(scope);
 				//	htmlmap.put(Urinalysis.URI_SG, SG);
 				System.out.println(SG);
 
 			}else if (nc_type.equals("pH值(pH)")){
 				String pH=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				ur.setUrineroutines_ph(pH);
+				ur.setUrineroutines_ph_unit(unit);
+				ur.setUrineroutines_ph_scope(scope);
 				//	htmlmap.put(Urinalysis.URI_PH, pH);
 				System.out.println(pH);
 
 			}else if (nc_type.equals("白细胞(LEU)")){
 				String LEU=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				ur.setUrineroutines_leu(LEU);
+				ur.setUrineroutines_leu_unit(unit);
+				ur.setUrineroutines_leu_scope(scope);
 				//	htmlmap.put(Urinalysis.URI_LEU, LEU);
 				System.out.println(LEU);
 
 			}else if (nc_type.equals("隐血(ERY)")){
 				String ERY=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				ur.setUrineroutines_ery(ERY);
+				ur.setUrineroutines_ery_unit(unit);
+				ur.setUrineroutines_ery(scope);
 				//	htmlmap.put(Urinalysis.URI_ERY, ERY);
 				System.out.println(ERY);
 
 			}else if (nc_type.equals("亚硝酸盐(NIT)")){
 				String NIT=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				ur.setUrineroutines_nit(NIT);
+				ur.setUrineroutines_nit_unit(unit);
+				ur.setUrineroutines_nit_scope(scope);
 				//	htmlmap.put(Urinalysis.URI_NIT, NIT);
 				System.out.println(NIT);
 
 			}else if (nc_type.equals("酮体(KET)")){
 				String KET=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				//	htmlmap.put(Urinalysis.URI_KET, KET);
 				ur.setUrineroutines_ket(KET);
+				ur.setUrineroutines_ket_unit(unit);
+				ur.setUrineroutines_ket_scope(scope);
 				System.out.println(KET);
 
 			}else if (nc_type.equals("胆红素(BIL)")){
 				String BIL=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				//	htmlmap.put(Urinalysis.URI_BIL, BIL);
 				ur.setUrineroutines_bil(BIL);
+				ur.setUrineroutines_bil_unit(BIL);
+				ur.setUrineroutines_bil_scope(scope);
 				System.out.println(BIL);
 
 			}else if (nc_type.equals("尿胆元(UBG)")){
 				String UBG=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				//	htmlmap.put(Urinalysis.URI_UBG, UBG);
+				ur.setUrineroutines_ubg(UBG);
+				ur.setUrineroutines_ubg_unit(unit);
+				ur.setUrineroutines_ubg_scope(scope);
 				System.out.println(UBG);
 
 			}else if (nc_type.equals("蛋白质(PRO)")){
 				String PRO=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				ur.setUrineroutines_pro(PRO);
+				ur.setUrineroutines_pro_unit(unit);
+				ur.setUrineroutines_pro_scope(scope);
 				//	htmlmap.put(Urinalysis.URI_PRO, PRO);
 				System.out.println(PRO);
 
 			}else if (nc_type.equals("葡萄糖(GLU)")){
 
 				String GLU=nc_tds.get(1).text();
+				String unit=nc_tds.get(3).text();
+				String scope=nc_tds.get(4).text().replaceAll("�D", "-");
 				ur.setUrineroutines_glu(GLU);
+				ur.setUrineroutines_glu_unit(unit);
+				ur.setUrineroutines_glu_scope(scope);
 				//	htmlmap.put(Urinalysis.URI_GLU, GLU);
 				System.out.println(GLU);
 
@@ -542,44 +676,71 @@ public class GetHtmlData {
 				String zl_type=zl_tds.get(0).text().replaceAll("  ", "");
 				if (zl_type.equals("甲胎蛋白(AFP)（酶免法）")) {
 					String AFP=zl_tds.get(1).text();
+					String unit=zl_tds.get(3).text();
+					String scope=zl_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Tumor.TUMOR_AFP, AFP);
 					tu.setTumor_afp(AFP);
+					tu.setTumor_afp_unit(unit);
+					tu.setTumor_afp_scope(scope);
 					System.out.println(AFP);
-
 				}else if(zl_type.equals("癌胚抗原(CEA)（酶免法）")){
 					String CEA=zl_tds.get(1).text();
+					String unit=zl_tds.get(3).text();
+					String scope=zl_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Tumor.TUMOR_CEA, CEA);
 					tu.setTumor_cea(CEA);
+					tu.setTumor_cea_unit(unit);
+					tu.setTumor_cea_scope(scope);
 					System.out.println(CEA);
 
 				}else if(zl_type.equals("前列腺特异性抗原（T-PSA）（发光法）")){
 					String T_PSA=zl_tds.get(1).text();
+					String unit=zl_tds.get(3).text();
+					String scope=zl_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Tumor.TUMOR_T_PSA, T_PSA);
 					tu.setTumor_tpsa(T_PSA);
+					tu.setTumor_tpsa_unit(unit);
+					tu.setTumor_tpsa_scope(scope);
 					System.out.println(T_PSA);
 
 				}else if(zl_type.equals("癌抗原19-9（CA19-9）（发光法）")){
 					String T_ca19=zl_tds.get(1).text();
+					String unit=zl_tds.get(3).text();
+					String scope=zl_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Tumor.TUMOR_CA19_9, T_ca19);
 					tu.setTumor_ca19_9(T_ca19);
+					tu.setTumor_ca19_9_unit(unit);
+					tu.setTumor_ca19_9_scope(scope);
 					System.out.println(T_ca19);
 
 				}else if(zl_type.equals("癌抗原125（CA125）（发光法）")){
 					String T_ca125=zl_tds.get(1).text();
+					String unit=zl_tds.get(3).text();
+					String scope=zl_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Tumor.TUMOR_CA125, T_ca125);
 					tu.setTumor_ca125(T_ca125);
+					tu.setTumor_ca125_unit(unit);
+					tu.setTumor_ca125_scope(scope);
 					System.out.println(T_ca125);
 
 				}else if(zl_type.equals("癌抗原724（CA724）（发光法）")){
 					String T_ca724=zl_tds.get(1).text();
+					String unit=zl_tds.get(3).text();
+					String scope=zl_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Tumor.TUMOR_CA724, T_ca724);
 					tu.setTumor_ca724(T_ca724);
+					tu.setTumor_ca724_unit(unit);
+					tu.setTumor_ca724_scope(scope);
 					System.out.println(T_ca724);
 
 				}else if(zl_type.equals("肺细胞角蛋白21-1(Cyfra 21-1)（发光法）")){
 					String Cyfra21=zl_tds.get(1).text();
+					String unit=zl_tds.get(3).text();
+					String scope=zl_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Tumor.TUMOR_CYFRA21_1, Cyfra21);
 					tu.setTumor_cyfra21_1(Cyfra21);
+					tu.setTumor_cyfra21_1_unit(unit);
+					tu.setTumor_cyfra21_1_scope(scope);
 					System.out.println(Cyfra21);
 
 				}
@@ -606,142 +767,234 @@ public class GetHtmlData {
 				String sh_type=sh_tds.get(0).text().replaceAll("  ", "");
 				if (sh_type.equals("丙氨酸氨基转移酶（ALT）")) {
 					String ALT=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_ALT, ALT);
 					bi.setBiochemical_alt(ALT);
+					bi.setBiochemical_alt_unit(unit);
+					bi.setBiochemical_alt_scope(scope);
 					System.out.println(ALT);
 
 				}
 				else if(sh_type.equals("天门冬氨酸氨基转移酶（AST）")){
 					String AST=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.AST, AST);
 					bi.setBiochemical_ast(AST);
+					bi.setBiochemical_ast_unit(unit);
+					bi.setBiochemical_ast_scope(scope);
 					System.out.println(AST);
 
 				}else if(sh_type.equals("γ-谷氨酰转移酶（GGT）")){
 					String GGT=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_GGT, GGT);
 					bi.setBiochemical_ggt(GGT);
+					bi.setBiochemical_ggt_unit(unit);
+					bi.setBiochemical_ggt_scope(scope);
 					System.out.println(GGT);
 
 				}else if(sh_type.equals("碱性磷酸酶(ALP)")){
 					String ALP=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.ALP, ALP);
 					bi.setBiochemical_alp(ALP);
+					bi.setBiochemical_alp_unit(unit);
+					bi.setBiochemical_alp_scope(scope);
 					System.out.println(ALP);
 
 				}else if(sh_type.equals("乳酸脱氢酶（LDH）")){
 					String LDH=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.LDH, LDH);
 					bi.setBiochemical_ldh(LDH);
+					bi.setBiochemical_ldh_unit(unit);
+					bi.setBiochemical_ldh_scope(scope);
 					System.out.println(LDH);
 
 				}else if(sh_type.equals("血清总胆汁酸（TBA）")){
 					String TBA=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.TBA, TBA);
 					bi.setBiochemical_tba(TBA);
+					bi.setBiochemical_tba_unit(unit);
+					bi.setBiochemical_tba_scope(scope);
 					System.out.println(TBA);
 
 				}else if(sh_type.equals("肌酸激酶（CK）")){
 					String CK=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.CK, CK);
 					bi.setBiochemical_ck(CK);
+					bi.setBiochemical_ck_unit(unit);
+					bi.setBiochemical_ck_scope(scope);
 					System.out.println(CK);
 
 				}else if(sh_type.equals("肌酸激酶同工酶（CK-MB）")){
 					String CK_MB=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.CK_MB, CK_MB);
 					bi.setBiochemical_ck_mb(CK_MB);
+					bi.setBiochemical_ck_mb_unit(unit);
+					bi.setBiochemical_ck_mb_scope(scope);
 					System.out.println(CK_MB);
 
 				}else if(sh_type.equals("α-羟丁酸脱氢酶（α-HBDH）")){
 					String α_HBDH=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.α_HBDH, α_HBDH);
 					bi.setBiochemical_α_hbdh(α_HBDH);
+					bi.setBiochemical_α_hbdh_unit(unit);
+					bi.setBiochemical_α_hbdh_scope(scope);
 					System.out.println(α_HBDH);
 
 				}else if(sh_type.equals("总蛋白（TP）")){
 					String TP=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.TP, TP);
 					bi.setBiochemical_tp(TP);
+					bi.setBiochemical_tp_unit(unit);
+					bi.setBiochemical_tp_scope(scope);	
 					System.out.println(TP);
 
 				}else if(sh_type.equals("白蛋白（ALB）")){
 					String ALB=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.ALB, ALB);
 					bi.setBiochemical_alb(ALB);
+					bi.setBiochemical_alb_unit(unit);
+					bi.setBiochemical_alb_scope(scope);
 					System.out.println(ALB);
 
 				}else if(sh_type.equals("白蛋白/球蛋白（A/G） ")){
 					String A_G=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.A_G, A_G);
 					bi.setBiochemical_ag(A_G);
+					bi.setBiochemical_ag_unit(unit);
+					bi.setBiochemical_ag_scope(scope);
 					System.out.println(A_G);
 
 				}else if(sh_type.equals("总胆红素（T-BIL） ")){
 					String T_BIL=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.T_BIL, T_BIL);
 					bi.setBiochemical_t_bil(T_BIL);
+					bi.setBiochemical_t_bil_unit(unit);
+					bi.setBiochemical_t_bil_scope(scope);
 					System.out.println(T_BIL);
 
 				}else if(sh_type.equals("间接胆红素（IBIL） ")){
 					String IBIL=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.IBIL, IBIL);
 					bi.setBiochemical_ibil(IBIL);
+					bi.setBiochemical_ibil_unit(unit);
+					bi.setBiochemical_ibil_scope(scope);
 					System.out.println(IBIL);
 
 				}else if(sh_type.equals("直接胆红素（DBIL） ")){
 					String DBIL=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.DBIL, DBIL);
 					bi.setBiochemical_dbil(DBIL);
+					bi.setBiochemical_dbil_unit(unit);
+					bi.setBiochemical_dbil_scope(scope);
 					System.out.println(DBIL);
 
 				}
 				else if(sh_type.equals("总胆固醇（TC）")){
 					String TC=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_TC, TC);
 					bi.setBiochemical_tc(TC);
+					bi.setBiochemical_tc_unit(unit);
+					bi.setBiochemical_tc_scope(scope);
 					System.out.println(TC);
 
 				}else if(sh_type.equals("甘油三酯（TG）")){
 					String TG=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_TG, TG);
 					bi.setBiochemical_tg(TG);
+					bi.setBiochemical_tg_unit(unit);
+					bi.setBiochemical_tg_scope(scope);
 					System.out.println(TG);
 
 				}else if(sh_type.equals("高密度脂蛋白胆固醇（HDL-CHO）")){
 					String HDL_CHO=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_HDL_CHO, HDL_CHO);
 					bi.setBiochemical_hdl_cho(HDL_CHO);
+					bi.setBiochemical_hdl_cho(unit);
+					bi.setBiochemical_hdl_cho(scope);
 					System.out.println(HDL_CHO);
 
 				}else if(sh_type.equals("低密度脂蛋白胆固醇（LDL-CHO）")){
 					String LDL_CHO=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_LDL_CHO, LDL_CHO);
 					bi.setBiochemical_ldl_cho(LDL_CHO);
+					bi.setBiochemical_ldl_cho_unit(unit);
+					bi.setBiochemical_ldl_cho_scope(scope);
 					System.out.println(LDL_CHO);
 
 				}else if(sh_type.equals("尿素（Urea）")){
 					String Urea=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_UREA, Urea);
 					bi.setBiochemical_urea(Urea);
+					bi.setBiochemical_urea_unit(unit);
+					bi.setBiochemical_urea_scope(scope);
 					System.out.println(Urea);
 
 				}else if(sh_type.equals("肌酐（Cr）")){
 					String Cr=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_CR, Cr);
 					bi.setBiochemical_cr(Cr);
+					bi.setBiochemical_cr_unit(unit);
+					bi.setBiochemical_cr_scope(scope);
 					System.out.println(Cr);
 
 				}else if(sh_type.equals("尿酸（UA）")){
 					String UA=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_UA, UA);
 					bi.setBiochemical_ua(UA);
+					bi.setBiochemical_ua_unit(unit);
+					bi.setBiochemical_ua_scope(scope);
 					System.out.println(UA);
 
 				}else if(sh_type.equals("空腹血糖（FPG）")){
 					String FPG=sh_tds.get(1).text();
+					String unit=sh_tds.get(3).text();
+					String scope=sh_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(BiochemicalDetection.BD_FPG, FPG);
 					bi.setBiochemical_fpg(FPG);
+					bi.setBiochemical_fpg_unit(unit);
+					bi.setBiochemical_fpg_scope(scope);
 					System.out.println(FPG);
 
 				}
@@ -769,148 +1022,245 @@ public class GetHtmlData {
 				String xue_type=xue_tds.get(0).text().replaceAll("  ", "");
 				if (xue_type.equals("红细胞计数（RBC）")) {
 					String rbc=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");				
 					htmlmap.put(CBC.CBC_RBC, rbc);
 					cb.setBloodroutine_erythrocytes(rbc);
+					cb.setBloodroutine_erythrocytes_unit(unit);
+					cb.setBloodroutine_erythrocytes_scope(scope);
 					System.out.println(rbc);
 
 				}else if (xue_type.equals("血红蛋白(HGB)")){
 					String HGB=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_HGB, HGB);
 					cb.setBloodroutine_hb(HGB);
+					cb.setBloodroutine_hb_unit(unit);
+					cb.setBloodroutine_hb_scope(scope);
 					System.out.println(HGB);
 
 				}else if (xue_type.equals("红细胞压积(HCT)")){
 					String HCT=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_HCT, HCT);
 					cb.setBloodroutine_hct(HCT);
+					cb.setBloodroutine_hct_unit(unit);
+					cb.setBloodroutine_hct_scope(scope);
+					
 					System.out.println(HCT);
 
 				}else if (xue_type.equals("平均红细胞体积（MCV）")){
 					String MCV=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_MCV, MCV);
 					cb.setBloodroutine_mcv(MCV);
+					cb.setBloodroutine_mcv_unit(unit);
+					cb.setBloodroutine_mcv_scope(scope);
 					System.out.println(MCV);
 
 				}else if (xue_type.equals("平均红细胞血红蛋白含量（MCH）")){
 					String MCH=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_MCH, MCH);
 					cb.setBloodroutine_mch(MCH);
+					cb.setBloodroutine_mch_unit(unit);
+					cb.setBloodroutine_mch_scope(scope);
 					System.out.println(MCH);
 
 				}else if (xue_type.equals("平均红细胞血红蛋白浓度（MCHC）")){
 					String MCHC=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_MCH, MCHC);
 					cb.setBloodroutine_mchc(MCHC);
+					cb.setBloodroutine_mchc_unit(unit);
+					cb.setBloodroutine_mchc_scope(scope);
 					System.out.println(MCHC);
 
 				}else if (xue_type.equals("红细胞体积分布宽度变异系数（RDW-CV）")){
 					String RDW_CV=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_RDW_CV, RDW_CV);
 					cb.setBloodroutine_rdwcv(RDW_CV);
+					cb.setBloodroutine_rdwcv_unit(unit);
+					cb.setBloodroutine_rdwcv_scope(scope);
 					System.out.println(RDW_CV);
 
 				}else if (xue_type.equals("红细胞体积分布宽度标准差（RDW-SD）")){
 					String RDW_SD=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_RDW_SD, RDW_SD);
 					cb.setBloodroutine_rdwsd(RDW_SD);
+					cb.setBloodroutine_rdwsd_unit(unit);
+					cb.setBloodroutine_rdwsd_scope(scope);
 					System.out.println(RDW_SD);
 
 				}else if (xue_type.equals("白细胞计数（WBC）")){
 					String WBC=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_WBC, WBC);
 					cb.setBloodroutine_wbc(WBC);
+					cb.setBloodroutine_wbc_unit(unit);
+					cb.setBloodroutine_wbc_scope(scope);
 					System.out.println(WBC);
 
 				}else if (xue_type.equals("中性粒细胞比值（GRA）")){
 					String GRA=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_GRA, GRA);
 					cb.setBloodroutine_nuet(GRA);
+					cb.setBloodroutine_nuet_unit(unit);
+					cb.setBloodroutine_nuet_scope(scope);
 					System.out.println(GRA);
 
 				}else if (xue_type.equals("中性粒细胞绝对值（GRA#）")){
 					String GRA1=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_GRA1, GRA1);
 					cb.setBloodroutine_gra(GRA1);
+					cb.setBloodroutine_gra_unit(unit);
+					cb.setBloodroutine_gra_scope(scope);
 					System.out.println(GRA1);
 
 				}else if (xue_type.equals("淋巴细胞比值（LYM）")){
 					String LYM=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_LYM, LYM);
-					cb.setBloodroutine_nlr(LYM);;
+					cb.setBloodroutine_nlr(LYM);
+					cb.setBloodroutine_nlr_unit(unit);
+					cb.setBloodroutine_nlr_scope(scope);
 					System.out.println(LYM);
 
 				}else if (xue_type.equals("淋巴细胞绝对值（LYM#）")){
 					String LYM1=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_LYM1, LYM1);
 					cb.setBloodroutine_lym(LYM1);
+					cb.setBloodroutine_lym_unit(unit);
+					cb.setBloodroutine_lym_scope(scope);
 					System.out.println(LYM1);
 
 				}else if (xue_type.equals("单核细胞比值（MONO）")){
 					String MONO=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_MONO, MONO);
 					cb.setBloodroutine_monor(MONO);
+					cb.setBloodroutine_monor_unit(unit);
+					cb.setBloodroutine_monor_scope(scope);
 					System.out.println(MONO);
 
 				}else if (xue_type.equals("单核细胞绝对值(MONO#)")){
 					String MONO1=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_MONO1, MONO1);
 					cb.setBloodroutine_mono(MONO1);
+					cb.setBloodroutine_mono_unit(unit);
+					cb.setBloodroutine_mono_scope(scope);
 					System.out.println(MONO1);
 
 				}else if (xue_type.equals("嗜酸性粒细胞比值（EO）")){
 					String EO=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_EO, EO);
 					cb.setBloodroutine_eor(EO);
+					cb.setBloodroutine_eor_unit(unit);
+					cb.setBloodroutine_eor_scope(scope);
 					System.out.println(EO);
 
 
 				}else if (xue_type.equals("嗜酸性粒细胞绝对值(EO#)")){
 					String EO1=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_EO1, EO1);
 					cb.setBloodroutine_eo(EO1);
+					cb.setBloodroutine_eo_unit(unit);
+					cb.setBloodroutine_eo_scope(scope);
 					System.out.println(EO1);
 
 				}else if (xue_type.equals("嗜碱性粒细胞比值（BASO）")){
 					String BASO=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_BASO, BASO);
 					cb.setBloodroutine_basor(BASO);
+					cb.setBloodroutine_basor_unit(unit);
+					cb.setBloodroutine_basor_scope(scope);
 					System.out.println(BASO);
 
 				}else if (xue_type.equals("嗜碱性粒细胞绝对值(BASO#)")){
 					String BASO1=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_BASO1, BASO1);
 					cb.setBloodroutine_baso(BASO1);
+					cb.setBloodroutine_baso_unit(unit);
+					cb.setBloodroutine_baso_scope(scope);
 					System.out.println(BASO1);
 
 				}else if (xue_type.equals("血小板(PLT)")){
 					String PLT=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_PLT, PLT);
 					cb.setBloodroutine_platelet(PLT);
+					cb.setBloodroutine_platelet_unit(unit);
+					cb.setBloodroutine_platelet_scope(scope);
 					System.out.println(PLT);
 
 				}else if (xue_type.equals("平均血小板体积（MPV）")){
 					String MPV=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_MPV, MPV);
 					cb.setBloodroutine_mpv(MPV);
+					cb.setBloodroutine_mpv_unit(unit);
+					cb.setBloodroutine_mpv_scope(scope);
 					System.out.println(MPV);
 
 				}else if (xue_type.equals("血小板容积分布宽度（PDW）")){
 					String PDW=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_PDW, PDW);
 					cb.setBloodroutine_pdw(PDW);
+					cb.setBloodroutine_pdw_unit(unit);
+					cb.setBloodroutine_pdw_scope(scope);
 					System.out.println(PDW);
 
 				}else if (xue_type.equals("大血小板比率（P-LCR）")){
 					String P_LCR=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_P_LCR, P_LCR);
 					cb.setBloodroutine_plcr(P_LCR);
+					cb.setBloodroutine_plcr_unit(unit);
+					cb.setBloodroutine_plcr_scope(scope);
 
 					System.out.println(P_LCR);
 
 				}else if (xue_type.equals("血小板比容（PCT）")){
 					String PCT=xue_tds.get(1).text();
+					String unit=xue_tds.get(3).text();
+					String scope=xue_tds.get(4).text().replaceAll("�D", "-");	
 					htmlmap.put(CBC.CBC_PCT, PCT);
 					cb.setBloodroutine_thrombocytocrit(PCT);
+					cb.setBloodroutine_thrombocytocrit_unit(unit);
+					cb.setBloodroutine_thrombocytocrit_scope(scope);
 					System.out.println(PCT);
 
 				}
@@ -1410,55 +1760,95 @@ public class GetHtmlData {
 				String tf_type=tf_tds.get(0).text().replaceAll("  ", "");	
 				if (tf_type.equals("全血粘度：低切(10/s)")) {
 					String HEM_VISCOSITY_DI=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_VISCOSITY_DI, HEM_VISCOSITY_DI);
 					System.out.println(HEM_VISCOSITY_DI);
 					st.setBloodRheology_viscosityLowCut10_s(HEM_VISCOSITY_DI);
+					st.setBloodRheology_viscosityLowCut10_s_unit(unit);
+					st.setBloodRheology_viscosityLowCut10_s_scope(scope);
 
 				}else if (tf_type.equals("全血粘度：中切(60/s)")){
 					String HEM_VISCOSITY_ZHONG=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_VISCOSITY_ZHONG, HEM_VISCOSITY_ZHONG);
 					System.out.println(HEM_VISCOSITY_ZHONG);
 					st.setBloodRheology_viscosityInCut60_s(HEM_VISCOSITY_ZHONG);
+					st.setBloodRheology_viscosityInCut60_s_unit(unit);
+					st.setBloodRheology_viscosityInCut60_s_scope(scope);
 				}else if (tf_type.equals("全血粘度：高切(150/s)")){
 					String HEM_VISCOSITY_GAO=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_VISCOSITY_GAO, HEM_VISCOSITY_GAO);
 					System.out.println(HEM_VISCOSITY_GAO);
 					st.setBloodRheology_viscosityHighCut150_s(HEM_VISCOSITY_GAO);
+					st.setBloodRheology_viscosityHighCut150_s_unit(unit);
+					st.setBloodRheology_viscosityHighCut150_s_scope(scope);
 				}else if (tf_type.equals("血浆粘度")){
 					String HEM_PLASMA_VISCOSITY=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_PLASMA_VISCOSITY, HEM_PLASMA_VISCOSITY);
 					System.out.println(HEM_PLASMA_VISCOSITY);
 					st.setBloodRheology_plasmaViscosity(HEM_PLASMA_VISCOSITY);
+					st.setBloodRheology_plasmaViscosity_unit(unit);
+					st.setBloodRheology_plasmaViscosity_scope(scope);
 				}else if (tf_type.equals("全血还原粘度(低切)10/s")){
 					String HEM_REDUCTIVE_DI=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_REDUCTIVE_DI, HEM_REDUCTIVE_DI);
 					System.out.println(HEM_REDUCTIVE_DI);
 					st.setBloodRheology_reductionViscosityLowCut10_s(HEM_REDUCTIVE_DI);
+					st.setBloodRheology_reductionViscosityLowCut10_s_unit(unit);
+					st.setBloodRheology_reductionViscosityLowCut10_s_scope(scope);
 				}else if (tf_type.equals("全血还原粘度(中切)60/s")){
 					String HEM_REDUCTIVE_ZHONG=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_REDUCTIVE_ZHONG, HEM_REDUCTIVE_ZHONG);
 					System.out.println(HEM_REDUCTIVE_ZHONG);
 					st.setBloodRheology_reductionViscosityInLowCut60_s(HEM_REDUCTIVE_ZHONG);
+					st.setBloodRheology_reductionViscosityInLowCut60_s_unit(unit);
+					st.setBloodRheology_reductionViscosityInLowCut60_s_scope(scope);
 				}else if (tf_type.equals("全血还原粘度(高切)150/s")){
 					String HEM_REDUCTIVE_GAO=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_REDUCTIVE_GAO, HEM_REDUCTIVE_GAO);
 					System.out.println(HEM_REDUCTIVE_GAO);
 					st.setBloodRheology_reductionViscosityHighCut150_s(HEM_REDUCTIVE_GAO);
+					st.setBloodRheology_reductionViscosityHighCut150_s_unit(unit);
+					st.setBloodRheology_reductionViscosityHighCut150_s_scope(scope);
 				}else if (tf_type.equals("红细胞聚集指数")){
 					String HEM_RED_ASSEMBLING=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_RED_ASSEMBLING, HEM_RED_ASSEMBLING);
 					System.out.println(HEM_RED_ASSEMBLING);
 					st.setBloodRheology_EaIndex(HEM_RED_ASSEMBLING);
+					st.setBloodRheology_EaIndex_unit(unit);
+					st.setBloodRheology_EaIndex_scope(scope);
 				}else if (tf_type.equals("红细胞变形指数")){
 					String HEM_HBX=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_HBX, HEM_HBX);
 					System.out.println(HEM_HBX);
 					st.setBloodRheology_EdIndex(HEM_HBX);
+					st.setBloodRheology_EdIndex_unit(unit);
+					st.setBloodRheology_EdIndex_scope(scope);
 				}else if (tf_type.equals("红细胞压积")){
 					String HEM_HCT=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(Hemorheology.HEM_HCT, HEM_HCT);
 					System.out.println(HEM_HCT);
 					st.setBloodRheology_Hematocrit(HEM_HCT);
+					st.setBloodRheology_Hematocrit_unit(unit);
+					st.setBloodRheology_Hematocrit_scope(scope);
 				}
 			}
 //			BaseService baseService=new CiMingService();
@@ -1483,20 +1873,32 @@ public class GetHtmlData {
 				String tf_type=tf_tds.get(0).text().replaceAll("  ", "");	
 				if (tf_type.equals("三碘甲状腺原氨酸（T3）电发光")) {
 					String tf_t3=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(ThyroidFunction.TF_T3, tf_t3);
 					System.out.println(tf_t3);
 					st.setThyroid_t3(tf_t3);
+					st.setThyroid_t3_unit(unit);
+					st.setThyroid_t3_scope(scope);
 
 				}else if (tf_type.equals("甲状腺素（T4）电发光")){
 					String tf_t4=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(ThyroidFunction.TF_T4, tf_t4);
 					System.out.println(tf_t4);
 					st.setThyroid_t4(tf_t4);
+					st.setThyroid_t4_unit(unit);
+					st.setThyroid_t4_scope(scope);
 				}else if (tf_type.equals("促甲状腺素（TSH）电发光")){
 					String tf_tsh=tf_tds.get(1).text();
+					String unit=tf_tds.get(3).text();
+					String scope=tf_tds.get(4).text().replaceAll("�D", "-");
 					htmlmap.put(ThyroidFunction.TF_TSH, tf_tsh);
 					System.out.println(tf_tsh);
 					st.setThyroid_tsh(tf_tsh);
+					st.setThyroid_tsh_unit(unit);
+					st.setThyroid_tsh_scope(scope);
 
 				}
 			}
@@ -1688,7 +2090,7 @@ public class GetHtmlData {
 					String bidou=ear_tds.get(1).text();
 					htmlmap.put(Gynecology.GY_SECRETA, bidou);
 					System.out.println(bidou);
-					//st.set
+					st.setWomen_vaginalDischarge(bidou);
 				}else if (yan_type.equals("宫颈")){
 					String yanbu=ear_tds.get(1).text();
 					htmlmap.put(Gynecology.GY_UTERINE_NECK, yanbu);

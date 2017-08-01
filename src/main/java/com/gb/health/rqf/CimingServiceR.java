@@ -1,7 +1,6 @@
 package com.gb.health.rqf;
 
 import com.gb.health.conn.DB;
-import com.gb.health.domain.CiMing;
 import com.gb.health.init.ErrerCode;
 import com.gb.health.op.Result;
 import org.apache.commons.beanutils.BeanUtils;

@@ -67,7 +67,36 @@
         </javaClientGenerator>
 
 
-        <table tableName="people" domainObjectName="People"
+        <!--<table tableName="people" domainObjectName="People"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
+        <!--</table>-->
+
+
+        <table tableName="sys_role_user" domainObjectName="Sys_role_user"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="tb_report_department" domainObjectName="Tb_report_department"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <columnOverride column="d_result" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="d_detection" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="tb_report_general" domainObjectName="Tb_report_general"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="b_report_personnel" domainObjectName="Tb_report_personnel"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="tb_report_pooled" domainObjectName="Tb_report_pooled"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

@@ -3,7 +3,6 @@ package com.gb.health.controller;
 
 import com.gb.health.dao.TbHealthExaminationMapper;
 import com.gb.health.dao.TbHealthRecordMapper;
-import com.gb.health.domain.CiMing;
 import com.gb.health.domain.TbHealthExamination;
 import com.gb.health.domain.TbHealthRecord;
 import com.gb.health.init.Const;
