@@ -61,12 +61,12 @@ public class UploadController {
 	 * @return
 	 * @throws Exception
 	 */
-	/*@RequestMapping(value = "/login", method={RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value = "/login", method={RequestMethod.POST,RequestMethod.GET})
 	public String login(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		System.out.println(3232);  
+		System.out.println(3232);
 		String login=request.getParameter("login");
 
 		request.getSession().setAttribute("login", login);
@@ -75,10 +75,10 @@ public class UploadController {
 		if(!"123".equals(login)){
 			System.out.println("密码错误!!!");
 			request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
-		}		 
+		}
 
 		return "ad/administrator";
-	}*/
+	}
 	/**
 	 * 跳转上传页面
 	 * @param request

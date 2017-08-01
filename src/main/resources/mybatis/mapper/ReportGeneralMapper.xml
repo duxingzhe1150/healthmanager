@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gb.health.dao.ReportGeneralMapper" >
+  <resultMap id="BaseResultMap" type="com.gb.health.domain.ReportGeneral" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="p_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="g_item" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="g_result" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="g_units" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="g_range" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="g_examination_time" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="g_import_time" jdbcType="DATE" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, p_id, g_item, g_result, g_units, g_range, g_examination_time, g_import_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_report_general
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_report_general
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gb.health.domain.ReportGeneral" >
+    insert into tb_report_general (id, p_id, g_item, 
+      g_result, g_units, g_range, 
+      g_examination_time, g_import_time)
+    values (#{id,jdbcType=INTEGER}, #{pId,jdbcType=INTEGER}, #{gItem,jdbcType=VARCHAR}, 
+      #{gResult,jdbcType=VARCHAR}, #{gUnits,jdbcType=VARCHAR}, #{gRange,jdbcType=VARCHAR}, 
+      #{gExaminationTime,jdbcType=DATE}, #{gImportTime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gb.health.domain.ReportGeneral" >
+    insert into tb_report_general
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="gItem != null" >
+        g_item,
+      </if>
+      <if test="gResult != null" >
+        g_result,
+      </if>
+      <if test="gUnits != null" >
+        g_units,
+      </if>
+      <if test="gRange != null" >
+        g_range,
+      </if>
+      <if test="gExaminationTime != null" >
+        g_examination_time,
+      </if>
+      <if test="gImportTime != null" >
+        g_import_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="gItem != null" >
+        #{gItem,jdbcType=VARCHAR},
+      </if>
+      <if test="gResult != null" >
+        #{gResult,jdbcType=VARCHAR},
+      </if>
+      <if test="gUnits != null" >
+        #{gUnits,jdbcType=VARCHAR},
+      </if>
+      <if test="gRange != null" >
+        #{gRange,jdbcType=VARCHAR},
+      </if>
+      <if test="gExaminationTime != null" >
+        #{gExaminationTime,jdbcType=DATE},
+      </if>
+      <if test="gImportTime != null" >
+        #{gImportTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gb.health.domain.ReportGeneral" >
+    update tb_report_general
+    <set >
+      <if test="pId != null" >
+        p_id = #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="gItem != null" >
+        g_item = #{gItem,jdbcType=VARCHAR},
+      </if>
+      <if test="gResult != null" >
+        g_result = #{gResult,jdbcType=VARCHAR},
+      </if>
+      <if test="gUnits != null" >
+        g_units = #{gUnits,jdbcType=VARCHAR},
+      </if>
+      <if test="gRange != null" >
+        g_range = #{gRange,jdbcType=VARCHAR},
+      </if>
+      <if test="gExaminationTime != null" >
+        g_examination_time = #{gExaminationTime,jdbcType=DATE},
+      </if>
+      <if test="gImportTime != null" >
+        g_import_time = #{gImportTime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.ReportGeneral" >
+    update tb_report_general
+    set p_id = #{pId,jdbcType=INTEGER},
+      g_item = #{gItem,jdbcType=VARCHAR},
+      g_result = #{gResult,jdbcType=VARCHAR},
+      g_units = #{gUnits,jdbcType=VARCHAR},
+      g_range = #{gRange,jdbcType=VARCHAR},
+      g_examination_time = #{gExaminationTime,jdbcType=DATE},
+      g_import_time = #{gImportTime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

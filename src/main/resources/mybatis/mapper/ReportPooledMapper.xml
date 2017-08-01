@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gb.health.dao.ReportPooledMapper" >
+  <resultMap id="BaseResultMap" type="com.gb.health.domain.ReportPooled" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="p_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pd_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="g_examination_time" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="g_import_time" jdbcType="DATE" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.gb.health.domain.ReportPooled" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="p_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pd_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="g_examination_time" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="g_import_time" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="pd_content" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, p_id, pd_type, g_examination_time, g_import_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    pd_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_report_pooled
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_report_pooled
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gb.health.domain.ReportPooled" >
+    insert into tb_report_pooled (id, p_id, pd_type, 
+      g_examination_time, g_import_time, pd_content
+      )
+    values (#{id,jdbcType=INTEGER}, #{pId,jdbcType=INTEGER}, #{pdType,jdbcType=VARCHAR}, 
+      #{gExaminationTime,jdbcType=DATE}, #{gImportTime,jdbcType=DATE}, #{pdContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gb.health.domain.ReportPooled" >
+    insert into tb_report_pooled
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="pdType != null" >
+        pd_type,
+      </if>
+      <if test="gExaminationTime != null" >
+        g_examination_time,
+      </if>
+      <if test="gImportTime != null" >
+        g_import_time,
+      </if>
+      <if test="pdContent != null" >
+        pd_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pdType != null" >
+        #{pdType,jdbcType=VARCHAR},
+      </if>
+      <if test="gExaminationTime != null" >
+        #{gExaminationTime,jdbcType=DATE},
+      </if>
+      <if test="gImportTime != null" >
+        #{gImportTime,jdbcType=DATE},
+      </if>
+      <if test="pdContent != null" >
+        #{pdContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gb.health.domain.ReportPooled" >
+    update tb_report_pooled
+    <set >
+      <if test="pId != null" >
+        p_id = #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pdType != null" >
+        pd_type = #{pdType,jdbcType=VARCHAR},
+      </if>
+      <if test="gExaminationTime != null" >
+        g_examination_time = #{gExaminationTime,jdbcType=DATE},
+      </if>
+      <if test="gImportTime != null" >
+        g_import_time = #{gImportTime,jdbcType=DATE},
+      </if>
+      <if test="pdContent != null" >
+        pd_content = #{pdContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.gb.health.domain.ReportPooled" >
+    update tb_report_pooled
+    set p_id = #{pId,jdbcType=INTEGER},
+      pd_type = #{pdType,jdbcType=VARCHAR},
+      g_examination_time = #{gExaminationTime,jdbcType=DATE},
+      g_import_time = #{gImportTime,jdbcType=DATE},
+      pd_content = #{pdContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.ReportPooled" >
+    update tb_report_pooled
+    set p_id = #{pId,jdbcType=INTEGER},
+      pd_type = #{pdType,jdbcType=VARCHAR},
+      g_examination_time = #{gExaminationTime,jdbcType=DATE},
+      g_import_time = #{gImportTime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
