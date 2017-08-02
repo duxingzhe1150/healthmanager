@@ -1,6 +1,8 @@
 package com.gb.health.rqf;
 
 
+import com.gb.health.domain.CiMing;
+
 public class Test {
 	public static void main(String[] args) {
 	

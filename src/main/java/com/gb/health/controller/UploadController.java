@@ -3,6 +3,7 @@ package com.gb.health.controller;
 
 import com.gb.health.dao.TbHealthExaminationMapper;
 import com.gb.health.dao.TbHealthRecordMapper;
+import com.gb.health.domain.CiMing;
 import com.gb.health.domain.TbHealthExamination;
 import com.gb.health.domain.TbHealthRecord;
 import com.gb.health.init.Const;
@@ -61,7 +62,7 @@ public class UploadController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/login", method={RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value = "/login1", method={RequestMethod.POST,RequestMethod.GET})
 	public String login(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");

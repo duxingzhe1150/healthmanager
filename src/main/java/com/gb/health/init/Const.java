@@ -71,7 +71,7 @@ public class Const{
 	 }else if(debug == SERVER_LOCAL){
 		 
 			FILE_PATH = "E:\\ABCD\\";
-			REDIS_SERVER ="192.168.3.198";
+			REDIS_SERVER ="192.168.3.195";
 			REDIS_PORT =6379;
 			DOWN_URL = "http://192.168.3.64:8080/HealthManger/downHtml?fileName=";
 			CI_URL = "http://api.test.aikezd.com/v3/huis/set-report";

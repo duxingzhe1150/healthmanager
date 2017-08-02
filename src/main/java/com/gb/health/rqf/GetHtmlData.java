@@ -3,9 +3,13 @@ package com.gb.health.rqf;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import com.gb.health.conn.DB;
+import com.gb.health.utils.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -55,6 +59,15 @@ public class GetHtmlData {
 		GetHtmlData getHtmlData= new GetHtmlData();
 		File in = new File("E:/康雪体检报告.html");
 		getHtmlData.getCiMingHtmlData(in);
+
+//		ArrayList<String> listFileName = new ArrayList<String>();
+//		com.gb.health.utils.Test.getAllFileName("E:\\ABC\\体检报告",listFileName);
+//		for(String name:listFileName)
+//		{
+//			System.out.println(name);
+//			File in = new File("E:\\ABC\\体检报告\\"+name);
+//			getHtmlData.getCiMingHtmlData(in);
+//		}
 
 //				BaseService baseService=new CiMingService();
 //		
@@ -136,6 +149,8 @@ public class GetHtmlData {
 			if(type.equals("一般检查")){   //修
 				Elements yb_tds=tables.get(i).getElementsByTag("tr");
 				ciMing.generalInspection = generalExamine(htmlmap, yb_tds);
+
+
 			}
 			else if(type.equals("内科")){
 				System.out.println(221122);
@@ -248,12 +263,13 @@ public class GetHtmlData {
 		}
 		
 		
-		return ciMing;
+//		return ciMing;
 		//存入redis
-		//		    DB db=new DB();
-		//		    System.out.println(key_Personid);
-		//			db.creatCacheData(key_Personid).setProperties(htmlmap).save(1200);	
-		// System.out.println(htmlmap.toString());
+		DB db=new DB();
+		System.out.println(key_Personid);
+		db.creatCacheData(key_Personid).setProperties(htmlmap).save(1200);
+		System.out.println(htmlmap.toString());
+		return ciMing;
 	}
 
 	/**
@@ -430,7 +446,7 @@ public class GetHtmlData {
 	/**
 	 *一般检查
 	 * @param htmlmap
-	 * @param tables
+	 *
 	 */
 	public static CiMing.GeneralInspection generalExamine(Map<String, String> htmlmap, Elements yb_tds) {
 		CiMing.GeneralInspection ge=new CiMing. GeneralInspection(); 
@@ -546,7 +562,7 @@ public class GetHtmlData {
 	/**
 	 * 尿常规检查
 	 * @param htmlmap
-	 * @param tables
+
 	 */
 	public static CiMing.Urinalysis urinalysisExamine(Map<String, String> htmlmap, Elements nc_trs) {
 		CiMing.Urinalysis ur=new CiMing.Urinalysis(); 
@@ -1009,7 +1025,6 @@ public class GetHtmlData {
 	}
 	/**
 	 *  血常规检查
-	 * @param args
 	 * @param htmlmap
 	 * @param xue_trs
 	 */
@@ -1363,7 +1378,7 @@ public class GetHtmlData {
 
 	/**
 	 * 心电图检查
-	 * @param args
+
 	 * @param htmlmap
 	 * @param ecg_trs
 	 */
@@ -1459,7 +1474,7 @@ public class GetHtmlData {
 	}
 	/**
 	 * 经颅多普勒检查
-	 * @param args
+
 	 * @param htmlmap
 	 * @param duo_trs
 	 */
@@ -1608,8 +1623,7 @@ public class GetHtmlData {
 	/**
 	 * 口腔检测
 	 * @param htmlmap
-	 * @param tables
-	 * @param i
+
 	 */
 	public static CiMing.Stomatology stomatologyExamine(Map<String, String> htmlmap, Elements kou_trs) {
 		CiMing.Stomatology st=new CiMing.Stomatology();
