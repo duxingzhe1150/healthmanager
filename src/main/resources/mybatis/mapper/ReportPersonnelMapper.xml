@@ -34,7 +34,7 @@
     delete from tb_report_personnel
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.gb.health.domain.ReportPersonnel" >
+  <insert id="insert" parameterType="com.gb.health.domain.ReportPersonnel" useGeneratedKeys="true" keyProperty="id" >
     insert into tb_report_personnel (id, p_name, p_sex, 
       p_birth, p_age, p_nationality, 
       p_nation, p_idcard, p_marriage, 
