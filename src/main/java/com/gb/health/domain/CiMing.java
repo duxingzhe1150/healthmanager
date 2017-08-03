@@ -1652,13 +1652,30 @@ public class CiMing {
 		private String  biochemical_tg;
 		private String biochemical_tg_unit;
 		private String biochemical_tg_scope;
-		// 高密度脂蛋白胆固醇（HDL-CHO） 
+		// 高密度脂蛋白胆固醇（HDL-CHO）
 		private String   biochemical_hdl_cho;
-		private String biodchemical_hdl_cho_unit;
-		private String biodchemical_hdl_cho_scope;
+		private String biochemical_hdl_cho_unit;
+		private String biochemical_hdl_cho_scope;
 		// 低密度脂蛋白胆固醇（LDL-CHO）
 		private String  biochemical_ldl_cho;
 		private String biochemical_ldl_cho_unit;
+
+		public String getBiochemical_hdl_cho_unit() {
+			return biochemical_hdl_cho_unit;
+		}
+
+		public void setBiochemical_hdl_cho_unit(String biochemical_hdl_cho_unit) {
+			this.biochemical_hdl_cho_unit = biochemical_hdl_cho_unit;
+		}
+
+		public String getBiochemical_hdl_cho_scope() {
+			return biochemical_hdl_cho_scope;
+		}
+
+		public void setBiochemical_hdl_cho_scope(String biochemical_hdl_cho_scope) {
+			this.biochemical_hdl_cho_scope = biochemical_hdl_cho_scope;
+		}
+
 		private String biochemical_ldl_cho_scope;
 		//   尿素（Urea） 
 		private String   biochemical_urea;
@@ -2035,18 +2052,6 @@ public class CiMing {
 		}
 		public void setBiochemical_tg_scope(String biochemical_tg_scope) {
 			this.biochemical_tg_scope = biochemical_tg_scope;
-		}
-		public String getBiodchemical_hdl_cho_unit() {
-			return biodchemical_hdl_cho_unit;
-		}
-		public void setBiodchemical_hdl_cho_unit(String biodchemical_hdl_cho_unit) {
-			this.biodchemical_hdl_cho_unit = biodchemical_hdl_cho_unit;
-		}
-		public String getBiodchemical_hdl_cho_scope() {
-			return biodchemical_hdl_cho_scope;
-		}
-		public void setBiodchemical_hdl_cho_scope(String biodchemical_hdl_cho_scope) {
-			this.biodchemical_hdl_cho_scope = biodchemical_hdl_cho_scope;
 		}
 		public String getBiochemical_ldl_cho_unit() {
 			return biochemical_ldl_cho_unit;

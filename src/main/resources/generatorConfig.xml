@@ -72,16 +72,13 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>-->
-        <table tableName="tb_report_department" domainObjectName="ReportDepartment"
+        <table tableName="tb_report_general" domainObjectName="ReportGeneral"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
 
             <!--<columnRenamingRule searchString="^D_"
                                 replaceString=""/>-->
-            <columnOverride column="d_result" javaType="java.lang.String" jdbcType="VARCHAR" />
-            <columnOverride column="d_detection" javaType="java.lang.String" jdbcType="VARCHAR" />
-
         </table>
 
     </context>

@@ -1,54 +1,23 @@
 package com.gb.health.rqf;
 
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-
-import com.gb.health.conn.DB;
-import com.gb.health.utils.*;
+import com.gb.health.domain.CiMing;
+import com.gb.health.init.CiMingHtml;
+import com.gb.health.init.CiMingHtml.*;
+import com.gb.health.init.MyContextListener;
+import com.gb.health.op.CiMingInvoke;
+import com.gb.health.service.ReportService;
+import org.apache.commons.beanutils.BeanUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-
-import com.gb.health.domain.CiMing;
-
-import com.gb.health.init.CiMingHtml;
-import com.gb.health.init.CiMingHtml.Atherosclerosis;
-import com.gb.health.init.CiMingHtml.Baseinfo;
-import com.gb.health.init.CiMingHtml.BiochemicalDetection;
-import com.gb.health.init.CiMingHtml.CBC;
-import com.gb.health.init.CiMingHtml.Carotid;
-import com.gb.health.init.CiMingHtml.ChestRadiography;
-import com.gb.health.init.CiMingHtml.ENT;
-import com.gb.health.init.CiMingHtml.Ecg;
-import com.gb.health.init.CiMingHtml.Eye;
-
-import com.gb.health.init.CiMingHtml.Gynecology;
-import com.gb.health.init.CiMingHtml.Hemorheology;
-import com.gb.health.init.CiMingHtml.Medical;
-import com.gb.health.init.CiMingHtml.PelvicUltrasound;
-import com.gb.health.init.CiMingHtml.Stomatology;
-import com.gb.health.init.CiMingHtml.SubTest;
-import com.gb.health.init.CiMingHtml.Surgery;
-import com.gb.health.init.CiMingHtml.TAUS;
-import com.gb.health.init.CiMingHtml.TCD;
-import com.gb.health.init.CiMingHtml.TCT;
-import com.gb.health.init.CiMingHtml.Thyroid;
-import com.gb.health.init.CiMingHtml.ThyroidFunction;
-import com.gb.health.init.CiMingHtml.Tumor;
-import com.gb.health.init.CiMingHtml.UCG;
-import com.gb.health.init.CiMingHtml.Ultrasonography;
-
-import com.gb.health.service.BaseService;
-import com.gb.health.service.CiMingService;
-
-import redis.clients.jedis.Jedis;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 
@@ -265,10 +234,34 @@ public class GetHtmlData {
 		
 //		return ciMing;
 		//存入redis
-		DB db=new DB();
-		System.out.println(key_Personid);
-		db.creatCacheData(key_Personid).setProperties(htmlmap).save(1200);
-		System.out.println(htmlmap.toString());
+		//DB db=new DB();
+		//System.out.println(key_Personid);
+//		db.creatCacheData(key_Personid).setProperties(htmlmap).save(1200);
+//		System.out.println(htmlmap.toString());
+
+		try {
+			System.out.println(BeanUtils.describe(ciMing.baseinfo));
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+
+		CiMingInvoke ciMingInvoke=new CiMingInvoke();
+
+		ciMingInvoke.invoke(ciMing);
+
+		System.out.println("-------------------333------------------");
+
+		ReportService reportService=MyContextListener.applicationContext.getBean(ReportService.class);
+
+
+		reportService.saveReport(ciMingInvoke.getPersonnel(),
+				null,ciMingInvoke.getGenerals(),
+				ciMingInvoke.getDepartments());
+
 		return ciMing;
 	}
 
@@ -280,6 +273,8 @@ public class GetHtmlData {
 	public static void totalAnalarsi(Map<String, String> htmlmap, Document doc) {
 		try {
 			String totalResult="";
+
+			Map<String, String> htmlmap1=new HashMap<>();
 			
 			Element zonghui=doc.getElementsByAttributeValue("class", "div647").get(0);	
 			for (int i = 1; i < zonghui.select("tr").size()-1; i++) {
