@@ -32,9 +32,9 @@ solrHost: http://58.215.80.185:8983/solr/hafcore
 
 debugConfig.debug: 2
 
-#logging:
-#  path: F:/loger
-#  config: classpath:logback-spring.xml
+logging:
+  path: /usr/local/healthmanager/logs
+  config: classpath:logback-spring.xml
 
 
 
