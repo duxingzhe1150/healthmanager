@@ -5,7 +5,7 @@
 
 	<groupId>com.gb.health</groupId>
 	<artifactId>healthmanager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2017.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>healthmanager</name>
@@ -180,11 +180,14 @@
 	</dependencies>
 
 	<build>
+		<finalName>healthmanager</finalName>
 		<plugins>
 			<!--spring boot 编译插件-->
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 			</plugin>
 			<!--mybatis反向从数据库表生成代码插件-->
 			<plugin>
