@@ -1,14 +1,19 @@
 package com.gb.health.algorithm;
 
 
-import com.gb.health.init.MyContextListener;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+
 import com.gb.health.utils.XmlUtil;
 import org.apache.log4j.Logger;
 import org.dom4j.Element;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.io.Serializable;
-import java.util.*;
+import com.gb.health.init.MyContextListener;
 
 /**
  * Created by Administrator on 2016/11/14 0014.  计算什么类型体质
@@ -80,14 +85,7 @@ public class QuestionCalculate{
 
 
 
-    /**
-     * @auchor wh
-     * create at 2016/12/6 0006 10:47
-     * @TODO 校验是否还有没答过的体
-     * @param
-     * @return 0全部作答 其他则是对应题目未作答
-     */
-
+  
 //   public int verification(){
 //
 //       for (int i = 0; i < ques.size(); i++) {
@@ -148,11 +146,11 @@ public class QuestionCalculate{
         }
     }
    /**
-    * @auchor wh
+    *
     * create at 2016/12/6 0006 10:38
-    * @TODO中医体质所有分类
-    * @param
-    * @return
+    * 中医体质所有分类
+    * 
+    * 
     */
     public enum Tzenum implements Serializable{
         PHYSIQUE_A(1,"平和体质"),
@@ -215,10 +213,10 @@ public class QuestionCalculate{
 
 
     /**
-     * @auchor wh
+     *
      * create at 2016/12/6 0006 10:41
-     * @TODO 计算出属于什么体质
-     * @param
+     * 计算出属于什么体质
+     * 
      * @return
      */
     public ArrayList<Tzenum> getResult(){
@@ -445,7 +443,7 @@ public class QuestionCalculate{
 		String path =web.getServletContext().getRealPath("/");
 		path = path+"/WEB-INF/"+url;
     	
-    	Element element =XmlUtil.getRootNode(path);
+    	Element element = XmlUtil.getRootNode(path);
     	
     	Element el=XmlUtil.getChild(element, "class-array");
     	

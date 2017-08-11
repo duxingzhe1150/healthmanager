@@ -1,5 +1,12 @@
 package com.gb.health.init;
 
+import com.gb.health.config.DebugConfig;
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Service;
+
 /**
  * 接口校验码（h_code）
  * @author lx
@@ -19,8 +26,11 @@ public class Const{
 	public static int SERVER_LOCAL = 3;
 	
 	//开关
-	public static final int debug = SERVER_LOCAL;
-	
+//	public static final int debug = SERVER_LOCAL;
+
+
+	private final static int debug;
+
 	public static final String REDIS_SERVER;
 	
 	//上传体检报告文件存储目录
@@ -45,14 +55,18 @@ public class Const{
 	public static final String CI_URL;
 	
    static{
-     
-	 if(debug == SERVER_ONLINE){
-		 
+   		DebugConfig debugConfig=MyContextListener.applicationContext.getBean(DebugConfig.class);
+
+	   debug=debugConfig.getDebug();
+	   System.out.println("-------debug----------"+debug);
+
+	 if(debug == SERVER_OFFLINE){
+
 		    FILE_PATH = "/data/medReportFile/";
 			REDIS_SERVER = "127.0.0.1";
-			REDIS_PORT =6380; 
+			REDIS_PORT =6380;
 			CI_URL = "http://api.aikezd.com/v3/huis/set-report";
-			DOWN_URL ="http://health.aikeyl.com/downHtml?fileName=";
+			DOWN_URL ="https://health.aikeyl.com/downHtml?fileName=";
 			
 			PAID_URL="http://api.aikezd.com/v3/huis/set-redis";
 			SOURCE_URL="http://api.aikezd.com/v3/huis/get-hospital";
@@ -62,16 +76,17 @@ public class Const{
 			FILE_PATH = "/data/medReportFile/";
 			REDIS_SERVER ="127.0.0.1";
 			REDIS_PORT =6380;
-			DOWN_URL = "http://health.test.aikeyl.com:8888/HealthManger/downHtml?fileName=";
+			DOWN_URL = "https://offline.health.aikeyl.com/HealthManger/downHtml?fileName=";
 			CI_URL = "http://api.test.aikezd.com/v3/huis/set-report";
 			
+		//	https://offline.health.aikeyl.com/api
 			PAID_URL="http://api.test.aikezd.com/v3/huis/set-redis";
 			SOURCE_URL="http://api.test.aikezd.com/v3/huis/get-hospital";
 		 
 	 }else if(debug == SERVER_LOCAL){
 		 
 			FILE_PATH = "E:\\ABCD\\";
-			REDIS_SERVER ="192.168.3.195";
+			REDIS_SERVER ="192.168.3.114";
 			REDIS_PORT =6379;
 			DOWN_URL = "http://192.168.3.64:8080/HealthManger/downHtml?fileName=";
 			CI_URL = "http://api.test.aikezd.com/v3/huis/set-report";

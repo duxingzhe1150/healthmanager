@@ -1,15 +1,21 @@
 package com.gb.health.commend;
 
+import com.gb.health.service.i.SystemOutImpl;
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.LogRecordInf;
 import com.gb.health.init.Concat;
-import com.gb.health.init.HealthEnum.*;
+import com.gb.health.init.HealthEnum.Diabete;
+import com.gb.health.init.HealthEnum.Exercise;
+import com.gb.health.init.HealthEnum.History;
+import com.gb.health.init.HealthEnum.HypertensionAll;
+import com.gb.health.init.HealthEnum.Lipid;
+import com.gb.health.init.HealthEnum.Smoking;
+import com.gb.health.init.HealthEnum.Stroke_carditis;
+import com.gb.health.init.HealthEnum.Stroke_ischemic;
+import com.gb.health.init.HealthEnum.Stroke_stroke;
 import com.gb.health.op.Result;
 import com.gb.health.op.Stroke;
 import com.gb.health.service.i.SystemOut;
-
-import com.gb.health.service.i.SystemOutImpl;
-
-import com.gb.health.utils.EnumUtil;
-import com.gb.health.utils.LogRecordInf;
 
 import net.sf.json.JSONObject;
 /**
@@ -20,13 +26,14 @@ import net.sf.json.JSONObject;
 public class GetStrokeC extends Commend{
 	//private static Logger log = Logger.getLogger(GetStrokeC.class);     
 	LogRecordInf lr = new LogRecordInf (GetStrokeC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemOut systemOut;
 
 
 	public GetStrokeC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override
@@ -48,7 +55,7 @@ public class GetStrokeC extends Commend{
 		
 		if(json.has("stroke_stroke")){
 			
-			int stroke_stroke=(int)EnumUtil.getEnumObject(json.getString("stroke_stroke"), Stroke_stroke.class).getValueCode();
+			int stroke_stroke=(int) EnumUtil.getEnumObject(json.getString("stroke_stroke"), Stroke_stroke.class).getValueCode();
 			stroke.setStroke(stroke_stroke);
 			
 		} 

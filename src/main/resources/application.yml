@@ -24,4 +24,4 @@ endpoints:
 management:
   security:
 #   角色
-    roles: ROLE_ADMIN
+    roles: ROLE_USER

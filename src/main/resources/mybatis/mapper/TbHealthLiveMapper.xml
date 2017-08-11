@@ -189,7 +189,8 @@
 	  FROM
 	    tb_health_live 
 	  GROUP BY b_personid 
-	  HAVING b_personid = #{bPersonid,jdbcType=VARCHAR})
+	  HAVING b_personid = #{bPersonid,jdbcType=VARCHAR}) AND
+  b_personid=#{bPersonid,jdbcType=VARCHAR}
   </select>
   
   <select id="selectAll" resultMap="BaseResultMap" >

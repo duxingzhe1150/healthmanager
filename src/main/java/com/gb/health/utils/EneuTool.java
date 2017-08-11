@@ -18,16 +18,17 @@
 package com.gb.health.utils;
 
 import java.lang.reflect.Method;
+import org.apache.poi.ss.formula.functions.T;
 
 
 /**
- * @ClassName:     EneuTool.java
- * @Description:   TODO
  * 
- * @author         Administrator
- * @version        V1.0  
- * @Date           2017年3月22日 上午9:35:10 
-
+ *
+ * 简要描述一下这个类
+ * Copyright:   Copyright (c)2017  
+* Company:     光宝联合   
+ *
+ * Create at: 2017年7月26日
  */
 public class EneuTool {
 

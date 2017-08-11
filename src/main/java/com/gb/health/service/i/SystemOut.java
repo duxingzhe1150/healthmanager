@@ -17,37 +17,44 @@
 
 package com.gb.health.service.i;
 
-import com.gb.health.domain.ChatHistory;
-import com.gb.health.domain.TbHealthArchive;
-import com.gb.health.domain.TbHealthExamination;
-import com.gb.health.op.*;
-
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
+import com.gb.health.domain.ChatHistory;
+import com.gb.health.domain.Disease;
+import com.gb.health.domain.TbHealthArchive;
+import com.gb.health.domain.TbHealthExamination;
+import com.gb.health.domain.TbHealthLive;
+import com.gb.health.op.Diabetes;
+import com.gb.health.op.DiabetesSuggest;
+import com.gb.health.op.Hypertension;
+import com.gb.health.op.HypertensionSuggest;
+import com.gb.health.op.ICVD;
+import com.gb.health.op.ICVDsuggest;
+import com.gb.health.op.LiveSuggestDetail;
+import com.gb.health.op.Obesity;
+import com.gb.health.op.Page;
+import com.gb.health.op.Result;
+import com.gb.health.op.ResultDisease;
+import com.gb.health.op.Stroke;
+
 
 /**
- * @ClassName:     SystemOut.java
- * @Description:   TODO 输出接口 由超杰做实现
- * 
- * @author         Administrator
- * @version        V1.0  
- * @Date           2017年4月6日 上午11:44:02 
+
+ *   输出接口 由超杰做实现
+ *          2017年4月6日 上午11:44:02 
 
  */
 public interface SystemOut {
 	
 /**
  * 
- * Title: getDataByID
- * Description: TODO 获取健康陈述
- * param: @param type
- * param: @param ID
- * param: @return   
- * return: Map<String,String>   
- * throws
+
+获取健康陈述
+
  */
 	Map<String, String> getDataByID(String type, String ID);
 	
@@ -82,7 +89,7 @@ public interface SystemOut {
 	 * 
 	 * Description: 获取中心性肥胖的建议
 	     * Create at:   2017年5月4日
-		 * @param icvd
+		 * @param healthArchive
 		 * @return
 	 */
 	Result<Obesity> getObesityResult(TbHealthArchive healthArchive);

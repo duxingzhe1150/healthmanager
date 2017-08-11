@@ -3,6 +3,7 @@ package com.gb.health.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 /**
@@ -53,7 +54,7 @@ public class Readfile {
 	 * 复制整个文件夹内容 
 	 * @param oldPath String 原文件路径 如：c:/fqf 
 	 * @param newPath String 复制后路径 如：f:/fqf/ff 
-	 * @return boolean 
+
 	 */ 
 	public static void copyFolder(String oldPath, String newPath) { 
 

@@ -1,8 +1,8 @@
 package com.gb.health.dao;
 
-import com.gb.health.domain.Analysis;
-
 import java.util.List;
+
+import com.gb.health.domain.Analysis;
 
 public interface AnalysisMapper {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +16,6 @@ public interface AnalysisMapper {
     Analysis selectNextByNumber(String number);
     
     int updateByPrimaryKey(Analysis record);
+    int updateById(String id, String description);
+    
 }

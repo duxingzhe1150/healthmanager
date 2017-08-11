@@ -1,28 +1,65 @@
 package com.gb.health.commend;
 
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
 import com.gb.health.domain.TbHealthArchive;
 import com.gb.health.domain.TbHealthDetails;
 import com.gb.health.domain.TbHealthLive;
 import com.gb.health.domain.TbHealthRecord;
 import com.gb.health.init.Concat;
+import com.gb.health.init.ErrerCode;
 import com.gb.health.init.Concat.H_Code;
 import com.gb.health.init.Const;
-import com.gb.health.init.ErrerCode;
-import com.gb.health.init.HealthEnum.*;
+import com.gb.health.init.HealthEnum.Education;
+import com.gb.health.init.HealthEnum.Insurance;
+import com.gb.health.init.HealthEnum.L_liveSport_count;
+import com.gb.health.init.HealthEnum.L_liveSport_minute;
+import com.gb.health.init.HealthEnum.LiveFood_bean;
+import com.gb.health.init.HealthEnum.LiveFood_dayKind;
+import com.gb.health.init.HealthEnum.LiveFood_egg;
+import com.gb.health.init.HealthEnum.LiveFood_fish;
+import com.gb.health.init.HealthEnum.LiveFood_fruit;
+import com.gb.health.init.HealthEnum.LiveFood_meat;
+import com.gb.health.init.HealthEnum.LiveFood_milk;
+import com.gb.health.init.HealthEnum.LiveFood_nut;
+import com.gb.health.init.HealthEnum.LiveFood_oil;
+import com.gb.health.init.HealthEnum.LiveFood_potato;
+import com.gb.health.init.HealthEnum.LiveFood_primary;
+import com.gb.health.init.HealthEnum.LiveFood_salt;
+import com.gb.health.init.HealthEnum.LiveFood_structure;
+import com.gb.health.init.HealthEnum.LiveFood_sugar;
+import com.gb.health.init.HealthEnum.LiveFood_vegetable;
+import com.gb.health.init.HealthEnum.LiveFood_water;
+import com.gb.health.init.HealthEnum.LiveFood_weekKind;
+import com.gb.health.init.HealthEnum.Marriage;
+import com.gb.health.init.HealthEnum.Sleep_insomnia;
+import com.gb.health.init.HealthEnum.Sleep_time;
+import com.gb.health.init.HealthEnum.Sleep_wakeNumber;
+import com.gb.health.init.HealthEnum.Smoke_beginAge;
+import com.gb.health.init.HealthEnum.Smoke_condition;
+import com.gb.health.init.HealthEnum.Smoke_endAge;
+import com.gb.health.init.HealthEnum.Smoke_env;
+import com.gb.health.init.HealthEnum.Smoke_number;
+import com.gb.health.init.HealthEnum.Wine_Hz;
+import com.gb.health.init.HealthEnum.Wine_beer;
+import com.gb.health.init.HealthEnum.Wine_beginAge;
+import com.gb.health.init.HealthEnum.Wine_drunk;
+import com.gb.health.init.HealthEnum.Wine_endAge;
+import com.gb.health.init.HealthEnum.Wine_kind;
+import com.gb.health.init.HealthEnum.Wine_red;
+import com.gb.health.init.HealthEnum.Wine_white;
+import com.gb.health.init.HealthEnum.Wine_year;
+import com.gb.health.init.HealthEnum.Wine_yellow;
 import com.gb.health.service.TbHealthRecoedService;
 import com.gb.health.service.i.SystemIn;
 
 import com.gb.health.service.i.SystemInImpl;
-
 import com.gb.health.utils.*;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
 /**
  * 获取健康陈述请求数据（paid版）
  * @author lx
@@ -34,31 +71,21 @@ public class GetPaidHealthStateC  extends Commend {
 	LogRecordInf lr = new LogRecordInf (GetPaidHealthStateC.class);
 	//private static Logger log = Logger.getLogger(GetPaidHealthStateC.class);
 
-	private SystemIn systemIn =applicationContext.getBean(SystemInImpl.class);
-	private TbHealthRecoedService tbHealthRecordm=applicationContext.getBean(TbHealthRecoedService.class);
+	private SystemIn systemIn;
+	private TbHealthRecoedService tbHealthRecordm;
 
-	/**
-	 * @Title:        GetUploadHealthC
-	 * @Description:    TODO
-	 * @param:    @param reqDate
-	 * @throws
 
-	 */
 	public GetPaidHealthStateC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-	//	systemIn = (SystemIn)mContext.getBean("systemInImpl");
-	//	tbHealthRecordm = (TbHealthRecoedService)mContext.getBean("tbHealthRecoedService");
+//		systemIn = (SystemIn)mContext.getBean("systemInImpl");
+//		tbHealthRecordm = (TbHealthRecoedService)mContext.getBean("tbHealthRecoedService");
+		systemIn=applicationContext.getBean(SystemInImpl.class);
+		tbHealthRecordm=applicationContext.getBean(TbHealthRecoedService.class);
 	}
 
 
-	/**
-	 * <p>Title: execut</p>
-	 * <p>Description: </p>
-	 * @return																											
-	 * @throws Exception
-	 * @see com.gb.diagnosis.commend.Commend#execut()
-	 */
+	
 	@Override
 	JSONObject execut() throws Exception {
 		// TODO Auto-generated method stub
@@ -78,10 +105,11 @@ public class GetPaidHealthStateC  extends Commend {
 			String b_personid="";
 			JSONObject all_json =new JSONObject();
 			LinkedHashMap<Object, String> map=ReadXml.getLifeStyle();
+			LinkedHashMap<Object, String> mapValue= ReadXml.getLifeStyleValue();
 
 			for (Object ma : map.keySet()) {
 
-				System.out.println("key:"+ma +"      value:"+map.get(ma));
+				System.out.println("key:"+ma +"  value:"+map.get(ma));
 			}
 
 			JSONObject datajson=new JSONObject();
@@ -124,9 +152,9 @@ public class GetPaidHealthStateC  extends Commend {
 
 				}
 
-				tb1 = getTbHealthArchive(datajson,map);
-				tb2 = getTbHealthDetails(datajson,map);
-				tb3 = getTbHealthLive(datajson,map);
+				tb1 = getTbHealthArchive(datajson,map,mapValue);
+				tb2 = getTbHealthDetails(datajson,map,mapValue);
+				tb3 = getTbHealthLive(datajson,map,mapValue);
 
 				tb1.setbPersonid(b_personid);
 				tb2.setbPersonid(b_personid);
@@ -159,34 +187,34 @@ public class GetPaidHealthStateC  extends Commend {
 
 			ErrerCode.ServerErrer res =systemIn.synData(tb1, tb2, tb3);
 
-			String back=PostJson.sendCiMingData(all_json,Const.PAID_URL );
+			//String back=PostJson.sendCiMingData(all_json,Const.PAID_URL );
 
 			TbHealthRecord tbHealthRecord =new TbHealthRecord();
 			tbHealthRecord.setSendData(all_json.toString());
-			tbHealthRecord.setSendReturn(back);
+			tbHealthRecord.setSendReturn("");
 			tbHealthRecord.setSendTime(new Date());
 			tbHealthRecord.setSendUrl(Const.PAID_URL);
 			tbHealthRecord.setTypeName("PaidHealthData");
 
 
-			JSONObject jso=JSONObject.fromObject(back);
-
-			int errmsg=0;
-			if(jso.has("errmsg")){
-				if("success".equals(jso.get("errmsg"))){
-					errmsg=1;
-				}else{
-					errmsg=0;
-				}
-			}
-
-			tbHealthRecord.setSendStatus(errmsg);
+//			JSONObject jso=JSONObject.fromObject(back);
+//
+//			int errmsg=0;
+//			if(jso.has("errmsg")){
+//				if("success".equals(jso.get("errmsg"))){
+//					errmsg=1;
+//				}else{
+//					errmsg=0;
+//				}
+//			}
+//
+//			tbHealthRecord.setSendStatus(errmsg);
 
 			tbHealthRecordm.insert(tbHealthRecord);
 
 			//log.debug("返回值res:"+res.getCode());
 			lr.interfaceInfo("返回值res", res.getCode()+"");
-			lr.interfaceInfo("Paid_phpBack", back);
+		//	lr.interfaceInfo("Paid_phpBack", back);
 		//	log.debug("Paid_phpBack:"+back);
 
 
@@ -224,7 +252,7 @@ public class GetPaidHealthStateC  extends Commend {
 	 * @param map
 	 * @return
 	 */
-	private TbHealthArchive getTbHealthArchive(JSONObject js, Map map){
+	private TbHealthArchive getTbHealthArchive(JSONObject js, Map map,Map mapValue){
 		TbHealthArchive tbHealthArchive= new TbHealthArchive();
 
 		//requestDate
@@ -370,7 +398,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(key.equals("b_education")){
 						String b_education=	json.getString("b_education");
 						System.out.println(b_education);
-						int b_education1=(int)EnumUtil.getEnumObject(b_education, Education.class).getValueCode();
+						int b_education1=(int)EnumUtil.getEnumObject(mapValue.get(b_education), Education.class).getValueCode();
 						System.out.println(b_education1);
 						tbHealthArchive.setbEducation(b_education1);
 						json_BaseMessage.put("b_education", map.get("b_education"+b_education));
@@ -390,7 +418,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(key.equals("b_insurance")){
 
 						String b_insurance_Array=json.getString("b_insurance");
-						int b_insurance1= (Integer) EnumUtil.getEnumObject(b_insurance_Array,Insurance.class).getValueCode();
+						int b_insurance1= (Integer) EnumUtil.getEnumObject(mapValue.get(b_insurance_Array),Insurance.class).getValueCode();
 						tbHealthArchive.setbInsurance(b_insurance1);
 						json_BaseMessage.put("b_insurance", map.get("b_insurance"+b_insurance_Array));	
 					}
@@ -442,7 +470,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(key.equals("b_marriage")){
 						String b_marriage=	json.getString("b_marriage");
 						System.out.println(b_marriage);
-						int b_marriage1= (Integer) EnumUtil.getEnumObject(b_marriage,Marriage.class).getValueCode();
+						int b_marriage1= (Integer) EnumUtil.getEnumObject(mapValue.get(b_marriage),Marriage.class).getValueCode();
 						System.out.println(b_marriage1);
 						tbHealthArchive.setbMarriage(b_marriage1);
 						json_BaseMessage.put("b_marriage", map.get("b_marriage"+b_marriage));
@@ -464,7 +492,7 @@ public class GetPaidHealthStateC  extends Commend {
 	 * @param map
 	 * @return
 	 */
-	public  TbHealthDetails getTbHealthDetails(JSONObject js, Map map) {
+	public  TbHealthDetails getTbHealthDetails(JSONObject js, Map map,Map map2) {
 		TbHealthDetails tbHealthDetails=new TbHealthDetails();
 
 		JSONObject json2 = JSONObject.fromObject(requestDate);
@@ -602,7 +630,7 @@ public class GetPaidHealthStateC  extends Commend {
 						//String h_history_metabolism=json.getString("h_history_metabolism");
 						if(HealthHistory_key.equals("h_history_metabolism")){
 
-							JSONArray h_history_metabolism=JsonUtil.forPaidJson(json.getJSONArray("h_history_metabolism"), map,"h_history_metabolism");
+							JSONArray h_history_metabolism= JsonUtil.forPaidJson(json.getJSONArray("h_history_metabolism"), map,"h_history_metabolism");
 							json_HealthHistory.put("h_history_metabolism", h_history_metabolism);
 							tbHealthDetails.sethHistoryMetabolism(JsonUtil.forJson(json.getJSONArray("h_history_metabolism"))); 
 
@@ -823,7 +851,7 @@ public class GetPaidHealthStateC  extends Commend {
 	 * @return
 	 */
 
-	public  TbHealthLive getTbHealthLive(JSONObject js, Map map) {
+	public  TbHealthLive getTbHealthLive(JSONObject js, Map map,Map map2) {
 		TbHealthLive tbHealthLive=new TbHealthLive();
 
 		JSONObject json2 = JSONObject.fromObject(requestDate);
@@ -866,7 +894,7 @@ public class GetPaidHealthStateC  extends Commend {
 
 						//每天锻炼次数（次/天）
 						if(LifeStyle_key.equals("l_liveSport_count")){
-							int l_liveSport_count=(int)EnumUtil.getEnumObject(json.getString("l_liveSport_count"), L_liveSport_count.class).getValueCode();
+							int l_liveSport_count=(int) EnumUtil.getEnumObject(map2.get(json.getString("l_liveSport_count")), L_liveSport_count.class).getValueCode();
 							tbHealthLive.setlLivesportCount(l_liveSport_count);
 							System.out.println(l_liveSport_count);
 							json_LifeStyle.put("l_liveSport_count", map.get("l_liveSport_count"+json.getString("l_liveSport_count")));
@@ -874,7 +902,7 @@ public class GetPaidHealthStateC  extends Commend {
 
 						//每次锻炼时间（分钟/次）
 						if(LifeStyle_key.equals("l_liveSport_minute")){
-							int l_liveSport_minute=(int)EnumUtil.getEnumObject(json.getString("l_liveSport_minute"), L_liveSport_minute.class).getValueCode();
+							int l_liveSport_minute=(int)EnumUtil.getEnumObject(map2.get(json.getString("l_liveSport_minute")), L_liveSport_minute.class).getValueCode();
 							tbHealthLive.setlLivesportMinute(l_liveSport_minute);
 							json_LifeStyle.put("l_liveSport_minute", map.get("l_liveSport_minute"+json.getString("l_liveSport_minute")));
 
@@ -923,7 +951,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_liveFood_structure")){
 						String l_liveFood_structure=json.getString("l_liveFood_structure").trim();
 						System.out.println(l_liveFood_structure);
-						tbHealthLive.setlLivefoodStructure((Integer) EnumUtil.getEnumObject(l_liveFood_structure, LiveFood_structure.class).getValueCode());
+						tbHealthLive.setlLivefoodStructure((Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_structure), LiveFood_structure.class).getValueCode());
 						json_LifeStyle.put("l_liveFood_structure", map.get("l_liveFood_structure"+l_liveFood_structure));
 					}
 
@@ -931,7 +959,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_liveFood_dayKind")){
 						String l_liveFood_dayKind=json.getString("l_liveFood_dayKind").trim();
 						System.out.println(l_liveFood_dayKind);
-						int l_liveFood_dayKind1=(Integer) EnumUtil.getEnumObject(l_liveFood_dayKind,LiveFood_dayKind.class).getValueCode();
+						int l_liveFood_dayKind1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_dayKind),LiveFood_dayKind.class).getValueCode();
 						System.out.println(l_liveFood_dayKind1);
 						tbHealthLive.setlLivefoodDaykind(l_liveFood_dayKind1);
 						json_LifeStyle.put("l_liveFood_dayKind", map.get("l_liveFood_dayKind"+json.getString("l_liveFood_dayKind")));
@@ -941,7 +969,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每周平均摄入食物种类
 					if(LifeStyle_key.equals("l_liveFood_weekKind")){
 						String l_liveFood_weekKind=json.getString("l_liveFood_weekKind").trim();
-						int l_liveFood_weekKind1=(Integer) EnumUtil.getEnumObject(l_liveFood_weekKind,LiveFood_weekKind.class).getValueCode();
+						int l_liveFood_weekKind1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_weekKind),LiveFood_weekKind.class).getValueCode();
 						System.out.println(l_liveFood_weekKind1);
 						tbHealthLive.setlLivefoodWeekkind(l_liveFood_weekKind1);
 						json_LifeStyle.put("l_liveFood_weekKind", map.get("l_liveFood_weekKind"+json.getString("l_liveFood_weekKind")));
@@ -950,7 +978,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入主食的量
 					if(LifeStyle_key.equals("l_liveFood_primary")){
 						String l_liveFood_primary=json.getString("l_liveFood_primary");
-						int l_liveFood_primary1=(Integer) EnumUtil.getEnumObject(l_liveFood_primary,LiveFood_primary.class).getValueCode();
+						int l_liveFood_primary1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_primary),LiveFood_primary.class).getValueCode();
 						System.out.println(l_liveFood_primary1);
 						tbHealthLive.setlLivefoodPrimary(l_liveFood_primary1);
 						json_LifeStyle.put("l_liveFood_primary", map.get("l_liveFood_primary"+l_liveFood_primary));
@@ -959,7 +987,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入薯类的量
 					if(LifeStyle_key.equals("l_liveFood_potato")){
 						String l_liveFood_potato=json.getString("l_liveFood_potato");
-						int l_liveFood_potato1=(Integer) EnumUtil.getEnumObject(l_liveFood_potato,LiveFood_potato.class).getValueCode();
+						int l_liveFood_potato1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_potato),LiveFood_potato.class).getValueCode();
 						System.out.println(l_liveFood_potato1);
 						tbHealthLive.setlLivefoodPotato(l_liveFood_potato1);
 						json_LifeStyle.put("l_liveFood_potato", map.get("l_liveFood_potato"+l_liveFood_potato));
@@ -968,7 +996,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入谷物和杂豆类的量
 					if(LifeStyle_key.equals("l_liveFood_bean")){
 						String l_liveFood_bean=json.getString("l_liveFood_bean");
-						int l_liveFood_bean1=(Integer) EnumUtil.getEnumObject(l_liveFood_bean,LiveFood_bean.class).getValueCode();
+						int l_liveFood_bean1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_bean),LiveFood_bean.class).getValueCode();
 						System.out.println(l_liveFood_bean1);
 						tbHealthLive.setlLivefoodBean(l_liveFood_bean1);
 						json_LifeStyle.put("l_liveFood_bean", map.get("l_liveFood_bean"+l_liveFood_bean));
@@ -978,7 +1006,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入蔬菜的量
 					if(LifeStyle_key.equals("l_liveFood_vegetable")){
 						String l_liveFood_vegetable=json.getString("l_liveFood_vegetable");
-						int l_liveFood_vegetable1=(Integer) EnumUtil.getEnumObject(l_liveFood_vegetable,LiveFood_vegetable.class).getValueCode();
+						int l_liveFood_vegetable1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_vegetable),LiveFood_vegetable.class).getValueCode();
 						System.out.println(l_liveFood_vegetable1);
 						tbHealthLive.setlLivefoodVegetable(l_liveFood_vegetable1);
 						json_LifeStyle.put("l_liveFood_vegetable", map.get("l_liveFood_vegetable"+l_liveFood_vegetable));
@@ -987,7 +1015,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入水果的量
 					if(LifeStyle_key.equals("l_liveFood_fruit")){
 						String l_liveFood_fruit=json.getString("l_liveFood_fruit");
-						int l_liveFood_fruit1=(Integer) EnumUtil.getEnumObject(l_liveFood_fruit,LiveFood_fruit.class).getValueCode();
+						int l_liveFood_fruit1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_fruit),LiveFood_fruit.class).getValueCode();
 						System.out.println(l_liveFood_fruit1);
 						tbHealthLive.setlLivefoodFruit(l_liveFood_fruit1);
 						json_LifeStyle.put("l_liveFood_fruit", map.get("l_liveFood_fruit"+l_liveFood_fruit));
@@ -996,7 +1024,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入奶以及奶制品的量
 					if(LifeStyle_key.equals("l_liveFood_milk")){
 						String l_liveFood_milk=json.getString("l_liveFood_milk");
-						int l_liveFood_milk1=(Integer) EnumUtil.getEnumObject(l_liveFood_milk,LiveFood_milk.class).getValueCode();
+						int l_liveFood_milk1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_milk),LiveFood_milk.class).getValueCode();
 						System.out.println(l_liveFood_milk1);
 						tbHealthLive.setlLivefoodMilk(l_liveFood_milk1);
 						json_LifeStyle.put("l_liveFood_fruit", map.get("l_liveFood_fruit"+l_liveFood_milk));
@@ -1005,7 +1033,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入的大豆及坚果的量
 					if(LifeStyle_key.equals("l_liveFood_nut")){
 						String l_liveFood_nut=json.getString("l_liveFood_nut");
-						int l_liveFood_nut1=(Integer) EnumUtil.getEnumObject(l_liveFood_nut,LiveFood_nut.class).getValueCode();
+						int l_liveFood_nut1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_nut),LiveFood_nut.class).getValueCode();
 						System.out.println(l_liveFood_nut1);
 						tbHealthLive.setlLivefoodNut(l_liveFood_nut1);
 						json_LifeStyle.put("l_liveFood_nut", map.get("l_liveFood_nut"+l_liveFood_nut));
@@ -1015,7 +1043,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入的盐的量
 					if(LifeStyle_key.equals("l_liveFood_salt")){
 						String l_liveFood_salt=json.getString("l_liveFood_salt");
-						int l_liveFood_salt1=(Integer) EnumUtil.getEnumObject(l_liveFood_salt,LiveFood_salt.class).getValueCode();
+						int l_liveFood_salt1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_salt),LiveFood_salt.class).getValueCode();
 						System.out.println(l_liveFood_salt1);
 						tbHealthLive.setlLivefoodSalt(l_liveFood_salt1);
 						json_LifeStyle.put("l_liveFood_salt", map.get("l_liveFood_salt"+l_liveFood_salt));
@@ -1024,7 +1052,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入的畜禽肉的量
 					if(LifeStyle_key.equals("l_liveFood_meat")){
 						String l_liveFood_meat=json.getString("l_liveFood_meat");
-						int l_liveFood_meat1=(Integer) EnumUtil.getEnumObject(l_liveFood_meat,LiveFood_meat.class).getValueCode();
+						int l_liveFood_meat1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_meat),LiveFood_meat.class).getValueCode();
 						System.out.println(l_liveFood_meat1);
 						tbHealthLive.setlLivefoodMeat(l_liveFood_meat1);
 						json_LifeStyle.put("l_liveFood_meat", map.get("l_liveFood_meat"+l_liveFood_meat));
@@ -1033,7 +1061,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入鱼虾的量
 					if(LifeStyle_key.equals("l_liveFood_fish")){
 						String l_liveFood_fish=json.getString("l_liveFood_fish");
-						int l_liveFood_fish1=(Integer) EnumUtil.getEnumObject(l_liveFood_fish,LiveFood_fish.class).getValueCode();
+						int l_liveFood_fish1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_fish),LiveFood_fish.class).getValueCode();
 						System.out.println(l_liveFood_fish1);
 						tbHealthLive.setlLivefoodFish(l_liveFood_fish1);
 						json_LifeStyle.put("l_liveFood_fish", map.get("l_liveFood_fish"+l_liveFood_fish));
@@ -1042,7 +1070,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入蛋的量
 					if(LifeStyle_key.equals("l_liveFood_egg")){
 						String l_liveFood_egg=json.getString("l_liveFood_egg");
-						int l_liveFood_egg1=(Integer) EnumUtil.getEnumObject(l_liveFood_egg,LiveFood_egg.class).getValueCode();
+						int l_liveFood_egg1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_egg),LiveFood_egg.class).getValueCode();
 						System.out.println(l_liveFood_egg1);
 						tbHealthLive.setlLivefoodEgg(l_liveFood_egg1);
 						json_LifeStyle.put("l_liveFood_egg", map.get("l_liveFood_egg"+l_liveFood_egg));
@@ -1052,7 +1080,7 @@ public class GetPaidHealthStateC  extends Commend {
 
 					if(LifeStyle_key.equals("l_liveFood_oil")){
 						String l_liveFood_oil=json.getString("l_liveFood_oil");
-						int l_liveFood_oil1=(Integer) EnumUtil.getEnumObject(l_liveFood_oil,LiveFood_oil.class).getValueCode();
+						int l_liveFood_oil1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_oil),LiveFood_oil.class).getValueCode();
 						System.out.println(l_liveFood_oil1);
 						tbHealthLive.setlLivefoodOil(l_liveFood_oil1);
 						json_LifeStyle.put("l_liveFood_oil", map.get("l_liveFood_oil"+l_liveFood_oil));
@@ -1061,7 +1089,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每日平均摄入的单糖的量
 					if(LifeStyle_key.equals("l_liveFood_sugar")){
 						String l_liveFood_sugar=json.getString("l_liveFood_sugar");
-						int l_liveFood_sugar1=(Integer) EnumUtil.getEnumObject(l_liveFood_sugar,LiveFood_sugar.class).getValueCode();
+						int l_liveFood_sugar1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_sugar),LiveFood_sugar.class).getValueCode();
 						System.out.println(l_liveFood_sugar1);
 						tbHealthLive.setlLivefoodSugar(l_liveFood_sugar1);
 						json_LifeStyle.put("l_liveFood_sugar", map.get("l_liveFood_sugar"+l_liveFood_sugar));
@@ -1071,7 +1099,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_liveFood_water")){
 
 						String l_liveFood_water=json.getString("l_liveFood_water");
-						int l_liveFood_water1=(Integer) EnumUtil.getEnumObject(l_liveFood_water,LiveFood_water.class).getValueCode();
+						int l_liveFood_water1=(Integer) EnumUtil.getEnumObject(map2.get(l_liveFood_water),LiveFood_water.class).getValueCode();
 						System.out.println(l_liveFood_water1);
 						tbHealthLive.setlLivefoodWater(l_liveFood_water1);
 						json_LifeStyle.put("l_liveFood_water", map.get("l_liveFood_water"+l_liveFood_water));
@@ -1085,7 +1113,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_smoke_condition")){
 
 						String l_smoke_condition=json.getString("l_smoke_condition").trim();
-						int l_smoke_condition1=(Integer) EnumUtil.getEnumObject(l_smoke_condition,Smoke_condition.class).getValueCode();
+						int l_smoke_condition1=(Integer) EnumUtil.getEnumObject(map2.get(l_smoke_condition),Smoke_condition.class).getValueCode();
 						System.out.println(l_smoke_condition1);
 						tbHealthLive.setlSmokeCondition(l_smoke_condition1);
 						json_LifeStyle.put("l_smoke_condition", map.get("l_smoke_condition"+l_smoke_condition));
@@ -1094,7 +1122,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//开始吸烟的年龄
 					if(LifeStyle_key.equals("l_smoke_beginAge")){
 						String l_smoke_beginAge=json.getString("l_smoke_beginAge").trim();
-						int l_smoke_beginAge1=(Integer) EnumUtil.getEnumObject(l_smoke_beginAge,Smoke_beginAge.class).getValueCode();
+						int l_smoke_beginAge1=(Integer) EnumUtil.getEnumObject(map2.get(l_smoke_beginAge),Smoke_beginAge.class).getValueCode();
 						System.out.println(l_smoke_beginAge1);
 						tbHealthLive.setlSmokeBeginage(l_smoke_beginAge1);
 						json_LifeStyle.put("l_smoke_beginAge", map.get("l_smoke_beginAge"+l_smoke_beginAge));
@@ -1103,7 +1131,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//每天吸烟的支数
 					if(LifeStyle_key.equals("l_smoke_number")){
 						String l_smoke_number=json.getString("l_smoke_number");
-						int l_smoke_number1=(Integer) EnumUtil.getEnumObject(l_smoke_number,Smoke_number.class).getValueCode();
+						int l_smoke_number1=(Integer) EnumUtil.getEnumObject(map2.get(l_smoke_number),Smoke_number.class).getValueCode();
 						System.out.println(l_smoke_number1);
 						tbHealthLive.setlSmokeNumber(l_smoke_number1);
 						json_LifeStyle.put("l_smoke_number", map.get("l_smoke_number"+l_smoke_number));
@@ -1113,7 +1141,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//如果已经戒烟，开始戒烟的年龄是
 					if(LifeStyle_key.equals("l_smoke_endAge")){
 						String l_smoke_endAge=json.getString("l_smoke_endAge");
-						int l_smoke_endAge1=(Integer) EnumUtil.getEnumObject(l_smoke_endAge,Smoke_endAge.class).getValueCode();
+						int l_smoke_endAge1=(Integer) EnumUtil.getEnumObject(map2.get(l_smoke_endAge),Smoke_endAge.class).getValueCode();
 						System.out.println(l_smoke_endAge1);
 						tbHealthLive.setlSmokeEndage(l_smoke_endAge1);
 						json_LifeStyle.put("l_smoke_endAge", map.get("l_smoke_endAge"+l_smoke_endAge));
@@ -1122,7 +1150,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//工作或者居住的环境有吸烟的吗
 					if(LifeStyle_key.equals("l_smoke_env")){
 						String l_smoke_env=json.getString("l_smoke_env");
-						int l_smoke_env1=(Integer) EnumUtil.getEnumObject(l_smoke_env,Smoke_env.class).getValueCode();
+						int l_smoke_env1=(Integer) EnumUtil.getEnumObject(map2.get(l_smoke_env),Smoke_env.class).getValueCode();
 						System.out.println(l_smoke_env1);
 						tbHealthLive.setlSmokeEnv(l_smoke_env1);
 						json_LifeStyle.put("l_smoke_env", map.get("l_smoke_env"+l_smoke_env));
@@ -1136,7 +1164,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//饮酒频率
 					if(LifeStyle_key.equals("l_wine_Hz")){
 						String l_wine_Hz=json.getString("l_wine_Hz").trim();
-						int l_wine_Hz1=(Integer) EnumUtil.getEnumObject(l_wine_Hz,Wine_Hz.class).getValueCode();
+						int l_wine_Hz1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_Hz),Wine_Hz.class).getValueCode();
 						System.out.println(l_wine_Hz1);
 						tbHealthLive.setlWineHz(l_wine_Hz1);
 						json_LifeStyle.put("l_wine_Hz", map.get("l_wine_Hz"+l_wine_Hz));
@@ -1146,7 +1174,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//饮酒种类
 					if(LifeStyle_key.equals("l_wine_kind")){
 						String l_wine_kind=json.getString("l_wine_kind");
-						int l_wine_kind1=(Integer) EnumUtil.getEnumObject(l_wine_kind,Wine_kind.class).getValueCode();
+						int l_wine_kind1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_kind),Wine_kind.class).getValueCode();
 						System.out.println(l_wine_kind1);
 						tbHealthLive.setlWineKind(l_wine_kind1);
 						json_LifeStyle.put("l_wine_kind", map.get("l_wine_kind"+l_wine_kind));
@@ -1161,7 +1189,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_wine_beer")){
 
 						String l_wine_beer=json.getString("l_wine_beer").trim();
-						int l_wine_beer1=(Integer) EnumUtil.getEnumObject(l_wine_beer,Wine_beer.class).getValueCode();
+						int l_wine_beer1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_beer),Wine_beer.class).getValueCode();
 						System.out.println(l_wine_beer1);
 						tbHealthLive.setlWineBeer(l_wine_beer1);
 						json_LifeStyle.put("l_wine_beer", map.get("l_wine_beer"+l_wine_beer));
@@ -1169,7 +1197,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//白酒
 					if(LifeStyle_key.equals("l_wine_white")){
 						String l_wine_white=json.getString("l_wine_white").trim();
-						int l_wine_white1=(Integer) EnumUtil.getEnumObject(l_wine_white,Wine_white.class).getValueCode();
+						int l_wine_white1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_white),Wine_white.class).getValueCode();
 						System.out.println(l_wine_white1);
 						tbHealthLive.setlWineWhite(l_wine_white1);
 						json_LifeStyle.put("l_wine_white", map.get("l_wine_white"+l_wine_white));
@@ -1179,7 +1207,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_wine_red")){
 
 						String l_wine_red=json.getString("l_wine_red").trim();
-						int l_wine_red1=(Integer) EnumUtil.getEnumObject(l_wine_red,Wine_red.class).getValueCode();
+						int l_wine_red1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_red),Wine_red.class).getValueCode();
 						System.out.println(l_wine_red1);
 						tbHealthLive.setlWineRed(l_wine_red1);
 						json_LifeStyle.put("l_wine_red", map.get("l_wine_red"+l_wine_red));
@@ -1189,7 +1217,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_wine_yellow")){
 
 						String l_wine_yellow=json.getString("l_wine_yellow").trim();
-						int l_wine_yellow1=(Integer) EnumUtil.getEnumObject(l_wine_yellow,Wine_yellow.class).getValueCode();
+						int l_wine_yellow1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_yellow),Wine_yellow.class).getValueCode();
 						System.out.println(l_wine_yellow1);
 						tbHealthLive.setlWineYellow(l_wine_yellow1);
 						json_LifeStyle.put("l_wine_yellow", map.get("l_wine_yellow"+l_wine_yellow));
@@ -1199,7 +1227,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_wine_beginAge")){
 
 						String l_wine_beginAge=json.getString("l_wine_beginAge").trim();
-						int l_wine_beginAge1=(Integer) EnumUtil.getEnumObject(l_wine_beginAge,Wine_beginAge.class).getValueCode();
+						int l_wine_beginAge1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_beginAge),Wine_beginAge.class).getValueCode();
 						System.out.println(l_wine_beginAge1+"-=========================");
 						tbHealthLive.setlWineBeginage(l_wine_beginAge1);
 						json_LifeStyle.put("l_wine_beginAge", map.get("l_wine_beginAge"+l_wine_beginAge));
@@ -1208,7 +1236,7 @@ public class GetPaidHealthStateC  extends Commend {
 					//		//开始戒酒年龄
 					if(LifeStyle_key.equals("l_wine_endAge")){
 						String l_wine_endAge=json.getString("l_wine_endAge").trim();
-						int l_wine_endAge1=(Integer) EnumUtil.getEnumObject(l_wine_endAge,Wine_endAge.class).getValueCode();
+						int l_wine_endAge1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_endAge),Wine_endAge.class).getValueCode();
 						System.out.println(l_wine_endAge1);
 						tbHealthLive.setlWineEndage(l_wine_endAge1);
 						json_LifeStyle.put("l_wine_endAge", map.get("l_wine_endAge"+l_wine_endAge));
@@ -1218,7 +1246,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_wine_year")){
 
 						String l_wine_year=json.getString("l_wine_year").trim();
-						int l_wine_year1=(Integer) EnumUtil.getEnumObject(l_wine_year,Wine_year.class).getValueCode();
+						int l_wine_year1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_year),Wine_year.class).getValueCode();
 						System.out.println(l_wine_year1);
 						tbHealthLive.setlWineYear(l_wine_year1);
 						json_LifeStyle.put("l_wine_year", map.get("l_wine_year"+l_wine_year));
@@ -1228,7 +1256,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_wine_drunk")){
 
 						String l_wine_drunk=json.getString("l_wine_drunk").trim();
-						int l_wine_drunk1=(Integer) EnumUtil.getEnumObject(l_wine_drunk,Wine_drunk.class).getValueCode();
+						int l_wine_drunk1=(Integer) EnumUtil.getEnumObject(map2.get(l_wine_drunk),Wine_drunk.class).getValueCode();
 						System.out.println(l_wine_drunk1);
 						tbHealthLive.setlWineDrunk(l_wine_drunk1);
 						json_LifeStyle.put("l_wine_drunk", map.get("l_wine_drunk"+l_wine_drunk));
@@ -1243,7 +1271,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_sleep_time")){
 
 						String l_sleep_time=json.getString("l_sleep_time").trim();
-						int l_sleep_time1=(Integer) EnumUtil.getEnumObject(l_sleep_time,Sleep_time.class).getValueCode();
+						int l_sleep_time1=(Integer) EnumUtil.getEnumObject(map2.get(l_sleep_time),Sleep_time.class).getValueCode();
 						System.out.println(l_sleep_time1);
 						tbHealthLive.setlSleepTime(l_sleep_time1);
 						json_LifeStyle.put("l_sleep_time", map.get("l_sleep_time"+l_sleep_time));
@@ -1253,7 +1281,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_sleep_wakeNumber")){
 
 						String l_sleep_wakeNumber=json.getString("l_sleep_wakeNumber").trim();
-						int l_sleep_wakeNumber1=(Integer) EnumUtil.getEnumObject(l_sleep_wakeNumber,Sleep_wakeNumber.class).getValueCode();
+						int l_sleep_wakeNumber1=(Integer) EnumUtil.getEnumObject(map2.get(l_sleep_wakeNumber),Sleep_wakeNumber.class).getValueCode();
 						System.out.println(l_sleep_wakeNumber1);
 						tbHealthLive.setlSleepWakenumber(l_sleep_wakeNumber1);
 						json_LifeStyle.put("l_sleep_wakeNumber", map.get("l_sleep_wakeNumber"+l_sleep_wakeNumber));
@@ -1263,7 +1291,7 @@ public class GetPaidHealthStateC  extends Commend {
 					if(LifeStyle_key.equals("l_sleep_insomnia")){
 
 						String l_sleep_insomnia=json.getString("l_sleep_insomnia");
-						int l_sleep_insomnia1=(Integer) EnumUtil.getEnumObject(l_sleep_insomnia,Sleep_insomnia.class).getValueCode();
+						int l_sleep_insomnia1=(Integer) EnumUtil.getEnumObject(map2.get(l_sleep_insomnia),Sleep_insomnia.class).getValueCode();
 						System.out.println(l_sleep_insomnia1);
 						tbHealthLive.setlSleepInsomnia(l_sleep_insomnia1);
 						json_LifeStyle.put("l_sleep_insomnia", map.get("l_sleep_insomnia"+l_sleep_insomnia));

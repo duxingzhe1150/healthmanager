@@ -1,28 +1,28 @@
 
 package com.gb.health.algorithm;
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 import com.gb.health.domain.TbHealthLive;
-import com.gb.health.init.Concat;
 import com.gb.health.init.HealthEnum;
 import com.gb.health.init.HealthEnum.LiveFood_oil;
+
+import com.gb.health.init.Concat;
 import com.gb.health.init.HealthEnum.LiveFood_structure;
 import com.gb.health.op.LiveSuggestDetail;
 import com.gb.health.utils.EnumUtil;
 import com.gb.health.utils.MathCheckoutUtil;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
-
 
 /**
- * @ClassName:     LiveQuesAlgorithmAq.java
- * @Description:   TODO
+ * 
+
  * 
  * @author         Administrator
  * @version        V1.0  
- * @Date           2017年4月5日 下午4:11:00 
+ *            2017年4月5日 下午4:11:00 
 
  */
 public class LiveQuesAlgorithmAq extends AbsFactory<TbHealthLive, Integer> {
@@ -32,7 +32,6 @@ public class LiveQuesAlgorithmAq extends AbsFactory<TbHealthLive, Integer> {
 	 * <p>Description: </p>
 	 * @param fi
 	 * @return
-	 * @see com.gb.diagnosis.algorithm.AbsFactory#result(com.gb.diagnosis.algorithm.FetureInter)
 	 */
 	@Override
 	public Integer result(FetureInter<TbHealthLive> fi) {
@@ -52,23 +51,24 @@ public class LiveQuesAlgorithmAq extends AbsFactory<TbHealthLive, Integer> {
 		//锻炼
 		if (t.getlLivesportWay()==null || "无".equals(t.getlLivesportWay())) {
 			resultMap.put("l_physical_exercise", 0);
-			resultMap.put("l_liveSport_step", 0);
 		}else {
 			//每周锻炼时间分数
-			score=MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportMinute())*MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportMinute())*MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportDayweek())/30;
+			score= MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportMinute())*MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportCount())*MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportDayweek())/30;
 			resultMap.put("l_physical_exercise",   (score>=5 ? 5 :score));
 			
-			//每日活动步数分数
-			score=MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportStep())/1200;
-			resultMap.put("l_liveSport_step",   (score>=5 ? 5 :score));
+			
 		}
+		
+		//每日活动步数分数
+		score=MathCheckoutUtil.integerCheckAndTransfer(t.getlLivesportStep())/1200;
+		resultMap.put("l_liveSport_step",   (score>=5 ? 5 :score));
 		
 		
 		
 		
 		//膳食结构分数
 		//LiveFood_oil obj=  EnumUtil.getEnumObject(t.getlLivefoodStructure()==null ? 0 :t.getlLivefoodStructure(), LiveFood_oil.class);
-		LiveFood_structure obj= t.getlLivefoodStructure()==null ?null :EnumUtil.getEnumObject(t.getlLivefoodStructure(),LiveFood_structure.class);
+		LiveFood_structure obj= t.getlLivefoodStructure()==null ?null : EnumUtil.getEnumObject(t.getlLivefoodStructure(),LiveFood_structure.class);
 		resultMap.put("l_liveFood_structure",   (obj==null ? 0 : obj.getScore()));
 		
 		//每日吃够12种分数

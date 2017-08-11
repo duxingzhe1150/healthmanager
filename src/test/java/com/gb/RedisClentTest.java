@@ -1,5 +1,6 @@
 package com.gb;
 
+import net.sf.json.JSONObject;
 import redis.clients.jedis.Jedis;
 
 import java.util.Set;
@@ -28,7 +29,15 @@ public class RedisClentTest {
 
     public static void main(String[] args) {
 
-        showData();
+//        showData();
+
+//        int i=2230000020;
+
+        JSONObject jsonObject=new JSONObject();
+
+        jsonObject.accumulate("aa","22300000203");
+
+        System.out.println(jsonObject.getInt("aa"));
 
     }
 

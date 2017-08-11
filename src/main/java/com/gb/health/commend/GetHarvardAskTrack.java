@@ -1,33 +1,37 @@
 package com.gb.health.commend;
 
+import java.util.Date;
+
+import com.gb.health.service.i.SystemInImpl;
+import com.gb.health.service.i.SystemOutImpl;
+import org.apache.log4j.Logger;
+
 import com.gb.health.domain.ChatHistory;
 import com.gb.health.init.Concat;
 import com.gb.health.init.ErrerCode;
 import com.gb.health.service.i.SystemIn;
-import com.gb.health.service.i.SystemInImpl;
 import com.gb.health.service.i.SystemOut;
-import com.gb.health.service.i.SystemOutImpl;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.apache.log4j.Logger;
-
-import java.util.Date;
 /**
  *  哈弗全书 问答 完整轨迹
  * @author lx
  *
  */
 public class GetHarvardAskTrack  extends Commend{
-	private static Logger log = Logger.getLogger(GetHarvardAskTrack.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
-	private SystemIn systemIn=applicationContext.getBean(SystemInImpl.class);
+	private static Logger log = Logger.getLogger(GetHarvardAskTrack.class);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	private SystemOut systemOut;
+	private SystemIn systemIn;
 
 
 	public GetHarvardAskTrack(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
-		//systemIn = (SystemIn)mContext.getBean("systemInImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemIn = (SystemIn)mContext.getBean("systemInImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
+		systemIn=applicationContext.getBean(SystemInImpl.class);
 	}
 
 	@Override

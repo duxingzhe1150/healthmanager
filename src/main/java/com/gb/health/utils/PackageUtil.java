@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.catalina.loader.WebappClassLoader;
+
 
 	public class PackageUtil {
 
@@ -12,7 +14,7 @@ import java.util.List;
 	   *
 	   * @param packagePathList   包名全路径集合
 	   * @param classWithPath 返回全路径开关 true 自动带上包名 false 只返回类名
-	   * @return List<String> 包下所有的类
+	   *  包下所有的类
 	   */
 	  public static List<String> getPackageClasses(List<String> packagePathList, boolean classWithPath) {
 	    List<String> result = new ArrayList<>();
@@ -20,8 +22,8 @@ import java.util.List;
 	      List<String> classNames = getClassName(packagePath);
 	      String path = classWithPath ? packagePath + "." : "";
 	      for (String className : classNames) {
-		      System.out.println(className);
-		      //className:com.example.myFirstProject.enums.SexEnum
+	    	  System.out.println(className);
+	        //className:com.example.myFirstProject.enums.SexEnum
 	        result.add(path + className.substring(className.lastIndexOf(".") + 1));
 	      }
 	    }

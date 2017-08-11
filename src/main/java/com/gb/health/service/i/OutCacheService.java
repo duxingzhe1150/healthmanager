@@ -1,5 +1,13 @@
 package com.gb.health.service.i;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.gb.health.utils.BeanToMapUtil;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.gb.health.conn.CacheData;
 import com.gb.health.conn.DB;
 import com.gb.health.dao.TbHealthArchiveMapper;
@@ -9,14 +17,6 @@ import com.gb.health.domain.TbHealthArchive;
 import com.gb.health.domain.TbHealthDetails;
 import com.gb.health.domain.TbHealthLive;
 import com.gb.health.init.Concat;
-import com.gb.health.utils.BeanToMapUtil;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 
 /**
@@ -66,7 +66,7 @@ public class OutCacheService {
 			
 			
 			
-			cache=BeanToMapUtil.getCommonBeanMap(healthArchive);
+			cache= BeanToMapUtil.getCommonBeanMap(healthArchive);
 			
 			logger.info("mysql data:"+cache);
 			logger.debug("mysql data:"+cache);

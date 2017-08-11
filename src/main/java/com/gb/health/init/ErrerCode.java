@@ -19,12 +19,11 @@ package com.gb.health.init;
 
 
 /**
- * @ClassName:     ErrerCode.java
- * @Description:   TODO
+ * 
  * 
  * @author         Administrator
  * @version        V1.0  
- * @Date           2017年4月11日 上午10:02:52 
+ *           2017年4月11日 上午10:02:52 
 
  */
 public class ErrerCode  {
@@ -49,23 +48,13 @@ public class ErrerCode  {
 			this.code = code;
 			this.msg = msg;
 		}
-		/**
-		 * <p>Title: getCode</p>
-		 * <p>Description: </p>
-		 * @return
-		 * @see com.gb.diagnosis.init.ErrerInterface#getCode()
-		 */
+		
 		@Override
 		public int getCode() {
 			// TODO Auto-generated method stub
 			return code;
 		}
-		/**
-		 * <p>Title: getMsg</p>
-		 * <p>Description: </p>
-		 * @return
-		 * @see com.gb.diagnosis.init.ErrerInterface#getMsg()
-		 */
+		
 		@Override
 		public String getMsg() {
 			// TODO Auto-generated method stub
@@ -75,13 +64,11 @@ public class ErrerCode  {
 	public  enum ClientErrer implements ErrerInterface {
 	     CLIENT_ERRER(600,"客户端错误"),
 
-	    CLIENT_DATATYPE_ERRER(601,"请求数据格式错误"),
-
+	     CLIENT_DATATYPE_ERRER(601,"请求数据格式错误"),
 		 CLIENT_DISEASEID_ERRER(604,"病症编号不存在"),
-
 		 CLIENT_PERSONID_ERRER(602,"无本人信息"),
 		 CLIENT_LESS_ERRER(603,"信息不完善！");
-
+         
 		
 		private int code;
 		private String msg;
@@ -90,23 +77,13 @@ public class ErrerCode  {
 			this.msg = msg;
 			
 		}
-		/**
-		 * <p>Title: getCode</p>
-		 * <p>Description: </p>
-		 * @return
-		 * @see com.gb.diagnosis.init.ErrerInterface#getCode()
-		 */
+	
 		@Override
 		public int getCode() {
 			// TODO Auto-generated method stub
 			return this.code;
 		}
-		/**
-		 * <p>Title: getMsg</p>
-		 * <p>Description: </p>
-		 * @return
-		 * @see com.gb.diagnosis.init.ErrerInterface#getMsg()
-		 */			
+		
 		@Override
 		public String getMsg() {
 			// TODO Auto-generated method stub
@@ -128,23 +105,13 @@ public class ErrerCode  {
 			this.msg = msg;
 			
 		}
-		/**
-		 * <p>Title: getCode</p>
-		 * <p>Description: </p>
-		 * @return
-		 * @see com.gb.diagnosis.init.ErrerInterface#getCode()
-		 */
+		
 		@Override
 		public int getCode() {
 			// TODO Auto-generated method stub
 			return this.getCode();
 		}
-		/**
-		 * <p>Title: getMsg</p>
-		 * <p>Description: </p>
-		 * @return
-		 * @see com.gb.diagnosis.init.ErrerInterface#getMsg()
-		 */
+		
 		@Override
 		public String getMsg() {
 			// TODO Auto-generated method stub

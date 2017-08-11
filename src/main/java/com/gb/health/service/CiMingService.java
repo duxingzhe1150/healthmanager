@@ -1,16 +1,19 @@
 package com.gb.health.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gb.health.dao.TbHealthDetailsMapper;
 import com.gb.health.dao.TbHealthExaminationMapper;
 import com.gb.health.domain.CiMing;
+import com.gb.health.domain.TbHealthDetails;
 import com.gb.health.domain.TbHealthExamination;
 import com.gb.health.init.Const;
 import com.gb.health.rqf.CimingServiceR;
 import com.gb.health.rqf.DataHeader;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service("ciMingService")
 public class CiMingService   {

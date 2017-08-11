@@ -101,7 +101,7 @@ public class CiMingInvoke {
                         System.out.println(methods[k].getName());
                         general.setgResult(methods[k].invoke(o)+"");
 
-                        System.out.println(findUnitOrScope(methods,methods[k].getName()+"_unit").getName());
+//                        System.out.println(findUnitOrScope(methods,methods[k].getName()+"_unit").getName());
 
                         String unit=findUnitOrScope(methods,methods[k].getName()+"_unit").invoke(o)+"";
                         general.setgUnits(unit);

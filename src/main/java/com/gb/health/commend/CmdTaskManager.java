@@ -1,12 +1,14 @@
 package com.gb.health.commend;
-
 import com.gb.health.utils.LogRecordInf;
+import org.apache.log4j.Logger;
+
+
 import net.sf.json.JSONObject;
 
 public class CmdTaskManager {
-//	private static Logger log = Logger.getLogger(CmdTaskManager.class); 
-	
-	 LogRecordInf lr= new LogRecordInf(CmdTaskManager.class);
+	//	private static Logger log = Logger.getLogger(CmdTaskManager.class); 
+
+	LogRecordInf lr= new LogRecordInf(CmdTaskManager.class);
 	/*	public static final String CMD_ASK_ADD_CATERING = "addcatering";
 	public static final String CMD_ASK_UPDATE_CATERING = "updatecatering";
 	public static final String CMD_ASK_LOGIN_ACCOUNT = "loginaccount";
@@ -40,21 +42,21 @@ public class CmdTaskManager {
 	public static final String CMD_ASK_HB =  "uploadHb";
 	//中医体质
 	public static final String CMD_ASK_CHINA_MEDCINE =  "uploadChineseMedcine";
-	//数据来源
+	//数据来源(安卓客户端)
 	public static final String CMD_ASK_DATA_SOURCE =  "getDataSource";
-	
+
 	//分词 疾病关键词接收
 	public static final String CMD_ASK_SYMPTOM_WROD  = "getSymptom_Word";
-	
+
 	//获取  分词 疾病关键词结果
 	public static final String CMD_ASK_SYMPTOM_RESULT ="getSymptom_Result";
-	
+
 	//插入哈弗全书 问答 完整轨迹
 	public static final String CMD_ASK_HARVARD_TRACK ="getHarvardAskTrack";
-	
+
 	//哈弗全书 问答 查询历史记录列表
 	public static final String CMD_ASK_HARVARD_RECORD ="getHarvardAskRecord";
-	
+
 	//哈弗全书 问答 单次记录
 	public static final String CMD_ASK_HARVARD_DIALOG ="getHarvardAskDialog";
 
@@ -71,8 +73,9 @@ public class CmdTaskManager {
 		JSONObject responseJson = null;
 
 		lr.interfaceInfo("AllJson", reqJson.toString());
-		
+
 		commend = getConCommend();
+		
 		if(commend!=null){
 			responseJson = commend.execut();
 		}
@@ -89,7 +92,20 @@ public class CmdTaskManager {
 		if (cmd.equals(CMD_ASK_GETSYMPTOMINFO)) {
 			//commend.commend = new GetSymptomInfoC(reqJson);
 		}else if (cmd.equals(CMD_ASK_UPLOADHEALTH)) {
-			commend= new GetUploadHealthC(reqJson);
+			if(reqJson.has("head")){
+				lr.interfaceInfo("head:", reqJson.get("head").toString());
+				JSONObject head=(JSONObject) reqJson.get("head");
+					if(head.getInt("vercode")==3){
+						commend= new GetUploadHealthC2(reqJson);	
+					}else if (head.getInt("vercode")==2){
+						commend= new GetUploadHealthC(reqJson);	
+					}else{
+						throw new CmdMatchException("vercode不匹配！");		
+					}
+			} else{
+				throw new CmdMatchException("head不存在！");	
+			}
+
 		}else if (cmd.equals(CMD_ASK_GETSCORE)) {
 			commend= new GetHealthScoreC(reqJson);
 		}else if (cmd.equals(CMD_ASK_GETCVD)) {
@@ -110,27 +126,27 @@ public class CmdTaskManager {
 		}else if (cmd.equals(CMD_ASK_CHINA_MEDCINE)) {
 			commend= new GetChineseMedcineC(reqJson); 
 		}else if (cmd.equals(CMD_ASK_UPLOADHEALTH_PAID)) {
-			commend= new GetPaidHealthStateC(reqJson);
+			commend= new GetPaidHealthStateC1(reqJson);
 		}else if (cmd.equals(CMD_ASK_DATA_SOURCE)) {
-		
+
 			commend= new GetDataSourceC(reqJson);
 		}else if (cmd.equals(CMD_ASK_SYMPTOM_WROD)) {
-		
+
 			commend= new GetSymptomWord(reqJson);
 		}else if (cmd.equals(CMD_ASK_SYMPTOM_RESULT)) {
-		
+
 			commend= new GetSymptomResult(reqJson);
 		}
 		else if (cmd.equals(CMD_ASK_HARVARD_TRACK)) {
-			
+
 			commend= new GetHarvardAskTrack(reqJson);
 		}
 		else if (cmd.equals(CMD_ASK_HARVARD_RECORD)) {
-			
+
 			commend= new GetHarvardAskRecord(reqJson);
 		}
 		else if (cmd.equals(CMD_ASK_HARVARD_DIALOG)) {
-			
+
 			commend= new GetHarvardAskDialog(reqJson);
 		}
 		else{
@@ -138,7 +154,7 @@ public class CmdTaskManager {
 		}
 
 		return commend;
- 
+
 	}
 
 }

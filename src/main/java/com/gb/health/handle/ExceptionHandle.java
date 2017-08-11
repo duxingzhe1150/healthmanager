@@ -15,19 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 @ControllerAdvice
 public class ExceptionHandle {
 
-    @ExceptionHandler(value = RuntimeException.class)
-    @ResponseBody
-    public HttpResult globalExceptionHandeler(RuntimeException e, HttpServletResponse response){
-
-        return ResultUtil.error(601,e.getMessage());
-
-    }
-
-    @ExceptionHandler(value = Exception.class)
-    @ResponseBody
-    public HttpResult otherExceptionHandler(){
-        return ResultUtil.error(605,"未知错误");
-    }
+//    @ExceptionHandler(value = RuntimeException.class)
+//    @ResponseBody
+//    public HttpResult globalExceptionHandeler(RuntimeException e, HttpServletResponse response){
+//
+//        return ResultUtil.error(601,e.getMessage());
+//
+//    }
+//
+//    @ExceptionHandler(value = Exception.class)
+//    @ResponseBody
+//    public HttpResult otherExceptionHandler(){
+//        return ResultUtil.error(605,"未知错误");
+//    }
 
 
 }

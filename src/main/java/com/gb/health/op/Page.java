@@ -103,7 +103,7 @@ public class Page<E> {
 		if (this.nowPage*this.size<=(this.dataList.size()-1)) {
 			this.dataList=this.dataList.subList((this.nowPage-1)*this.size, this.nowPage*this.size);
 		}else {
-			this.dataList=this.dataList.subList((this.nowPage-1)*this.size, this.dataList.size()-1);
+			this.dataList=this.dataList.subList((this.nowPage-1)*this.size, this.dataList.size());
 		}
 		
 		return dataList;

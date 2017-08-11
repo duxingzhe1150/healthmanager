@@ -1,8 +1,8 @@
 package com.gb.health.dao;
 
-import com.gb.health.domain.Disease;
-
 import java.util.List;
+
+import com.gb.health.domain.Disease;
 
 public interface DiseaseMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,14 +1,16 @@
 package com.gb.health.rqf;
+import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Map;
 
-import com.gb.health.conn.DB;
-import com.gb.health.op.Result;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
+import com.gb.health.conn.DB;
+import com.gb.health.init.ErrerCode;
+import com.gb.health.op.Result;
 //该类对datain  和dataout 做基本实现
 public   class AbsCenter<T> implements DataIn<T>,DataOut  {
 	

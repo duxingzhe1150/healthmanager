@@ -2,9 +2,11 @@ package com.gb.health.controller;
 
 import com.gb.health.domain.CiMing;
 import com.gb.health.domain.Msg;
+import com.gb.health.init.Concat;
 import com.gb.health.init.Const;
 import com.gb.health.rqf.CimingServiceR;
 import com.gb.health.rqf.DataHeader;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
@@ -26,10 +28,12 @@ import java.util.UUID;
 @Controller
 public class HomeController {
 
+
     @RequestMapping("/")
     public String index(Model model){
         Msg msg =  new Msg("后台管理","","");
         model.addAttribute("msg", msg);
+        System.out.println(Const.DOWN_URL);
         return "home";
     }
 

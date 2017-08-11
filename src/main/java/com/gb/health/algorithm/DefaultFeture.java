@@ -19,14 +19,13 @@ package com.gb.health.algorithm;
 
 
 /**
- * @ClassName:     DefaultFeture.java
- * @Description:   TODO
  * 
- * @author         Administrator
- * @version        V1.0  
- * @param <K>
- * @Date           2017年3月27日 下午4:33:45 
-
+ *
+ * 简要描述一下这个类
+ * Copyright:   Copyright (c)2017  
+* Company:     光宝联合   
+ *
+ * Create at: 2017年7月26日
  */
 public class DefaultFeture<K> implements FetureInter<K>{
 

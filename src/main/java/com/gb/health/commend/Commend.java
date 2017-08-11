@@ -1,18 +1,20 @@
 package com.gb.health.commend;
 
-import com.gb.health.init.MyContextListener;
 import com.gb.health.utils.LogRecordInf;
-import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
+
+import com.gb.health.init.MyContextListener;
+
+import net.sf.json.JSONObject;
 
 
 public abstract class Commend {
 	//private static Logger log = Logger.getLogger(Commend.class);
 	LogRecordInf lr =new LogRecordInf(Commend.class);
-	protected  WebApplicationContext  mContext = (WebApplicationContext) MyContextListener.getApplicationContext();
-	protected ApplicationContext applicationContext = MyContextListener.applicationContext;
+//	protected  WebApplicationContext  mContext = (WebApplicationContext) MyContextListener.getApplicationContext();
+	protected ApplicationContext applicationContext=MyContextListener.applicationContext;
 	public static String RESUIT = "result";
 	public static String HEAD = "head";
 	public static String dvdid = "dvdid";

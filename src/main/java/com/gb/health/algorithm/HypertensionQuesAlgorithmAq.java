@@ -1,8 +1,10 @@
 package com.gb.health.algorithm;
 
+import org.apache.log4j.Logger;
+
 import com.gb.health.op.Hypertension;
 import com.gb.health.op.HypertensionSuggest;
-import org.apache.log4j.Logger;
+import com.gb.health.service.i.SystemOutImpl;
 
 public class HypertensionQuesAlgorithmAq extends AbsFactory<Hypertension, HypertensionSuggest>{
 

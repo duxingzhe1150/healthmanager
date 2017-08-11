@@ -55,6 +55,13 @@ public class ReportService {
 
         }
 
+//        if(true){
+//
+//            System.out.println("——————————————事务测试异常——————————————");
+//
+//            throw new RuntimeException("——————————————事务测试异常——————————————");
+//        }
+
         for (ReportDepartment department:
              departments) {
 

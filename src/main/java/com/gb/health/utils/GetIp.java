@@ -1,6 +1,8 @@
 package com.gb.health.utils;
 
 import javax.servlet.http.HttpServletRequest;
+
+import net.sf.json.JSONObject;
 /**
  * 获取ip
  * @author lx

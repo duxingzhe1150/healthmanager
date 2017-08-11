@@ -1,5 +1,6 @@
 server:
   port: 80
+#  context-path: /hm
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -24,6 +25,12 @@ spring:
 #      filters: log4j        #配置监控统计拦截的filters
 
 solrHost: http://192.168.3.64:8983/solr/hafcore
+
+debugConfig.debug: 2
+
+logging:
+  path: F:/loger
+  config: classpath:logback-spring.xml
 
 
 

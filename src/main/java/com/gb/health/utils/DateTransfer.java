@@ -219,7 +219,7 @@ public class DateTransfer {
 	}
 	/**
 	 * 把日期字符串的天数+NDay(N天）后，返回新的日期字符串
-	 * @param time传入的参数，日期字符串
+	 * @param time 传入的参数，日期字符串
 	 * @param NDay 传入的参数，NDay
 	 * @return 返回的日期字符串
 	 * @author meihuai

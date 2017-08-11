@@ -17,6 +17,10 @@ spring:
       #超过空闲时间，数据库连接将被标记为不可用，然后被释放。设为0表示无限制。
       max-idle: 100
       min-idle: 10
+
+solrHost: http://192.168.3.64:8983/solr/hafcore
+
+debugConfig.debug: 1
 #logging:
 #  path: E:/loger
 #  config: classpath:logback-spring.xml

@@ -17,6 +17,9 @@
 
 package com.gb.health.commend;
 
+import java.util.Date;
+import java.util.Set;
+
 import com.gb.health.domain.TbHealthArchive;
 import com.gb.health.domain.TbHealthDetails;
 import com.gb.health.domain.TbHealthLive;
@@ -24,59 +27,80 @@ import com.gb.health.init.Concat;
 import com.gb.health.init.Concat.H_Code;
 import com.gb.health.init.ErrerCode;
 import com.gb.health.init.ErrerCode.ClientErrer;
-import com.gb.health.init.HealthEnum.*;
+import com.gb.health.init.HealthEnum.Education;
+import com.gb.health.init.HealthEnum.Insurance;
+import com.gb.health.init.HealthEnum.L_liveSport_count;
+import com.gb.health.init.HealthEnum.L_liveSport_minute;
+import com.gb.health.init.HealthEnum.LiveFood_bean;
+import com.gb.health.init.HealthEnum.LiveFood_dayKind;
+import com.gb.health.init.HealthEnum.LiveFood_egg;
+import com.gb.health.init.HealthEnum.LiveFood_fish;
+import com.gb.health.init.HealthEnum.LiveFood_fruit;
+import com.gb.health.init.HealthEnum.LiveFood_meat;
+import com.gb.health.init.HealthEnum.LiveFood_milk;
+import com.gb.health.init.HealthEnum.LiveFood_nut;
+import com.gb.health.init.HealthEnum.LiveFood_oil;
+import com.gb.health.init.HealthEnum.LiveFood_potato;
+import com.gb.health.init.HealthEnum.LiveFood_primary;
+import com.gb.health.init.HealthEnum.LiveFood_salt;
+import com.gb.health.init.HealthEnum.LiveFood_structure;
+import com.gb.health.init.HealthEnum.LiveFood_sugar;
+import com.gb.health.init.HealthEnum.LiveFood_vegetable;
+import com.gb.health.init.HealthEnum.LiveFood_water;
+import com.gb.health.init.HealthEnum.LiveFood_weekKind;
+import com.gb.health.init.HealthEnum.Marriage;
+import com.gb.health.init.HealthEnum.Sleep_insomnia;
+import com.gb.health.init.HealthEnum.Sleep_time;
+import com.gb.health.init.HealthEnum.Sleep_wakeNumber;
+import com.gb.health.init.HealthEnum.Smoke_beginAge;
+import com.gb.health.init.HealthEnum.Smoke_condition;
+import com.gb.health.init.HealthEnum.Smoke_endAge;
+import com.gb.health.init.HealthEnum.Smoke_env;
+import com.gb.health.init.HealthEnum.Smoke_number;
+import com.gb.health.init.HealthEnum.Wine_Hz;
+import com.gb.health.init.HealthEnum.Wine_beer;
+import com.gb.health.init.HealthEnum.Wine_beginAge;
+import com.gb.health.init.HealthEnum.Wine_kind;
+import com.gb.health.init.HealthEnum.Wine_red;
+import com.gb.health.init.HealthEnum.Wine_white;
+import com.gb.health.init.HealthEnum.Wine_year;
+import com.gb.health.init.HealthEnum.Wine_yellow;
 import com.gb.health.service.i.SystemIn;
 
 import com.gb.health.service.i.SystemInImpl;
-
 import com.gb.health.utils.DateTransfer;
 import com.gb.health.utils.EnumUtil;
 import com.gb.health.utils.JsonUtil;
 import com.gb.health.utils.LogRecordInf;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import java.util.Date;
-import java.util.Set;
-
 /**
  * 获取健康陈述请求数据
- * @ClassName:     GetUploadHealthC.java
- * @Description:   TODO
- * 
- * @author         Administrator
- * @version        V1.0  
- * @Date           2017年4月10日 下午2:50:03 
+ 
 
  */
 public class GetUploadHealthC extends Commend{
 	LogRecordInf lr = new LogRecordInf (GetUploadHealthC.class);
 	//private static Logger log = Logger.getLogger(GetUploadHealthC.class);
 
-	private SystemIn systemIn=applicationContext.getBean(SystemInImpl.class);
+	private SystemIn systemIn;
 
 	public  int index;
 
 	/**
-	 * @Title:        GetUploadHealthC
-	 * @Description:    TODO
-	 * @param:    @param reqDate
-	 * @throws
-
+	 * 
+	 * @param reqDate
 	 */
 	public GetUploadHealthC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemIn = (SystemIn)mContext.getBean("systemInImpl");
+//		systemIn = (SystemIn)mContext.getBean("systemInImpl");
+		systemIn=applicationContext.getBean(SystemInImpl.class);
 	}
 
 	/**
-	 * <p>Title: execut</p>
-	 * <p>Description: </p>
-	 * @return																											
-	 * @throws Exception
-	 * @see com.gb.diagnosis.commend.Commend#execut()
+	 * 
 	 */
 	@Override
 	JSONObject execut() throws Exception {
@@ -96,7 +120,7 @@ public class GetUploadHealthC extends Commend{
 		InterfProcessor inf= new InterfProcessor();
 		//判断信息是否万完善标识  index=1    全      index=0  不全
 		index=1;
-		try{
+	//	try{
 			//TbHealthArchive  tb1 = getTbHealthArchive();
 
 
@@ -112,12 +136,6 @@ public class GetUploadHealthC extends Commend{
 			TbHealthDetails  tb2 =null;
 			TbHealthLive     tb3 =null;
 
-			//				if(h_code.equals(H_Code.HID_HEALTHY_STATE)){
-			//					tb1 = getTbHealthArchive();
-			//					tb2 = getTbHealthDetails();
-			//					tb3 = getTbHealthLive();
-			//				}
-			//				else
 			if(h_code.equals(H_Code.HID_BASE_INFORMATION)){
 				tb1 = getTbHealthArchive();
 
@@ -158,18 +176,18 @@ public class GetUploadHealthC extends Commend{
 
 			}
 		}
-		catch(Exception e){
-			e.printStackTrace();
-			System.out.println(e.toString());
-			//log.error(e.getMessage(), e);
-			lr.interfaceError("健康陈述报错", e.toString());
-			JSONObject js=inf.getRespJsonByData("信息有误", Concat.ResultType.CLIENT_TREATY_FORMAT_ERROR);
-			//log.debug(js.toString());
-			lr.interfaceError("健康陈述报错", js.toString());
-			return js;
-
-		}	
-	}
+//		catch(Exception e){
+//			e.printStackTrace();
+//			System.out.println(e.toString());
+//			//log.error(e.getMessage(), e);
+//			lr.interfaceError("健康陈述报错", e.toString());
+//			JSONObject js=inf.getRespJsonByData("信息有误", Concat.ResultType.CLIENT_TREATY_FORMAT_ERROR);
+//			//log.debug(js.toString());
+//			lr.interfaceError("健康陈述报错", js.toString());
+//			return js;
+//
+//		}	
+//	}
 
 
 /**
@@ -452,7 +470,7 @@ public class GetUploadHealthC extends Commend{
 						JSONArray h_food_allergy=json.getJSONArray("h_food_allergy");
 						JsonUtil.forJson(h_food_allergy);
 						System.out.println(JsonUtil.forJson(h_food_allergy));
-						tbHealthDetails.sethFoodAllergy(JsonUtil.forJson(h_food_allergy)); 
+						tbHealthDetails.sethFoodAllergy(JsonUtil.forJson(h_food_allergy));
 					}
 
 
@@ -742,7 +760,7 @@ public class GetUploadHealthC extends Commend{
 
 			//每次锻炼时间（分钟/次）
 			if(json.has("l_liveSport_minute")){
-				int l_liveSport_minute=(int)EnumUtil.getEnumObject(json.getString("l_liveSport_minute"), L_liveSport_minute.class).getValueCode();
+				int l_liveSport_minute=(int) EnumUtil.getEnumObject(json.getString("l_liveSport_minute"), L_liveSport_minute.class).getValueCode();
 				tbHealthLive.setlLivesportMinute(l_liveSport_minute);
 
 			}else{

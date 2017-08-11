@@ -26,6 +26,11 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="updateById">
+  update analysis
+  set description=#{1}
+  where id=#{0}
+  </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select id, number,number_2, type, description
     from analysis

@@ -1,19 +1,19 @@
 package com.gb.health.commend;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.gb.health.init.Concat;
+
 import com.gb.health.init.HealthEnum.ChineseMedcine;
+
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
 
 import com.gb.health.service.i.SystemOutImpl;
-
 import com.gb.health.utils.EnumUtil;
 import com.gb.health.utils.LogRecordInf;
-
 import net.sf.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 /**
  * 中医体质数据接收处理
  * @author lx
@@ -23,13 +23,14 @@ public class GetChineseMedcineC  extends Commend{
 //	private static Logger log = Logger.getLogger(GetChineseMedcineC.class);   
 	
 	LogRecordInf lr =new LogRecordInf(GetChineseMedcineC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemOut systemOut;
 
 
 	public GetChineseMedcineC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public class GetChineseMedcineC  extends Commend{
 				chin_personid =(String) json.get("chin_personid");
 			}
 			if(json.has("chin_energetic")){
-				int chin_energetic=(int)EnumUtil.getEnumObject(json.getString("chin_energetic"), ChineseMedcine.class).getValueCode();
+				int chin_energetic=(int) EnumUtil.getEnumObject(json.getString("chin_energetic"), ChineseMedcine.class).getValueCode();
 				ma.put("chin_energetic", chin_energetic);
 
 			} 

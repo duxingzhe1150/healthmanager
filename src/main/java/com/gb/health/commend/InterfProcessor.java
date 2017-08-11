@@ -1,20 +1,30 @@
 package com.gb.health.commend;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import com.gb.health.utils.DateTransfer;
+import com.gb.health.utils.JsonDateValueProcessor;
+import com.gb.health.utils.LogRecordInf;
+import org.apache.http.util.TextUtils;
+
 import com.gb.health.domain.ChatHistory;
 import com.gb.health.domain.TbHealthExamination;
 import com.gb.health.init.Const;
 import com.gb.health.init.ErrerInterface;
-import com.gb.health.op.*;
-import com.gb.health.utils.JsonDateValueProcessor;
-import com.gb.health.utils.LogRecordInf;
+import com.gb.health.op.DiabetesSuggest;
+import com.gb.health.op.HypertensionSuggest;
+import com.gb.health.op.ICVDsuggest;
+import com.gb.health.op.LiveSuggestDetail;
+import com.gb.health.op.Obesity;
+import com.gb.health.op.Page;
+import com.gb.health.op.Result;
+import com.gb.health.op.ResultDisease;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
-import org.apache.http.util.TextUtils;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 处理内部输出数据
@@ -63,9 +73,10 @@ public class InterfProcessor {
 		JSONArray data_json=JSONArray.fromObject(data);
 
 		rep.accumulate("result", 200);	
-		rep.accumulate("data", data_json);
+		
+		objs.accumulate("list", data_json);
 
-
+		rep.accumulate("data", objs);
 
 		return rep;
 	}
@@ -100,6 +111,7 @@ public class InterfProcessor {
 				liveSuggest_json.remove("l_sleep_situation");
 				liveSuggest_json.remove("l_psy_situation");
 				liveSuggest_json.remove("l_Personality_test");
+				liveSuggest_json.remove("time");
 
 				js.accumulate("l_dietary_status", liveSuggest_json);
 
@@ -111,8 +123,8 @@ public class InterfProcessor {
 				Object[] l_psy_situation=liveSuggestDetail.getL_psy_situation();
 				Object[] l_Personality_test=liveSuggestDetail.getL_Personality_test();
 				Object[] l_sleep_situation=liveSuggestDetail.getL_sleep_situation();
-				String liveSuggestDetail_time=liveSuggestDetail.getTime();
-				rep.accumulate("time", liveSuggestDetail_time);
+				//String liveSuggestDetail_time=liveSuggestDetail.getTime();
+				rep.accumulate("time", DateTransfer.dateToString(new Date()));
 				liveSuggestOther_json.accumulate("l_physical_sport", l_physical_sport);
 				liveSuggestOther_json.accumulate("l_smoke_condition", l_smoke_condition);
 				liveSuggestOther_json.accumulate("l_drinking_situation", l_drinking_situation);
@@ -153,8 +165,7 @@ public class InterfProcessor {
 
 	/**
 	 * 返回请求结果
-	 * @param errer
-	 * @param result
+	 * @param errinterface
 	 * @return
 	 */
 	public JSONObject getRespJsonByData(ErrerInterface errinterface){
@@ -285,8 +296,8 @@ public class InterfProcessor {
 	/**
 	 * 获取 高血压结果
 	 * @param status
-	 * @param result
-	 * @param data
+
+	 * @param re
 	 * @return
 	 */
 	public JSONObject getHypertension(int status, Result<HypertensionSuggest> re){
@@ -308,8 +319,7 @@ public class InterfProcessor {
 	/**
 	 * 获取 中医体质结果
 	 * @param status
-	 * @param result
-	 * @param data
+	 * @param re
 	 * @return
 	 */
 	public JSONObject getChineseMedcine(int status, Result<String> re){
@@ -353,7 +363,7 @@ public class InterfProcessor {
 	 */
 	public JSONObject getSymptomResult(int status,Result<ResultDisease> result,JSONObject data){
 		JSONObject js=new JSONObject();
-		if(result.isSucess() && data!=null){
+		//if(result.isSucess() && data!=null){
 			js.accumulate("result", status);
 			JSONObject json=new JSONObject();
 			json.accumulate("description", result.getResult().getDescription());
@@ -362,7 +372,7 @@ public class InterfProcessor {
 			json.accumulate("flag", result.getResult().getD_flag());
 			js.accumulate("data", json);
 
-		}
+		//}
 
 		return js ;
 	}

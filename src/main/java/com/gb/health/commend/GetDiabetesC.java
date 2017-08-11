@@ -1,17 +1,22 @@
 package com.gb.health.commend;
 
 import com.gb.health.init.Concat;
-import com.gb.health.init.HealthEnum.*;
+import com.gb.health.init.HealthEnum.Age;
+import com.gb.health.init.HealthEnum.Diabete;
+import com.gb.health.init.HealthEnum.Fruit;
+import com.gb.health.init.HealthEnum.HypertensionAll;
+import com.gb.health.init.HealthEnum.Hypotensor;
+import com.gb.health.init.HealthEnum.Sex;
+import com.gb.health.init.HealthEnum.Sport;
+import com.gb.health.init.HealthEnum.Vegetable;
 import com.gb.health.op.Diabetes;
 import com.gb.health.op.DiabetesSuggest;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
 
 import com.gb.health.service.i.SystemOutImpl;
-
 import com.gb.health.utils.EnumUtil;
 import com.gb.health.utils.LogRecordInf;
-
 import net.sf.json.JSONObject;
 /**
  *  糖尿病数据接收处理
@@ -22,13 +27,14 @@ public class GetDiabetesC extends Commend{
 //	private static Logger log = Logger.getLogger(GetObesityC.class);     
 	
 	LogRecordInf lr = new LogRecordInf(GetObesityC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemOut systemOut;
 
 
 	public GetDiabetesC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override
@@ -54,7 +60,7 @@ public class GetDiabetesC extends Commend{
 		} 
 		if(json.has("d_age")){
 			//String b_heght=(String) json.get("b_heght");
-			int age=(int)EnumUtil.getEnumObject(json.get("d_age"), Age.class).getValueCode();
+			int age=(int) EnumUtil.getEnumObject(json.get("d_age"), Age.class).getValueCode();
 			diabetes.setB_age(age);
 		}
 		if(json.has("d_waistline")){
