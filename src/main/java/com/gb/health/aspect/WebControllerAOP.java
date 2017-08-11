@@ -90,7 +90,8 @@ public class WebControllerAOP {
     @After("executeService()")
     public void returnLog(JoinPoint joinPoint){
 
-//        System.out.println(22222222);
+
+//       System.out.println(22222222+joinPoint.getTarget().toString());
         //logger.info("");
 
     }
