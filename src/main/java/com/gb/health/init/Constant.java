@@ -82,7 +82,7 @@ public class Constant {
 
       }
     } catch (Exception e) {
-
+      System.out.println("----------Constant exception:----------"+e.getMessage());
     }
     return ENUM_MAP;
   }

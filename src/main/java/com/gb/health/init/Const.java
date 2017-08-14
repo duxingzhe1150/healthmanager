@@ -1,12 +1,6 @@
 package com.gb.health.init;
 
 import com.gb.health.config.DebugConfig;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Service;
-
 /**
  * 接口校验码（h_code）
  * @author lx

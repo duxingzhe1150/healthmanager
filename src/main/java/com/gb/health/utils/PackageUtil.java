@@ -42,7 +42,7 @@ import org.apache.catalina.loader.WebappClassLoader;
 		  System.out.println(packageName);*/
 		  // String filePath = PackageUtil.class.getClassLoader().getResource("")+ packageName.replace(".", File.separator);
 		  //String filePath=com.sun.org.apache.bcel.internal.util.ClassLoader.getSystemResource("").getPath() + packageName.replace(".", "\\");
-		 String filePath= Thread.currentThread().getContextClassLoader().getResource("").getPath()+ packageName.replace(".", File.separator);
+		 String filePath= Thread.currentThread().getContextClassLoader().getResource("").getPath()+ packageName.replace(".", "/");
 		 // String filePath=ClassLoader.getSystemResource("").getPath() + packageName.replace(".", "\\");
             System.out.println("filePath:"+filePath);
 		  System.out.println(ClassLoader.getSystemResource(""));

@@ -1,10 +1,8 @@
 package com.gb.health;
 
 import com.gb.health.config.DebugConfig;
-import com.gb.health.init.Const;
 import com.gb.health.init.MyContextListener;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
