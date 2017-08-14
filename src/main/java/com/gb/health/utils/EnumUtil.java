@@ -2,6 +2,12 @@ package com.gb.health.utils;
 
 import com.gb.health.init.Constant;
 import com.gb.health.init.EnumMessage;
+import com.gb.health.init.EnumMessage2;
+import com.gb.health.init.HealthEnum.Education;
+import com.gb.health.init.HealthEnum.LiveFood_bean;
+import com.gb.health.init.HealthEnum.Sex;
+import com.gb.health.init.HealthEnum.Smoke_endAge;
+import com.gb.health.init.HealthEnum.Wine_white;
 /**
  * 枚举测试类
  * @author lx
@@ -16,8 +22,27 @@ public class EnumUtil {
 	 * @param clazz
 	 * */
 
-	public static <T extends EnumMessage>  T getEnumObject(Object value, Class<T> clazz){
-		return (T) Constant.ENUM_MAP.get(clazz).get(value);
+	public static <T extends EnumMessage2>  T getEnumObject(Object value, Class<T> clazz){
+
+		if(clazz.isEnum()){
+			T[] t =	clazz.getEnumConstants();
+			for (T t1 : t) {
+				System.out.println(t1.getValueID());
+				if (value.equals(t1.getValueID())){
+					return t1;
+				}
+
+			}
+
+		}
+
+
+
+
+		return null;
+
+
+
 	}
 
 /*	public static void main(String[] args) {

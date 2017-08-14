@@ -1,6 +1,8 @@
 package com.gb.health.init;
 
 import com.gb.health.config.DebugConfig;
+
+
 /**
  * 接口校验码（h_code）
  * @author lx

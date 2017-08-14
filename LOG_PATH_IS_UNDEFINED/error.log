@@ -1,4 +1,0 @@
-2017-08-03 11:58:55.138 [qtp285295604-20] ERROR c.gb.health.commend.InterfProcessor -interface:健康陈述报错:java.lang.NullPointerException
-2017-08-03 11:58:55.143 [qtp285295604-20] ERROR c.gb.health.commend.InterfProcessor -interface:健康陈述报错:{"errerMsg":"信息有误","result":600}
-2017-08-03 15:05:51.881 [qtp1008901402-21] ERROR c.gb.health.commend.InterfProcessor -interface:健康陈述报错:java.lang.NullPointerException
-2017-08-03 15:05:51.882 [qtp1008901402-21] ERROR c.gb.health.commend.InterfProcessor -interface:健康陈述报错:{"errerMsg":"信息有误","result":600}

@@ -31,7 +31,7 @@ public class WebControllerAOP {
 
 
     //匹配com.example.demo.controller包及其子包下的所有类的所有方法
-    @Pointcut("execution(* com.gb.health.controller..*.*(..))")
+    @Pointcut("execution(* com.gb1.health.controller..*.*(..))")
     public void executeService(){
 
     }
