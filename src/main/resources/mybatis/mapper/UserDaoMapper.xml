@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gb.health.dao.UserDao">
     <resultMap id="userMap" type="com.gb.health.domain.SysUser">
-        <id property="id" column="ID"/>
+        <id property="id" column="id"/>
         <result property="username" column="username"/>
-        <result property="password" column="PASSWORD"/>
+        <result property="password" column="password"/>
         <collection property="roles" ofType="com.gb.health.domain.SysRole">
             <result column="name" property="name"/>
         </collection>
