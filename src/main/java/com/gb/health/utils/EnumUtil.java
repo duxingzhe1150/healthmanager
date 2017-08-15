@@ -3,11 +3,14 @@ package com.gb.health.utils;
 import com.gb.health.init.Constant;
 import com.gb.health.init.EnumMessage;
 import com.gb.health.init.EnumMessage2;
+import com.gb.health.init.HealthEnum;
 import com.gb.health.init.HealthEnum.Education;
 import com.gb.health.init.HealthEnum.LiveFood_bean;
 import com.gb.health.init.HealthEnum.Sex;
 import com.gb.health.init.HealthEnum.Smoke_endAge;
 import com.gb.health.init.HealthEnum.Wine_white;
+import org.apache.poi.ss.formula.functions.T;
+
 /**
  * 枚举测试类
  * @author lx
@@ -22,14 +25,19 @@ public class EnumUtil {
 	 * @param clazz
 	 * */
 
-	public static <T extends EnumMessage>  T getEnumObject(Object value, Class<T> clazz){
+	public static <T extends EnumMessage>  T getEnumObject(Object value, Class<T> clazz) {
 
 		if(clazz.isEnum()){
 			T[] t =	clazz.getEnumConstants();
 			for (T t1 : t) {
-//				System.out.println(t1.getValueID());
-				if (value.equals(t1.getValue())){
-					return t1;
+				if (value instanceof String){
+					if (value.equals(t1.getValue())){
+						return t1;
+					}
+				}else if (value instanceof Integer){
+					if (value.equals(t1.getValueCode())){
+						return t1;
+					}
 				}
 
 			}
@@ -60,9 +68,9 @@ public class EnumUtil {
         return (T) Constant.ENUM_MAP.get(clazz).get(value);
     }*/
 	public static void main(String[] args) {
-		/*try {
-			// System.out.println(EnumUtil.getEnumObject("M", SexEnum.class));//MAN
-			// int a =  (int)EnumUtil.getEnumObject("小于等于1.5两1", Wine_white.class).getValueCode();
+		try {
+			// System.out.println(EnumUtil.getEnumObject("M", L.class));//MAN
+			 int a =  (int)EnumUtil.getEnumObject("1", HealthEnum.LiveFood_egg.class).getValueCode();
 
 			// Smoke_beginAge obj=  EnumUtil.getEnumObject("30岁之后", Smoke_beginAge.class);
 			//  System.out.println(EnumUtil.getEnumObject("小于等于250毫升", wine_red.class));
@@ -75,6 +83,6 @@ public class EnumUtil {
 			System.out.println("  ab+"+ e.fillInStackTrace());
 
 		}
-*/
+
 	}
 }
