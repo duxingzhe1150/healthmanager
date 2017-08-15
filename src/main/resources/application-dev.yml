@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.8:3306/healthdb??useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: java_web
-    password: 1Y^CoMM%L$
+    url: jdbc:mysql://58.215.80.182:3307/healthdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: healthdb
+    password: WEaK6Vu6HenM4kPF
     tomcat:
       #该选项用来验证数据库连接的有效性。
       validation-query: SELECT 1
