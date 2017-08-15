@@ -21,9 +21,9 @@ spring:
 solrHost: http://192.168.3.64:8983/solr/hafcore
 
 debugConfig.debug: 1
-#logging:
-#  path: /usr/local/tomcat85A/logs/service
-#  config: classpath:logback-spring.xml
+logging:
+  path: /usr/local/tomcat85A/logs/service
+  config: classpath:logback-spring.xml
 
 
 
