@@ -1,14 +1,23 @@
 package com.gb.health.utils;
 
-import org.dom4j.*;
-import org.dom4j.io.OutputFormat;
-import org.dom4j.io.SAXReader;
-import org.dom4j.io.XMLWriter;
+import java.io.File;  
+import java.io.FileWriter;  
+import java.io.IOException;  
+import java.util.ArrayList;  
+import java.util.HashMap;  
+import java.util.Iterator;  
+import java.util.List;  
+import java.util.Map;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
+import org.dom4j.Attribute;  
+import org.dom4j.Document;  
+import org.dom4j.DocumentException;  
+import org.dom4j.DocumentHelper;  
+import org.dom4j.Element;  
+import org.dom4j.Node;  
+import org.dom4j.io.OutputFormat;  
+import org.dom4j.io.SAXReader;  
+import org.dom4j.io.XMLWriter;
 
 /**
  * 
@@ -21,14 +30,7 @@ import java.util.*;
  */
 public class XmlUtil {
 	
-	/** 
-     *  
-     * @方法功能描述：生成空的xml文件头 
-     * @方法名:createEmptyXmlFile 
-     * @param xmlPath 
-     * @返回类型：Document 
-     * @时间：2011-4-14下午12:44:20 
-     */  
+	
     public static Document createEmptyXmlFile(String xmlPath){  
         if(xmlPath==null || xmlPath.equals(""))  
             return null;  
@@ -46,12 +48,7 @@ public class XmlUtil {
         }  
         return document;  
     }  
-    /** 
-     * 根据xml文件路径取得document对象 
-     * @param xmlPath 
-     * @return 
-     * @throws DocumentException 
-     */  
+     
     public static Document getDocument(String xmlPath){  
         if(xmlPath==null || xmlPath.equals(""))  
             return null;  
@@ -70,14 +67,7 @@ public class XmlUtil {
         }  
         return document;  
     }  
-    /** 
-     *  
-     * @方法功能描述：得到根节点 
-     * @方法名:getRootEleme 
-     * @param DOC对象 
-     * @返回类型：Element 
-     * @时间：2011-4-8下午12:54:02 
-     */  
+    
     public static Element getRootNode(Document document){  
         if(document==null)  
             return null;  
@@ -85,16 +75,7 @@ public class XmlUtil {
         Element root = document.getRootElement();  
         return root;  
     }  
-    /** 
-     *  
-     * @方法功能描述: 根据路径直接拿到根节点 
-     * @方法名:getRootElement 
-     * @param xmlPath 
-     * @return 
-     * @throws DocumentException @参数描述 : 
-     * @返回类型：Element 
-     * @时间：2011-4-14下午03:01:14 
-     */  
+    
     public static Element getRootNode(String xmlPath) {  
             if(xmlPath==null||(xmlPath.trim()).equals(""))  
                 return null;  
@@ -103,14 +84,7 @@ public class XmlUtil {
                 return null;  
             return getRootNode(document);  
        }  
-    /** 
-     *  
-     * @方法功能描述:得到指定元素的迭代器 
-     * @方法名:getIterator 
-     * @param parent 
-     * @返回类型：Iterator<Element> 
-     * @时间：2011-4-14上午11:29:18 
-     */  
+     
     @SuppressWarnings("unchecked")  
     public static Iterator<Element> getIterator(Element parent){  
         if(parent == null)  
@@ -119,15 +93,7 @@ public class XmlUtil {
         return iterator;  
     }  
       
-    /** 
-     *  
-     * @方法功能描述: 根据子节点名称得到指定的子节点 
-     * @方法名:getChildElement 
-     * @param parent 
-     * @param childName 
-     * @返回类型：Element 
-     * @时间：2011-4-14上午11:18:03 
-     */  
+      
     @SuppressWarnings("unchecked")  
     public static  List<Element> getChildElements(Element parent,String childName){  
         childName  = childName.trim();  
@@ -138,15 +104,7 @@ public class XmlUtil {
         return childElements;  
     }  
   
-    /** 
-     *  
-     * @方法功能描述：TODO 
-     * @方法名:getChildList 
-     * @param node 
-     * @return @参数描述 : 
-     * @返回类型：List<Element> 
-     * @时间：2011-4-14下午12:21:52 
-     */  
+    
     public static  List<Element> getChildList(Element node){  
         if (node==null)   
             return null;      
@@ -162,16 +120,7 @@ public class XmlUtil {
         }  
         return childList;  
     }  
-    /** 
-     *  
-     * @方法功能描述 : 查询没有子节点的节点，使用xpath方式 
-     * @方法名:getSingleNode 
-     * @param parent 
-     * @param nodeNodeName 
-     * @return @参数描述 : 父节点，子节点名称 
-     * @返回类型：Node 
-     * @时间：2011-4-14下午12:38:25 
-     */  
+     
     public static Node getSingleNode(Element parent,String nodeNodeName){  
         nodeNodeName = nodeNodeName.trim();  
         String xpath = "//";  
@@ -183,16 +132,7 @@ public class XmlUtil {
         Node kid = parent.selectSingleNode(xpath);  
         return kid;  
     }  
-    /** 
-     *  
-     * @方法功能描述：得到子节点，不使用xpath 
-     * @方法名:getChild 
-     * @param parent 
-     * @param childName 
-     * @return @参数描述 : 
-     * @返回类型：Element 
-     * @时间：2011-4-14下午12:53:22 
-     */  
+     
     @SuppressWarnings("rawtypes")  
     public static Element getChild(Element parent,String childName){  
         childName = childName.trim();  
@@ -212,27 +152,13 @@ public class XmlUtil {
         }  
         return e;  
     }  
-    /** 
-     *  
-     * @方法功能描述：判断节点是否还有子节点 
-     * @方法名:hasChild 
-     * @param e 
-     * @返回类型：boolean 
-     * @时间：2011-4-14下午01:43:48 
-     */  
+    
     public static boolean hasChild(Element e){  
         if(e==null)  
             return false;  
         return e.hasContent();  
     }  
-    /** 
-     *  
-     * @方法功能描述：得到指定节点的属性的迭代器 
-     * @方法名:getAttrIterator 
-     * @param e 
-     * @返回类型：Iterator<Attribute> 
-     * @时间：2011-4-14下午01:42:38 
-     */  
+     
     @SuppressWarnings("unchecked")  
     public static Iterator<Attribute> getAttrIterator(Element e){  
         if(e==null)  
@@ -240,15 +166,7 @@ public class XmlUtil {
         Iterator<Attribute> attrIterator = e.attributeIterator();  
         return attrIterator;  
     }  
-    /** 
-     *  
-     * @方法功能描述：遍历指定节点的所有属性 
-     * @方法名:getAttributeList 
-     * @param e 
-     * @return 节点属性的list集合 
-     * @返回类型：List<Attribute> 
-     * @时间：2011-4-14下午01:41:38 
-     */  
+     
     public static List<Attribute> getAttributeList(Element e){  
         if(e==null)  
             return null;  
@@ -262,16 +180,7 @@ public class XmlUtil {
         }  
         return attributeList;  
     }  
-    /** 
-     *  
-     * @方法功能描述：  得到指定节点的指定属性 
-     * @方法名:getAttribute 
-     * @param element 指定的元素 
-     * @param attrName 属性名称 
-     * @return Attribute 
-     * @返回类型：Attribute 
-     * @时间：2011-4-14下午01:45:27 
-     */  
+     
     public static Attribute getAttribute(Element element , String attrName){  
         attrName = attrName.trim();  
         if(element==null)  
@@ -281,15 +190,7 @@ public class XmlUtil {
         Attribute attribute = element.attribute(attrName);  
         return attribute;  
     }  
-    /** 
-     *  
-     * @方法功能描述:获取指定节点指定属性的值 
-     * @方法名:attrValue 
-     * @param e 
-     * @param attrName 
-     * @返回类型：String 
-     * @时间：2011-4-14下午02:36:48 
-     */  
+    
     public static String attrValue(Element e,String attrName){  
         attrName = attrName.trim();  
         if(e == null)  
@@ -299,14 +200,7 @@ public class XmlUtil {
         return e.attributeValue(attrName);  
     }  
       
-    /** 
-     *  
-     * @方法功能描述：得到指定节点的所有属性及属性值 
-     * @方法名:getNodeAttrMap 
-     * @return 属性集合 
-     * @返回类型：Map<String,String> 
-     * @时间：2011-4-15上午10:00:26 
-     */  
+    
     public static Map<String,String> getNodeAttrMap(Element e){  
         Map<String,String> attrMap = new HashMap<String, String>();  
         if (e == null) {  
@@ -322,15 +216,7 @@ public class XmlUtil {
         }  
         return attrMap;  
     }  
-    /** 
-     *  
-     * @方法功能描述: 遍历指定节点的下没有子节点的元素的text值 
-     * @方法名:getSingleNodeText 
-     * @param e 
-     * @return @参数描述 : 
-     * @返回类型：Map<String,String> 
-     * @时间：2011-4-15下午12:24:38 
-     */  
+    
     public static Map<String, String> getSingleNodeText(Element e){  
         Map<String, String> map = new HashMap<String, String>();  
         if(e == null)  
@@ -344,15 +230,7 @@ public class XmlUtil {
         return map;  
     }  
       
-    /** 
-     *  
-     * @方法功能描述：遍历根节点下，没有子节点的元素节点，并将此节点的text值放入map中返回 
-     * @方法名:getSingleNodeText 
-     * @param xmlFilePath 
-     * @return @参数描述 : 
-     * @返回类型：Map<String,String> 
-     * @时间：2011-4-15下午12:23:30 
-     */  
+     
     public static Map<String,String> getSingleNodeText(String xmlFilePath){  
         xmlFilePath = xmlFilePath.trim();  
         if(xmlFilePath==null||xmlFilePath.equals("")){  
@@ -364,17 +242,7 @@ public class XmlUtil {
         }  
         return getSingleNodeText(rootElement);  
     }  
-    /** 
-     *  
-     * @方法功能描述:根据xml路径和指定的节点的名称，得到指定节点,从根节点开始找 
-     * @方法名:getNameNode 
-     * @param xmlFilePath 
-     * @param tagName 
-     * @param flag : 指定元素的个数 
-     * @返回类型：Element 指定的节点 
-     * @时间：2011-4-15下午12:22:35 
-     *  
-     */  
+    
       
     public enum Flag{one,more}  
     @SuppressWarnings("unchecked")  
@@ -395,15 +263,7 @@ public class XmlUtil {
         }  
         return (T) tagElementList;  
     }  
-    /** 
-     *  
-     * @方法功能描述:得到指定节点下所有子节点的属性集合 
-     * @方法名:getNameNodeAllAttributeMap 
-     * @param e 
-     * @return @参数描述 : 
-     * @返回类型：Map<Integer,Object> 
-     * @时间：2011-4-18下午04:40:14 
-     */  
+      
     public static Map<Integer,Object> getNameNodeAllKidsAttributeMap(Element parent){  
         Map<Integer,Object> allAttrMap = new HashMap<Integer, Object>();  
         if(parent == null)  
@@ -418,16 +278,7 @@ public class XmlUtil {
         }  
         return allAttrMap;  
     }  
-    /** 
-     *  
-     * @方法功能描述:根据xml文件名路径和指定的节点名称得到指定节点所有子节点的所有属性集合 
-     * @方法名:getNameNodeAllAttributeMap 
-     * @param xmlFileName 
-     * @param nodeName 
-     * @return @参数描述 : 
-     * @返回类型：Map<Integer,Object> 
-     * @时间：2011-4-18下午04:51:46 
-     */  
+   
     @SuppressWarnings("unchecked")  
     public static <T>T getNameNodeAllAttributeMap(String xmlFilePath,String nodeName,Flag flag){  
         nodeName = nodeName.trim();  
@@ -451,14 +302,7 @@ public class XmlUtil {
         }  
         return null;  
     }  
-    /** 
-     *  
-     * @方法功能描述:遍历指定的节点下所有的节点 
-     * @方法名:ransack 
-     * @param element @参数描述 : 
-     * @返回类型：void 
-     * @时间：2011-4-18下午05:25:41 
-     */  
+    
     public static List<Element> ransack(Element element,List<Element> allkidsList){  
         if(element == null)  
             return null;  
@@ -471,16 +315,7 @@ public class XmlUtil {
         }  
         return allkidsList;  
     }  
-    /** 
-     *  
-     * @方法功能描述:得到指定节点下的指定节点集合 
-     * @方法名:getNameElement 
-     * @param element 
-     * @param nodeName 
-     * @return @参数描述 : 
-     * @返回类型：Element 
-     * @时间：2011-4-18下午06:18:56 
-     */  
+     
     public static List<Element> getNameElement(Element element ,String nodeName){  
         nodeName = nodeName.trim();  
         List<Element> kidsElements = new ArrayList<Element>();  
@@ -499,14 +334,7 @@ public class XmlUtil {
         return kidsElements;  
     }  
       
-    /** 
-     *  
-     * @方法功能描述:验证节点是否唯一 
-     * @方法名:validateSingle 
-     * @param element 
-     * @返回类型：int 节点唯一返回1,节点不唯一返回大于一的整型数据 
-     * @时间：2011-4-20下午04:36:22 
-     */  
+    
     public static int validateSingle(Element element){  
         int j = 1;  
         if(element == null)  

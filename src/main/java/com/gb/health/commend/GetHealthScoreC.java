@@ -1,5 +1,7 @@
 package com.gb.health.commend;
 
+import java.util.Set;
+
 import com.gb.health.init.Concat;
 import com.gb.health.init.ErrerCode;
 import com.gb.health.op.LiveSuggestDetail;
@@ -7,12 +9,8 @@ import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
 
 import com.gb.health.service.i.SystemOutImpl;
-
 import com.gb.health.utils.LogRecordInf;
-
 import net.sf.json.JSONObject;
-
-import java.util.Set;
 /**
  *  健康陈述分数 数据接收处理
  * @author lx
@@ -21,14 +19,15 @@ import java.util.Set;
 public class GetHealthScoreC extends Commend {
 	//private static Logger log = Logger.getLogger(GetHealthScoreC.class);
 	
-	LogRecordInf lr = new LogRecordInf (GetHealthScoreC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	LogRecordInf lr = new LogRecordInf(GetHealthScoreC.class);
+	private SystemOut systemOut;
 
 
 	public GetHealthScoreC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override

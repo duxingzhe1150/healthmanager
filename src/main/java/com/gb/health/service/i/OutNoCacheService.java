@@ -1,10 +1,13 @@
 package com.gb.health.service.i;
 
-import com.gb.health.algorithm.*;
-import com.gb.health.dao.TbHealthArchiveMapper;
-import com.gb.health.dao.TbHealthDetailsMapper;
-import com.gb.health.dao.TbHealthLiveMapper;
-import com.gb.health.dao.TbHealthStateMapper;
+import java.util.Map;
+
+import com.gb.health.utils.BeanToMapUtil;
+import com.gb.health.utils.DateTransfer;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.gb.health.domain.TbHealthArchive;
 import com.gb.health.domain.TbHealthDetails;
 import com.gb.health.domain.TbHealthLive;
@@ -12,14 +15,29 @@ import com.gb.health.domain.TbHealthState;
 import com.gb.health.init.Concat;
 import com.gb.health.init.ErrerCode;
 import com.gb.health.init.ErrerCode.ServerErrer;
-import com.gb.health.op.*;
-import com.gb.health.utils.BeanToMapUtil;
-import com.gb.health.utils.DateTransfer;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.Map;
+import com.gb.health.op.Diabetes;
+import com.gb.health.op.DiabetesSuggest;
+import com.gb.health.op.Hypertension;
+import com.gb.health.op.HypertensionSuggest;
+import com.gb.health.op.ICVD;
+import com.gb.health.op.ICVDsuggest;
+import com.gb.health.op.LiveSuggestDetail;
+import com.gb.health.op.Obesity;
+import com.gb.health.op.Result;
+import com.gb.health.op.Stroke;
+import com.gb.health.algorithm.AbsFactory;
+import com.gb.health.algorithm.AsnyFactory;
+import com.gb.health.algorithm.DefaultFeture;
+import com.gb.health.algorithm.DiabetesQuesAlgorithmAq;
+import com.gb.health.algorithm.HypertensionQuesAlgorithmAq;
+import com.gb.health.algorithm.ICVDQuesAlgorithmAq;
+import com.gb.health.algorithm.LiveQuesAlgorithmAq;
+import com.gb.health.algorithm.ObesityQuesAlgorithmAq;
+import com.gb.health.algorithm.StrokeQuesAlgorithmAq;
+import com.gb.health.dao.TbHealthArchiveMapper;
+import com.gb.health.dao.TbHealthDetailsMapper;
+import com.gb.health.dao.TbHealthLiveMapper;
+import com.gb.health.dao.TbHealthStateMapper;
 
 /**
  * 
@@ -52,10 +70,10 @@ public class OutNoCacheService {
 	 * Description:   将指定的对象保存入数据库 
 	     * Create at:   2017年4月7日
 		 * @return
-	 * @throws Exception 
+
 	 */
 	public ServerErrer saveToDB(TbHealthArchive tbHealthArchive, TbHealthDetails tbHealthDetails, TbHealthLive tbHealthLive){
-		Map<String, String> map1=BeanToMapUtil.getCommonBeanMap(tbHealthArchive);
+		Map<String, String> map1= BeanToMapUtil.getCommonBeanMap(tbHealthArchive);
 		Map<String, String> map2=BeanToMapUtil.getCommonBeanMap(tbHealthDetails);
 		Map<String, String> map3=BeanToMapUtil.getCommonBeanMap(tbHealthLive);
 		

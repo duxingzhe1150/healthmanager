@@ -13,19 +13,16 @@ public class ReportDepartment {
 
     private String dResult;
 
-    private String dDetection;
-
     private Date gExaminationTime;
 
     private Date gImportTime;
 
-    public ReportDepartment(Integer id, Integer pId, String dDepartment, String dItem, String dResult, String dDetection, Date gExaminationTime, Date gImportTime) {
+    public ReportDepartment(Integer id, Integer pId, String dDepartment, String dItem, String dResult, Date gExaminationTime, Date gImportTime) {
         this.id = id;
         this.pId = pId;
         this.dDepartment = dDepartment;
         this.dItem = dItem;
         this.dResult = dResult;
-        this.dDetection = dDetection;
         this.gExaminationTime = gExaminationTime;
         this.gImportTime = gImportTime;
     }
@@ -72,14 +69,6 @@ public class ReportDepartment {
 
     public void setdResult(String dResult) {
         this.dResult = dResult == null ? null : dResult.trim();
-    }
-
-    public String getdDetection() {
-        return dDetection;
-    }
-
-    public void setdDetection(String dDetection) {
-        this.dDetection = dDetection == null ? null : dDetection.trim();
     }
 
     public Date getgExaminationTime() {

@@ -1,22 +1,30 @@
 package com.gb.health.commend;
 
 
+
+
+
+
+import java.lang.reflect.InvocationTargetException;
+
+import com.gb.health.service.i.SystemOutImpl;
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.LogRecordInf;
+import org.apache.commons.beanutils.BeanUtils;
 import com.gb.health.init.Concat;
-import com.gb.health.init.HealthEnum.*;
+import com.gb.health.init.HealthEnum.Age;
+import com.gb.health.init.HealthEnum.Cholesterol;
+import com.gb.health.init.HealthEnum.Diabete;
+
+import com.gb.health.init.HealthEnum.Sex;
+import com.gb.health.init.HealthEnum.Smoking;
+import com.gb.health.init.HealthEnum.Systolic;
 import com.gb.health.op.ICVD;
 import com.gb.health.op.ICVDsuggest;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
 
-import com.gb.health.service.i.SystemOutImpl;
-
-import com.gb.health.utils.EnumUtil;
-import com.gb.health.utils.LogRecordInf;
-
 import net.sf.json.JSONObject;
-import org.apache.commons.beanutils.BeanUtils;
-
-import java.lang.reflect.InvocationTargetException;
 /**
  * 心血管疾病数据接收处理
  * @author lx
@@ -26,13 +34,14 @@ public class GetCvdC  extends Commend{
 //	private static Logger log = Logger.getLogger(GetCvdC.class);   
 	
 	LogRecordInf lr =new LogRecordInf(GetCvdC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemOut systemOut;
 
 
 	public GetCvdC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-	//	systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override
@@ -61,7 +70,7 @@ public class GetCvdC  extends Commend{
 			} 
 			if(json.has("heart_age")){
 				//String age=(String) json.get("age");
-				int age=(int)EnumUtil.getEnumObject(json.get("heart_age"), Age.class).getValueCode();
+				int age=(int) EnumUtil.getEnumObject(json.get("heart_age"), Age.class).getValueCode();
 				cvd.setB_age(age);
 			}
 			if(json.has("heart_systolic")){

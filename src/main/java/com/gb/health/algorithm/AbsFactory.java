@@ -19,16 +19,17 @@ package com.gb.health.algorithm;
 
 import java.util.Map;
 
+import org.apache.poi.ss.formula.functions.T;
 
 /**
- * @ClassName:     AbsFactory.java
- * @Description:   TODO
+
+
  * 
  * @author         Administrator
  * @version        V1.0  
  * @param <R>
  * @param <R>
- * @Date           2017年3月27日 下午5:00:41 
+ *           2017年3月27日 下午5:00:41 
 
  */
 public abstract class AbsFactory<K,R> implements AsnyFactory<K,R> {

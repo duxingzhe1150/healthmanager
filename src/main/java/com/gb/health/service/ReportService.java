@@ -38,14 +38,14 @@ public class ReportService {
                            List<ReportGeneral> generals,
                            List<ReportDepartment> departments){
 
-        if (personnel ==null || pooled==null || generals==null || departments==null)
+        if (personnel ==null || generals==null || departments==null)
             return;
 
         personnelMapper.insert(personnel);
 
-        pooled.setpId(personnel.getId());
-
-        pooledMapper.insert(pooled);
+//        pooled.setpId(personnel.getId());
+//
+//        pooledMapper.insert(pooled);
 
         for (ReportGeneral general:
              generals) {
@@ -54,6 +54,13 @@ public class ReportService {
             generalMapper.insert(general);
 
         }
+
+//        if(true){
+//
+//            System.out.println("——————————————事务测试异常——————————————");
+//
+//            throw new RuntimeException("——————————————事务测试异常——————————————");
+//        }
 
         for (ReportDepartment department:
              departments) {

@@ -1,9 +1,5 @@
 package com.gb.health.utils;
 
-import com.gb.health.domain.TbHealthArchive;
-import com.gb.health.domain.TbHealthDetails;
-import org.apache.commons.beanutils.BeanUtils;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -11,6 +7,11 @@ import java.lang.reflect.Modifier;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.beanutils.BeanUtils;
+
+import com.gb.health.domain.TbHealthArchive;
+import com.gb.health.domain.TbHealthDetails;
 
 
 

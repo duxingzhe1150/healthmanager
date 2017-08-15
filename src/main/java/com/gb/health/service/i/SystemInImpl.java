@@ -17,26 +17,32 @@
 
 package com.gb.health.service.i;
 
-import com.gb.health.dao.ChatHistoryMapper;
-import com.gb.health.dao.TbHealthExaminationMapper;
-import com.gb.health.domain.*;
-import com.gb.health.init.ErrerCode.ServerErrer;
+import java.util.Date;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.List;
+import com.gb.health.dao.ChatHistoryMapper;
+import com.gb.health.dao.TbHealthExaminationMapper;
+import com.gb.health.domain.ChatHistory;
+import com.gb.health.domain.TbHealthArchive;
+import com.gb.health.domain.TbHealthDetails;
+import com.gb.health.domain.TbHealthExamination;
+import com.gb.health.domain.TbHealthLive;
+import com.gb.health.init.ErrerCode;
+import com.gb.health.init.ErrerCode.ServerErrer;
 
 
 /**
- * @ClassName:     SystemInImpl.java
- * @Description:   TODO
  * 
- * @author         Administrator
- * @version        V1.0  
- * @Date           2017年4月6日 下午2:04:30 
-
+ *
+ * 简要描述一下这个类
+ * Copyright:   Copyright (c)2017  
+* Company:     光宝联合   
+ *
+ * Create at: 2017年7月26日
  */
 @Component("systemInImpl")
 public class SystemInImpl implements SystemIn{

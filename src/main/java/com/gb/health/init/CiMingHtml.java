@@ -29,7 +29,7 @@ public class CiMingHtml {
 		//阴道 
 		public static final String  GY_VAGINA = "Women_vagina";
 		//分泌物
-		public static final String  GY_SECRETA = "Women_vagina";
+		public static final String  GY_SECRETA = "Women_fenmi";
 		//宫颈
 		public static final String  GY_UTERINE_NECK = "Women_cervical";
 		//子宫体

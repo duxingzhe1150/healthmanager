@@ -1,12 +1,14 @@
 package com.gb.health.commend;
 
+import com.gb.health.service.i.SystemOutImpl;
+import org.apache.log4j.Logger;
+
 import com.gb.health.domain.ChatHistory;
 import com.gb.health.init.Concat;
 import com.gb.health.op.Page;
 import com.gb.health.service.i.SystemOut;
-import com.gb.health.service.i.SystemOutImpl;
+
 import net.sf.json.JSONObject;
-import org.apache.log4j.Logger;
 
 /**
  * 获取轨迹 记录列表
@@ -15,14 +17,15 @@ import org.apache.log4j.Logger;
  */
 public class GetHarvardAskRecord  extends Commend{
 
-	private static Logger log = Logger.getLogger(GetHarvardAskRecord.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private static Logger log = Logger.getLogger(GetHarvardAskRecord.class);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	private SystemOut systemOut;
 
 
 	public GetHarvardAskRecord(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override

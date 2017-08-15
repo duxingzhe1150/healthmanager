@@ -1,9 +1,11 @@
 package com.gb.health.service;
 
-import com.gb.health.dao.TbHealthRecordMapper;
-import com.gb.health.domain.TbHealthRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.gb.health.dao.TbHealthRecordMapper;
+
+import com.gb.health.domain.TbHealthRecord;
 
 
 @Service("tbHealthRecoedService")

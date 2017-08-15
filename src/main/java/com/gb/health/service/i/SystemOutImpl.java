@@ -17,41 +17,63 @@
 
 package com.gb.health.service.i;
 
-import com.gb.health.algorithm.QuestionCalculate;
-import com.gb.health.algorithm.QuestionCalculate.Tzenum;
-import com.gb.health.dao.ChatHistoryMapper;
-import com.gb.health.dao.TbHealthExaminationMapper;
-import com.gb.health.domain.*;
-import com.gb.health.domain.ChatHistoryExample.Criteria;
-import com.gb.health.init.ErrerCode;
-import com.gb.health.op.*;
-import com.gb.health.service.CiMingService;
-import com.gb.health.service.DiseaseService;
-import com.gb.health.service.SymptomService;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
 import com.gb.health.utils.BeanToMapUtil;
 import com.gb.health.utils.BuidExcelUtil;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import com.gb.health.algorithm.QuestionCalculate;
+import com.gb.health.algorithm.QuestionCalculate.Tzenum;
+import com.gb.health.dao.ChatHistoryMapper;
+import com.gb.health.dao.TbHealthExaminationMapper;
+import com.gb.health.domain.Analysis;
+import com.gb.health.domain.ChatHistory;
+import com.gb.health.domain.ChatHistoryExample;
+import com.gb.health.domain.ChatHistoryExample.Criteria;
+import com.gb.health.domain.CiMing;
+import com.gb.health.domain.TbHealthArchive;
+import com.gb.health.domain.TbHealthExamination;
+import com.gb.health.init.ErrerCode;
+import com.gb.health.op.Diabetes;
+import com.gb.health.op.DiabetesSuggest;
+import com.gb.health.op.Hypertension;
+import com.gb.health.op.HypertensionSuggest;
+import com.gb.health.op.ICVD;
+import com.gb.health.op.ICVDsuggest;
+import com.gb.health.op.LiveSuggestDetail;
+import com.gb.health.op.Obesity;
+import com.gb.health.op.Page;
+import com.gb.health.op.Result;
+import com.gb.health.op.ResultDisease;
+import com.gb.health.op.Stroke;
+import com.gb.health.service.CiMingService;
+import com.gb.health.service.DiseaseService;
+import com.gb.health.service.SymptomService;
 
 
 /**
- * @ClassName:     SystemOutImpl.java
- * @Description:   TODO
  * 
- * @author         Administrator
- * @version        V1.0  
- * @Date           2017年4月6日 下午2:05:14 
-
+ *
+ * 简要描述一下这个类
+ * Copyright:   Copyright (c)2017  
+* Company:     光宝联合   
+ *
+ * Create at: 2017年7月26日
  */
-@Service
+@Component("systemOutImpl")
 public class SystemOutImpl implements SystemOut{
 	@Autowired
 	OutCacheService outGetDataService;
@@ -76,25 +98,14 @@ public class SystemOutImpl implements SystemOut{
 	@Autowired
 	ChatHistoryMapper chatHistoryMapper;
 
-	/**
-	 * <p>Title: getDataByID</p>
-	 * <p>Description: </p>
-	 * @param type
-	 * @param ID
-	 * @return
-	 */
+	
 	@Override
 	public Map<String, String> getDataByID(String type, String ID) {
 		// TODO Auto-generated method stub
 		return outGetDataService.getCacheData(type, ID);
 	}
 
-	/**
-	 * <p>Title: getLiveScore</p>
-	 * <p>Description: </p>
-	 * @param idcard
-	 * @return
-	 */
+	
 	@Override
 	public int getLiveScore(String idcard) {
 
@@ -107,12 +118,7 @@ public class SystemOutImpl implements SystemOut{
 
 
 
-	/**
-	 * <p>Title: getLiveSuggestDetail</p>
-	 * <p>Description: </p>
-	 * @param idcard
-	 * @return
-	 */
+	
 	@Override
 	public Result<LiveSuggestDetail> getLiveSuggestDetail(String idcard) {
 
@@ -129,7 +135,7 @@ public class SystemOutImpl implements SystemOut{
 
 		Result<ICVDsuggest> result=outNoCacheService.getICVDresult(icvd);
 
-		logger.debug(" 获取心血管的建议："+BeanToMapUtil.getCommonBeanMap(result.getResult()));
+		logger.debug(" 获取心血管的建议："+ BeanToMapUtil.getCommonBeanMap(result.getResult()));
 
 		return result;
 	}

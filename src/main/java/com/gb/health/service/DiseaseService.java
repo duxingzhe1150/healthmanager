@@ -1,7 +1,11 @@
 package com.gb.health.service;
 
-import com.gb.health.dao.DiseaseMapper;
-import com.gb.health.domain.Disease;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -13,11 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.gb.health.dao.DiseaseMapper;
+
+import com.gb.health.domain.Disease;
 
 
 @Service(value="diseaseService")
@@ -29,15 +31,15 @@ public class DiseaseService {
 	@Value("${solrHost}")
 	private String solrHost;
 	
-	/*@SuppressWarnings("deprecation")
-	@Autowired
-	private SolrClient solrServer;*/
+//	@SuppressWarnings("deprecation")
+//	@Autowired
+//	HttpSolrServer solrServer;
 	
 	public List<Map<String, String>> selectAll(String content ,int page){
-
-		SolrClient solrServer=new HttpSolrClient(solrHost);
 		
 		List<Map<String, String>> result=new ArrayList<>();
+
+		SolrClient solrServer=new HttpSolrClient(solrHost);
 		
 		if (page <=0) {
 			page=1;
@@ -45,7 +47,7 @@ public class DiseaseService {
 		
 		SolrQuery  solrq = new SolrQuery();
 
-		solrq.setStart((page-1)*20);
+		solrq.setStart(0);
 		solrq.setRows(20);
 
 		solrq.setQuery("a_description"+content);
@@ -71,10 +73,9 @@ public class DiseaseService {
 			     
 			     map.put("id", doc.get("a_number")+"");
 			     map.put("description", doc.get("a_description")+"");
-				 if (!(doc.get("a_description")+"").endsWith("。")){
+			     if (!(doc.get("a_description")+"").endsWith("。")){
 					 result.add(map);
 				 }
-
 			 }
 		} catch (SolrServerException e) {
 			

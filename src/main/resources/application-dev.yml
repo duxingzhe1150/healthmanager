@@ -1,29 +1,37 @@
 server:
-  port: 80
+  port: 8082
+#  context-path: /hm
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.3.64:3306/healthdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: luke
-#    druid:     #    Druid连接池配置
-##     配置初始化大小、最小、最大
-#      initial-size: 20
-#      min-idle: 10
-#      max-active: 100
-#      max-wait: 60000   #配置获取连接等待超时的时间
-#      time-between-eviction-runs-millis: 60000   #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-#      min-evictable-idle-time-millis: 300000   # 配置一个连接在池中最小生存的时间，单位是毫秒
-#      validation-query: SELECT 'x'
-#      test-while-idle: true
-#      test-on-borrow: false
-#      test-on-return: false
-#      #打开PSCache，并且指定每个连接上PSCache的大小
-#      pool-prepared-statements: false
-#      max-pool-prepared-statement-per-connection-size: 20
-#      filters: log4j        #配置监控统计拦截的filters
+    url: jdbc:mysql://192.168.1.8:3306/healthdb??useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: java_web
+    password: 1Y^CoMM%L$
+    tomcat:
+      #该选项用来验证数据库连接的有效性。
+      validation-query: SELECT 1
+      #连接池的最大数据库连接数。设为0表示无限制。
+      max-active: 100
+      #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+      max-wait: 10000
+      #最大空闲数，数据库连接的最大空闲时间。默认100
+      #超过空闲时间，数据库连接将被标记为不可用，然后被释放。设为0表示无限制。
+      max-idle: 100
+      min-idle: 10
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://192.168.3.64:3306/healthdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    username: root
+#    password: luke
 
-solrHost: http://192.168.3.64:8983/solr/hafcore
+
+solrHost: http://58.215.80.185:8983/solr/hafcore
+
+debugConfig.debug: 2
+
+logging:
+  path: /usr/local/healthmanager/logs
+  config: classpath:logback-spring.xml
+#  path: D:/logger
 
 
 

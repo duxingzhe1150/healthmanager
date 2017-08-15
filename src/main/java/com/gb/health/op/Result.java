@@ -17,17 +17,17 @@
 
 package com.gb.health.op;
 
+import org.apache.poi.ss.formula.functions.T;
 
 import com.gb.health.init.ErrerInterface;
 
 
 /**
- * @ClassName:     Result.java
- * @Description:   TODO
+
  * 
  * @author         Administrator
  * @version        V1.0  
- * @Date           2017年4月12日 下午4:24:41 
+ *          2017年4月12日 下午4:24:41 
 
  */
 public class Result<T> implements ErrerInterface {
@@ -41,7 +41,7 @@ public class Result<T> implements ErrerInterface {
 	   return this.getCode()==200?true:false;
 	   
    }
-
+   
 	@Override
 	public int getCode() {
 		// TODO Auto-generated method stub
@@ -56,28 +56,20 @@ public class Result<T> implements ErrerInterface {
 	
 
 	/** 
-	 * @Title:  setErrer <BR> 
-	 * @Description: please write your description <BR> 
-	 * @return: ErrerInterface <BR> 
+
+	 *  please write your description <BR> 
+
 	 */
 	public void setErrer(ErrerInterface errer) {
 		this.errer = errer;
 	}
 
-	/**
-	 * @Title:        getResult <BR>
-	 * @Description: please write your description <BR>
-	 * @return:     T <BR>
-	 */
+
 	public T getResult() {
 		return result;
 	}
 
-	/** 
-	 * @Title:  setResult <BR> 
-	 * @Description: please write your description <BR> 
-	 * @return: T <BR> 
-	 */
+
 	public void setResult(T result) {
 		this.result = result;
 	}

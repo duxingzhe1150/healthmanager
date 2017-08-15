@@ -18,18 +18,15 @@
 package com.gb.health.utils;
 
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
- * @ClassName:     Test.java
- * @Description:   TODO
  * 
- * @author         Administrator
- * @version        V1.0  
- * @Date           2017年2月13日 下午4:44:00 
-
+ *
+ * 简要描述一下这个类
+ * Copyright:   Copyright (c)2017  
+* Company:     光宝联合   
+ *
+ * Create at: 2017年7月26日
  */
 public class Test {
 	
@@ -58,39 +55,10 @@ public class Test {
         } catch (Exception e) {  
             e.printStackTrace();  
         }*/
-
-		ArrayList<String> listFileName = new ArrayList<String>();
-		getAllFileName("E:\\ABC\\体检报告",listFileName);
-		for(String name:listFileName)
-		{
-			System.out.println(name);
-		}
 	}
-
-
-	//获取指定文件夹中的所有文件夹名
-	public static String [] getFileName(String path)
-	{
-		File file = new File(path);
-		String [] fileName = file.list();
-		return fileName;
-	}
-	//获取指定文件夹中的所有文件名
-	public static void getAllFileName(String path,ArrayList<String> fileName)
-	{
-		File file = new File(path);
-		File [] files = file.listFiles();
-		String [] names = file.list();
-		if(names != null)
-			fileName.addAll(Arrays.asList(names));
-		for(File a:files)
-		{
-			if(a.isDirectory())
-			{
-				getAllFileName(a.getAbsolutePath(),fileName);
-			}
-		}
-	}
+	
+	
+	
 	
 	
 

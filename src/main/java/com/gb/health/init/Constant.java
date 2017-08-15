@@ -1,6 +1,8 @@
 package com.gb.health.init;
 
 
+
+
 import com.gb.health.utils.PackageUtil;
 
 import java.lang.reflect.Method;
@@ -80,7 +82,7 @@ public class Constant {
 
       }
     } catch (Exception e) {
-
+      System.out.println("----------Constant exception:----------"+e.getMessage());
     }
     return ENUM_MAP;
   }

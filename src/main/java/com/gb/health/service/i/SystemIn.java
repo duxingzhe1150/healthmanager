@@ -17,18 +17,18 @@
 
 package com.gb.health.service.i;
 
-import com.gb.health.domain.*;
-import com.gb.health.init.ErrerCode.ServerErrer;
-
 import java.util.Date;
 
+import com.gb.health.domain.ChatHistory;
+import com.gb.health.domain.TbHealthArchive;
+import com.gb.health.domain.TbHealthDetails;
+import com.gb.health.domain.TbHealthExamination;
+import com.gb.health.domain.TbHealthLive;
+import com.gb.health.init.ErrerCode.ServerErrer;
+
 /**
- * @ClassName:     SystemIn.java
- * @Description:   TODO  获取信息 。由刘翔做实现
- * 
- * @author         Administrator
- * @version        V1.0  
- * @Date           2017年4月6日 上午11:46:02 
+ *  获取信息 。由刘翔做实现
+ *           2017年4月6日 上午11:46:02 
 
  */
 

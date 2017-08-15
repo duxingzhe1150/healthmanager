@@ -19,12 +19,12 @@ package com.gb.health.algorithm;
 
 
 /**
- * @ClassName:     FetureInter.java
- * @Description:   TODO
+ *    FetureInter.java
+ *
  * 
  * @author         Administrator
  * @version        V1.0  
- * @Date           2017年3月27日 下午2:34:58 
+ *            2017年3月27日 下午2:34:58 
 
  */
 public interface FetureInter<K> {

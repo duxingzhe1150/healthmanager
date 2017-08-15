@@ -1,5 +1,11 @@
 package com.gb.health.commend;
 
+
+import com.gb.health.service.i.SystemOutImpl;
+import com.gb.health.utils.EnumUtil;
+import com.gb.health.utils.LogRecordInf;
+import org.apache.commons.beanutils.BeanUtils;
+
 import com.gb.health.domain.TbHealthArchive;
 import com.gb.health.init.Concat;
 import com.gb.health.init.HealthEnum.Sex;
@@ -7,13 +13,7 @@ import com.gb.health.op.Obesity;
 import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
 
-import com.gb.health.service.i.SystemOutImpl;
-
-import com.gb.health.utils.EnumUtil;
-import com.gb.health.utils.LogRecordInf;
-
 import net.sf.json.JSONObject;
-import org.apache.commons.beanutils.BeanUtils;
 /**
  * 肥胖数据分析
  * @author lx
@@ -22,13 +22,14 @@ import org.apache.commons.beanutils.BeanUtils;
 public class GetObesityC extends Commend{
 	//private static Logger log = Logger.getLogger(GetObesityC.class);   
 	LogRecordInf lr = new LogRecordInf (GetObesityC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemOut systemOut;
 
 
 	public GetObesityC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-	//	systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class GetObesityC extends Commend{
 
 			if(json.has("fat_sex")){
 				//String b_sex=(String) json.get("b_sex");
-				String b_sex=(int)EnumUtil.getEnumObject(json.get("fat_sex"), Sex.class).getValueCode()+"";
+				String b_sex=(int) EnumUtil.getEnumObject(json.get("fat_sex"), Sex.class).getValueCode()+"";
 				healthArchive.setbSex(b_sex);
 			} 
 			if(json.has("fat_heght")){

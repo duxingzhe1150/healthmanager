@@ -1,8 +1,9 @@
 package com.gb.health.algorithm;
 
+import org.apache.log4j.Logger;
+
 import com.gb.health.op.Diabetes;
 import com.gb.health.op.DiabetesSuggest;
-import org.apache.log4j.Logger;
 
 /**
  * 

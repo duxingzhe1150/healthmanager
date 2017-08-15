@@ -1,9 +1,9 @@
 package com.gb.health.dao;
 
 
-import com.gb.health.domain.TbHealthRecord;
-
 import java.util.List;
+
+import com.gb.health.domain.TbHealthRecord;
 
 public interface TbHealthRecordMapper {
     int deleteByPrimaryKey(Integer id);

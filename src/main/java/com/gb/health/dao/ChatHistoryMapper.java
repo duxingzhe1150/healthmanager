@@ -2,7 +2,6 @@ package com.gb.health.dao;
 
 import com.gb.health.domain.ChatHistory;
 import com.gb.health.domain.ChatHistoryExample;
-
 import java.util.List;
 
 public interface ChatHistoryMapper {

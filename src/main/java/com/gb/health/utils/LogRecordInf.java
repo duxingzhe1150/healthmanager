@@ -1,7 +1,7 @@
 package com.gb.health.utils;
 
-import org.apache.log4j.Logger;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class LogRecordInf {
@@ -9,7 +9,7 @@ public class LogRecordInf {
 	private static Logger log = null;
 
 	public LogRecordInf(Class cal){
-		log=Logger.getLogger(cal);
+		log = LoggerFactory.getLogger(cal);
 		
 		  
 	}

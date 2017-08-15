@@ -48,7 +48,7 @@
       #{bRelationTel,jdbcType=VARCHAR}, #{bAddress,jdbcType=VARCHAR}, #{bEducation,jdbcType=INTEGER}, 
       #{bJobs,jdbcType=VARCHAR}, #{bPersonid,jdbcType=VARCHAR}, #{bInsurance,jdbcType=INTEGER}, 
       #{bMarriage,jdbcType=INTEGER}, #{bTime,jdbcType=TIMESTAMP},#{hId,jdbcType=INTEGER},#{source,jdbcType=VARCHAR},
-      ,#{province,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR},#{county,jdbcType=VARCHAR},#{b_original_address,jdbcType=VARCHAR})
+      #{province,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR},#{county,jdbcType=VARCHAR},#{original_address,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.TbHealthArchive" >
     update tb_health_archive

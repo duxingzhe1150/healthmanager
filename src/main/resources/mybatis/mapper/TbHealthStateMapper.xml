@@ -335,12 +335,12 @@
          <if test="  lPersonalityCalm!=null">l_Personality_calm = VALUES(l_Personality_calm),</if>
          <if test="  lPersonalityUnhappy!=null">l_Personality_unhappy = VALUES(l_Personality_unhappy),</if>   
          <if test="  lLivesportDayweek!=null ">l_liveSport_dayWeek = VALUES(l_liveSport_dayWeek),</if>
-         <if test="  bTime!=null and   bTime !=''">b_time = VALUES(b_time),</if>
-       <if test="bPersonid != null and bPersonid != ''">b_personid = VALUES(b_personid)</if>
-       <if test="province != null and province != ''">b_province = VALUES(b_province)</if>
-       <if test="city != null and city != ''">b_city = VALUES(b_city)</if>
-       <if test="county != null and county != ''">b_county = VALUES(b_county)</if>
-       <if test="original_address != null and original_address != ''">b_original_address = VALUES(b_original_address)</if>
+         <if test="  bTime!=null ">b_time = VALUES(b_time),</if>
+       <if test="province != null ">b_province = VALUES(b_province),</if>
+       <if test="city != null ">b_city = VALUES(b_city),</if>
+       <if test="county != null ">b_county = VALUES(b_county),</if>
+       <if test="original_address != null ">b_original_address = VALUES(b_original_address),</if>
+       <if test="bPersonid != null ">b_personid = VALUES(b_personid)</if>
   </insert>
   
   <update id="updateByPrimaryKey" parameterType="com.gb.health.domain.TbHealthState" >

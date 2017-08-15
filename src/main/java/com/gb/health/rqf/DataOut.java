@@ -1,4 +1,5 @@
 package com.gb.health.rqf;
+import com.gb.health.init.ErrerCode;
 
 public interface DataOut {
 	

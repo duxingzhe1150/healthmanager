@@ -19,6 +19,9 @@ public abstract class BaseCtl {
 	
 	@ModelAttribute
 	private void init(HttpServletRequest mRequest,HttpServletResponse mResponse){
+
+		System.out.println("-----init-----");
+
 		this.mRequest = mRequest;
 		this.mResponse =mResponse;
 	}

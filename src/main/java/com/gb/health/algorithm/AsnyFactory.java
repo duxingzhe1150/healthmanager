@@ -19,13 +19,13 @@ package com.gb.health.algorithm;
 
 
 /**
- * @ClassName:     AsnyFactory.java
- * @Description:   TODO
+ *     AsnyFactory.java
+ * 
  * 
  * @author         Administrator
  * @version        V1.0  
  * @param <R>
- * @Date           2017年3月27日 下午4:50:14 
+ *           2017年3月27日 下午4:50:14 
 
  */
 public interface AsnyFactory<K,R> {

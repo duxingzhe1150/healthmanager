@@ -7,6 +7,8 @@ public class ReportGeneral {
 
     private Integer pId;
 
+    private String gType;
+
     private String gItem;
 
     private String gResult;
@@ -19,9 +21,10 @@ public class ReportGeneral {
 
     private Date gImportTime;
 
-    public ReportGeneral(Integer id, Integer pId, String gItem, String gResult, String gUnits, String gRange, Date gExaminationTime, Date gImportTime) {
+    public ReportGeneral(Integer id, Integer pId, String gType, String gItem, String gResult, String gUnits, String gRange, Date gExaminationTime, Date gImportTime) {
         this.id = id;
         this.pId = pId;
+        this.gType = gType;
         this.gItem = gItem;
         this.gResult = gResult;
         this.gUnits = gUnits;
@@ -48,6 +51,14 @@ public class ReportGeneral {
 
     public void setpId(Integer pId) {
         this.pId = pId;
+    }
+
+    public String getgType() {
+        return gType;
+    }
+
+    public void setgType(String gType) {
+        this.gType = gType == null ? null : gType.trim();
     }
 
     public String getgItem() {

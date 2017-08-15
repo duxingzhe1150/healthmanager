@@ -1,11 +1,12 @@
 package com.gb.health.service;
 
-import com.gb.health.dao.AnalysisMapper;
-import com.gb.health.domain.Analysis;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.gb.health.dao.AnalysisMapper;
+import com.gb.health.domain.Analysis;
 
 
 /**

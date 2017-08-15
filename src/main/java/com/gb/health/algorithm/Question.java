@@ -38,11 +38,10 @@ public class Question {
     public int serai;
 
   /**
-   * @auchor wh
+
    * create at 2016/12/6 0006 10:37
-   * @TODO 颠倒运算 
-   * @param 
-   * @return 
+   *  颠倒运算 
+
    */
     public void calculate(){
       if(tagStart == Question.START_YES && score!=0){

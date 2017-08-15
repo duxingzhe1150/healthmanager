@@ -1,18 +1,19 @@
 package com.gb.health.rqf;
-
-import com.gb.health.conn.DB;
-import com.gb.health.domain.CiMing;
-import com.gb.health.init.ErrerCode;
-import com.gb.health.op.Result;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.log4j.Logger;
-
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
+
+import com.gb.health.commend.GetUploadHealthC;
+import com.gb.health.conn.DB;
+import com.gb.health.domain.CiMing;
+import com.gb.health.init.ErrerCode;
+import com.gb.health.op.Result;
 
 public class CimingServiceR extends AbsCenter<CiMing>{
 	
@@ -40,9 +41,7 @@ public class CimingServiceR extends AbsCenter<CiMing>{
 				
 			System.out.println(filed[i].get(ci));
 		}
-		
 	}
-	
 	
  @Override
 public boolean outRedis(String key) {

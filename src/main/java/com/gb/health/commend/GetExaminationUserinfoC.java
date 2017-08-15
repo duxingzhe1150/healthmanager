@@ -1,13 +1,20 @@
 package com.gb.health.commend;
 
-import com.gb.health.domain.TbHealthExamination;
-import com.gb.health.init.Concat;
-import com.gb.health.service.i.SystemOut;
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
 import com.gb.health.service.i.SystemOutImpl;
-import net.sf.json.JSONObject;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 
-import java.util.List;
+import com.gb.health.domain.TbHealthArchive;
+import com.gb.health.domain.TbHealthExamination;
+import com.gb.health.init.Concat;
+import com.gb.health.op.Obesity;
+import com.gb.health.op.Result;
+import com.gb.health.service.i.SystemOut;
+
+import net.sf.json.JSONObject;
 
 public class GetExaminationUserinfoC  extends Commend{
 	/**
@@ -15,14 +22,15 @@ public class GetExaminationUserinfoC  extends Commend{
 	 * @author lx
 	 *
 	 */
-	private static Logger log = Logger.getLogger(GetExaminationUserinfoC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private static Logger log = Logger.getLogger(GetExaminationUserinfoC.class);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	private SystemOut systemOut;
 
 
 	public GetExaminationUserinfoC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-		//systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override

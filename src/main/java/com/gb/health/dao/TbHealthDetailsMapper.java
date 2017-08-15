@@ -1,7 +1,6 @@
 package com.gb.health.dao;
 
 import com.gb.health.domain.TbHealthDetails;
-
 import java.util.List;
 
 public interface TbHealthDetailsMapper {

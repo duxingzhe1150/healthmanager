@@ -8,13 +8,12 @@
       <arg column="d_department" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="d_item" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="d_result" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="d_detection" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="g_examination_time" jdbcType="DATE" javaType="java.util.Date" />
       <arg column="g_import_time" jdbcType="DATE" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, p_id, d_department, d_item, d_result, d_detection, g_examination_time, g_import_time
+    id, p_id, d_department, d_item, d_result, g_examination_time, g_import_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -28,11 +27,11 @@
   </delete>
   <insert id="insert" parameterType="com.gb.health.domain.ReportDepartment" >
     insert into tb_report_department (id, p_id, d_department, 
-      d_item, d_result, d_detection, 
-      g_examination_time, g_import_time)
+      d_item, d_result, g_examination_time, 
+      g_import_time)
     values (#{id,jdbcType=INTEGER}, #{pId,jdbcType=INTEGER}, #{dDepartment,jdbcType=VARCHAR}, 
-      #{dItem,jdbcType=VARCHAR}, #{dResult,jdbcType=VARCHAR}, #{dDetection,jdbcType=VARCHAR}, 
-      #{gExaminationTime,jdbcType=DATE}, #{gImportTime,jdbcType=DATE})
+      #{dItem,jdbcType=VARCHAR}, #{dResult,jdbcType=VARCHAR}, #{gExaminationTime,jdbcType=DATE}, 
+      #{gImportTime,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.gb.health.domain.ReportDepartment" >
     insert into tb_report_department
@@ -51,9 +50,6 @@
       </if>
       <if test="dResult != null" >
         d_result,
-      </if>
-      <if test="dDetection != null" >
-        d_detection,
       </if>
       <if test="gExaminationTime != null" >
         g_examination_time,
@@ -78,9 +74,6 @@
       <if test="dResult != null" >
         #{dResult,jdbcType=VARCHAR},
       </if>
-      <if test="dDetection != null" >
-        #{dDetection,jdbcType=VARCHAR},
-      </if>
       <if test="gExaminationTime != null" >
         #{gExaminationTime,jdbcType=DATE},
       </if>
@@ -104,9 +97,6 @@
       <if test="dResult != null" >
         d_result = #{dResult,jdbcType=VARCHAR},
       </if>
-      <if test="dDetection != null" >
-        d_detection = #{dDetection,jdbcType=VARCHAR},
-      </if>
       <if test="gExaminationTime != null" >
         g_examination_time = #{gExaminationTime,jdbcType=DATE},
       </if>
@@ -122,7 +112,6 @@
       d_department = #{dDepartment,jdbcType=VARCHAR},
       d_item = #{dItem,jdbcType=VARCHAR},
       d_result = #{dResult,jdbcType=VARCHAR},
-      d_detection = #{dDetection,jdbcType=VARCHAR},
       g_examination_time = #{gExaminationTime,jdbcType=DATE},
       g_import_time = #{gImportTime,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}

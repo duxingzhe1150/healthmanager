@@ -19,12 +19,12 @@ package com.gb.health.init;
 
 
 /**
- * @ClassName:     ErrerInterface.java
- * @Description:   TODO
+ *     ErrerInterface.java
+
  * 
  * @author         Administrator
  * @version        V1.0  
- * @Date           2017年4月11日 上午10:48:19 
+ *           2017年4月11日 上午10:48:19 
 
  */
 public interface ErrerInterface {

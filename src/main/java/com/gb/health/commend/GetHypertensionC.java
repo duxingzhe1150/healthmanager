@@ -11,10 +11,8 @@ import com.gb.health.op.Result;
 import com.gb.health.service.i.SystemOut;
 
 import com.gb.health.service.i.SystemOutImpl;
-
 import com.gb.health.utils.EnumUtil;
 import com.gb.health.utils.LogRecordInf;
-
 import net.sf.json.JSONObject;
 /**
  * 高血压数据接收分析
@@ -24,13 +22,14 @@ import net.sf.json.JSONObject;
 public class GetHypertensionC  extends Commend{
 	//private static Logger log = Logger.getLogger(GetHypertensionC.class); 
 	LogRecordInf lr = new LogRecordInf (GetHypertensionC.class);
-	private SystemOut systemOut=applicationContext.getBean(SystemOutImpl.class);
+	private SystemOut systemOut;
 
 
 	public GetHypertensionC(JSONObject reqDate) {
 		super(reqDate);
 		// TODO Auto-generated constructor stub
-	//	systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+//		systemOut = (SystemOut)mContext.getBean("systemOutImpl");
+		systemOut=applicationContext.getBean(SystemOutImpl.class);
 	}
 
 	@Override
@@ -48,7 +47,7 @@ public class GetHypertensionC  extends Commend{
 			JSONObject json=requestDate;
 			Hypertension hypertension=new Hypertension();
 			if(json.has("hb_age")){
-				int hb_age=(int)EnumUtil.getEnumObject(json.getString("hb_age"), Age.class).getValueCode();
+				int hb_age=(int) EnumUtil.getEnumObject(json.getString("hb_age"), Age.class).getValueCode();
 				hypertension.setAge(hb_age);
 			} 
 			if(json.has("hb_systolic")){
