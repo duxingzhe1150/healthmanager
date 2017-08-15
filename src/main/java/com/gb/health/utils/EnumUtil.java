@@ -22,13 +22,13 @@ public class EnumUtil {
 	 * @param clazz
 	 * */
 
-	public static <T extends EnumMessage2>  T getEnumObject(Object value, Class<T> clazz){
+	public static <T extends EnumMessage>  T getEnumObject(Object value, Class<T> clazz){
 
 		if(clazz.isEnum()){
 			T[] t =	clazz.getEnumConstants();
 			for (T t1 : t) {
-				System.out.println(t1.getValueID());
-				if (value.equals(t1.getValueID())){
+//				System.out.println(t1.getValueID());
+				if (value.equals(t1.getValue())){
 					return t1;
 				}
 
