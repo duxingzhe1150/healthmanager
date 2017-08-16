@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: local
 #thymeleaf start
   thymeleaf:
     mode: HTML5
@@ -13,14 +13,13 @@ mybatis:
 #  config-location: classpath:mybatis\mybatis-config.xml
   type-aliases-package: com.gb.health.domain
 #debug: true
-endpoints:
-  shutdown:
-#   shutdown
-    enabled: true
-  actuator:
-#
-    sensitive: true
-management:
-  security:
-#
-    roles: ROLE_USER
+#endpoints:
+#  shutdown:
+##   shutdown
+#    enabled: true
+#  actuator:
+##
+#    sensitive: true
+#management:
+#  security:
+#    roles: ROLE_USER

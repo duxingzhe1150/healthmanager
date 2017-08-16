@@ -77,23 +77,13 @@ public class WebControllerAOP {
         String method = request.getMethod();
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
-        logger.info("请求开始, 各个参数, url: {}, method: {}, uri: {}, params: {}", url, method, uri, queryString);
+        logger.info("请求开始, 各个参数, url: {}, method: {}, uri: {}", url, method, uri);
 
         // result的值就是被拦截方法的返回值
         Object result = pjp.proceed();
         Gson gson = new Gson();
         logger.info("请求结束，controller的返回值是 " + gson.toJson(result));
         return result;
-    }
-
-
-    @After("executeService()")
-    public void returnLog(JoinPoint joinPoint){
-
-
-//       System.out.println(22222222+joinPoint.getTarget().toString());
-        //logger.info("");
-
     }
 
 }

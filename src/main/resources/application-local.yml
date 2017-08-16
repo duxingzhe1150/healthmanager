@@ -1,0 +1,23 @@
+server:
+  port: 80
+#  context-path: /hm
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.3.64:3306/healthdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: luke
+
+
+solrHost: http://58.215.80.185:8983/solr/hafcore
+
+debugConfig.debug: 2
+
+logging:
+  config: classpath:logback-spring.xml
+  path: D:/logger
+
+
+
+
+
