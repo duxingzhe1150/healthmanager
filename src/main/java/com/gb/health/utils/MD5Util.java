@@ -1,8 +1,5 @@
 package com.gb.health.utils;
 
-/**
- * Created by yangyibo on 17/2/7.
- */
 import java.security.MessageDigest;
 
 /**
@@ -11,7 +8,7 @@ import java.security.MessageDigest;
  */
 public class MD5Util {
 
-    private static final String SALT = "tamboo";
+    private static final String SALT = "health_manager";
 
     public static String encode(String password) {
         password = password + SALT;
@@ -40,7 +37,7 @@ public class MD5Util {
     }
 
     public static void main(String[] args) {
-        System.out.println(MD5Util.encode("abel"));
+        System.out.println(MD5Util.encode("admin666"));
 
 
     }

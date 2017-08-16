@@ -68,7 +68,7 @@ public class PhoneController extends BaseCtl{
 			outstream.close();
 		//	log.debug("接收页面数据："+reqData);
 			lr.interfaceDebug("接收页面数据", reqData);
-			System.out.println(reqData);
+//			System.out.println(reqData);
 		   //解析得到的json 找到cmd命令
 			
 			reqJson = JSONObject.fromObject(reqData);

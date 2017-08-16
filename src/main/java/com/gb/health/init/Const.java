@@ -54,7 +54,6 @@ public class Const{
    		DebugConfig debugConfig=MyContextListener.applicationContext.getBean(DebugConfig.class);
 
 	   debug=debugConfig.getDebug();
-	   System.out.println("-------debug----------"+debug);
 
 	 if(debug == SERVER_OFFLINE){
 

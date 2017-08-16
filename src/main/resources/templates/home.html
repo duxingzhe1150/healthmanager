@@ -38,6 +38,9 @@ body {
       	<h1 th:text="${msg.title}"></h1>
 		
 		<p class="bg-primary" th:text="${msg.content}"></p>
+      <div sec:authorize="hasRole('ROLE_HOME')"> <!-- 用户类型为ROLE_HOME 显示 -->
+          <p class="bg-info" th:text="${msg.etraInfo}"></p>
+      </div>
 
 		<div sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
 		 	<p class="bg-info" th:text="${msg.etraInfo}"></p>
@@ -46,10 +49,6 @@ body {
                 <label for="filepath">慈铭体检报告上传</label>
                 <input type="file" name="ciming" />
                 <button type="submit">上传</button>
-            </form>
-
-            <form th:action="@{/shutdown}" method="post">
-                <input type="button" id="shutdown_1" class="btn btn-primary" value="关闭服务"/>
             </form>
 
 		</div>
@@ -66,28 +65,6 @@ body {
 
     </div>
     
-	<script>
-//        alert(11);
-        $("#shutdown_1").click( function () {
 
-            /*$.post("/shutdown", function(data){
-                alert("关闭信息: " + JSON.stringify( data ));
-            });*/
-            $.ajax({
-                type: "POST",
-                url: "/shutdown",
-                success: function(data){
-                    alert( "关闭信息: " + JSON.stringify( data ) );
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    /*alert(XMLHttpRequest.status);
-                    alert(XMLHttpRequest.readyState);
-                    alert(textStatus);*/
-                    alert(textStatus+":"+XMLHttpRequest.status+",没有权限执行此操作！");
-                }
-            });
-
-        });
-    </script>
 </body>
 </html>

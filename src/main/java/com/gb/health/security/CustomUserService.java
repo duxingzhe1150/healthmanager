@@ -21,6 +21,8 @@ public class CustomUserService implements UserDetailsService { //自定义UserDe
 
     @Autowired
     UserDao userDao;
+//    @Autowired
+//    PermissionDao permissionDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) { //重写loadUserByUsername 方法获得 userdetails 类型用户
@@ -38,7 +40,8 @@ public class CustomUserService implements UserDetailsService { //自定义UserDe
         }
         return new org.springframework.security.core.userdetails.User(user.getUsername(),
                 user.getPassword(), authorities);
-
     }
+
+
 
 }

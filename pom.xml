@@ -125,10 +125,10 @@
 			<scope>test</scope>
 		</dependency>
 		<!--远程关闭依赖-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+		</dependency>-->
 		<!--身份验证依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
