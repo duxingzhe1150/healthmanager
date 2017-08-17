@@ -1,6 +1,9 @@
 package com.gb.health.algorithm;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +13,14 @@ import java.util.Map;
 
 import com.gb.health.utils.XmlUtil;
 import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.gb.health.init.MyContextListener;
@@ -101,9 +111,9 @@ public class QuestionCalculate{
 //   }
 
     public  void initOtherInfo(Map<String, Integer> map){
-        String[] arr = initArrXML("values1.xml");
+        String[] arr = initArrXML("value1.xml");
         
-        List<String> quse=initQuseXML("values1.xml");
+        List<String> quse=initQuseXML("value1.xml");
         
         
 //
@@ -113,13 +123,8 @@ public class QuestionCalculate{
             question.tag = Integer.valueOf(otherInfo[0]);
             question.tagStart = Integer.valueOf(otherInfo[2]);
             question.serai =  Integer.valueOf(otherInfo[1]);
-           // System.out.println(quse.size()+"----------------------");
             String key=quse.get(Integer.valueOf(otherInfo[1])-1);
-//            System.out.println(map);
-//            System.out.println(key+"++++++++++++++++"+map.get(key));
-           
-//
-            
+
             if(question.serai == 60){
             	
             	if (map.get("sex") == 1) {
@@ -139,7 +144,6 @@ public class QuestionCalculate{
 				question.answer=map.get(key);
 			} catch (Exception e) {
 				logger.error("数据不全："+key+" 为空");
-//				question.answer=1;
 				e.printStackTrace();
 			}
             questCalc.add(question);
@@ -439,39 +443,52 @@ public class QuestionCalculate{
     	
     	//String path=url;
     	
-    	WebApplicationContext web = (WebApplicationContext) MyContextListener.getApplicationContext();
-		String path =web.getServletContext().getRealPath("/");
-		path = path+"/WEB-INF/"+url;
-    	
-    	Element element = XmlUtil.getRootNode(path);
-    	
-    	Element el=XmlUtil.getChild(element, "class-array");
+//    	WebApplicationContext web = (WebApplicationContext) MyContextListener.getApplicationContext();
+//		String path =web.getServletContext().getRealPath("/");
+//		path = path+"/WEB-INF/"+url;
+
+        Resource resource = new ClassPathResource(url);
+
+        SAXReader reader = new SAXReader();
+        Document document=null;
+        try {
+            document = reader.read(resource.getInputStream());
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Element element = document.getRootElement();
+        Element el=XmlUtil.getChild(element, "class-array");
     	
     	List<Element> list=XmlUtil.getChildList(el);
-    	System.out.println(list);
     	
     	String[] arr=new String[list.size()];
     	
     	for (int i = 0; i < list.size(); i++) {
     		arr[i]=list.get(i).getText();
 		}
-    	
-    	
+
     	return arr;
     }
     
     private List<String> initQuseXML(String url){
-    	
-    	WebApplicationContext web = (WebApplicationContext) MyContextListener.getApplicationContext();
-		String path =web.getServletContext().getRealPath("/");
-		path = path+"/WEB-INF/"+url;
-    	
-    	Element element =XmlUtil.getRootNode(path);
-    	
-    	Element el=XmlUtil.getChild(element, "string-array1");
-    	
+
+        Resource resource = new ClassPathResource(url);
+
+        SAXReader reader = new SAXReader();
+        Document document=null;
+        try {
+            document = reader.read(resource.getInputStream());
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Element element = document.getRootElement();
+        Element el=XmlUtil.getChild(element, "string-array1");
     	List<Element> list=XmlUtil.getChildList(el);
-    	
     	List<String> arr=new ArrayList<>();
     	
     	for (int i = 0; i < list.size(); i++) {
@@ -500,7 +517,7 @@ public class QuestionCalculate{
 
     }
     public static void main(String[] args) {
-    String[] str=	initArrXML("WebContent/WEB-INF/values1.xml");
+    String[] str=	initArrXML("classpath:value1.xml");
     for (String string : str) {
     	System.out.println(string);
 		

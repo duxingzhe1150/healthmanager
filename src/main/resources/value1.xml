@@ -1,0 +1,280 @@
+<resources>
+    <string-array name="body">
+        <item>您精力充沛吗?</item>
+        <item>您容易疲乏吗?</item>
+        <item>您容易气短，呼吸短促，接不上气吗？</item>
+        <item>您容易心慌吗？</item>
+        <item>您容易头晕或站起时晕眩吗？</item>
+        <item>您喜欢安静、懒得说话吗?</item>
+        <item>您说话声音低弱无力吗?</item>
+        <item>您容易忘事（健忘）吗?</item>
+        <item>您感到闷闷不乐、情绪低沉吗?</item>
+        <item>您多愁善感、感情脆弱吗？</item>
+        <item>您容易精神紧张、焦虑不安吗?</item>
+        <item>您容易感到害怕或受到惊吓吗?</item>
+        <item>您胁肋部或乳房胀痛吗?</item>
+        <item>您感到胸闷或腹部胀满吗？</item>
+        <item>您无缘无故叹气吗?</item>
+        <item>您感到身体沉重不轻松或不爽快吗?</item>
+        <item>您感到手脚心发热吗?</item>
+        <item>您感觉身体、脸上发热吗？</item>
+        <item>您的皮肤在不知不觉中会出现青紫瘀斑、皮下出血吗?（指皮肤 在没有外伤的情况下出现青一块紫一块的情况）</item>
+        <item>您胃脘部、背部或腰膝部怕冷吗？</item>
+        <item>您比一般人耐受不了寒冷(冬天的寒冷， 夏天的冷空调、电扇等)吗?</item>
+        <item>您感到怕冷、衣服比别人穿得多吗?</item>
+        <item>您比别人容易患感冒吗?</item>
+        <item>您没有感冒时也会打喷嚏吗？</item>
+        <item>您没有感冒时也会鼻塞、流鼻涕吗?</item>
+        <item>您活动量稍大就容易出虚汗吗?</item>
+        <item>您容易过敏(对药物、食物、气味、花粉或 在季节交替、气候变化时)吗?</item>
+        <item>您的皮肤容易起荨麻疹(风团、风疹块、 风疙瘩)吗?</item>
+        <item>您有因季节变化、温度变化或异味等原因 而咳喘的现象吗?</item>
+        <item>您的皮肤因过敏出现过紫癜(紫红色瘀 点、瘀斑)吗?</item>
+        <item>您的皮肤一抓就红，并出现抓痕吗?</item>
+        <item>您的皮肤在不知不觉中会出现青紫瘀斑 (皮下出血)吗?</item>
+        <item>您皮肤或口唇干吗?</item>
+        <item>您身体上有哪里疼痛吗？</item>
+        <item>您面部两颧潮红或偏红吗?</item>
+        <item>您两颧部有细微红丝吗?</item>
+        <item>您口唇的颜色比一般人红吗?</item>
+        <item>您有额部油脂分泌多的现象吗?</item>
+        <item>您面部或鼻部有油腻感或者油亮发光 吗?</item>
+        <item>您面色晦黯、或容易出现褐斑吗?</item>
+        <item>您易生痤疮或疮疖吗?</item>
+        <item>您上眼睑比别人肿（上眼睑有轻微隆起的 现象）吗?</item>
+        <item>您容易有黑眼圈吗?</item>
+        <item>您感到眼睛干涩吗？</item>
+        <item>您口唇颜色偏黯吗?</item>
+        <item>您感到口干咽燥、总想喝水吗？</item>
+        <item>您咽喉部有异物感，且吐之不出、咽之不下吗？</item>
+        <item>您平时痰多，特别是咽喉部总感到有痰堵 着吗?</item>
+        <item>您感到口苦或嘴里有异味吗?</item>
+        <item>您嘴里有黏黏的感觉吗?</item>
+        <item>您舌苔厚腻或有舌苔厚厚的感觉吗?</item>
+        <item>您腹部肥满松软吗?</item>
+        <item>您受凉或吃(喝)凉的东西后，容易腹泻 (拉肚子)吗?</item>
+        <item>您吃(喝)凉的东西会感到不舒服或者怕 吃(喝)凉的东西吗？</item>
+        <item>您容易失眠吗？</item>
+        <item>您大便黏滞不爽、有解不尽的感觉吗?</item>
+        <item>您容易便秘或大便干燥吗?</item>
+        <item>您小便时尿道有发热感、尿色浓(深)吗？</item>
+        <item>您带下色黄(白带颜色发黄)吗?（限女性 回答)</item>
+        <item>您的阴囊部位潮湿吗? （限男性回答）</item>
+        <item>您能适应外界自然和社会环境的变化 吗？</item>
+    </string-array>
+    <string-array1 name="body">
+        <item>chin_energetic</item>
+        <item>chin_weary</item>
+        <item>chin_dame-zumari</item>
+        <item>chin_flustered</item>
+        <item>chin_dizziness</item>
+        <item>chin_quiet</item>
+        <item>chin_leise</item>
+        <item>chin_forget</item>
+        <item>chin_low</item>
+        <item>chin_sentimentality</item>
+        <item>chin_willies</item>
+        <item>chin_afraid</item>
+        <item>chin_swollen</item>
+        <item>chin_turgor</item>
+        <item>chin_sigh</item>
+        <item>chin_no_easy</item>
+        <item>chin_feetfever</item>
+        <item>chin_bodyfever</item>
+        <item>chin_ecchymosis</item>
+        <item>chin_fearcold</item>
+        <item>chin_feelcold</item>
+        <item>chin_clothes</item>
+        <item>chin_havecold</item>
+        <item>chin_sneezing</item>
+        <item>chin_snot</item>
+        <item>chin_sweating</item>
+        <item>chin_irritability</item>
+        <item>chin_measles</item>
+        <item>chin_cough</item>
+        <item>chin_purpura</item>
+        <item>chin_scratch</item>
+        <item>chin_bruises</item>
+        <item>chin_dry</item>
+        <item>chin_pain</item>
+        <item>chin_red</item>
+        <item>chin_redsilk</item>
+        <item>chin_lipcolor</item>
+        <item>chin_oil_head</item>
+        <item>chin_oil_face</item>
+        <item>chin_foxiness_face</item>
+        <item>chin_acne</item>
+        <item>chin_eyelid</item>
+        <item>chin_black_eye</item>
+        <item>chin_try_eye</item>
+        <item>chin_dead_lip</item>
+        <item>chin_drinking</item>
+        <item>chin_throat_something</item>
+        <item>chin_excessive_phlegm</item>
+        <item>chin_bitter_taste</item>
+        <item>chin_sticky_mouth</item>
+        <item>chin_furred_tongue</item>
+        <item>chin_mellow_tummy</item>
+        <item>chin_diarrhea</item>
+        <item>chin_cold_something</item>
+        <item>chin_sleeplessness</item>
+        <item>chin_shit_viscous</item>
+        <item>chin_shit_dry</item>
+        <item>chin_dark_piss</item>
+        <item>chin_yellow</item>
+        <item>chin_moist</item>
+        <item>chin_adapt_change</item>
+    </string-array1>
+    <!--区题规则  第一位 大类型  第二位 对应序号  第三位 是否是*号-->
+    <class-array name="body_im">
+        <item>1-1-0</item>
+        <item>1-2-1</item>
+        <item>1-7-1</item>
+        <item>1-9-1</item>
+        <item>1-21-1</item>
+        <item>1-61-0</item>
+        <item>1-55-1</item>
+        <item>1-8-1</item>
+        <item>2-2-0</item>
+        <item>2-3-0</item>
+        <item>2-4-0</item>
+        <item>2-5-0</item>
+        <item>2-23-0</item>
+        <item>2-6-0</item>
+        <item>2-7-0</item>
+        <item>2-26-0</item>
+        <item>3-19-0</item>
+        <item>3-20-0</item>
+        <item>3-22-0</item>
+        <item>3-21-0</item>
+        <item>3-23-0</item>
+        <item>3-54-0</item>
+        <item>3-53-0</item>
+        <item>4-17-0</item>
+        <item>4-18-0</item>
+        <item>4-33-0</item>
+        <item>4-37-0</item>
+        <item>4-57-0</item>
+        <item>4-35-0</item>
+        <item>4-44-0</item>
+        <item>4-46-0</item>
+        <item>5-14-0</item>
+        <item>5-16-0</item>
+        <item>5-52-0</item>
+        <item>5-38-0</item>
+        <item>5-42-0</item>
+        <item>5-50-0</item>
+        <item>5-48-0</item>
+        <item>5-51-0</item>
+        <item>6-39-0</item>
+        <item>6-41-0</item>
+        <item>6-49-0</item>
+        <item>6-56-0</item>
+        <item>6-58-0</item>
+        <item>6-59-0</item>
+        <item>6-60-0</item>
+        <item>7-32-0</item>
+        <item>7-36-0</item>
+        <item>7-34-0</item>
+        <item>7-40-0</item>
+        <item>7-43-0</item>
+        <item>7-8-0</item>
+        <item>7-45-0</item>
+        <item>8-9-0</item>
+        <item>8-11-0</item>
+        <item>8-10-0</item>
+        <item>8-12-0</item>
+        <item>8-13-0</item>
+        <item>8-15-0</item>
+        <item>8-47-0</item>
+        <item>9-24-0</item>
+        <item>9-25-0</item>
+        <item>9-29-0</item>
+        <item>9-27-0</item>
+        <item>9-28-0</item>
+        <item>9-30-0</item>
+        <item>9-31-0</item>
+    </class-array>
+    <array name="testResult">
+        <item>平和质</item>
+        <item>阴阳气血调和，以体态适中、面色润泽、精力充沛等为主要特征。</item>
+        <item>体形匀称，无明显驼背。</item>
+        <item>面色、肤色润泽，头发较密，目光有神，不易疲劳，精力充沛，耐 受寒热，睡眠良好，胃纳佳，二便正常，舌色淡红、苔薄白，脉和缓有力。</item>
+        <item>性格随和开朗。</item>
+        <item>平素患病较少。</item>
+        <item>对自然环境和社会环境适应能力较强。</item>
+        <item>宜保持平和的心态。饮食宜粗细粮食合理搭配，多吃五谷杂粮、蔬菜瓜果，少食过于油腻及辛辣食 品；不要过饥过饱，也不要进食过冷过烫或不干净食物；注意戒烟限酒。起居宜规律，睡眠要充足，劳逸相结合，穿戴求自然。形成良好的运动健身习惯。可根据个人爱好和耐受程度，选择运动健身项目。</item>
+        <item>气虚质</item>
+        <item>元气不足，以疲乏、气短、自汗等表现为主要特征。</item>
+        <item>形体偏胖，肌肉松软不实。</item>
+        <item>平素语音低弱，气短懒言，容易疲乏，精神不振，易出汗，易头晕， 活动量减少，舌淡红，舌边有齿痕，脉弱。</item>
+        <item>性格偏内向，喜安静。</item>
+        <item>易患感冒、内脏下垂等病；病后康复缓慢。 </item>
+        <item>不耐受风、寒、暑、湿邪。</item>
+        <item>宜保持稳定乐观的心态，不可过度劳神。宜选用性平偏温、健脾益气的食物，如大米、小米、南瓜、胡萝卜、山药、大 枣、香菇、莲子、白扁豆、黄豆、豆腐、鸡肉、鸡蛋、鹌鹑（蛋）、牛肉等。提倡劳逸结合，不要过于劳作，以免损伤正气。平时应避免汗出受风。居室环 境应采用明亮的暖色调。宜选择比较柔和的传统健身项目，如八段锦。</item>
+        <item>阳虚质</item>
+        <item>阳气不足，以畏寒怕冷、手足不温等表现为主要特征。</item>
+        <item>肌肉松软不实。 </item>
+        <item>平素畏冷，以胃脘、背部、腰膝多见，手足不温，喜热饮食，精神 不振，舌淡胖嫩，脉沉迟。</item>
+        <item>性格内向，多沉静。</item>
+        <item>易患痹证、咳喘、泄泻等病；感邪易从寒化。</item>
+        <item>耐夏不耐冬；易感风、寒、湿邪。 </item>
+        <item>宜保持积极向上的心态，正确对待生活中的不利事件，及时调节自己的消极情 绪。宜选用甘温补脾阳、温肾阳为主的食物，居住环境以温和的暖色调为宜，不宜在阴暗、潮湿、寒冷的环境下长期工作和 生活。平时要注意腰部、背部和下肢保暖。宜在阳光充足的环境下适当进行舒缓柔和的户外活动，尽量避免在大风、大寒、 大雪的环境中锻炼。</item>
+        <item>阴虚质</item>
+        <item>阴液亏少，以口燥咽干、手足心热等表现为主要特征。</item>
+        <item>体形偏瘦。</item>
+        <item>眼睛干涩，口燥咽干，鼻微干，皮肤干燥、脱屑，偏好冷饮，大便 干燥，舌红少津，脉细数。</item>
+        <item>性格外向，易急躁。</item>
+        <item>易患便秘、燥证、消渴等病；感邪易从热化。</item>
+        <item>耐冬不耐夏；不耐受暑、热、燥邪。</item>
+        <item>宜加强自我修养、培养自己的耐性，尽量减少与人争执、动怒，不宜参加竞争 胜负的活动，可在安静、优雅环境中练习书法、绘画等。宜选用甘凉滋润的食物，居住环境宜安静，睡好“子午觉”。避免熬夜及在高温酷暑下工作，不宜洗桑拿、 泡温泉。宜做中小强度的运动项目，控制出汗量，及时补充水分。不宜进行大强度、大 运动量的锻炼，避免在炎热的夏天或闷热的环境中运动。</item>
+        <item>痰湿质</item>
+        <item>痰湿凝聚，以形体肥胖、腹部肥满、口黏苔腻等表现为主要特征。</item>
+        <item>体形肥胖，腹部肥满松软。</item>
+        <item>面部皮肤油脂较多，多汗且黏，胸闷，痰多，口黏腻或甜，喜食肥 甘甜黏，苔腻，脉滑。</item>
+        <item>性格温和、稳重，善于忍耐。</item>
+        <item>易患鼾症、中风、胸痹等病。</item>
+        <item>对梅雨季节及湿重环境适应能力差。</item>
+        <item>宜多参加社会活动，培养广泛的兴趣爱好。宜选用健脾助运、祛湿化痰的食物，居住环境宜干燥，不宜潮湿，穿衣面料以棉、麻、丝等透气散湿的天然纤维为 佳，尽量保持宽松，有利于汗液蒸发，祛除体内湿气。坚持长期运动锻炼，强度应根据自身的状况循序渐进。不宜在阴雨季节、天气 湿冷的气候条件下运动。</item>
+        <item>湿热质</item>
+        <item>湿热内蕴，以面垢油光、口苦、苔黄腻等表现为主要特征。</item>
+        <item>形体中等或偏瘦。</item>
+        <item>面垢油光，口苦口中异味，身重困倦，大便黏滞不畅，小便短黄， 男性易阴囊潮湿，女性易带下发黄，舌质偏红，苔黄腻，脉滑数。</item>
+        <item>性格多变，易烦恼。</item>
+        <item>易患皮肤湿疹、疮疖、口疮、黄疸等病。</item>
+        <item>对夏末秋初湿热气候，湿重或气温偏高环境较难适应。</item>
+        <item>宜稳定情绪，尽量避免烦恼，可选择不同形式的兴趣爱好。宜选用甘寒或苦寒的清利化湿食物，居室宜干燥、通风良好，避免居处潮热，可在室内用除湿器或空调改善湿、热 的环境。选择款式宽松，透气性好的天然棉、麻、丝质服装。注意个人卫生，预防 足三里 丰隆 皮肤病变。宜做中长跑、游泳、各种球类、武术等强度较大的锻炼。夏季应避免在烈日下 长时间活动，在秋高气爽的季节，经常选择爬山登高，更有助于祛除湿热。</item>
+        <item>血瘀质</item>
+        <item>血行不畅，以肤色晦黯、舌质紫黯等表现为主要特征。</item>
+        <item>胖瘦均见。</item>
+        <item>肤色、目眶晦黯，色素沉着，容易出现瘀斑，肢体麻木，好卧，口 唇黯淡，舌黯或有瘀点，舌下络脉紫黯或增粗，脉涩。</item>
+        <item>性格偏浮躁，易健忘。</item>
+        <item>易患胸痹、癥瘕及痛证、血证等。</item>
+        <item>不耐受寒邪。</item>
+        <item>遇事宜沉稳，努力克服浮躁情绪。宜选用具有调畅气血作用的食物，居室宜温暖舒适，不宜在阴暗、寒冷的环境中长期工作和生活。宜进行有助于促进气血运行的运动项目，持之以恒。</item>
+        <item>气郁质</item>
+        <item>气机郁滞，以神情抑郁、紧张焦虑等表现为主要特征。</item>
+        <item>形体瘦者为多。 </item>
+        <item>神情抑郁，紧张焦虑，烦闷不乐，有孤独感，容易受到惊吓，舌淡 红，苔薄白，脉弦。</item>
+        <item>性格不稳定，敏感多虑。</item>
+        <item>易患不寐、郁证等。</item>
+        <item>对精神刺激适应能力较差；不适应阴雨天气。</item>
+        <item>宜乐观开朗，多与他人相处，不苛求自己也不苛求他人。宜选用具有理气解郁作用的食物，尽量增加户外活动和社交，防止一人独处时心生凄凉。宜多参加群体性体育运动项目，坚持做较大强度、较大负荷的“发泄式”锻炼。</item>
+        <item>特禀质</item>
+        <item>过敏体质者，禀赋不耐、异气外侵，以过敏反应等为主要特征；先 天失常者为另一类特禀质，以禀赋异常为主要特征。</item>
+        <item>过敏体质者一般无特殊；先天失常者或有畸形，或有生理缺陷。</item>
+        <item>过敏体质者常见哮喘、风团、咽痒、鼻塞、喷嚏等；先天失常者患 遗传性疾病者，有垂直遗传、先天性、家族性特征。</item>
+        <item>随禀质不同情况各异。</item>
+        <item>过敏体质者易患哮喘、荨麻疹、过敏性鼻炎及药物过敏等；遗传疾 病如血友病等。</item>
+        <item>适应能力差，如过敏体质者对季节变化、异气外侵适应 能力差，易引发宿疾。</item>
+        <item>过敏体质的人因对过敏原敏感，容易产生紧张、焦虑等情绪，因此要在尽量避 免过敏原的同时，还应避免紧张情绪。饮食宜均衡、粗细粮食搭配适当、荤素配伍合理，宜多食益气固表的食物，起居要有规律，保持充足的睡眠时间。居室宜通风良好。宜进行慢跑、散步等户外活动，也可选择下棋、瑜珈等室内活动。不宜选择大 运动量的活动，避免春天或季节交替时长时间在野外锻炼。</item>
+        <item>基本平和质</item>
+        <item>阴阳气血调和，以体态适中、面色润泽、精力充沛等为主要特征。</item>
+        <item>体形匀称，无明显驼背。</item>
+        <item>面色、肤色润泽，头发较密，目光有神，不易疲劳，精力充沛，耐 受寒热，睡眠良好，胃纳佳，二便正常，舌色淡红、苔薄白，脉和缓有力。</item>
+        <item>性格随和开朗。</item>
+        <item>平素患病较少。</item>
+        <item>对自然环境和社会环境适应能力较强。</item>
+        <item>宜保持平和的心态。饮食宜粗细粮食合理搭配，多吃五谷杂粮、蔬菜瓜果，少食过于油腻及辛辣食 品；不要过饥过饱，也不要进食过冷过烫或不干净食物；注意戒烟限酒。起居宜规律，睡眠要充足，劳逸相结合，穿戴求自然。形成良好的运动健身习惯。可根据个人爱好和耐受程度，选择运动健身项目。</item>
+    </array>
+</resources>

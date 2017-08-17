@@ -1,6 +1,8 @@
 package com.gb.health.utils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.gb.health.init.MyContextListener;
@@ -21,19 +24,27 @@ public class ReadXml {
 	
 	
 	private static Logger log = Logger.getLogger(ReadXml.class);
-	static	final String  rootD;
+//	static	final String  rootD;
 	
 	
-	static{
-		WebApplicationContext web = (WebApplicationContext) MyContextListener.getApplicationContext();
-		String path =web.getServletContext().getRealPath("/");
-		rootD = path+"/WEB-INF/";
-		
-		System.out.println(rootD);
-		System.out.println(System.getProperty("hd.root"));
-		log.debug("System.getProperty)"+System.getProperty("hd.root"));
-		log.debug("rootD"+rootD);
-	}
+//	static{
+////		WebApplicationContext web = MyContextListener.applicationContext;
+////		String path =web.getServletContext().getRealPath("/");
+//		String path = null;
+//		try {
+//			path = MyContextListener.applicationContext.getResource("lifestyle.xml").getFile().getPath();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//		rootD = path;
+//
+//
+//		System.out.println(rootD);
+//		System.out.println(System.getProperty("hd.root"));
+//		log.debug("System.getProperty)"+System.getProperty("hd.root"));
+//		log.debug("rootD"+rootD);
+//	}
 	
 	
 
@@ -64,7 +75,7 @@ public class ReadXml {
 
 		//File file = new File("/data/medical/page.xml");
 	    //File file = new File("/data/medical/pageee.xml");
-		File file = new File(rootD+"company.xml");
+		File file = new File("company.xml");
 
 		//File file = new File("f:/page.xml");
 		  Document document=null;
@@ -103,7 +114,7 @@ public class ReadXml {
 	public static  LinkedHashMap<Object, String> getHospital()  {
 		SAXReader reader = new SAXReader();
 
-		File file = new File(rootD+"hospital.xml");
+		File file = new File("hospital.xml");
 
 		//File file = new File("f:/page.xml");
 		System.err.println(file.getAbsolutePath());
@@ -142,9 +153,15 @@ public class ReadXml {
 	public static  LinkedHashMap<Object, String> getLifeStyle()  {
 		SAXReader reader = new SAXReader();
 
-		File file = new File(rootD+"lifestyle.xml");
+//		File file = new File("lifestyle.xml");
+		File file = null;
+		try {
+			file = ResourceUtils.getFile("classpath:lifestyle.xml");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 
-	//	File file = new File("/HealthManger/WebContent/WEB-INF/lifestyle.xml");
+		//	File file = new File("/HealthManger/WebContent/WEB-INF/lifestyle.xml");
 		System.err.println(file.getAbsolutePath());
 		  Document document=null;
 		try {
@@ -185,7 +202,7 @@ public class ReadXml {
 	public static  LinkedHashMap<Object, String> getLifeStyleValue()  {
 		SAXReader reader = new SAXReader();
 
-		File file = new File(rootD+"lifestyle.xml");
+		File file = new File("lifestyle.xml");
 
 	//	File file = new File("/HealthManger/WebContent/WEB-INF/lifestyle.xml");
 		System.err.println(file.getAbsolutePath());

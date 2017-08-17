@@ -49,19 +49,19 @@ public class XmlUtil {
         return document;  
     }  
      
-    public static Document getDocument(String xmlPath){  
-        if(xmlPath==null || xmlPath.equals(""))  
-            return null;  
-  
-        File file = new File(xmlPath);  
-        if(file.exists()==false){  
-            return createEmptyXmlFile(xmlPath);  
-        }  
+    public static Document getDocument(String xmlPath){
+        if(xmlPath==null || xmlPath.equals(""))
+            return null;
+
+        File file = new File(xmlPath);
+        if(file.exists()==false){
+            return createEmptyXmlFile(xmlPath);
+        }
           
         SAXReader reader = new SAXReader();  
         Document document = null;  
         try {  
-            document = reader.read(xmlPath);  
+            document = reader.read(xmlPath);
         } catch (DocumentException e) {  
             e.printStackTrace();  
         }  
@@ -76,12 +76,12 @@ public class XmlUtil {
         return root;  
     }  
     
-    public static Element getRootNode(String xmlPath) {  
-            if(xmlPath==null||(xmlPath.trim()).equals(""))  
-                return null;  
-            Document document = getDocument(xmlPath);  
-            if(document==null)  
-                return null;  
+    public static Element getRootNode(String xmlPath) {
+            if(xmlPath==null||(xmlPath.trim()).equals(""))
+                return null;
+            Document document = getDocument(xmlPath);
+            if(document==null)
+                return null;
             return getRootNode(document);  
        }  
      
@@ -231,12 +231,12 @@ public class XmlUtil {
     }  
       
      
-    public static Map<String,String> getSingleNodeText(String xmlFilePath){  
-        xmlFilePath = xmlFilePath.trim();  
-        if(xmlFilePath==null||xmlFilePath.equals("")){  
+    public static Map<String,String> getSingleNodeText(String xmlFilePath){
+        xmlFilePath = xmlFilePath.trim();
+        if(xmlFilePath==null||xmlFilePath.equals("")){
             return null;  
         }  
-        Element rootElement = getRootNode(xmlFilePath);  
+        Element rootElement = getRootNode(xmlFilePath);
         if(rootElement==null||!hasChild(rootElement)){  
             return null;  
         }  
@@ -246,12 +246,12 @@ public class XmlUtil {
       
     public enum Flag{one,more}  
     @SuppressWarnings("unchecked")  
-    public static <T>T getNameNode(String xmlFilePath,String tagName,Flag flag){  
-        xmlFilePath = xmlFilePath.trim();  
+    public static <T>T getNameNode(String xmlFilePath,String tagName,Flag flag){
+        xmlFilePath = xmlFilePath.trim();
         tagName = tagName.trim();  
-        if(xmlFilePath==null||tagName==null||xmlFilePath.equals("")||tagName.equals(""))  
+        if(xmlFilePath==null||tagName==null||xmlFilePath.equals("")||tagName.equals(""))
             return null;  
-        Element rootElement = getRootNode(xmlFilePath);  
+        Element rootElement = getRootNode(xmlFilePath);
         if(rootElement==null)  
             return null;  
         List<Element> tagElementList = getNameElement(rootElement, tagName);  
@@ -280,19 +280,19 @@ public class XmlUtil {
     }  
    
     @SuppressWarnings("unchecked")  
-    public static <T>T getNameNodeAllAttributeMap(String xmlFilePath,String nodeName,Flag flag){  
+    public static <T>T getNameNodeAllAttributeMap(String xmlFilePath,String nodeName,Flag flag){
         nodeName = nodeName.trim();  
         Map<String, String> allAttrMap = null;  
         Map<Integer,Map<String,String>> mostKidsAllAttriMap = new HashMap<Integer, Map<String,String>>();  
-        if (xmlFilePath==null||nodeName==null||xmlFilePath.equals("")||nodeName.equals(""))  
+        if (xmlFilePath==null||nodeName==null||xmlFilePath.equals("")||nodeName.equals(""))
             return null;  
         switch (flag) {  
         case one:  
-            Element nameNode = getNameNode(xmlFilePath, nodeName,Flag.one);  
+            Element nameNode = getNameNode(xmlFilePath, nodeName,Flag.one);
             allAttrMap = getNodeAttrMap(nameNode);  
             return (T) allAttrMap;  
         case more:  
-            List<Element> nameKidsElements = getNameNode(xmlFilePath, nodeName, Flag.more);  
+            List<Element> nameKidsElements = getNameNode(xmlFilePath, nodeName, Flag.more);
             for (int i = 0; i < nameKidsElements.size(); i++) {  
                 Element kid = nameKidsElements.get(i);  
                 allAttrMap = getNodeAttrMap(kid);  
@@ -351,11 +351,11 @@ public class XmlUtil {
     public static void main(String[] args) {
 		
     	String path="WebContent/WEB-INF/values1.xml";
-    	
+
     	Element element =XmlUtil.getRootNode(path);
-    	
+
     	Element el=XmlUtil.getChild(element, "class-array");
-    	
+
     	for (Element e : XmlUtil.getChildList(el)) {
 			System.out.println(e.getText());
 		}
