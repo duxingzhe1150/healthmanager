@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://58.215.80.182:3307/healthdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: healthdb
-    password: WEaK6Vu6HenM4kPF
+    url: jdbc:mysql://xxxx?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: xxxx
+    password: xxxx
     tomcat:
       #该选项用来验证数据库连接的有效性。
       validation-query: SELECT 1
@@ -24,7 +24,7 @@ spring:
 #    password: luke
 
 
-solrHost: http://58.215.80.185:8983/solr/hafcore
+solrHost: http://localhost/solr/hafcore
 
 debugConfig.debug: 2
 
